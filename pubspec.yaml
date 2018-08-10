@@ -4,6 +4,8 @@ description: An app to discover holy Quran.
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   cupertino_icons: ^0.1.2
   flutter_launcher_icons: ^0.5.2
