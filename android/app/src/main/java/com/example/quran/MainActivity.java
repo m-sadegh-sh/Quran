@@ -1,4 +1,4 @@
-package com.example.quran;
+package ir.webplex.quran;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;
