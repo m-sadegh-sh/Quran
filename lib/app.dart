@@ -11,22 +11,22 @@ class QuranApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-        title: 'قرآن',
-        theme: new ThemeData(
-          brightness: Brightness.dark,
-          primarySwatch: Colors.teal,
-          accentColor: Colors.tealAccent,
-          fontFamily: 'IranSans'
-        ),
-        initialRoute: 'Home',
-        routes: routes,
-        home: new Home(title: 'a'),
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: [
-          const Locale('fa', 'IR'),
-        ]);
+      title: 'قرآن',
+      theme: new ThemeData(
+        brightness: Brightness.dark,
+        primarySwatch: Colors.teal,
+        accentColor: Colors.tealAccent,
+        fontFamily: 'IranSans'
+      ),
+      initialRoute: 'Home',
+      routes: routes,
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      supportedLocales: [
+        const Locale('fa', 'IR'),
+      ]
+    );
   }
 }

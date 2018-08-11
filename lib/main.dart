@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
+
 import 'app.dart';
 
-void main () {
-  new QuranApp();
+void main() {
+  runApp(new QuranApp());
 }
