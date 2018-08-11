@@ -5,7 +5,7 @@ import 'screens/home/index.dart';
 
 class QuranApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    '/Home': (BuildContext context) => new Home()
+    '/': (BuildContext context) => new Home()
   };
 
   @override
@@ -18,7 +18,7 @@ class QuranApp extends StatelessWidget {
         accentColor: Colors.tealAccent,
         fontFamily: 'IranSans'
       ),
-      initialRoute: 'Home',
+      initialRoute: '/',
       routes: routes,
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
