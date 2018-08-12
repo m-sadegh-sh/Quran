@@ -30,7 +30,6 @@ class QuranApp extends StatelessWidget {
       ],
       supportedLocales: [
         const Locale('fa', 'IR'),
-        const Locale('en', 'US'),
       ]
     );
   }
