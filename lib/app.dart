@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
+import 'app_localizations.dart';
+import 'app_localizations_delegate.dart';
+
 import 'screens/home/index.dart';
 
 class QuranApp extends StatelessWidget {
@@ -11,7 +14,7 @@ class QuranApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: 'قرآن',
+      title: AppLocalizations.of(context).title,
       theme: new ThemeData(
         brightness: Brightness.dark,
         primarySwatch: Colors.teal,
@@ -21,11 +24,13 @@ class QuranApp extends StatelessWidget {
       initialRoute: '/',
       routes: routes,
       localizationsDelegates: [
+        AppLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
       supportedLocales: [
         const Locale('fa', 'IR'),
+        const Locale('en', 'US'),
       ]
     );
   }

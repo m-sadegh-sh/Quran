@@ -11,8 +11,7 @@ dependencies:
   flutter_launcher_icons: ^0.5.2
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
+  intl_translation: ^0.15.0
 
 flutter:
   uses-material-design: true
