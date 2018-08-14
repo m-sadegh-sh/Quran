@@ -1,0 +1,9 @@
+{
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "files.autoSave": "afterDelay",
+    "window.zoomLevel": 2,
+    "dart.flutterCreateAndroidLanguage": "kotlin",
+    "dart.flutterCreateIOSLanguage": "swift",
+    "dart.lineLength": 120
+}

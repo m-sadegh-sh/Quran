@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'app.dart';
+import 'package:Quran/app.dart';
 
 void main() {
-  runApp(new QuranApp());
+  runApp(QuranApp());
 }

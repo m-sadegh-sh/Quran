@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'app_localizations.dart';
-
-import 'screens/home/index.dart';
+import 'package:Quran/app_localizations.dart';
+import 'package:Quran/screens/home/home.dart';
 
 class QuranApp extends StatelessWidget {
   final routes = <String, WidgetBuilder>{
-    '/': (BuildContext context) => new Home(title: AppLocalizations.of(context).translate('home-title'))
+    '/': (BuildContext context) => Home(title: AppLocalizations.of(context).translate('home-title'))
   };
 
   @override
   Widget build(BuildContext context) {
-    return new MaterialApp(
+    return MaterialApp(
       onGenerateTitle: (context) => AppLocalizations.of(context).translate('app-title'),
-      theme: new ThemeData(
+      theme: ThemeData(
         primarySwatch: Colors.teal,
         accentColor: Colors.tealAccent,
         fontFamily: 'IranSans'

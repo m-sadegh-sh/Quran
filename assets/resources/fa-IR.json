@@ -1,4 +1,7 @@
 {
-    "app-title": "قرآن",
-    "home-title": "قرآن"
+    "app-title": "قرآن مجید",
+    "home-title": "قرآن مجید",
+    "home-appbar-bottom-surahs": "سوره‌ها",
+    "home-appbar-bottom-parts": "جزءها",
+    "home-appbar-bottom-bookmarks": "نشان‌شده‌ها"
 }

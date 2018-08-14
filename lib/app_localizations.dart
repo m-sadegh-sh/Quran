@@ -21,7 +21,7 @@ class AppLocalizations {
     String data = await rootBundle.loadString('assets/resources/${this.locale.languageCode}-${this.locale.countryCode}.json');
     Map<String, dynamic> _result = json.decode(data);
 
-    this._sentences = new Map();
+    this._sentences = Map();
     _result.forEach((String key, dynamic value) {
       this._sentences[key] = value.toString();
     });
@@ -42,7 +42,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    AppLocalizations localizations = new AppLocalizations(locale);
+    AppLocalizations localizations = AppLocalizations(locale);
     await localizations.load();
 
     print("Load ${locale.languageCode}-${locale.countryCode}");
