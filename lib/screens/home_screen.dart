@@ -6,19 +6,19 @@ import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
+  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
-  _getDrawerItems(BuildContext context) => [
+  List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
   ];
 
-  _getActionItems(BuildContext context) => [
+  List<ActionItemModel> _getActionItems(BuildContext context) => [
     ActionItemModel(Icons.search)
   ];
 
-  _getTabItems(BuildContext context) => [
+  List<TabItemModel> _getTabItems(BuildContext context) => [
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
@@ -31,14 +31,14 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   DrawerItemModel _drawerSelectedItem;
 
-  Widget _createAccountHeader() {
+  UserAccountsDrawerHeader _createAccountHeader() {
     return new UserAccountsDrawerHeader(
       accountName: new Text('محمد صادق شاد'),
       accountEmail: new Text('m.sadegh.sh@gmail.com')
     );
   }
 
-  List<Widget> _createDrawerItems() {
+  List<ListTile> _createDrawerItems() {
     return widget._getDrawerItems(context)
       .map((item) => ListTile(
         leading: item.icon != null ? new Icon(item.icon) : null,
@@ -48,7 +48,7 @@ class _HomeScreenState extends State<HomeScreen> {
       )).toList();
   }
 
-  List<Widget> _createActions() {
+  List<IconButton> _createActions() {
     return widget._getActionItems(context)
       .map((item) => IconButton(
         icon: new Icon(item.icon),
@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
       )).toList();
   }
 
-  List<Widget> _createTabItems() {
+  List<Tab> _createTabItems() {
     return widget._getTabItems(context)
       .map((item) => Tab(
         icon: item.icon != null ? new Icon(item.icon) : null,
@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
       )).toList();
   }
 
-  _getDrawerCurrentWidget() {
+  Widget _getDrawerCurrentWidget() {
     switch (_drawerSelectedItem) {
       // case 0:
       //   return new FirstFragment();
@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 
-  Widget getAppBarWidget() {
+  AppBar getAppBarWidget() {
     return AppBar(
       title: Text(widget._getTitle(context)),
       actions: _createActions(),

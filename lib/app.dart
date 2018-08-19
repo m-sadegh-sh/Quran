@@ -9,7 +9,7 @@ class QuranApp extends StatelessWidget {
     '/': (BuildContext context) => HomeScreen()
   };
 
-  _createTheme(BuildContext context) => ThemeData(
+  ThemeData _createTheme(BuildContext context) => ThemeData(
     primarySwatch: Colors.teal,
     accentColor: Colors.tealAccent,
     fontFamily: 'IranSans'
