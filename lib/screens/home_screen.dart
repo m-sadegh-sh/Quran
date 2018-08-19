@@ -12,13 +12,13 @@ class HomeScreen extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
   List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
-    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-help-and-support'), Icons.help),
-    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-settings'), Icons.settings),
-    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-about'), Icons.info)
+    DrawerItemModel('/help-and-support', AppLocalizations.of(context).translate('home-drawer-help-and-support'), Icons.help),
+    DrawerItemModel('/settings', AppLocalizations.of(context).translate('home-drawer-settings'), Icons.settings),
+    DrawerItemModel('/about', AppLocalizations.of(context).translate('home-drawer-about'), Icons.info)
   ];
 
   List<ActionItemModel> _getActionItems(BuildContext context) => [
-    ActionItemModel(Icons.search)
+    ActionItemModel('/search', Icons.search)
   ];
 
   List<TabItemModel> _getTabItems(BuildContext context) => [
@@ -32,15 +32,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  DrawerItemModel _drawerSelectedItem;
-
   UserAccountsDrawerHeader _createAccountHeader() {
     return UserAccountsDrawerHeader(
       accountName: Text(AppLocalizations.of(context).translate('home-drawer-account-name')),
       accountEmail: Text(AppLocalizations.of(context).translate('home-drawer-account-email')),
-      decoration: new BoxDecoration(
+      decoration: BoxDecoration(
         image: DecorationImage(
-          image: new AssetImage(
+          image: AssetImage(
             'assets/images/drawer_background.jpg'
           ),
           fit: BoxFit.fill,
@@ -55,7 +53,6 @@ class _HomeScreenState extends State<HomeScreen> {
       .map((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
         title: Text(item.title),
-        selected: item.title == _drawerSelectedItem?.title,
         onTap: () => _onDrawerTap(item),
       )).toList();
   }
@@ -110,12 +107,11 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _onDrawerTap(DrawerItemModel item) {
-    setState(() => _drawerSelectedItem = item);
-    //Navigator.of(context).pop();
+    Navigator.pushNamed(context, item.routeName);
   }
 
   _onActionPressed(ActionItemModel item) {
-    //setState(() => );
+    Navigator.pushNamed(context, item.routeName);
   }
 
   @override

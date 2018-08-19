@@ -3,10 +3,18 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:Quran/app_localizations.dart';
 import 'package:Quran/screens/home_screen.dart';
+import 'package:Quran/screens/search_screen.dart';
+import 'package:Quran/screens/help_and_support_screen.dart';
+import 'package:Quran/screens/settings_screen.dart';
+import 'package:Quran/screens/about_screen.dart';
 
 class QuranApp extends StatelessWidget {
   Map<String, WidgetBuilder> _getRoutes(BuildContext context) => <String, WidgetBuilder>{
-    '/': (BuildContext context) => HomeScreen()
+    '/': (BuildContext context) => HomeScreen(),
+    '/search': (BuildContext context) => SearchScreen(),
+    '/help-and-support': (BuildContext context) => HelpAndSupportScreen(),
+    '/settings': (BuildContext context) => SettingsScreen(),
+    '/about': (BuildContext context) => AboutScreen()
   };
 
   ThemeData _createTheme(BuildContext context) => ThemeData(
