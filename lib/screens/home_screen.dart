@@ -6,19 +6,19 @@ import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
 
 class HomeScreen extends StatefulWidget {
-  getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
+  _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
-  getDrawerItems(BuildContext context) => [
+  _getDrawerItems(BuildContext context) => [
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
     DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
   ];
 
-  getActionItems(BuildContext context) => [
+  _getActionItems(BuildContext context) => [
     ActionItemModel(Icons.search)
   ];
 
-  getTabItems(BuildContext context) => [
+  _getTabItems(BuildContext context) => [
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
     TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
@@ -39,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> _createDrawerItems() {
-    return widget.getDrawerItems(context)
+    return widget._getDrawerItems(context)
       .map((item) => ListTile(
         leading: item.icon != null ? new Icon(item.icon) : null,
         title: new Text(item.title),
@@ -49,8 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> _createActions() {
-    return widget
-      .getActionItems(context)
+    return widget._getActionItems(context)
       .map((item) => IconButton(
         icon: new Icon(item.icon),
         onPressed: () => _onActionPressed(item)
@@ -58,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   List<Widget> _createTabItems() {
-    return widget.getTabItems(context)
+    return widget._getTabItems(context)
       .map((item) => Tab(
         icon: item.icon != null ? new Icon(item.icon) : null,
         text: item.text
@@ -93,7 +92,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getAppBarWidget() {
     return AppBar(
-      title: Text(widget.getTitle(context)),
+      title: Text(widget._getTitle(context)),
       actions: _createActions(),
       bottom: TabBar(
         tabs: _createTabItems(),
@@ -104,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: widget.getDrawerItems(context).length,
+      length: widget._getDrawerItems(context).length,
       child: Scaffold(
         appBar: getAppBarWidget(),
         drawer: new Drawer(

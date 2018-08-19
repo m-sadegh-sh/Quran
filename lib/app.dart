@@ -5,7 +5,7 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/screens/home_screen.dart';
 
 class QuranApp extends StatelessWidget {
-  _getRoutes(BuildContext context) => <String, WidgetBuilder>{
+  Map<String, WidgetBuilder> _getRoutes(BuildContext context) => <String, WidgetBuilder>{
     '/': (BuildContext context) => HomeScreen()
   };
 
