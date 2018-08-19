@@ -36,8 +36,17 @@ class _HomeScreenState extends State<HomeScreen> {
 
   UserAccountsDrawerHeader _createAccountHeader() {
     return UserAccountsDrawerHeader(
-      accountName: Text('محمدصادق شاد'),
-      accountEmail: Text('m.sadegh.sh@gmail.com')
+      accountName: Text(AppLocalizations.of(context).translate('home-drawer-account-name')),
+      accountEmail: Text(AppLocalizations.of(context).translate('home-drawer-account-email')),
+      decoration: new BoxDecoration(
+        image: DecorationImage(
+          image: new AssetImage(
+            'assets/images/drawer_background.jpg'
+          ),
+          fit: BoxFit.fill,
+          alignment: Alignment.topCenter
+        )
+      ),
     );
   }
 
@@ -46,7 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       .map((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
         title: Text(item.title),
-        selected: item.title == _drawerSelectedItem.title,
+        selected: item.title == _drawerSelectedItem?.title,
         onTap: () => _onDrawerTap(item),
       )).toList();
   }

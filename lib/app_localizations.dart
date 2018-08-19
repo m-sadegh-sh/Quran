@@ -19,7 +19,7 @@ class AppLocalizations {
   Map<String, String> _sentences;
 
   Future<bool> load() async {
-    final key = 'assets/resources/${this._locale.languageCode}-${this._locale.countryCode}.json';
+    final key = 'assets/resources/${this._locale.languageCode}_${this._locale.countryCode}.json';
     String data = await rootBundle.loadString(key);
     Map<String, dynamic> _result = json.decode(data);
 

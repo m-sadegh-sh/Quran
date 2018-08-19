@@ -15,16 +15,16 @@ flutter:
   uses-material-design: true
 
   assets:
-   - assets/resources/fa-IR.json
-   - assets/images/icons/launcher.png
+   - assets/resources/fa_IR.json
+   - assets/images/drawer_background.jpg
 
   fonts:
    - family: IranSans
      fonts:
-      - asset: assets/fonts/iran-sans/regular.ttf
-      - asset: assets/fonts/iran-sans/extra-light.ttf
+      - asset: assets/fonts/iran_sans/regular.ttf
+      - asset: assets/fonts/iran_sans/extra_light.ttf
         weight: 200
-      - asset: assets/fonts/iran-sans/bold.ttf
+      - asset: assets/fonts/iran_sans/bold.ttf
         weight: 700
 
 flutter_icons:
