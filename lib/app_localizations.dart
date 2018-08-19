@@ -47,7 +47,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
     
     await localizations.load();
 
-    print("Load ${locale.languageCode}-${locale.countryCode}");
+    print('Load ${locale.languageCode}-${locale.countryCode}');
 
     return localizations;
   }

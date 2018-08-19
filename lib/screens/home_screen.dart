@@ -33,8 +33,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _createAccountHeader() {
     return new UserAccountsDrawerHeader(
-      accountName: new Text("John Doe"),
-      accountEmail: null
+      accountName: new Text('محمد صادق شاد'),
+      accountEmail: new Text('m.sadegh.sh@gmail.com')
     );
   }
 
@@ -74,8 +74,18 @@ class _HomeScreenState extends State<HomeScreen> {
       //   return new ThirdFragment();
 
       default:
-        return new Text("Error");
+        return new Text('Error');
     }
+  }
+
+  Widget getAppBarWidget() {
+    return AppBar(
+      title: Text(widget._getTitle(context)),
+      actions: _createActions(),
+      bottom: TabBar(
+        tabs: _createTabItems(),
+      ),
+    );
   }
 
   _onDrawerTap(DrawerItemModel item) {
@@ -90,16 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
     // Navigator.of(context).pop();
   }
 
-  Widget getAppBarWidget() {
-    return AppBar(
-      title: Text(widget._getTitle(context)),
-      actions: _createActions(),
-      bottom: TabBar(
-        tabs: _createTabItems(),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -110,7 +110,9 @@ class _HomeScreenState extends State<HomeScreen> {
           child: new Column(
             children: <Widget>[
               _createAccountHeader(),
-              new Column(children: _createDrawerItems())
+              new Column(
+                children: _createDrawerItems()
+              )
             ],
           ),
         ),
