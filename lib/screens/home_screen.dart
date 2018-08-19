@@ -33,9 +33,9 @@ class _HomeScreenState extends State<HomeScreen> {
   DrawerItemModel _drawerSelectedItem;
 
   UserAccountsDrawerHeader _createAccountHeader() {
-    return new UserAccountsDrawerHeader(
-      accountName: new Text('محمدصادق شاد'),
-      accountEmail: new Text('m.sadegh.sh@gmail.com'),
+    return UserAccountsDrawerHeader(
+      accountName: Text('محمدصادق شاد'),
+      accountEmail: Text('m.sadegh.sh@gmail.com'),
       currentAccountPicture: Image.asset('/assets/images/icons/launcher.png'),
     );
   }
@@ -43,8 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
   List<ListTile> _createDrawerItems() {
     return widget._getDrawerItems(context)
       .map((item) => ListTile(
-        leading: item.icon != null ? new Icon(item.icon) : null,
-        title: new Text(item.title),
+        leading: item.icon != null ? Icon(item.icon) : null,
+        title: Text(item.title),
         selected: item == _drawerSelectedItem,
         onTap: () => _onDrawerTap(item),
       )).toList();
@@ -53,7 +53,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<IconButton> _createActions() {
     return widget._getActionItems(context)
       .map((item) => IconButton(
-        icon: new Icon(item.icon),
+        icon: Icon(item.icon),
         onPressed: () => _onActionPressed(item)
       )).toList();
   }
@@ -61,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
   List<Tab> _createTabItems() {
     return widget._getTabItems(context)
       .map((item) => Tab(
-        icon: item.icon != null ? new Icon(item.icon) : null,
+        icon: item.icon != null ? Icon(item.icon) : null,
         text: item.text,        
       )).toList();
   }
@@ -99,11 +99,11 @@ class _HomeScreenState extends State<HomeScreen> {
       length: widget._getActionItems(context).length,
       child: Scaffold(
         appBar: getAppBarWidget(),
-        drawer: new Drawer(
-          child: new Column(
+        drawer: Drawer(
+          child: Column(
             children: <Widget>[
               _createAccountHeader(),
-              new Column(
+              Column(
                 children: _createDrawerItems()
               )
             ],
