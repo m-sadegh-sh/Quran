@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return widget._getTabItems(context)
       .map((item) => Tab(
         icon: item.icon != null ? Icon(item.icon) : null,
-        text: item.text,        
+        text: item.text,
       )).toList();
   }
 
