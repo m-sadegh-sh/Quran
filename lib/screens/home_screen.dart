@@ -5,6 +5,8 @@ import 'package:Quran/models/drawer_item_model.dart';
 import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
 import 'package:Quran/fragments/surahs_list_fragment.dart';
+import 'package:Quran/fragments/parts_list_fragment.dart';
+import 'package:Quran/fragments/bookmarks_list_fragment.dart';
 
 class HomeScreen extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
@@ -20,9 +22,9 @@ class HomeScreen extends StatefulWidget {
   ];
 
   List<TabItemModel> _getTabItems(BuildContext context) => [
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-surahs')),
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-parts')),
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-bookmarks'))
+    TabItemModel(AppLocalizations.of(context).translate('home-tab-surahs'), Icons.list),
+    TabItemModel(AppLocalizations.of(context).translate('home-tab-parts'), Icons.view_module),
+    TabItemModel(AppLocalizations.of(context).translate('home-tab-bookmarks'), Icons.bookmark)
   ];
 
   @override
@@ -35,8 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
   UserAccountsDrawerHeader _createAccountHeader() {
     return UserAccountsDrawerHeader(
       accountName: Text('محمدصادق شاد'),
-      accountEmail: Text('m.sadegh.sh@gmail.com'),
-      currentAccountPicture: Image.asset('/assets/images/icons/launcher.png'),
+      accountEmail: Text('m.sadegh.sh@gmail.com')
     );
   }
 
@@ -45,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
       .map((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
         title: Text(item.title),
-        selected: item == _drawerSelectedItem,
+        selected: item.title == _drawerSelectedItem.title,
         onTap: () => _onDrawerTap(item),
       )).toList();
   }
@@ -66,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
       )).toList();
   }
 
-  AppBar getAppBarWidget() {
+  AppBar _getAppBarWidget() {
     return AppBar(
       title: Text(widget._getTitle(context)),
       actions: _createActions(),
@@ -76,10 +77,25 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _getTabBarViewWidget() {
+  Drawer _getDrawerWidget() {
+    return Drawer(
+      child: Column(
+        children: <Widget>[
+          _createAccountHeader(),
+          Column(
+            children: _createDrawerItems()
+          )
+        ],
+      ),
+    );
+  }
+
+  TabBarView _getTabBarViewWidget() {
     return TabBarView(
       children: <Widget>[
-        SurahsListFragment()
+        SurahsListFragment(),
+        PartsListFragment(),
+        BookmarksListFragment()
       ]
     );    
   }
@@ -98,17 +114,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return DefaultTabController(      
       length: widget._getActionItems(context).length,
       child: Scaffold(
-        appBar: getAppBarWidget(),
-        drawer: Drawer(
-          child: Column(
-            children: <Widget>[
-              _createAccountHeader(),
-              Column(
-                children: _createDrawerItems()
-              )
-            ],
-          ),
-        ),
+        appBar: _getAppBarWidget(),
+        drawer: _getDrawerWidget(),
         body: _getTabBarViewWidget(),
         floatingActionButton: FloatingActionButton(
           onPressed: () => {},

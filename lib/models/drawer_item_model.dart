@@ -5,8 +5,4 @@ class DrawerItemModel {
   IconData icon;
 
   DrawerItemModel(this.title, this.icon);
-
-  DrawerItemModel.withTitle(this.title);
-
-  DrawerItemModel.withIcon(this.icon);
 }

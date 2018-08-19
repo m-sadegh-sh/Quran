@@ -5,8 +5,4 @@ class TabItemModel {
   IconData icon;
 
   TabItemModel(this.text, this.icon);
-
-  TabItemModel.withText(this.text);
-
-  TabItemModel.withIcon(this.icon);
 }

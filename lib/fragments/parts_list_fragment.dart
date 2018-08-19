@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class SurahsListFragment extends StatefulWidget {
+class PartsListFragment extends StatefulWidget {
   @override
-  _SurahsListFragmentState createState() => _SurahsListFragmentState(); 
+  _PartsListFragmentState createState() => _PartsListFragmentState(); 
 }
 
-class _SurahsListFragmentState extends State<SurahsListFragment> {
+class _PartsListFragmentState extends State<PartsListFragment> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -16,7 +16,7 @@ class _SurahsListFragmentState extends State<SurahsListFragment> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              SpinKitPulse(color: Colors.teal)
+              SpinKitPulse(color: Colors.pink)
             ],
           ),
         ],
