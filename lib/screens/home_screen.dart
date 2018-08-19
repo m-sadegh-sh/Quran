@@ -4,14 +4,15 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/models/drawer_item_model.dart';
 import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
+import 'package:Quran/fragments/surahs_list_fragment.dart';
 
 class HomeScreen extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
   List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
-    DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
-    DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
-    DrawerItemModel.withTitle(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
+    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-help-and-support'), Icons.help),
+    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-settings'), Icons.settings),
+    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-about'), Icons.supervised_user_circle)
   ];
 
   List<ActionItemModel> _getActionItems(BuildContext context) => [
@@ -19,9 +20,9 @@ class HomeScreen extends StatefulWidget {
   ];
 
   List<TabItemModel> _getTabItems(BuildContext context) => [
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-surahs')),
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-parts')),
-    TabItemModel.withText(AppLocalizations.of(context).translate('home-appbar-bottom-bookmarks'))
+    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-surahs')),
+    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-parts')),
+    TabItemModel.withText(AppLocalizations.of(context).translate('home-tab-bookmarks'))
   ];
 
   @override
@@ -33,8 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   UserAccountsDrawerHeader _createAccountHeader() {
     return new UserAccountsDrawerHeader(
-      accountName: new Text('محمد صادق شاد'),
-      accountEmail: new Text('m.sadegh.sh@gmail.com')
+      accountName: new Text('محمدصادق شاد'),
+      accountEmail: new Text('m.sadegh.sh@gmail.com'),
+      currentAccountPicture: Image.asset('/assets/images/icons/launcher.png'),
     );
   }
 
@@ -60,22 +62,8 @@ class _HomeScreenState extends State<HomeScreen> {
     return widget._getTabItems(context)
       .map((item) => Tab(
         icon: item.icon != null ? new Icon(item.icon) : null,
-        text: item.text
+        text: item.text,        
       )).toList();
-  }
-
-  Widget _getDrawerCurrentWidget() {
-    switch (_drawerSelectedItem) {
-      // case 0:
-      //   return new FirstFragment();
-      // case 1:
-      //   return new SecondFragment();
-      // case 2:
-      //   return new ThirdFragment();
-
-      default:
-        return new Text('Error');
-    }
   }
 
   AppBar getAppBarWidget() {
@@ -88,22 +76,27 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  Widget _getTabBarViewWidget() {
+    return TabBarView(
+      children: <Widget>[
+        SurahsListFragment()
+      ]
+    );    
+  }
+
   _onDrawerTap(DrawerItemModel item) {
     setState(() => _drawerSelectedItem = item);
-
-    Navigator.of(context).pop();
+    //Navigator.of(context).pop();
   }
 
   _onActionPressed(ActionItemModel item) {
-    // setState(() => _selectedDrawerIndex = index);
-
-    // Navigator.of(context).pop();
+    //setState(() => );
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: widget._getDrawerItems(context).length,
+    return DefaultTabController(      
+      length: widget._getActionItems(context).length,
       child: Scaffold(
         appBar: getAppBarWidget(),
         drawer: new Drawer(
@@ -116,7 +109,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         ),
-        body: _getDrawerCurrentWidget(),
+        body: _getTabBarViewWidget(),
         floatingActionButton: FloatingActionButton(
           onPressed: () => {},
           tooltip: 'Increment',

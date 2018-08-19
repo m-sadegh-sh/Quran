@@ -9,12 +9,14 @@ dependencies:
 
   cupertino_icons: ^0.1.2
   flutter_launcher_icons: ^0.5.2
+  flutter_spinkit: ^2.0.0
 
 flutter:
   uses-material-design: true
 
   assets:
    - assets/resources/fa-IR.json
+   - assets/images/icons/launcher.png
 
   fonts:
    - family: IranSans
