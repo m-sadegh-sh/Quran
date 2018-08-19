@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
   List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
     DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-help-and-support'), Icons.help),
     DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-settings'), Icons.settings),
-    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-about'), Icons.supervised_user_circle)
+    DrawerItemModel(AppLocalizations.of(context).translate('home-drawer-about'), Icons.info)
   ];
 
   List<ActionItemModel> _getActionItems(BuildContext context) => [
