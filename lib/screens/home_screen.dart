@@ -117,7 +117,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(      
-      length: widget._getActionItems(context).length,
+      length: widget._getTabItems(context).length,
       child: Scaffold(
         appBar: _getAppBarWidget(),
         drawer: _getDrawerWidget(),
