@@ -1,0 +1,4 @@
+enum DescentPlace {
+  Mecca,
+  Madina
+}

@@ -7,9 +7,12 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  cupertino_icons: ^0.1.2
-  flutter_launcher_icons: ^0.5.2
-  flutter_spinkit: ^2.0.0
+  cupertino_icons: any
+  path_provider: any
+  flutter_launcher_icons: any
+  flutter_spinkit: any
+  flutter_redux: any
+  sqflite: any
 
 flutter:
   uses-material-design: true

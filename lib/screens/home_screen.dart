@@ -4,7 +4,7 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/models/drawer_item_model.dart';
 import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
-import 'package:Quran/fragments/surahs_list_fragment.dart';
+import 'package:Quran/fragments/chapters_list_fragment.dart';
 import 'package:Quran/fragments/parts_list_fragment.dart';
 import 'package:Quran/fragments/bookmarks_list_fragment.dart';
 
@@ -22,7 +22,7 @@ class HomeScreen extends StatefulWidget {
   ];
 
   List<TabItemModel> _getTabItems(BuildContext context) => [
-    TabItemModel(AppLocalizations.of(context).translate('home-tab-surahs'), Icons.list),
+    TabItemModel(AppLocalizations.of(context).translate('home-tab-chapters'), Icons.list),
     TabItemModel(AppLocalizations.of(context).translate('home-tab-parts'), Icons.view_module),
     TabItemModel(AppLocalizations.of(context).translate('home-tab-bookmarks'), Icons.bookmark)
   ];
@@ -99,7 +99,7 @@ class _HomeScreenState extends State<HomeScreen> {
   TabBarView _getTabBarViewWidget() {
     return TabBarView(
       children: <Widget>[
-        SurahsListFragment(),
+        ChaptersListFragment(),
         PartsListFragment(),
         BookmarksListFragment()
       ]

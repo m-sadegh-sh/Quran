@@ -26,6 +26,8 @@ class QuranApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      debugShowMaterialGrid: false,
       onGenerateTitle: (context) => AppLocalizations.of(context).translate('app-title'),
       theme: _createTheme(context),
       initialRoute: '/',
