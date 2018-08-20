@@ -107,6 +107,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   _onDrawerTap(DrawerItemModel item) {
+    Navigator.pop(context);
     Navigator.pushNamed(context, item.routeName);
   }
 
