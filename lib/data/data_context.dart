@@ -24,7 +24,7 @@ class DataContext {
 
   void _onCreate(Database database, int version) async {
     await database.execute(
-      "CREATE TABLE Chapters (Id INTEGER PRIMARY KEY, ArabicTitle TEXT, PersianTitle TEXT, EnglishTitle TEXT, partNumber INT, verseCount INT, descentPlace INT)"
+      "CREATE TABLE Chapters (Id INTEGER PRIMARY KEY, Title TEXT, Order INT, PartNumber INT, VersesCount INT, Classification INT)"
     );
   }
 }

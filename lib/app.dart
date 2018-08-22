@@ -1,3 +1,6 @@
+import 'package:Quran/data/chapter_repository.dart';
+import 'package:Quran/data/data_context.dart';
+import 'package:Quran/data/database_initializer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -11,6 +14,7 @@ import 'package:Quran/screens/about_screen.dart';
 class QuranApp extends StatelessWidget {
   Map<String, WidgetBuilder> _getRoutes(BuildContext context) => <String, WidgetBuilder>{
     '/': (BuildContext context) => HomeScreen(),
+    '/home': (BuildContext context) => HomeScreen(),
     '/search': (BuildContext context) => SearchScreen(),
     '/help-and-support': (BuildContext context) => HelpAndSupportScreen(),
     '/settings': (BuildContext context) => SettingsScreen(),
@@ -25,6 +29,8 @@ class QuranApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //DatabaseInitializer(ChapterRepository(DataContext())).seed();
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,

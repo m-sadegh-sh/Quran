@@ -12,19 +12,19 @@ class HomeScreen extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
   List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
-    DrawerItemModel('/help-and-support', AppLocalizations.of(context).translate('home-drawer-help-and-support'), Icons.help),
-    DrawerItemModel('/settings', AppLocalizations.of(context).translate('home-drawer-settings'), Icons.settings),
-    DrawerItemModel('/about', AppLocalizations.of(context).translate('home-drawer-about'), Icons.info)
+    DrawerItemModel(routeName: '/help-and-support', title: AppLocalizations.of(context).translate('home-drawer-help-and-support'), icon: Icons.help),
+    DrawerItemModel(routeName: '/settings', title: AppLocalizations.of(context).translate('home-drawer-settings'), icon: Icons.settings),
+    DrawerItemModel(routeName: '/about', title: AppLocalizations.of(context).translate('home-drawer-about'), icon: Icons.info)
   ];
 
   List<ActionItemModel> _getActionItems(BuildContext context) => [
-    ActionItemModel('/search', Icons.search)
+    ActionItemModel(routeName: '/search', icon: Icons.search)
   ];
 
   List<TabItemModel> _getTabItems(BuildContext context) => [
-    TabItemModel(AppLocalizations.of(context).translate('home-tab-chapters'), Icons.list),
-    TabItemModel(AppLocalizations.of(context).translate('home-tab-parts'), Icons.view_module),
-    TabItemModel(AppLocalizations.of(context).translate('home-tab-bookmarks'), Icons.bookmark)
+    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-chapters'), icon: Icons.list),
+    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-parts'), icon: Icons.view_module),
+    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-bookmarks'), icon: Icons.bookmark)
   ];
 
   @override

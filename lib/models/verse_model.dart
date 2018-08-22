@@ -1,6 +1,7 @@
 class VerseModel {
   final int id;
-  final String text;
+  final String fullText;
+  final String cleanText;
 
-  VerseModel(this.id, this.text);
+  VerseModel({this.id, this.fullText, this.cleanText});
 }

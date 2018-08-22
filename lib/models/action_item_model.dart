@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
 class ActionItemModel {
-  String routeName;
-  IconData icon;
+  final String routeName;
+  final IconData icon;
 
-  ActionItemModel(this.routeName, this.icon);
+  ActionItemModel({this.routeName, this.icon});
 }

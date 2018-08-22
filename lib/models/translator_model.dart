@@ -3,5 +3,5 @@ class TranslatorModel {
   final String name;
   final String localeCode;
 
-  TranslatorModel(this.id, this.name, this.localeCode);
+  TranslatorModel({this.id, this.name, this.localeCode});
 }

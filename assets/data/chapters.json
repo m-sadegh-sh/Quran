@@ -1,0 +1,914 @@
+[
+    {
+        "id": 1,
+        "title": "الفاتحة",
+        "order": 5,
+        "partNumber": 1,
+        "versesCount": 7,
+        "classification": "Meccan"
+    },
+    {
+        "id": 2,
+        "title": "البَقَرَة",
+        "order": 87,
+        "partNumber": 1,
+        "versesCount": 286,
+        "classification": "Medinan"
+    },
+    {
+        "id": 3,
+        "title": "آل عِمرَان",
+        "order": 89,
+        "partNumber": 3,
+        "versesCount": 200,
+        "classification": "Medinan"
+    },
+    {
+        "id": 4,
+        "title": "النِّسَاء",
+        "order": 92,
+        "partNumber": 4,
+        "versesCount": 176,
+        "classification": "Medinan"
+    },
+    {
+        "id": 5,
+        "title": "المَائدة",
+        "order": 112,
+        "partNumber": 6,
+        "versesCount": 120,
+        "classification": "Medinan"
+    },
+    {
+        "id": 6,
+        "title": "الأنعَام",
+        "order": 55,
+        "partNumber": 7,
+        "versesCount": 165,
+        "classification": "Meccan"
+    },
+    {
+        "id": 7,
+        "title": "الأعرَاف",
+        "order": 39,
+        "partNumber": 8,
+        "versesCount": 206,
+        "classification": "Meccan"
+    },
+    {
+        "id": 8,
+        "title": "الأنفَال",
+        "order": 88,
+        "partNumber": 9,
+        "versesCount": 75,
+        "classification": "Medinan"
+    },
+    {
+        "id": 9,
+        "title": "التوبَة",
+        "order": 113,
+        "partNumber": 10,
+        "versesCount": 129,
+        "classification": "Medinan"
+    },
+    {
+        "id": 10,
+        "title": "يُونس",
+        "order": 51,
+        "partNumber": 11,
+        "versesCount": 109,
+        "classification": "Meccan"
+    },
+    {
+        "id": 11,
+        "title": "هُود",
+        "order": 52,
+        "partNumber": 11,
+        "versesCount": 123,
+        "classification": "Meccan"
+    },
+    {
+        "id": 12,
+        "title": "يُوسُف",
+        "order": 53,
+        "partNumber": 12,
+        "versesCount": 111,
+        "classification": "Meccan"
+    },
+    {
+        "id": 13,
+        "title": "الرَّعْد",
+        "order": 96,
+        "partNumber": 13,
+        "versesCount": 43,
+        "classification": "Medinan"
+    },
+    {
+        "id": 14,
+        "title": "إبراهِيم",
+        "order": 72,
+        "partNumber": 13,
+        "versesCount": 52,
+        "classification": "Meccan"
+    },
+    {
+        "id": 15,
+        "title": "الحِجْر",
+        "order": 54,
+        "partNumber": 14,
+        "versesCount": 99,
+        "classification": "Meccan"
+    },
+    {
+        "id": 16,
+        "title": "النَّحْل",
+        "order": 70,
+        "partNumber": 14,
+        "versesCount": 128,
+        "classification": "Meccan"
+    },
+    {
+        "id": 17,
+        "title": "الإسْرَاء",
+        "order": 50,
+        "partNumber": 15,
+        "versesCount": 111,
+        "classification": "Meccan"
+    },
+    {
+        "id": 18,
+        "title": "الكهْف",
+        "order": 69,
+        "partNumber": 15,
+        "versesCount": 110,
+        "classification": "Meccan"
+    },
+    {
+        "id": 19,
+        "title": "مَريَم",
+        "order": 44,
+        "partNumber": 16,
+        "versesCount": 98,
+        "classification": "Meccan"
+    },
+    {
+        "id": 20,
+        "title": "طه",
+        "order": 45,
+        "partNumber": 16,
+        "versesCount": 135,
+        "classification": "Meccan"
+    },
+    {
+        "id": 21,
+        "title": "الأنبيَاء",
+        "order": 73,
+        "partNumber": 17,
+        "versesCount": 112,
+        "classification": "Meccan"
+    },
+    {
+        "id": 22,
+        "title": "الحَج",
+        "order": 103,
+        "partNumber": 17,
+        "versesCount": 78,
+        "classification": "Medinan"
+    },
+    {
+        "id": 23,
+        "title": "المُؤمنون",
+        "order": 74,
+        "partNumber": 18,
+        "versesCount": 118,
+        "classification": "Meccan"
+    },
+    {
+        "id": 24,
+        "title": "النُّور",
+        "order": 102,
+        "partNumber": 18,
+        "versesCount": 64,
+        "classification": "Medinan"
+    },
+    {
+        "id": 25,
+        "title": "الفُرْقان",
+        "order": 42,
+        "partNumber": 18,
+        "versesCount": 77,
+        "classification": "Meccan"
+    },
+    {
+        "id": 26,
+        "title": "الشُّعَرَاء",
+        "order": 47,
+        "partNumber": 19,
+        "versesCount": 227,
+        "classification": "Meccan"
+    },
+    {
+        "id": 27,
+        "title": "النَّمْل",
+        "order": 48,
+        "partNumber": 19,
+        "versesCount": 93,
+        "classification": "Meccan"
+    },
+    {
+        "id": 28,
+        "title": "القَصَص",
+        "order": 49,
+        "partNumber": 20,
+        "versesCount": 88,
+        "classification": "Meccan"
+    },
+    {
+        "id": 29,
+        "title": "العَنكبوت",
+        "order": 85,
+        "partNumber": 20,
+        "versesCount": 69,
+        "classification": "Meccan"
+    },
+    {
+        "id": 30,
+        "title": "الرُّوم",
+        "order": 84,
+        "partNumber": 21,
+        "versesCount": 60,
+        "classification": "Meccan"
+    },
+    {
+        "id": 31,
+        "title": "لقمَان",
+        "order": 57,
+        "partNumber": 21,
+        "versesCount": 34,
+        "classification": "Meccan"
+    },
+    {
+        "id": 32,
+        "title": "السَّجدَة",
+        "order": 75,
+        "partNumber": 21,
+        "versesCount": 30,
+        "classification": "Meccan"
+    },
+    {
+        "id": 33,
+        "title": "الأحزَاب",
+        "order": 90,
+        "partNumber": 21,
+        "versesCount": 73,
+        "classification": "Medinan"
+    },
+    {
+        "id": 34,
+        "title": "سَبَأ",
+        "order": 58,
+        "partNumber": 22,
+        "versesCount": 54,
+        "classification": "Meccan"
+    },
+    {
+        "id": 35,
+        "title": "فَاطِر",
+        "order": 43,
+        "partNumber": 22,
+        "versesCount": 45,
+        "classification": "Meccan"
+    },
+    {
+        "id": 36,
+        "title": "يس",
+        "order": 41,
+        "partNumber": 22,
+        "versesCount": 83,
+        "classification": "Meccan"
+    },
+    {
+        "id": 37,
+        "title": "الصَّافات",
+        "order": 56,
+        "partNumber": 23,
+        "versesCount": 182,
+        "classification": "Meccan"
+    },
+    {
+        "id": 38,
+        "title": "ص",
+        "order": 38,
+        "partNumber": 23,
+        "versesCount": 88,
+        "classification": "Meccan"
+    },
+    {
+        "id": 39,
+        "title": "الزُّمَر",
+        "order": 59,
+        "partNumber": 23,
+        "versesCount": 75,
+        "classification": "Meccan"
+    },
+    {
+        "id": 40,
+        "title": "غَافِر",
+        "order": 60,
+        "partNumber": 24,
+        "versesCount": 85,
+        "classification": "Meccan"
+    },
+    {
+        "id": 41,
+        "title": "فُصِّلَتْ",
+        "order": 61,
+        "partNumber": 24,
+        "versesCount": 54,
+        "classification": "Meccan"
+    },
+    {
+        "id": 42,
+        "title": "الشُّورَى",
+        "order": 62,
+        "partNumber": 25,
+        "versesCount": 53,
+        "classification": "Meccan"
+    },
+    {
+        "id": 43,
+        "title": "الزُّخْرُف",
+        "order": 63,
+        "partNumber": 25,
+        "versesCount": 89,
+        "classification": "Meccan"
+    },
+    {
+        "id": 44,
+        "title": "الدخَان",
+        "order": 64,
+        "partNumber": 25,
+        "versesCount": 59,
+        "classification": "Meccan"
+    },
+    {
+        "id": 45,
+        "title": "الجَاثيَة",
+        "order": 65,
+        "partNumber": 25,
+        "versesCount": 37,
+        "classification": "Meccan"
+    },
+    {
+        "id": 46,
+        "title": "الأحْقاف",
+        "order": 66,
+        "partNumber": 26,
+        "versesCount": 35,
+        "classification": "Meccan"
+    },
+    {
+        "id": 47,
+        "title": "محَمَّد",
+        "order": 95,
+        "partNumber": 26,
+        "versesCount": 38,
+        "classification": "Medinan"
+    },
+    {
+        "id": 48,
+        "title": "الفَتْح",
+        "order": 111,
+        "partNumber": 26,
+        "versesCount": 29,
+        "classification": "Medinan"
+    },
+    {
+        "id": 49,
+        "title": "الحُجرَات",
+        "order": 106,
+        "partNumber": 26,
+        "versesCount": 18,
+        "classification": "Medinan"
+    },
+    {
+        "id": 50,
+        "title": "ق",
+        "order": 34,
+        "partNumber": 26,
+        "versesCount": 45,
+        "classification": "Meccan"
+    },
+    {
+        "id": 51,
+        "title": "الذَّاريَات",
+        "order": 67,
+        "partNumber": 26,
+        "versesCount": 60,
+        "classification": "Meccan"
+    },
+    {
+        "id": 52,
+        "title": "الطُّور",
+        "order": 76,
+        "partNumber": 27,
+        "versesCount": 49,
+        "classification": "Meccan"
+    },
+    {
+        "id": 53,
+        "title": "النَّجْم",
+        "order": 23,
+        "partNumber": 27,
+        "versesCount": 62,
+        "classification": "Meccan"
+    },
+    {
+        "id": 54,
+        "title": "القَمَر",
+        "order": 37,
+        "partNumber": 27,
+        "versesCount": 55,
+        "classification": "Meccan"
+    },
+    {
+        "id": 55,
+        "title": "الرَّحمن",
+        "order": 97,
+        "partNumber": 27,
+        "versesCount": 78,
+        "classification": "Medinan"
+    },
+    {
+        "id": 56,
+        "title": "الوَاقِعَة",
+        "order": 46,
+        "partNumber": 27,
+        "versesCount": 96,
+        "classification": "Meccan"
+    },
+    {
+        "id": 57,
+        "title": "الحَديد",
+        "order": 94,
+        "partNumber": 27,
+        "versesCount": 29,
+        "classification": "Medinan"
+    },
+    {
+        "id": 58,
+        "title": "المجَادلة",
+        "order": 105,
+        "partNumber": 28,
+        "versesCount": 22,
+        "classification": "Medinan"
+    },
+    {
+        "id": 59,
+        "title": "الحَشر",
+        "order": 101,
+        "partNumber": 28,
+        "versesCount": 24,
+        "classification": "Medinan"
+    },
+    {
+        "id": 60,
+        "title": "المُمتَحنَة",
+        "order": 91,
+        "partNumber": 28,
+        "versesCount": 13,
+        "classification": "Medinan"
+    },
+    {
+        "id": 61,
+        "title": "الصَّف",
+        "order": 109,
+        "partNumber": 28,
+        "versesCount": 14,
+        "classification": "Medinan"
+    },
+    {
+        "id": 62,
+        "title": "الجُمُعَة",
+        "order": 110,
+        "partNumber": 28,
+        "versesCount": 11,
+        "classification": "Medinan"
+    },
+    {
+        "id": 63,
+        "title": "المنَافِقون",
+        "order": 104,
+        "partNumber": 28,
+        "versesCount": 11,
+        "classification": "Medinan"
+    },
+    {
+        "id": 64,
+        "title": "التغَابُن",
+        "order": 108,
+        "partNumber": 28,
+        "versesCount": 18,
+        "classification": "Medinan"
+    },
+    {
+        "id": 65,
+        "title": "الطلَاق",
+        "order": 99,
+        "partNumber": 28,
+        "versesCount": 12,
+        "classification": "Medinan"
+    },
+    {
+        "id": 66,
+        "title": "التحْريم",
+        "order": 107,
+        "partNumber": 28,
+        "versesCount": 12,
+        "classification": "Medinan"
+    },
+    {
+        "id": 67,
+        "title": "المُلْك",
+        "order": 77,
+        "partNumber": 29,
+        "versesCount": 30,
+        "classification": "Meccan"
+    },
+    {
+        "id": 68,
+        "title": "القَلَم",
+        "order": 2,
+        "partNumber": 29,
+        "versesCount": 52,
+        "classification": "Meccan"
+    },
+    {
+        "id": 69,
+        "title": "الحَاقَّة",
+        "order": 78,
+        "partNumber": 29,
+        "versesCount": 52,
+        "classification": "Meccan"
+    },
+    {
+        "id": 70,
+        "title": "المعَارج",
+        "order": 79,
+        "partNumber": 29,
+        "versesCount": 44,
+        "classification": "Meccan"
+    },
+    {
+        "id": 71,
+        "title": "نُوح",
+        "order": 71,
+        "partNumber": 29,
+        "versesCount": 28,
+        "classification": "Meccan"
+    },
+    {
+        "id": 72,
+        "title": "الجِن",
+        "order": 40,
+        "partNumber": 29,
+        "versesCount": 28,
+        "classification": "Meccan"
+    },
+    {
+        "id": 73,
+        "title": "المُزَّمِّل",
+        "order": 3,
+        "partNumber": 29,
+        "versesCount": 20,
+        "classification": "Meccan"
+    },
+    {
+        "id": 74,
+        "title": "المُدَّثِّر",
+        "order": 4,
+        "partNumber": 29,
+        "versesCount": 56,
+        "classification": "Meccan"
+    },
+    {
+        "id": 75,
+        "title": "القِيَامَة",
+        "order": 31,
+        "partNumber": 29,
+        "versesCount": 40,
+        "classification": "Meccan"
+    },
+    {
+        "id": 76,
+        "title": "الإنسَان",
+        "order": 98,
+        "partNumber": 29,
+        "versesCount": 31,
+        "classification": "Medinan"
+    },
+    {
+        "id": 77,
+        "title": "المُرسَلات",
+        "order": 33,
+        "partNumber": 29,
+        "versesCount": 50,
+        "classification": "Meccan"
+    },
+    {
+        "id": 78,
+        "title": "النَّبَأ",
+        "order": 80,
+        "partNumber": 30,
+        "versesCount": 40,
+        "classification": "Meccan"
+    },
+    {
+        "id": 79,
+        "title": "النّازعَات",
+        "order": 81,
+        "partNumber": 30,
+        "versesCount": 46,
+        "classification": "Meccan"
+    },
+    {
+        "id": 80,
+        "title": "عَبَس",
+        "order": 24,
+        "partNumber": 30,
+        "versesCount": 42,
+        "classification": "Meccan"
+    },
+    {
+        "id": 81,
+        "title": "التَّكوير",
+        "order": 7,
+        "partNumber": 30,
+        "versesCount": 29,
+        "classification": "Meccan"
+    },
+    {
+        "id": 82,
+        "title": "الانفِطار",
+        "order": 82,
+        "partNumber": 30,
+        "versesCount": 19,
+        "classification": "Meccan"
+    },
+    {
+        "id": 83,
+        "title": "المطفِّفِين",
+        "order": 86,
+        "partNumber": 30,
+        "versesCount": 36,
+        "classification": "Meccan"
+    },
+    {
+        "id": 84,
+        "title": "الانْشِقَاق",
+        "order": 83,
+        "partNumber": 30,
+        "versesCount": 25,
+        "classification": "Meccan"
+    },
+    {
+        "id": 85,
+        "title": "البرُوج",
+        "order": 27,
+        "partNumber": 30,
+        "versesCount": 22,
+        "classification": "Meccan"
+    },
+    {
+        "id": 86,
+        "title": "الطَّارِق",
+        "order": 36,
+        "partNumber": 30,
+        "versesCount": 17,
+        "classification": "Meccan"
+    },
+    {
+        "id": 87,
+        "title": "الأَعْلى",
+        "order": 8,
+        "partNumber": 30,
+        "versesCount": 19,
+        "classification": "Meccan"
+    },
+    {
+        "id": 88,
+        "title": "الغَاشِية",
+        "order": 68,
+        "partNumber": 30,
+        "versesCount": 26,
+        "classification": "Meccan"
+    },
+    {
+        "id": 89,
+        "title": "الفَجْر",
+        "order": 10,
+        "partNumber": 30,
+        "versesCount": 30,
+        "classification": "Meccan"
+    },
+    {
+        "id": 90,
+        "title": "البَلَد",
+        "order": 35,
+        "partNumber": 30,
+        "versesCount": 20,
+        "classification": "Meccan"
+    },
+    {
+        "id": 91,
+        "title": "الشَّمْس",
+        "order": 26,
+        "partNumber": 30,
+        "versesCount": 15,
+        "classification": "Meccan"
+    },
+    {
+        "id": 92,
+        "title": "الليْل",
+        "order": 9,
+        "partNumber": 30,
+        "versesCount": 21,
+        "classification": "Meccan"
+    },
+    {
+        "id": 93,
+        "title": "الضُّحَى",
+        "order": 11,
+        "partNumber": 30,
+        "versesCount": 11,
+        "classification": "Meccan"
+    },
+    {
+        "id": 94,
+        "title": "الشَّرْح",
+        "order": 12,
+        "partNumber": 30,
+        "versesCount": 8,
+        "classification": "Meccan"
+    },
+    {
+        "id": 95,
+        "title": "التِّين",
+        "order": 28,
+        "partNumber": 30,
+        "versesCount": 8,
+        "classification": "Meccan"
+    },
+    {
+        "id": 96,
+        "title": "العَلَق",
+        "order": 1,
+        "partNumber": 30,
+        "versesCount": 19,
+        "classification": "Meccan"
+    },
+    {
+        "id": 97,
+        "title": "القَدْر",
+        "order": 25,
+        "partNumber": 30,
+        "versesCount": 5,
+        "classification": "Meccan"
+    },
+    {
+        "id": 98,
+        "title": "البَينَة",
+        "order": 100,
+        "partNumber": 30,
+        "versesCount": 8,
+        "classification": "Medinan"
+    },
+    {
+        "id": 99,
+        "title": "الزلزَلة",
+        "order": 93,
+        "partNumber": 30,
+        "versesCount": 8,
+        "classification": "Medinan"
+    },
+    {
+        "id": 100,
+        "title": "العَادِيات",
+        "order": 14,
+        "partNumber": 30,
+        "versesCount": 11,
+        "classification": "Meccan"
+    },
+    {
+        "id": 101,
+        "title": "القَارِعة",
+        "order": 30,
+        "partNumber": 30,
+        "versesCount": 11,
+        "classification": "Meccan"
+    },
+    {
+        "id": 102,
+        "title": "التَّكَاثر",
+        "order": 16,
+        "partNumber": 30,
+        "versesCount": 8,
+        "classification": "Meccan"
+    },
+    {
+        "id": 103,
+        "title": "العَصْر",
+        "order": 13,
+        "partNumber": 30,
+        "versesCount": 3,
+        "classification": "Meccan"
+    },
+    {
+        "id": 104,
+        "title": "الهُمَزَة",
+        "order": 32,
+        "partNumber": 30,
+        "versesCount": 9,
+        "classification": "Meccan"
+    },
+    {
+        "id": 105,
+        "title": "الفِيل",
+        "order": 19,
+        "partNumber": 30,
+        "versesCount": 5,
+        "classification": "Meccan"
+    },
+    {
+        "id": 106,
+        "title": "قُرَيْش",
+        "order": 29,
+        "partNumber": 30,
+        "versesCount": 4,
+        "classification": "Meccan"
+    },
+    {
+        "id": 107,
+        "title": "المَاعُون",
+        "order": 17,
+        "partNumber": 30,
+        "versesCount": 7,
+        "classification": "Meccan"
+    },
+    {
+        "id": 108,
+        "title": "الكَوْثَر",
+        "order": 15,
+        "partNumber": 30,
+        "versesCount": 3,
+        "classification": "Meccan"
+    },
+    {
+        "id": 109,
+        "title": "الكَافِرُون",
+        "order": 18,
+        "partNumber": 30,
+        "versesCount": 6,
+        "classification": "Meccan"
+    },
+    {
+        "id": 110,
+        "title": "النَّصر",
+        "order": 114,
+        "partNumber": 30,
+        "versesCount": 3,
+        "classification": "Medinan"
+    },
+    {
+        "id": 111,
+        "title": "المَسَد",
+        "order": 6,
+        "partNumber": 30,
+        "versesCount": 5,
+        "classification": "Meccan"
+    },
+    {
+        "id": 112,
+        "title": "الإخْلَاص",
+        "order": 22,
+        "partNumber": 30,
+        "versesCount": 4,
+        "classification": "Meccan"
+    },
+    {
+        "id": 113,
+        "title": "الفَلَق",
+        "order": 20,
+        "partNumber": 30,
+        "versesCount": 5,
+        "classification": "Meccan"
+    },
+    {
+        "id": 114,
+        "title": "النَّاس",
+        "order": 21,
+        "partNumber": 30,
+        "versesCount": 6,
+        "classification": "Meccan"
+    }
+]

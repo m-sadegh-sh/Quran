@@ -1,18 +1,11 @@
-import 'package:Quran/enumerations/descent_place.dart';
+import 'package:Quran/enumerations/chapter_classification.dart';
 
 class ChapterModel {
   final int id;
-  final String arabicTitle;
-  final String persianTitle;
-  final String englishTitle;
+  final int order;
   final int partNumber;
   final int versesCount;
-  final DescentPlace descentPlace;
+  final ChapterClassification classification;
 
-  ChapterModel(this.id, this.arabicTitle, this.persianTitle, this.englishTitle, this.partNumber, this.versesCount, this.descentPlace);
-  
-  @override
-  String toString() {
-    return arabicTitle;
-  }
+  ChapterModel({this.id, this.order, this.partNumber, this.versesCount, this.classification});
 }

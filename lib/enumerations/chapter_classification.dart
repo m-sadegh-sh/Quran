@@ -1,0 +1,4 @@
+enum ChapterClassification {
+  Meccan,
+  Medinan
+}
