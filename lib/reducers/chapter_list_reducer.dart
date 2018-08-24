@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 import 'package:Quran/states/chapter_list_state.dart';
 import 'package:Quran/actions/chapter_list_action.dart';
 
-final Reducer<ChapterListState> chapterReducer = combineReducers([
+final Reducer<ChapterListState> chapterListReducer = combineReducers([
   TypedReducer<ChapterListState, ChapterListLoadAction>(_chapterListLoad),
   TypedReducer<ChapterListState, ChapterListLoadSucceededAction>(_chapterListLoadSucceeded),
   TypedReducer<ChapterListState, ChapterListLoadFailedAction>(_chapterListLoadFailed)

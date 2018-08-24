@@ -1,6 +1,5 @@
-import 'package:Quran/states/app_state.dart';
-import 'package:Quran/reducers/chapter_list_reducer.dart';
+import 'package:redux/redux.dart';
 
-AppState appReducer(AppState state, action) => AppState(
-  chapter: chapterReducer(state.chapter, action)
-);
+import 'package:Quran/states/app_state.dart';
+
+final Reducer<AppState> appReducer = combineReducers([]);

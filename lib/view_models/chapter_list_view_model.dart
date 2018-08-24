@@ -1,6 +1,6 @@
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/app_state.dart';
+import 'package:Quran/states/root_state.dart';
 import 'package:Quran/actions/chapter_list_action.dart';
 import 'package:Quran/selectors/chapter_list_selector.dart';
 import 'package:Quran/items/chapter_item.dart';
@@ -22,7 +22,7 @@ class ChapterListViewModel {
     this.onChapterItemTapped
   });
 
-  static ChapterListViewModel fromStore(Store<AppState> store) {
+  static ChapterListViewModel fromStore(Store<RootState> store) {
     final chapterListState = chapterListStateSelector(store.state);
 
     return ChapterListViewModel(

@@ -1,57 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:redux/redux.dart';
 import 'package:flutter_redux/flutter_redux.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:Quran/states/app_state.dart';
-import 'package:Quran/app_localizations.dart';
-import 'package:Quran/containers/home_container.dart';
-import 'package:Quran/containers/search_container.dart';
-import 'package:Quran/containers/help_and_support_container.dart';
-import 'package:Quran/containers/settings_container.dart';
-import 'package:Quran/containers/about_container.dart';
+import 'package:Quran/states/root_state.dart';
 import 'package:Quran/presentation/app_container.dart';
+import 'package:Quran/view_models/app_view_model.dart';
 
 class AppContainer extends StatelessWidget {
-  final Store<AppState> store;
-
-  AppContainer({
-    Key key,
-    this.store
-  }) : super(key: key);
-
-  Map<String, WidgetBuilder> _getRoutes(BuildContext context) => <String, WidgetBuilder>{
-    '/': (BuildContext context) => HomeContainer(),
-    '/home': (BuildContext context) => HomeContainer(),
-    '/search': (BuildContext context) => SearchContainer(),
-    '/help-and-support': (BuildContext context) => HelpAndSupportContainer(),
-    '/settings': (BuildContext context) => SettingsContainer(),
-    '/about': (BuildContext context) => AboutContainer()
-  };
-
-  ThemeData _createTheme(BuildContext context) => ThemeData(
-    primarySwatch: Colors.teal,
-    accentColor: Colors.tealAccent,
-    fontFamily: 'IranSans'
-  );
-
   @override
   Widget build(BuildContext context) {
-    return StoreProvider(
-      store: store,
-      child: App(
-        onGenerateTitle: (context) => AppLocalizations.of(context).translate('app-title'),
-        theme: _createTheme(context),
-        initialRoute: '/',
-        routes: _getRoutes(context),
-        localizationsDelegates: [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        supportedLocales: [
-          const Locale('fa', 'IR'),
-        ]
+    return StoreConnector<RootState, AppViewModel>(
+      converter: AppViewModel.fromStore,
+      builder: (context, appViewModel)  => App(
+        appOnGenerateTitle: appViewModel.appOnGenerateTitle,
+        appTheme: appViewModel.appTheme,
+        appInitialRoute: appViewModel.appInitialRoute,
+        appOnCreateRoutes: appViewModel.appOnCreateRoutes,
+        appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,
+        appSupportedLocales: appViewModel.appSupportedLocales
       )
     );
   }

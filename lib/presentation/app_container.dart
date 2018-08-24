@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 
+import 'package:Quran/delegates/create_routes_delegate.dart';
+
 class App extends StatelessWidget {
-  final GenerateAppTitle onGenerateTitle;
-  final ThemeData theme;
-  final String initialRoute;
-  final Map<String, WidgetBuilder> routes;
-  final List<LocalizationsDelegate> localizationsDelegates;
-  final List<Locale> supportedLocales;
+  final GenerateAppTitle appOnGenerateTitle;
+  final ThemeData appTheme;
+  final String appInitialRoute;
+  final CreateRoutes appOnCreateRoutes;
+  final List<LocalizationsDelegate> appLocalizationsDelegates;
+  final List<Locale> appSupportedLocales;
 
   App({
     Key key,
-    this.onGenerateTitle,
-    this.theme,
-    this.initialRoute,
-    this.routes,
-    this.localizationsDelegates,
-    this.supportedLocales
+    this.appOnGenerateTitle,
+    this.appTheme,
+    this.appInitialRoute,
+    this.appOnCreateRoutes,
+    this.appLocalizationsDelegates,
+    this.appSupportedLocales
   }) : super(key: key);
 
   @override
@@ -23,12 +25,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      onGenerateTitle: onGenerateTitle,
-      theme: theme,
-      initialRoute: initialRoute,
-      routes: routes,
-      localizationsDelegates: localizationsDelegates,
-      supportedLocales: supportedLocales
+      onGenerateTitle: appOnGenerateTitle,
+      theme: appTheme,
+      initialRoute: appInitialRoute,
+      routes: appOnCreateRoutes(context),
+      localizationsDelegates: appLocalizationsDelegates,
+      supportedLocales: appSupportedLocales
     );
   }
 }
