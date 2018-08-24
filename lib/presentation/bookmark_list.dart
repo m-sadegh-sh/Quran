@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class BookmarksListFragment extends StatefulWidget {
+class BookmarkList extends StatefulWidget {
   @override
-  _BookmarksListFragmentState createState() => _BookmarksListFragmentState(); 
+  _BookmarkListState createState() => _BookmarkListState(); 
 }
 
-class _BookmarksListFragmentState extends State<BookmarksListFragment> {
+class _BookmarkListState extends State<BookmarkList> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

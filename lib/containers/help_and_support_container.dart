@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:Quran/app_localizations.dart';
 
-class AboutScreen extends StatefulWidget {
-  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('about-title');
+class HelpAndSupportContainer extends StatefulWidget {
+  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title');
 
   @override
-  _AboutScreenState createState() => _AboutScreenState();
+  _HelpAndSupportContainerState createState() => _HelpAndSupportContainerState();
 }
 
-class _AboutScreenState extends State<AboutScreen> {
+class _HelpAndSupportContainerState extends State<HelpAndSupportContainer> {
   AppBar _getAppBarWidget() {
     return AppBar(
       title: Text(widget._getTitle(context)),      
@@ -21,7 +21,7 @@ class _AboutScreenState extends State<AboutScreen> {
     return Scaffold(
       appBar: _getAppBarWidget(),
       body: Center(
-        child: Text('About')
+        child: Text('Help & Support')
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {},

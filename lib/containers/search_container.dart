@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 
 import 'package:Quran/app_localizations.dart';
 
-class SearchScreen extends StatefulWidget {
+class SearchContainer extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('search-title');
 
   @override
-  _SearchScreenState createState() => _SearchScreenState();
+  _SearchContainerState createState() => _SearchContainerState();
 }
 
-class _SearchScreenState extends State<SearchScreen> {
+class _SearchContainerState extends State<SearchContainer> {
   AppBar _getAppBarWidget() {
     return AppBar(
       title: Text(widget._getTitle(context)),      

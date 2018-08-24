@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-class PartsListFragment extends StatefulWidget {
+class PartList extends StatefulWidget {
   @override
-  _PartsListFragmentState createState() => _PartsListFragmentState(); 
+  _PartListState createState() => _PartListState(); 
 }
 
-class _PartsListFragmentState extends State<PartsListFragment> {
+class _PartListState extends State<PartList> {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

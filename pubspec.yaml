@@ -12,7 +12,7 @@ dependencies:
   flutter_launcher_icons: any
   flutter_spinkit: any
   flutter_redux: any
-  # sqflite: any
+  redux_thunk: any
 
 flutter:
   uses-material-design: true

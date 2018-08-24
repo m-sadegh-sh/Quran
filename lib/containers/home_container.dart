@@ -4,11 +4,11 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/models/drawer_item_model.dart';
 import 'package:Quran/models/action_item_model.dart';
 import 'package:Quran/models/tab_item_model.dart';
-import 'package:Quran/fragments/chapters_list_fragment.dart';
-import 'package:Quran/fragments/parts_list_fragment.dart';
-import 'package:Quran/fragments/bookmarks_list_fragment.dart';
+import 'package:Quran/presentation/chapter_list.dart';
+import 'package:Quran/presentation/part_list.dart';
+import 'package:Quran/presentation/bookmark_list.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeContainer extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
   List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
@@ -28,10 +28,10 @@ class HomeScreen extends StatefulWidget {
   ];
 
   @override
-  _HomeScreenState createState() => _HomeScreenState();
+  _HomeContainerState createState() => _HomeContainerState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomeContainerState extends State<HomeContainer> {
   UserAccountsDrawerHeader _createAccountHeader() {
     return UserAccountsDrawerHeader(
       accountName: Text(AppLocalizations.of(context).translate('home-drawer-account-name')),
@@ -99,9 +99,9 @@ class _HomeScreenState extends State<HomeScreen> {
   TabBarView _getTabBarViewWidget() {
     return TabBarView(
       children: <Widget>[
-        ChaptersListFragment(),
-        PartsListFragment(),
-        BookmarksListFragment()
+        ChapterList(),
+        PartList(),
+        BookmarkList()
       ]
     );
   }
