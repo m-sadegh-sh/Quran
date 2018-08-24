@@ -6,11 +6,11 @@ import 'package:Quran/data/chapter_repository.dart';
 
 List<Middleware<ChapterListState>> createChapterMiddleware() {
   return [
-    TypedMiddleware<ChapterListState, LoadChapterListAction>(_createLoadChapterList())
+    TypedMiddleware<ChapterListState, ChapterListLoadAction>(_createChapterListLoad())
   ];
 }
 
-Middleware<ChapterListState> _createLoadChapterList() {
+Middleware<ChapterListState> _createChapterListLoad() {
   return (Store<ChapterListState> store, action, NextDispatcher next) async {
     try {
       await ChapterRepository().init("chapters");

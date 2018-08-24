@@ -4,12 +4,12 @@ import 'package:Quran/states/chapter_list_state.dart';
 import 'package:Quran/actions/chapter_list_action.dart';
 
 final Reducer<ChapterListState> chapterReducer = combineReducers([
-  TypedReducer<ChapterListState, LoadChapterListAction>(_loadChapterList),
+  TypedReducer<ChapterListState, ChapterListLoadAction>(_chapterListLoad),
   TypedReducer<ChapterListState, ChapterListLoadSucceededAction>(_chapterListLoadSucceeded),
   TypedReducer<ChapterListState, ChapterListLoadFailedAction>(_chapterListLoadFailed)
 ]);
 
-ChapterListState _loadChapterList(ChapterListState state, LoadChapterListAction action) {
+ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction action) {
   state.chapterListLoading = true;
   state.chapterListLoadSucceeded = false;
   state.chapterList = List.unmodifiable([]);

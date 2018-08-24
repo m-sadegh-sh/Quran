@@ -1,6 +1,6 @@
 import 'package:Quran/items/chapter_item.dart';
 
-class LoadChapterListAction { }
+class ChapterListLoadAction { }
 
 class ChapterListLoadSucceededAction {
   final List<ChapterItem> chapterList;
