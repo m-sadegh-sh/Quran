@@ -1,9 +1,9 @@
-import 'package:Quran/models/chapter_model.dart';
+import 'package:Quran/items/chapter_item.dart';
 
 class LoadChapterListAction { }
 
 class ChapterListLoadSucceededAction {
-  final List<ChapterModel> chapterList;
+  final List<ChapterItem> chapterList;
 
   ChapterListLoadSucceededAction({this.chapterList});
 }
@@ -12,4 +12,10 @@ class ChapterListLoadFailedAction {
   final String chapterListLoadError;
 
   ChapterListLoadFailedAction({this.chapterListLoadError});
+}
+
+class ChapterItemTappedAction {
+  final ChapterItem chapterItem;
+
+  ChapterItemTappedAction({this.chapterItem});
 }

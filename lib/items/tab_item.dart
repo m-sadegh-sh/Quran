@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
 
-class TabItemModel {
+class TabItem {
   final String text;
   final IconData icon;
 
-  TabItemModel({this.text, this.icon});
+  TabItem({this.text, this.icon});
 }

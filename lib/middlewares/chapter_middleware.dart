@@ -1,17 +1,17 @@
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/chapter_state.dart';
-import 'package:Quran/actions/chapter_actions.dart';
+import 'package:Quran/states/chapter_list_state.dart';
+import 'package:Quran/actions/chapter_list_action.dart';
 import 'package:Quran/data/chapter_repository.dart';
 
-List<Middleware<ChapterState>> createChapterMiddleware() {
+List<Middleware<ChapterListState>> createChapterMiddleware() {
   return [
-    TypedMiddleware<ChapterState, LoadChapterListAction>(_createLoadChapterList())
+    TypedMiddleware<ChapterListState, LoadChapterListAction>(_createLoadChapterList())
   ];
 }
 
-Middleware<ChapterState> _createLoadChapterList() {
-  return (Store<ChapterState> store, action, NextDispatcher next) async {
+Middleware<ChapterListState> _createLoadChapterList() {
+  return (Store<ChapterListState> store, action, NextDispatcher next) async {
     try {
       await ChapterRepository().init("chapters");
 

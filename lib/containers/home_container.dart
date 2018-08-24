@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:Quran/app_localizations.dart';
-import 'package:Quran/models/drawer_item_model.dart';
-import 'package:Quran/models/action_item_model.dart';
-import 'package:Quran/models/tab_item_model.dart';
+import 'package:Quran/items/drawer_item.dart';
+import 'package:Quran/items/action_item.dart';
+import 'package:Quran/items/tab_item.dart';
 import 'package:Quran/presentation/chapter_list.dart';
 import 'package:Quran/presentation/part_list.dart';
 import 'package:Quran/presentation/bookmark_list.dart';
@@ -11,20 +11,20 @@ import 'package:Quran/presentation/bookmark_list.dart';
 class HomeContainer extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('home-title');
 
-  List<DrawerItemModel> _getDrawerItems(BuildContext context) => [
-    DrawerItemModel(routeName: '/help-and-support', title: AppLocalizations.of(context).translate('home-drawer-help-and-support'), icon: Icons.help),
-    DrawerItemModel(routeName: '/settings', title: AppLocalizations.of(context).translate('home-drawer-settings'), icon: Icons.settings),
-    DrawerItemModel(routeName: '/about', title: AppLocalizations.of(context).translate('home-drawer-about'), icon: Icons.info)
+  List<DrawerItem> _getDrawerItems(BuildContext context) => [
+    DrawerItem(routeName: '/help-and-support', title: AppLocalizations.of(context).translate('home-drawer-help-and-support'), icon: Icons.help),
+    DrawerItem(routeName: '/settings', title: AppLocalizations.of(context).translate('home-drawer-settings'), icon: Icons.settings),
+    DrawerItem(routeName: '/about', title: AppLocalizations.of(context).translate('home-drawer-about'), icon: Icons.info)
   ];
 
-  List<ActionItemModel> _getActionItems(BuildContext context) => [
-    ActionItemModel(routeName: '/search', icon: Icons.search)
+  List<ActionItem> _getActionItems(BuildContext context) => [
+    ActionItem(routeName: '/search', icon: Icons.search)
   ];
 
-  List<TabItemModel> _getTabItems(BuildContext context) => [
-    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-chapters'), icon: Icons.list),
-    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-parts'), icon: Icons.view_module),
-    TabItemModel(text: AppLocalizations.of(context).translate('home-tab-bookmarks'), icon: Icons.bookmark)
+  List<TabItem> _getTabItems(BuildContext context) => [
+    TabItem(text: AppLocalizations.of(context).translate('home-tab-chapters'), icon: Icons.list),
+    TabItem(text: AppLocalizations.of(context).translate('home-tab-parts'), icon: Icons.view_module),
+    TabItem(text: AppLocalizations.of(context).translate('home-tab-bookmarks'), icon: Icons.bookmark)
   ];
 
   @override
@@ -106,12 +106,12 @@ class _HomeContainerState extends State<HomeContainer> {
     );
   }
 
-  _onDrawerTap(DrawerItemModel item) {
+  _onDrawerTap(DrawerItem item) {
     Navigator.pop(context);
     Navigator.pushNamed(context, item.routeName);
   }
 
-  _onActionPressed(ActionItemModel item) {
+  _onActionPressed(ActionItem item) {
     Navigator.pushNamed(context, item.routeName);
   }
 

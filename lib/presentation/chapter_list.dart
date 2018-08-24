@@ -1,39 +1,47 @@
 import 'package:Quran/presentation/chapter_list_item.dart';
 import 'package:flutter/material.dart';
 
-import 'package:Quran/states/chapter_state.dart';
-import 'package:Quran/models/chapter_model.dart';
+import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/presentation/list_loading.dart';
 import 'package:Quran/presentation/list_load_error.dart';
 import 'package:Quran/presentation/list_load_empty.dart';
 
 class ChapterList extends StatelessWidget {
-  final ChapterState chapterState;
-  final Function(ChapterModel) onItemPressed;
+  final bool chapterListLoading;
+  final bool chapterListLoadSucceeded;
+  final List<ChapterItem> chapterList;
+  final bool chapterListLoadFailed;
+  final String chapterListLoadError;
+  final Function(ChapterItem) onChapterItemTapped;
 
   ChapterList({
     Key key,
-    this.chapterState,
-    this.onItemPressed,
+    this.chapterListLoading,
+    this.chapterListLoadSucceeded,
+    this.chapterList,
+    this.chapterListLoadFailed,
+    this.chapterListLoadError,
+    this.onChapterItemTapped
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    if (chapterState.chapterListLoading)
+    if (chapterListLoading)
       return ListLoading();
 
-    if (chapterState.chapterListLoadFailed)
+    if (chapterListLoadFailed)
       return ListLoadError(
-        error: chapterState.chapterListLoadError
+        error: chapterListLoadError
       );
 
-    if (chapterState.chapterList.length == 0)
+    if (chapterList.length == 0)
       return ListLoadEmpty();
 
     return ListView.builder(
-      itemCount: chapterState.chapterList.length,
+      itemCount: chapterList.length,
       itemBuilder: (BuildContext context, int index) => ChapterListItem(
-        chapterItem: chapterState.chapterList[index]
+        chapterItem: chapterList[index],
+        onChapterItemTapped: onChapterItemTapped
       )
     );
   }

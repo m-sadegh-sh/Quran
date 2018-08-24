@@ -1,13 +1,13 @@
-import 'package:Quran/states/chapter_state.dart';
+import 'package:Quran/states/chapter_list_state.dart';
 
 class AppState {
-  ChapterState chapter;
+  ChapterListState chapter;
 
   AppState({
     this.chapter
   });
 
   factory AppState.initial() => AppState(
-    chapter: ChapterState.initial()
+    chapter: ChapterListState.initial()
   );
 }

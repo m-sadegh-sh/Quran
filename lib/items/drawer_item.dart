@@ -1,9 +1,9 @@
 import 'package:flutter/widgets.dart';
 
-class DrawerItemModel {
+class DrawerItem {
   final String routeName;
   final String title;
   final IconData icon;
 
-  DrawerItemModel({this.routeName, this.title, this.icon});
+  DrawerItem({this.routeName, this.title, this.icon});
 }

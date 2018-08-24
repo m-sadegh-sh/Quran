@@ -1,8 +1,8 @@
 import 'package:Quran/data/repository_base.dart';
-import 'package:Quran/models/chapter_model.dart';
+import 'package:Quran/items/chapter_item.dart';
 
-class ChapterRepository extends RepositoryBase<ChapterModel> {
+class ChapterRepository extends RepositoryBase<ChapterItem> {
   ChapterRepository() : super.protected();
 
-  ChapterModel fromJson(Map<String, dynamic> parsedJson) => ChapterModel.fromJson(parsedJson);
+  ChapterItem fromJson(Map<String, dynamic> parsedJson) => ChapterItem.fromJson(parsedJson);
 }

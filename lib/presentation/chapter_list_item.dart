@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/models/chapter_model.dart';
+import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListItem extends StatelessWidget {
-  final ChapterModel chapterItem;
-  final Function(ChapterModel) onItemPressed;
+  final ChapterItem chapterItem;
+  final Function(ChapterItem) onChapterItemTapped;
 
   ChapterListItem({
     Key key,
     this.chapterItem,
-    this.onItemPressed
+    this.onChapterItemTapped
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onItemPressed(chapterItem),
+      onTap: () => onChapterItemTapped(chapterItem),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[

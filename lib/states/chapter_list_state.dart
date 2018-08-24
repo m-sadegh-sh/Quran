@@ -1,13 +1,13 @@
-import 'package:Quran/models/chapter_model.dart';
+import 'package:Quran/items/chapter_item.dart';
 
-class ChapterState {
+class ChapterListState {
   bool chapterListLoading;
   bool chapterListLoadSucceeded;
-  List<ChapterModel> chapterList;
+  List<ChapterItem> chapterList;
   bool chapterListLoadFailed;
   String chapterListLoadError;
 
-  ChapterState({
+  ChapterListState({
     this.chapterListLoading,
     this.chapterListLoadSucceeded,
     this.chapterList,
@@ -15,7 +15,7 @@ class ChapterState {
     this.chapterListLoadError
   });
 
-  factory ChapterState.initial() => ChapterState(
+  factory ChapterListState.initial() => ChapterListState(
     chapterListLoading: false,
     chapterListLoadSucceeded: false,
     chapterList: List.unmodifiable([]),
@@ -23,13 +23,13 @@ class ChapterState {
     chapterListLoadError: null
   );
 
-  ChapterState copyWith({
+  ChapterListState copyWith({
     chapterListLoading,
     chapterListLoadSucceeded,
     chapterList,
     chapterListLoadFailed,
     chapterListLoadError
-  }) => ChapterState(
+  }) => ChapterListState(
     chapterListLoading: chapterListLoading ?? this.chapterListLoading,
     chapterListLoadSucceeded: chapterListLoadSucceeded ?? this.chapterListLoadSucceeded,
     chapterList: chapterList ?? this.chapterList,
