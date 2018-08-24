@@ -20,11 +20,12 @@ class AppLocalizations {
 
   Future<bool> load() async {
     final key = 'assets/resources/${this._locale.languageCode}_${this._locale.countryCode}.json';
+    
     String data = await rootBundle.loadString(key);
-    Map<String, String> _result = json.decode(data);
+    Map<String, dynamic> result = json.decode(data);
 
-    _result.forEach((String key, String value) {
-      this._sentences[key] = value;
+    result.forEach((String key, dynamic value) {
+      this._sentences[key] = value.toString();
     });
 
     return true;

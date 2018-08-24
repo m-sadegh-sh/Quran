@@ -50,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<ListTile> _createDrawerItems() {
     return widget._getDrawerItems(context)
-      .map((item) => ListTile(
+      .map<ListTile>((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
         title: Text(item.title),
         onTap: () => _onDrawerTap(item),
@@ -59,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<IconButton> _createActions() {
     return widget._getActionItems(context)
-      .map((item) => IconButton(
+      .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
         onPressed: () => _onActionPressed(item)
       )).toList();
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   List<Tab> _createTabItems() {
     return widget._getTabItems(context)
-      .map((item) => Tab(
+      .map<Tab>((item) => Tab(
         icon: item.icon != null ? Icon(item.icon) : null,
         text: item.text,
       )).toList();
