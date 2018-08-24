@@ -9,7 +9,7 @@ import 'package:Quran/presentation/chapter_list_item.dart';
 class ChapterList extends StatelessWidget {
   final bool chapterListLoading;
   final bool chapterListLoadSucceeded;
-  final List<ChapterItem> chapterList;
+  final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function(ChapterItem) onChapterItemTapped;
@@ -18,7 +18,7 @@ class ChapterList extends StatelessWidget {
     Key key,
     this.chapterListLoading,
     this.chapterListLoadSucceeded,
-    this.chapterList,
+    this.chapterListItems,
     this.chapterListLoadFailed,
     this.chapterListLoadError,
     this.onChapterItemTapped
@@ -34,13 +34,13 @@ class ChapterList extends StatelessWidget {
         error: chapterListLoadError
       );
 
-    if (chapterList.length == 0)
+    if (chapterListItems.length == 0)
       return ListLoadEmpty();
 
     return ListView.builder(
-      itemCount: chapterList.length,
+      itemCount: chapterListItems.length,
       itemBuilder: (BuildContext context, int index) => ChapterListItem(
-        chapterItem: chapterList[index],
+        chapterItem: chapterListItems[index],
         onChapterItemTapped: onChapterItemTapped
       )
     );

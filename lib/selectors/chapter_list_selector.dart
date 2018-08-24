@@ -5,6 +5,6 @@ import 'package:Quran/items/chapter_item.dart';
 ChapterListState chapterListStateSelector(AppState state) => state.chapter;
 bool chapterListLoadingSelector(ChapterListState state) => state.chapterListLoading;
 bool chapterListLoadSucceededSelector(ChapterListState state) => state.chapterListLoadSucceeded;
-List<ChapterItem> chapterListSelector(ChapterListState state) => state.chapterList;
+List<ChapterItem> chapterListItemsSelector(ChapterListState state) => state.chapterListItems;
 bool chapterListLoadFailedSelector(ChapterListState state) => state.chapterListLoadFailed;
 String chapterListLoadErrorSelector(ChapterListState state) => state.chapterListLoadError;

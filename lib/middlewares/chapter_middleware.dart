@@ -18,7 +18,7 @@ Middleware<ChapterListState> _createChapterListLoad() {
       final chapterList = await ChapterRepository().list();
       
       store.dispatch(ChapterListLoadSucceededAction(
-        chapterList: List.unmodifiable(chapterList)
+        chapterListItems: List.unmodifiable(chapterList)
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(

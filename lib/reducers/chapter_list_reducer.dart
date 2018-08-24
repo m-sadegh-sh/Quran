@@ -12,7 +12,7 @@ final Reducer<ChapterListState> chapterReducer = combineReducers([
 ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction action) {
   state.chapterListLoading = true;
   state.chapterListLoadSucceeded = false;
-  state.chapterList = List.unmodifiable([]);
+  state.chapterListItems = List.unmodifiable([]);
   state.chapterListLoadFailed = false;
   state.chapterListLoadError = null;
 
@@ -22,7 +22,7 @@ ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction 
 ChapterListState _chapterListLoadSucceeded(ChapterListState state, ChapterListLoadSucceededAction action) {
   state.chapterListLoading = false;
   state.chapterListLoadSucceeded = true;
-  state.chapterList = action.chapterList;
+  state.chapterListItems = action.chapterListItems;
 
   return state;
 }
