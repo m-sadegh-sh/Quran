@@ -4,7 +4,7 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/items/drawer_item.dart';
 import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/tab_item.dart';
-import 'package:Quran/presentation/chapter_list.dart';
+import 'package:Quran/containers/chapter_list_container.dart';
 import 'package:Quran/presentation/part_list.dart';
 import 'package:Quran/presentation/bookmark_list.dart';
 
@@ -99,7 +99,7 @@ class _HomeContainerState extends State<HomeContainer> {
   TabBarView _getTabBarViewWidget() {
     return TabBarView(
       children: <Widget>[
-        ChapterList(),
+        ChapterListContainer(),
         PartList(),
         BookmarkList()
       ]

@@ -1,10 +1,10 @@
-import 'package:Quran/presentation/chapter_list_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/presentation/list_loading.dart';
 import 'package:Quran/presentation/list_load_error.dart';
 import 'package:Quran/presentation/list_load_empty.dart';
+import 'package:Quran/presentation/chapter_list_item.dart';
 
 class ChapterList extends StatelessWidget {
   final bool chapterListLoading;

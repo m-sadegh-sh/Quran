@@ -1,3 +1,4 @@
+import 'package:Quran/states/app_state.dart';
 import 'package:redux/redux.dart';
 
 import 'package:Quran/actions/chapter_list_action.dart';
@@ -22,16 +23,20 @@ class ChapterListViewModel {
     this.onChapterItemTapped
   });
 
-  static ChapterListViewModel fromStore(Store<ChapterListState> store) => ChapterListViewModel(
-    chapterListLoading: chapterListLoadingSelector(store.state),
-    chapterListLoadSucceeded: chapterListLoadSucceededSelector(store.state),
-    chapterList: chapterListSelector(store.state),
-    chapterListLoadFailed: chapterListLoadFailedSelector(store.state),
-    chapterListLoadError: chapterListLoadErrorSelector(store.state),
-    onChapterItemTapped: (ChapterItem chapterItem) {
-      store.dispatch(ChapterItemTappedAction(
-        chapterItem: chapterItem,
-      ));
-    }
-  );
+  static ChapterListViewModel fromStore(Store<AppState> store) {
+    final chapterListState = chapterListStateSelector(store.state);
+
+    return ChapterListViewModel(
+      chapterListLoading: chapterListLoadingSelector(chapterListState),
+      chapterListLoadSucceeded: chapterListLoadSucceededSelector(chapterListState),
+      chapterList: chapterListSelector(chapterListState),
+      chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
+      chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
+      onChapterItemTapped: (ChapterItem chapterItem) {
+        store.dispatch(ChapterListItemTappedAction(
+          chapterItem: chapterItem,
+        ));
+      }
+    );
+  }
 }
