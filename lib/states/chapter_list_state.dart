@@ -1,11 +1,11 @@
 import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListState {
-  bool chapterListLoading;
-  bool chapterListLoadSucceeded;
-  List<ChapterItem> chapterListItems;
-  bool chapterListLoadFailed;
-  String chapterListLoadError;
+  final bool chapterListLoading;
+  final bool chapterListLoadSucceeded;
+  final List<ChapterItem> chapterListItems;
+  final bool chapterListLoadFailed;
+  final String chapterListLoadError;
 
   ChapterListState({
     this.chapterListLoading,

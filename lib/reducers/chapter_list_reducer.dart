@@ -10,27 +10,27 @@ final Reducer<ChapterListState> chapterListReducer = combineReducers([
 ]);
 
 ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction action) {
-  state.chapterListLoading = true;
-  state.chapterListLoadSucceeded = false;
-  state.chapterListItems = List.unmodifiable([]);
-  state.chapterListLoadFailed = false;
-  state.chapterListLoadError = null;
-
-  return state;
+  return state.copyWith(
+    chapterListLoading: true,
+    chapterListLoadSucceeded: false,
+    chapterListItems: List.unmodifiable([]),
+    chapterListLoadFailed: false,
+    chapterListLoadError: null
+  );
 }
 
 ChapterListState _chapterListLoadSucceeded(ChapterListState state, ChapterListLoadSucceededAction action) {
-  state.chapterListLoading = false;
-  state.chapterListLoadSucceeded = true;
-  state.chapterListItems = action.chapterListItems;
-
-  return state;
+  return state.copyWith(
+    chapterListLoading: false,
+    chapterListLoadSucceeded: true,
+    chapterListItems: action.chapterListItems
+  );
 }
 
 ChapterListState _chapterListLoadFailed(ChapterListState state, ChapterListLoadFailedAction action) {
-  state.chapterListLoading = false;
-  state.chapterListLoadFailed = true;
-  state.chapterListLoadError = action.chapterListLoadError;
-
-  return state;
+  return state.copyWith(
+    chapterListLoading: false,
+    chapterListLoadFailed: true,
+    chapterListLoadError: action.chapterListLoadError
+  );
 }

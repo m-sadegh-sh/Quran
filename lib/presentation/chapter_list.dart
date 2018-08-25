@@ -12,7 +12,7 @@ class ChapterList extends StatelessWidget {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function(ChapterItem) onChapterItemTapped;
+  final Function(BuildContext, ChapterItem) chapterListOnItemTapped;
 
   ChapterList({
     Key key,
@@ -21,7 +21,7 @@ class ChapterList extends StatelessWidget {
     this.chapterListItems,
     this.chapterListLoadFailed,
     this.chapterListLoadError,
-    this.onChapterItemTapped
+    this.chapterListOnItemTapped
   }) : super(key: key);
 
   @override
@@ -41,7 +41,7 @@ class ChapterList extends StatelessWidget {
       itemCount: chapterListItems.length,
       itemBuilder: (BuildContext context, int index) => ChapterListItem(
         chapterItem: chapterListItems[index],
-        onChapterItemTapped: onChapterItemTapped
+        chapterListOnItemTapped: chapterListOnItemTapped
       )
     );
   }

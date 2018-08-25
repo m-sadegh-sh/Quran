@@ -3,13 +3,13 @@ import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/selectors/app_selector.dart';
-import 'package:Quran/delegates/create_routes_delegate.dart';
+import 'package:Quran/delegates/generate_app_routes.dart';
 
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
-  final CreateRoutes appOnCreateRoutes;
+  final GenerateAppRoutes appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   
@@ -17,7 +17,7 @@ class AppViewModel {
     this.appOnGenerateTitle,
     this.appTheme,
     this.appInitialRoute,
-    this.appOnCreateRoutes,
+    this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales
   });
@@ -29,7 +29,7 @@ class AppViewModel {
       appOnGenerateTitle: appOnGenerateTitleSelector(appState),
       appTheme: appThemeSelector(appState),
       appInitialRoute: appInitialRouteSelector(appState),
-      appOnCreateRoutes: appOnCreateRoutesSelector(appState),
+      appOnGenerateRoutes: appOnGenerateRoutesSelector(appState),
       appLocalizationsDelegates: appLocalizationsDelegatesSelector(appState),
       appSupportedLocales: appSupportedLocalesSelector(appState)
     );

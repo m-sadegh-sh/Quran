@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
@@ -11,7 +12,7 @@ class ChapterListViewModel {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function(ChapterItem) onChapterItemTapped;
+  final Function(BuildContext, ChapterItem) chapterListOnItemTapped;
 
   ChapterListViewModel({
     this.chapterListLoading,
@@ -19,7 +20,7 @@ class ChapterListViewModel {
     this.chapterListItems,
     this.chapterListLoadFailed,
     this.chapterListLoadError,
-    this.onChapterItemTapped
+    this.chapterListOnItemTapped
   });
 
   static ChapterListViewModel fromStore(Store<RootState> store) {
@@ -31,7 +32,7 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
-      onChapterItemTapped: (ChapterItem chapterItem) {
+      chapterListOnItemTapped: (BuildContext context, ChapterItem chapterItem) {
         store.dispatch(ChapterListItemTappedAction(
           chapterItem: chapterItem,
         ));

@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/delegates/create_routes_delegate.dart';
+import 'package:Quran/delegates/generate_app_routes.dart';
 
 class App extends StatelessWidget {
   final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
-  final CreateRoutes appOnCreateRoutes;
+  final GenerateAppRoutes appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
 
@@ -15,7 +15,7 @@ class App extends StatelessWidget {
     this.appOnGenerateTitle,
     this.appTheme,
     this.appInitialRoute,
-    this.appOnCreateRoutes,
+    this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales
   }) : super(key: key);
@@ -28,7 +28,7 @@ class App extends StatelessWidget {
       onGenerateTitle: appOnGenerateTitle,
       theme: appTheme,
       initialRoute: appInitialRoute,
-      routes: appOnCreateRoutes(context),
+      routes: appOnGenerateRoutes(context),
       localizationsDelegates: appLocalizationsDelegates,
       supportedLocales: appSupportedLocales
     );

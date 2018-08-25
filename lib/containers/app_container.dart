@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:Quran/states/root_state.dart';
-import 'package:Quran/presentation/app_container.dart';
+import 'package:Quran/presentation/app.dart';
 import 'package:Quran/view_models/app_view_model.dart';
 
 class AppContainer extends StatelessWidget {
@@ -14,7 +14,7 @@ class AppContainer extends StatelessWidget {
         appOnGenerateTitle: appViewModel.appOnGenerateTitle,
         appTheme: appViewModel.appTheme,
         appInitialRoute: appViewModel.appInitialRoute,
-        appOnCreateRoutes: appViewModel.appOnCreateRoutes,
+        appOnGenerateRoutes: appViewModel.appOnGenerateRoutes,
         appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,
         appSupportedLocales: appViewModel.appSupportedLocales
       )
