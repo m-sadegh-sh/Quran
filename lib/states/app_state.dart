@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:Quran/delegates/generate_app_routes.dart';
+import 'package:Quran/delegates/generate_routes.dart';
 import 'package:Quran/app_localizations.dart';
 import 'package:Quran/containers/about_container.dart';
 import 'package:Quran/containers/help_and_support_container.dart';
@@ -13,7 +13,7 @@ class AppState {
   final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
-  final GenerateAppRoutes appOnGenerateAppRoutes;
+  final GenerateRoutes appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   
@@ -21,7 +21,7 @@ class AppState {
     this.appOnGenerateTitle,
     this.appTheme,
     this.appInitialRoute,
-    this.appOnGenerateAppRoutes,
+    this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales
   });
@@ -34,7 +34,7 @@ class AppState {
       fontFamily: 'IranSans'
     ),
     appInitialRoute: '/',
-    appOnGenerateAppRoutes: (BuildContext context) => <String, WidgetBuilder>{
+    appOnGenerateRoutes: (BuildContext context) => <String, WidgetBuilder>{
       '/': (BuildContext context) => HomeContainer(),
       '/home': (BuildContext context) => HomeContainer(),
       '/search': (BuildContext context) => SearchContainer(),

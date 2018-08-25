@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 
 import 'package:Quran/delegates/generate_localized_string.dart';
 import 'package:Quran/app_localizations.dart';
-import 'package:Quran/delegates/generate_app_drawer_items.dart';
-import 'package:Quran/delegates/generate_app_action_items.dart';
-import 'package:Quran/delegates/generate_app_tab_items.dart';
-import 'package:Quran/delegates/generate_app_tab_contents.dart';
+import 'package:Quran/delegates/generate_drawer_items.dart';
+import 'package:Quran/delegates/generate_action_items.dart';
+import 'package:Quran/delegates/generate_tab_items.dart';
+import 'package:Quran/delegates/generate_tab_contents.dart';
 import 'package:Quran/items/drawer_item.dart';
 import 'package:Quran/items/action_item.dart';
 
@@ -18,10 +18,10 @@ class HomeState {
   final GenerateLocalizedString homeOnGenerateAccountName;
   final GenerateLocalizedString homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateAppDrawerItems homeOnGenerateDrawerItems;
-  final GenerateAppActionItems homeOnGenerateActionItems;
-  final GenerateAppTabItems homeOnGenerateTabItems;
-  final GenerateAppTabContents homeOnGenerateTabContents;
+  final GenerateDrawerItems homeOnGenerateDrawerItems;
+  final GenerateActionItems homeOnGenerateActionItems;
+  final GenerateTabItems homeOnGenerateTabItems;
+  final GenerateTabContents homeOnGenerateTabContents;
 
   HomeState({
     this.homeOnGenerateTitle,

@@ -4,18 +4,18 @@ import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
-  final Function(BuildContext, ChapterItem) chapterListOnItemTapped;
+  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
 
   ChapterListItem({
     Key key,
     this.chapterItem,
-    this.chapterListOnItemTapped
+    this.chapterListOnChapterItemTapped
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => chapterListOnItemTapped(context, chapterItem),
+      onTap: () => chapterListOnChapterItemTapped(context, chapterItem),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
