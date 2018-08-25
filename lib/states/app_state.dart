@@ -27,7 +27,7 @@ class AppState {
   });
 
   factory AppState.initial() => AppState(
-    appOnGenerateTitle: (context) => AppLocalizations.of(context).translate('app-title'),
+    appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
     appTheme: ThemeData(
       primarySwatch: Colors.teal,
       accentColor: Colors.tealAccent,
