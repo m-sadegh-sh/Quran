@@ -22,7 +22,9 @@ class ChapterList extends StatelessWidget {
     this.chapterListLoadFailed,
     this.chapterListLoadError,
     this.chapterListOnChapterItemTapped
-  }) : super(key: key);
+  }) : super(key: key) {
+    
+  }
 
   @override
   Widget build(BuildContext context) {

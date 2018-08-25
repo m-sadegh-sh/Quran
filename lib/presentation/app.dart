@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
-  final String appTitle;
+  final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
   final Map<String, WidgetBuilder> appRoutes;
@@ -10,7 +10,7 @@ class App extends StatelessWidget {
 
   App({
     Key key,
-    this.appTitle,
+    this.appOnGenerateTitle,
     this.appTheme,
     this.appInitialRoute,
     this.appRoutes,
@@ -23,7 +23,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      title: appTitle,
+      onGenerateTitle: appOnGenerateTitle,
       theme: appTheme,
       initialRoute: appInitialRoute,
       routes: appRoutes,
