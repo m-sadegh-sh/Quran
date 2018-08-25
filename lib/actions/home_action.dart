@@ -3,21 +3,21 @@ import 'package:flutter/material.dart';
 import 'package:Quran/items/drawer_item.dart';
 import 'package:Quran/items/action_item.dart';
 
-class ChapterListDrawerItemTappedAction {
+class HomeDrawerItemTappedAction {
   final BuildContext context;
   final DrawerItem drawerItem;
 
-  ChapterListDrawerItemTappedAction({
+  HomeDrawerItemTappedAction({
     this.context,
     this.drawerItem
   });
 }
 
-class ChapterListActionItemPressedAction {
+class HomeActionItemPressedAction {
   final BuildContext context;
   final ActionItem actionItem;
 
-  ChapterListActionItemPressedAction({
+  HomeActionItemPressedAction({
     this.context,
     this.actionItem
   });

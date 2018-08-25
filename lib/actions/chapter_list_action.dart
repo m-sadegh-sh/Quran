@@ -14,8 +14,8 @@ class ChapterListLoadFailedAction {
   ChapterListLoadFailedAction({this.chapterListLoadError});
 }
 
-class ChapterListItemTappedAction {
+class ChapterListChapterItemTappedAction {
   final ChapterItem chapterItem;
 
-  ChapterListItemTappedAction({this.chapterItem});
+  ChapterListChapterItemTappedAction({this.chapterItem});
 }

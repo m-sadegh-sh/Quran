@@ -1,43 +1,39 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/delegates/generate_app_action_items.dart';
-import 'package:Quran/delegates/generate_app_drawer_items.dart';
-import 'package:Quran/delegates/generate_app_tab_contents.dart';
-import 'package:Quran/delegates/generate_app_tab_items.dart';
-import 'package:Quran/delegates/generate_localized_string.dart';
-import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/drawer_item.dart';
+import 'package:Quran/items/action_item.dart';
+import 'package:Quran/items/tab_item.dart';
 
 class Home extends StatelessWidget {  
-  final GenerateLocalizedString homeOnGenerateTitle;
-  final GenerateLocalizedString homeOnGenerateAccountName;
-  final GenerateLocalizedString homeOnGenerateAccountEmail;
+  final String homeTitle;
+  final String homeAccountName;
+  final String homeAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateAppDrawerItems homeOnGenerateDrawerItems;
+  final List<DrawerItem> homeDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
-  final GenerateAppActionItems homeOnGenerateActionItems;
+  final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
-  final GenerateAppTabItems homeOnGenerateTabItems;
-  final GenerateAppTabContents homeOnGenerateTabContents;
+  final List<TabItem> homeTabItems;
+  final List<Widget> homeTabContents;
 
   Home({
     Key key,
-    this.homeOnGenerateTitle,
-    this.homeOnGenerateAccountName,
-    this.homeOnGenerateAccountEmail,
+    this.homeTitle,
+    this.homeAccountName,
+    this.homeAccountEmail,
     this.homeAccountBackgroundImage,
-    this.homeOnGenerateDrawerItems,
+    this.homeDrawerItems,
     this.homeOnDrawerItemTapped,
-    this.homeOnGenerateActionItems,
+    this.homeActionItems,
     this.homeOnActionItemPressed,
-    this.homeOnGenerateTabItems,
-    this.homeOnGenerateTabContents
+    this.homeTabItems,
+    this.homeTabContents
   }) : super(key: key);
 
   UserAccountsDrawerHeader _createAccountHeader(BuildContext context) {
     return UserAccountsDrawerHeader(
-      accountName: Text(homeOnGenerateAccountName(context)),
-      accountEmail: Text(homeOnGenerateAccountEmail(context)),
+      accountName: Text(homeAccountName),
+      accountEmail: Text(homeAccountEmail),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(homeAccountBackgroundImage),
@@ -49,7 +45,7 @@ class Home extends StatelessWidget {
   }
 
   List<ListTile> _createDrawerItems(BuildContext context) {
-    return homeOnGenerateDrawerItems(context)
+    return homeDrawerItems
       .map<ListTile>((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
         title: Text(item.title),
@@ -58,7 +54,7 @@ class Home extends StatelessWidget {
   }
 
   List<IconButton> _createActions(BuildContext context) {
-    return homeOnGenerateActionItems(context)
+    return homeActionItems
       .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
         onPressed: () => homeOnActionItemPressed(context, item)
@@ -66,7 +62,7 @@ class Home extends StatelessWidget {
   }
 
   List<Tab> _createTabItems(BuildContext context) {
-    return homeOnGenerateTabItems(context)
+    return homeTabItems
       .map<Tab>((item) => Tab(
         icon: item.icon != null ? Icon(item.icon) : null,
         text: item.text,
@@ -75,7 +71,7 @@ class Home extends StatelessWidget {
 
   AppBar _getAppBarWidget(BuildContext context) {
     return AppBar(
-      title: Text(homeOnGenerateTitle(context)),
+      title: Text(homeTitle),
       actions: _createActions(context),
       bottom: TabBar(
         tabs: _createTabItems(context),
@@ -98,14 +94,14 @@ class Home extends StatelessWidget {
 
   TabBarView _getTabBarViewWidget(BuildContext context) {
     return TabBarView(
-      children: homeOnGenerateTabContents(context)
+      children: homeTabContents
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: homeOnGenerateTabItems(context).length,
+      length: homeTabItems.length,
       child: Scaffold(
         appBar: _getAppBarWidget(context),
         drawer: _getDrawerWidget(context),

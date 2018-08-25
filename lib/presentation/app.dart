@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:Quran/delegates/generate_app_routes.dart';
 
 class App extends StatelessWidget {
-  final GenerateAppTitle appOnGenerateTitle;
+  final String appTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
   final GenerateAppRoutes appOnGenerateRoutes;
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
 
   App({
     Key key,
-    this.appOnGenerateTitle,
+    this.appTitle,
     this.appTheme,
     this.appInitialRoute,
     this.appOnGenerateRoutes,
@@ -25,7 +25,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
-      onGenerateTitle: appOnGenerateTitle,
+      title: appTitle,
       theme: appTheme,
       initialRoute: appInitialRoute,
       routes: appOnGenerateRoutes(context),

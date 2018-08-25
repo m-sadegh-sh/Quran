@@ -11,16 +11,16 @@ class HomeContainer extends StatelessWidget {
     return StoreConnector<RootState, HomeViewModel>(
       converter: HomeViewModel.fromStore,
       builder: (context, homeViewModel)  => Home(
-        homeOnGenerateTitle: homeViewModel.homeOnGenerateTitle,
-        homeOnGenerateAccountName: homeViewModel.homeOnGenerateAccountName,
-        homeOnGenerateAccountEmail: homeViewModel.homeOnGenerateAccountEmail,
+        homeTitle: homeViewModel.homeOnGenerateTitle(context),
+        homeAccountName: homeViewModel.homeOnGenerateAccountName(context),
+        homeAccountEmail: homeViewModel.homeOnGenerateAccountEmail(context),
         homeAccountBackgroundImage: homeViewModel.homeAccountBackgroundImage,
-        homeOnGenerateDrawerItems: homeViewModel.homeOnGenerateDrawerItems,
+        homeDrawerItems: homeViewModel.homeOnGenerateDrawerItems(context),
         homeOnDrawerItemTapped: homeViewModel.homeOnDrawerItemTapped,
-        homeOnGenerateActionItems: homeViewModel.homeOnGenerateActionItems,
+        homeActionItems: homeViewModel.homeOnGenerateActionItems(context),
         homeOnActionItemPressed: homeViewModel.homeOnActionItemPressed,
-        homeOnGenerateTabItems: homeViewModel.homeOnGenerateTabItems,
-        homeOnGenerateTabContents: homeViewModel.homeOnGenerateTabContents
+        homeTabItems: homeViewModel.homeOnGenerateTabItems(context),
+        homeTabContents: homeViewModel.homeOnGenerateTabContents(context)
       )
     );
   }
