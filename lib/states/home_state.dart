@@ -4,24 +4,20 @@ import 'package:Quran/presentation/bookmark_list.dart';
 import 'package:Quran/presentation/part_list.dart';
 import 'package:flutter/material.dart';
 
-import 'package:Quran/delegates/generate_localized_string.dart';
 import 'package:Quran/app_localizations.dart';
-import 'package:Quran/delegates/generate_drawer_items.dart';
-import 'package:Quran/delegates/generate_action_items.dart';
-import 'package:Quran/delegates/generate_tab_items.dart';
-import 'package:Quran/delegates/generate_tab_contents.dart';
+import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/drawer_item.dart';
 import 'package:Quran/items/action_item.dart';
 
 class HomeState {
-  final GenerateLocalizedString homeOnGenerateTitle;
-  final GenerateLocalizedString homeOnGenerateAccountName;
-  final GenerateLocalizedString homeOnGenerateAccountEmail;
+  final GenerateWithContext<String> homeOnGenerateTitle;
+  final GenerateWithContext<String> homeOnGenerateAccountName;
+  final GenerateWithContext<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateDrawerItems homeOnGenerateDrawerItems;
-  final GenerateActionItems homeOnGenerateActionItems;
-  final GenerateTabItems homeOnGenerateTabItems;
-  final GenerateTabContents homeOnGenerateTabContents;
+  final GenerateWithContext<List<DrawerItem>> homeOnGenerateDrawerItems;
+  final GenerateWithContext<List<ActionItem>> homeOnGenerateActionItems;
+  final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
+  final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
 
   HomeState({
     this.homeOnGenerateTitle,

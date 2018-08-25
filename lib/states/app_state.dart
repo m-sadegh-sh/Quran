@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:Quran/delegates/generate_routes.dart';
+import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/app_localizations.dart';
 import 'package:Quran/containers/about_container.dart';
 import 'package:Quran/containers/help_and_support_container.dart';
@@ -13,7 +13,7 @@ class AppState {
   final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
-  final GenerateRoutes appOnGenerateRoutes;
+  final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   

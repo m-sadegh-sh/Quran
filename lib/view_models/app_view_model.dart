@@ -3,13 +3,13 @@ import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/selectors/app_selector.dart';
-import 'package:Quran/delegates/generate_routes.dart';
+import 'package:Quran/delegates/generate_with_context.dart';
 
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;
   final ThemeData appTheme;
   final String appInitialRoute;
-  final GenerateRoutes appOnGenerateRoutes;
+  final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   

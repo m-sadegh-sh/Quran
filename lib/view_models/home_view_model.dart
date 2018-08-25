@@ -4,25 +4,22 @@ import 'package:redux/redux.dart';
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/actions/home_action.dart';
 import 'package:Quran/selectors/home_selector.dart';
-import 'package:Quran/delegates/generate_action_items.dart';
-import 'package:Quran/delegates/generate_drawer_items.dart';
-import 'package:Quran/delegates/generate_tab_contents.dart';
-import 'package:Quran/delegates/generate_tab_items.dart';
-import 'package:Quran/delegates/generate_localized_string.dart';
-import 'package:Quran/items/action_item.dart';
+import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/drawer_item.dart';
+import 'package:Quran/items/action_item.dart';
+import 'package:Quran/items/tab_item.dart';
 
 class HomeViewModel {
-  final GenerateLocalizedString homeOnGenerateTitle;
-  final GenerateLocalizedString homeOnGenerateAccountName;
-  final GenerateLocalizedString homeOnGenerateAccountEmail;
+  final GenerateWithContext<String> homeOnGenerateTitle;
+  final GenerateWithContext<String> homeOnGenerateAccountName;
+  final GenerateWithContext<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateDrawerItems homeOnGenerateDrawerItems;
+  final GenerateWithContext<List<DrawerItem>> homeOnGenerateDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
-  final GenerateActionItems homeOnGenerateActionItems;
+  final GenerateWithContext<List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
-  final GenerateTabItems homeOnGenerateTabItems;
-  final GenerateTabContents homeOnGenerateTabContents;
+  final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
+  final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
   
   HomeViewModel({
     this.homeOnGenerateTitle,
