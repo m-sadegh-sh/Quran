@@ -10,7 +10,7 @@ class HomeContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<RootState, HomeViewModel>(
       converter: HomeViewModel.fromStore,
-      builder: (context, homeViewModel)  => Home(
+      builder: (BuildContext context, HomeViewModel homeViewModel) => Home(
         homeTitle: homeViewModel.homeOnGenerateTitle(context),
         homeAccountName: homeViewModel.homeOnGenerateAccountName(context),
         homeAccountEmail: homeViewModel.homeOnGenerateAccountEmail(context),

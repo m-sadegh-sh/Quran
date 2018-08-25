@@ -7,7 +7,13 @@ class ChapterItem {
   final int versesCount;
   final ChapterClassification classification;
 
-  ChapterItem({this.id, this.order, this.partNumber, this.versesCount, this.classification});
+  ChapterItem({
+    this.id,
+    this.order,
+    this.partNumber,
+    this.versesCount,
+    this.classification
+  });
 
   factory ChapterItem.fromJson(Map<String, dynamic> parsedJson) {
     return ChapterItem(

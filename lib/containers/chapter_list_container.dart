@@ -10,7 +10,7 @@ class ChapterListContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<RootState, ChapterListViewModel>(
       converter: ChapterListViewModel.fromStore,
-      builder: (context, chapterListViewModel)  => ChapterList(
+      builder: (BuildContext context, ChapterListViewModel chapterListViewModel) => ChapterList(
         chapterListLoading: chapterListViewModel.chapterListLoading,
         chapterListLoadSucceeded: chapterListViewModel.chapterListLoadSucceeded,
         chapterListItems: chapterListViewModel.chapterListItems,

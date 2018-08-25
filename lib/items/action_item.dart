@@ -4,5 +4,8 @@ class ActionItem {
   final String routeName;
   final IconData icon;
 
-  ActionItem({this.routeName, this.icon});
+  ActionItem({
+    this.routeName,
+    this.icon
+  });
 }

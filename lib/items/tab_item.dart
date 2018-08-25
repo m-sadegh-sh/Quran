@@ -4,5 +4,8 @@ class TabItem {
   final String text;
   final IconData icon;
 
-  TabItem({this.text, this.icon});
+  TabItem({
+    this.text,
+    this.icon
+  });
 }

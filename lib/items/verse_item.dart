@@ -3,5 +3,9 @@ class VerseItem {
   final String fullText;
   final String cleanText;
 
-  VerseItem({this.id, this.fullText, this.cleanText});
+  VerseItem({
+    this.id,
+    this.fullText,
+    this.cleanText
+  });
 }

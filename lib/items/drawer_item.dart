@@ -5,5 +5,9 @@ class DrawerItem {
   final String title;
   final IconData icon;
 
-  DrawerItem({this.routeName, this.title, this.icon});
+  DrawerItem({
+    this.routeName,
+    this.title,
+    this.icon
+  });
 }

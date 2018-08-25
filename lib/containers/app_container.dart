@@ -10,11 +10,11 @@ class AppContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreConnector<RootState, AppViewModel>(
       converter: AppViewModel.fromStore,
-      builder: (context, appViewModel)  => App(
+      builder: (BuildContext context, AppViewModel appViewModel)  => App(
         appTitle: appViewModel.appOnGenerateTitle(context),
         appTheme: appViewModel.appTheme,
         appInitialRoute: appViewModel.appInitialRoute,
-        appOnGenerateRoutes: appViewModel.appOnGenerateRoutes,
+        appRoutes: appViewModel.appOnGenerateRoutes(context),
         appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,
         appSupportedLocales: appViewModel.appSupportedLocales
       )

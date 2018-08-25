@@ -4,5 +4,10 @@ class ChapterTranslationItem {
   final int translatorId;
   final int text;
 
-  ChapterTranslationItem({this.id, this.chapterId, this.translatorId, this.text});
+  ChapterTranslationItem({
+    this.id,
+    this.chapterId,
+    this.translatorId,
+    this.text
+  });
 }

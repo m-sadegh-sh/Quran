@@ -3,5 +3,9 @@ class TranslatorItem {
   final String name;
   final String localeCode;
 
-  TranslatorItem({this.id, this.name, this.localeCode});
+  TranslatorItem({
+    this.id,
+    this.name,
+    this.localeCode
+  });
 }
