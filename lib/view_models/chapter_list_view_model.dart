@@ -12,6 +12,7 @@ class ChapterListViewModel {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
+  final Function chapterListLoad;
   final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
 
   ChapterListViewModel({
@@ -20,6 +21,7 @@ class ChapterListViewModel {
     this.chapterListItems,
     this.chapterListLoadFailed,
     this.chapterListLoadError,
+    this.chapterListLoad,
     this.chapterListOnChapterItemTapped
   });
 
@@ -32,6 +34,9 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
+      chapterListLoad: () {
+        store.dispatch(ChapterListLoadAction());
+      },
       chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterItem) {
         store.dispatch(ChapterListChapterItemTappedAction(
           chapterItem: chapterItem,

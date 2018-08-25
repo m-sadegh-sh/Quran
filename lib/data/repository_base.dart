@@ -15,7 +15,7 @@ class RepositoryBase<T> {
     final key = 'assets/data/$dataFileName.json';
 
     String data = await rootBundle.loadString(key);
-    _cachedEntities = json.decode(data).map<T>(fromJson).toList();
+    _cachedEntities = json.decode(data).map(fromJson).toList();
 
     return true;
   }
