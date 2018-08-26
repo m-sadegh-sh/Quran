@@ -2,6 +2,7 @@ import 'package:Quran/enumerations/chapter_classification.dart';
 
 class ChapterItem {
   final int id;
+  final String title;
   final int order;
   final int partNumber;
   final int versesCount;
@@ -9,15 +10,17 @@ class ChapterItem {
 
   ChapterItem({
     this.id,
+    this.title,
     this.order,
     this.partNumber,
     this.versesCount,
     this.classification
   });
 
-  factory ChapterItem.fromJson(Map<String, dynamic> parsedJson) {
+  factory ChapterItem.fromJson(dynamic parsedJson) {
     return ChapterItem(
       id: parsedJson['id'],
+      title: parsedJson['title'],
       order: parsedJson['order'],
       partNumber: parsedJson['partNumber'],
       versesCount: parsedJson['versesCount'],

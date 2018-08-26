@@ -8,4 +8,12 @@ class TranslatorItem {
     this.name,
     this.localeCode
   });
+
+  factory TranslatorItem.fromJson(dynamic parsedJson) {
+    return TranslatorItem(
+      id: parsedJson['id'],
+      name: parsedJson['name'],
+      localeCode: parsedJson['localeCode']
+    );
+  }
 }

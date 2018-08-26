@@ -10,4 +10,13 @@ class ChapterTranslationItem {
     this.translatorId,
     this.text
   });
+  
+  factory ChapterTranslationItem.fromJson(dynamic parsedJson) {
+    return ChapterTranslationItem(
+      id: parsedJson['id'],
+      chapterId: parsedJson['chapterId'],
+      translatorId: parsedJson['translatorId'],
+      text: parsedJson['text']
+    );
+  }
 }

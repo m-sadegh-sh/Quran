@@ -10,4 +10,13 @@ class VerseTranslationItem {
     this.translatorId,
     this.text
   });
+
+  factory VerseTranslationItem.fromJson(dynamic parsedJson) {
+    return VerseTranslationItem(
+      id: parsedJson['id'],
+      verseId: parsedJson['verseId'],
+      translatorId: parsedJson['translatorId'],
+      text: parsedJson['text']
+    );
+  }
 }

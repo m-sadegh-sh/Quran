@@ -14,7 +14,7 @@ class ChapterListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () => chapterListOnChapterItemTapped(context, chapterItem),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,8 +32,7 @@ class ChapterListItem extends StatelessWidget {
               fontWeight: FontWeight.bold,
               fontSize: 18.0
             )
-          ),
-          Divider()
+          )
         ]
       )
     );
