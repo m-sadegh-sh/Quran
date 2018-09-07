@@ -17,5 +17,10 @@
 
     "settings-title": "تنظیمات",
     
-    "about-title": "درباره برنامه"
+    "about-title": "درباره برنامه",
+
+    "chapter-item-description": "${classification} - ${versesCount} آیه",
+
+    "chapter-classification-meccan": "مکی",
+    "chapter-classification-medinan": "مدنی"
 }

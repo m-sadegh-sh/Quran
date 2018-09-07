@@ -24,7 +24,7 @@ class ChapterItem {
       order: parsedJson['order'],
       partNumber: parsedJson['partNumber'],
       versesCount: parsedJson['versesCount'],
-      classification: ChapterClassification.values.firstWhere((v) => v.toString() == parsedJson['classification'], orElse: () => null)
+      classification: ChapterClassification.values.firstWhere((v) => v.toString() == parsedJson['classification'])
     );
   }
 }

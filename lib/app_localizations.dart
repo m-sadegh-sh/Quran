@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:convert';
-
+import 'package:Quran/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:Quran/enumerations/chapter_classification.dart';
+
 class AppLocalizations {
-  AppLocalizations(this._locale) {
-    this._sentences = Map();
-  }
+  final Locale _locale;
+  Map<String, String> _sentences;
 
   static const LocalizationsDelegate<AppLocalizations> delegate = const _AppLocalizationsDelegate();
 
@@ -15,8 +16,9 @@ class AppLocalizations {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 
-  final Locale _locale;
-  Map<String, String> _sentences;
+  AppLocalizations(this._locale) {
+    this._sentences = Map<String, String>();
+  }
 
   Future<bool> load() async {
     final key = 'assets/resources/${this._locale.languageCode}_${this._locale.countryCode}.json';
@@ -32,7 +34,23 @@ class AppLocalizations {
   }
 
   String translate(String key) {
-    return this._sentences[key];
+    if (_sentences.containsKey(key))
+      return this._sentences[key];
+
+    return "$key not found.";
+  }
+
+  String translateFormatted(String key, Map<String, dynamic> params) {
+    return StringUtils.format(
+      translate(key),
+      params
+    );
+  }
+
+  String translateEnum(ChapterClassification value) {
+    return translate(
+      StringUtils.toAphenized(value)
+    );
   }
 }
 

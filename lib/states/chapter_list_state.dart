@@ -18,7 +18,7 @@ class ChapterListState {
   factory ChapterListState.initial() => ChapterListState(
     chapterListLoading: false,
     chapterListLoadSucceeded: false,
-    chapterListItems: List.unmodifiable([]),
+    chapterListItems: List.unmodifiable<ChapterItem>([]),
     chapterListLoadFailed: false,
     chapterListLoadError: null
   );

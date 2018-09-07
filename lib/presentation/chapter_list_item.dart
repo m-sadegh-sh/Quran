@@ -1,3 +1,4 @@
+import 'package:Quran/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/chapter_item.dart';
@@ -12,28 +13,53 @@ class ChapterListItem extends StatelessWidget {
     this.chapterListOnChapterItemTapped
   }) : super(key: key);
 
+  Widget _buildChapterTitle() {
+    return Container(
+      padding: const EdgeInsets.only(bottom: 5.0),
+      child: Text(
+        chapterItem.title,
+        style: TextStyle(
+          fontSize: 18.0
+        )
+      )
+    );
+  }
+
+  Widget _buildChapterDescription(BuildContext context) {
+    var description = AppLocalizations.of(context).translateFormatted(
+      "chapter-item-description",
+      {
+        "classification": AppLocalizations.of(context).translateEnum(chapterItem.classification),
+        "versesCount": chapterItem.versesCount
+      }        
+    );
+
+    return Text(
+      description,
+      style: TextStyle(
+        fontWeight: FontWeight.w200,
+        fontSize: 14.0
+      )
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () => chapterListOnChapterItemTapped(context, chapterItem),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            chapterItem.id.toString(),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0
+      child: Container(
+        padding: const EdgeInsets.all(10.0),
+        child: Row(
+          children: <Widget>[
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                _buildChapterTitle(),
+                _buildChapterDescription(context)
+              ],
             )
-          ),
-          Text(
-            chapterItem.partNumber.toString(),
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 18.0
-            )
-          )
-        ]
+          ],
+        )
       )
     );
   }
