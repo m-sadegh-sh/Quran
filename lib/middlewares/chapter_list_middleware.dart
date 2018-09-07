@@ -13,6 +13,8 @@ List<Middleware<RootState>> createChapterListMiddleware() {
 Middleware<RootState> _createChapterListLoad() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
+      next(action);
+
       await ChapterRepository().init();
 
       final chapterListItems = await ChapterRepository().list();
@@ -25,7 +27,5 @@ Middleware<RootState> _createChapterListLoad() {
         chapterListLoadError: exception?.toString()
       ));
     }
-
-    next(action);
   };
 }
