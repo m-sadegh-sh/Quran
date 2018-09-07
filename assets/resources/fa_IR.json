@@ -19,7 +19,9 @@
     
     "about-title": "درباره برنامه",
 
-    "chapter-item-description": "${classification} - ${versesCount} آیه",
+    "chapter-item-description": "${classification}، ${versesCount} آیه",
+    "chapter-item-order": "ترتیب نزول ${order}",
+    "chapter-item-part-number": "جزء ${partNumber}",
 
     "chapter-classification-meccan": "مکی",
     "chapter-classification-medinan": "مدنی"
