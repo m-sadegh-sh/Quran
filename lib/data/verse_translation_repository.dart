@@ -15,5 +15,9 @@ class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
 
   VerseTranslationRepository._private();
 
+  @override
+  String get dataFileName => "verse-translations";
+
+  @override
   VerseTranslationItem fromJson(dynamic parsedJson) => VerseTranslationItem.fromJson(parsedJson);
 }

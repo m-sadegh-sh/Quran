@@ -13,12 +13,12 @@ List<Middleware<RootState>> createChapterListMiddleware() {
 Middleware<RootState> _createChapterListLoad() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
-      await ChapterRepository().init("chapters");
+      await ChapterRepository().init();
 
-      final chapterList = await ChapterRepository().list();
+      final chapterListItems = await ChapterRepository().list();
       
       store.dispatch(ChapterListLoadSucceededAction(
-        chapterListItems: List.unmodifiable(chapterList)
+        chapterListItems: chapterListItems
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(

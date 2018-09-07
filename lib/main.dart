@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:logging/logging.dart';
 import 'package:redux/redux.dart';
+import 'package:redux_logging/redux_logging.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/reducers/root_reducer.dart';
@@ -11,7 +13,7 @@ void main() {
   final store = new Store<RootState>(
     rootReducer,
     initialState: RootState.initial(),
-    middleware: []..addAll(createChapterListMiddleware())
+    middleware: [new LoggingMiddleware.printer(level: Level.SHOUT)]..addAll(createChapterListMiddleware())
   );
 
   runApp(

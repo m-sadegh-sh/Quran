@@ -15,5 +15,9 @@ class VerseRepository extends RepositoryBase<VerseItem> {
 
   VerseRepository._private();
 
+  @override
+  String get dataFileName => "verses";
+
+  @override
   VerseItem fromJson(dynamic parsedJson) => VerseItem.fromJson(parsedJson);
 }

@@ -4,14 +4,13 @@ import 'dart:convert';
 
 import 'package:flutter/services.dart';
 
-class RepositoryBase<T> {
+abstract class RepositoryBase<T> {
   List<T> _cachedEntities;
 
-  T fromJson(dynamic parsedJson) {
-    return null;
-  }
+  String get dataFileName;
+  T fromJson(dynamic parsedJson);
 
-  Future<bool> init(String dataFileName) async {
+  Future<bool> init() async {
     final key = 'assets/data/$dataFileName.json';
 
     String data = await rootBundle.loadString(key);

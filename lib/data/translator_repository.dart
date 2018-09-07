@@ -15,5 +15,9 @@ class TranslatorRepository extends RepositoryBase<TranslatorItem> {
 
   TranslatorRepository._private();
 
+  @override
+  String get dataFileName => "translators";
+
+  @override
   TranslatorItem fromJson(dynamic parsedJson) => TranslatorItem.fromJson(parsedJson);
 }

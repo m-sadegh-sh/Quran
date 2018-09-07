@@ -25,7 +25,7 @@ class ChapterList extends StatelessWidget {
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped
   }) : super(key: key) {
-    if (chapterListItems.length == 0)
+    if (!chapterListLoading && chapterListItems.length == 0)
       chapterListLoad();
   }
 

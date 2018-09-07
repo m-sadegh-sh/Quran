@@ -15,5 +15,9 @@ class ChapterTranslationRepository extends RepositoryBase<ChapterTranslationItem
 
   ChapterTranslationRepository._private();
 
+  @override
+  String get dataFileName => "chapter-translations";
+
+  @override
   ChapterTranslationItem fromJson(dynamic parsedJson) => ChapterTranslationItem.fromJson(parsedJson);
 }

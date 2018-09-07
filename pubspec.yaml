@@ -12,6 +12,7 @@ dependencies:
   flutter_launcher_icons: any
   flutter_spinkit: any
   flutter_redux: any
+  redux_logging: any
 
 flutter:
   uses-material-design: true
