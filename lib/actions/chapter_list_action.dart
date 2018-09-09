@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListLoadAction { }
@@ -5,17 +7,25 @@ class ChapterListLoadAction { }
 class ChapterListLoadSucceededAction {
   final List<ChapterItem> chapterListItems;
 
-  ChapterListLoadSucceededAction({this.chapterListItems});
+  ChapterListLoadSucceededAction({
+    this.chapterListItems
+  });
 }
 
 class ChapterListLoadFailedAction {
   final String chapterListLoadError;
 
-  ChapterListLoadFailedAction({this.chapterListLoadError});
+  ChapterListLoadFailedAction({
+    this.chapterListLoadError
+  });
 }
 
-class ChapterListChapterItemTappedAction {
-  final ChapterItem chapterItem;
+class ChapterListItemTappedAction {
+  final BuildContext context;
+  final int chapterListTappedItemId;
 
-  ChapterListChapterItemTappedAction({this.chapterItem});
+  ChapterListItemTappedAction({
+    this.context,
+    this.chapterListTappedItemId
+  });
 }

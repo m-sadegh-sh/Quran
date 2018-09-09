@@ -30,7 +30,7 @@ class Home extends StatelessWidget {
     this.homeTabContents
   }) : super(key: key);
 
-  UserAccountsDrawerHeader _createAccountHeader(BuildContext context) {
+  UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
     return UserAccountsDrawerHeader(
       accountName: Text(homeAccountName),
       accountEmail: Text(homeAccountEmail),
@@ -44,7 +44,7 @@ class Home extends StatelessWidget {
     );
   }
 
-  List<ListTile> _createDrawerItems(BuildContext context) {
+  List<ListTile> _buildDrawerItems(BuildContext context) {
     return homeDrawerItems
       .map<ListTile>((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
@@ -53,7 +53,7 @@ class Home extends StatelessWidget {
       )).toList();
   }
 
-  List<IconButton> _createActions(BuildContext context) {
+  List<IconButton> _buildActions(BuildContext context) {
     return homeActionItems
       .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
@@ -61,7 +61,7 @@ class Home extends StatelessWidget {
       )).toList();
   }
 
-  List<Tab> _createTabItems(BuildContext context) {
+  List<Tab> _buildTabItems(BuildContext context) {
     return homeTabItems
       .map<Tab>((item) => Tab(
         icon: item.icon != null ? Icon(item.icon) : null,
@@ -69,30 +69,30 @@ class Home extends StatelessWidget {
       )).toList();
   }
 
-  AppBar _getAppBarWidget(BuildContext context) {
+  AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: Text(homeTitle),
-      actions: _createActions(context),
+      actions: _buildActions(context),
       bottom: TabBar(
-        tabs: _createTabItems(context),
+        tabs: _buildTabItems(context),
       ),
     );
   }
 
-  Drawer _getDrawerWidget(BuildContext context) {
+  Drawer _buildDrawer(BuildContext context) {
     return Drawer(
       child: Column(
         children: <Widget>[
-          _createAccountHeader(context),
+          _buildAccountHeader(context),
           Column(
-            children: _createDrawerItems(context)
+            children: _buildDrawerItems(context)
           )
         ],
       ),
     );
   }
 
-  TabBarView _getTabBarViewWidget(BuildContext context) {
+  TabBarView _buildTabBarView(BuildContext context) {
     return TabBarView(
       children: homeTabContents
     );
@@ -103,9 +103,9 @@ class Home extends StatelessWidget {
     return DefaultTabController(
       length: homeTabItems.length,
       child: Scaffold(
-        appBar: _getAppBarWidget(context),
-        drawer: _getDrawerWidget(context),
-        body: _getTabBarViewWidget(context)
+        appBar: _buildAppBar(context),
+        drawer: _buildDrawer(context),
+        body: _buildTabBarView(context)
       )
     );
   }

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
 import 'package:Quran/states/chapter_list_state.dart';
@@ -7,7 +8,8 @@ import 'package:Quran/items/chapter_item.dart';
 final Reducer<ChapterListState> chapterListReducer = combineReducers([
   TypedReducer<ChapterListState, ChapterListLoadAction>(_chapterListLoad),
   TypedReducer<ChapterListState, ChapterListLoadSucceededAction>(_chapterListLoadSucceeded),
-  TypedReducer<ChapterListState, ChapterListLoadFailedAction>(_chapterListLoadFailed)
+  TypedReducer<ChapterListState, ChapterListLoadFailedAction>(_chapterListLoadFailed),
+  TypedReducer<ChapterListState, ChapterListItemTappedAction>(_chapterListItemTapped)
 ]);
 
 ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction action) {
@@ -34,4 +36,11 @@ ChapterListState _chapterListLoadFailed(ChapterListState state, ChapterListLoadF
     chapterListLoadFailed: true,
     chapterListLoadError: action.chapterListLoadError
   );
+}
+
+ChapterListState _chapterListItemTapped(ChapterListState state, ChapterListItemTappedAction action) {
+  Navigator.of(action.context)
+    .pushNamed('/chapter-details');
+
+  return state;
 }

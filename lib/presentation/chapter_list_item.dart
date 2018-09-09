@@ -5,7 +5,7 @@ import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, int) chapterListOnChapterItemTapped;
 
   ChapterListItem({
     Key key,
@@ -108,7 +108,7 @@ class ChapterListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => chapterListOnChapterItemTapped(context, chapterItem),
+      onTap: () => chapterListOnChapterItemTapped(context, chapterItem.id),
       child: Container(
         padding: const EdgeInsets.all(10.0),
         child: Row(          

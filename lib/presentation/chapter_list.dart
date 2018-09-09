@@ -13,7 +13,7 @@ class ChapterList extends StatelessWidget {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, int) chapterListOnChapterItemTapped;
 
   ChapterList({
     Key key,

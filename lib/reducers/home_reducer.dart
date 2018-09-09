@@ -10,14 +10,15 @@ final Reducer<HomeState> homeReducer = combineReducers([
 ]);
 
 HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction action) {
-  Navigator.pop(action.context);
-  Navigator.pushNamed(action.context, action.drawerItem.routeName);
+  Navigator.of(action.context)
+    ..pop()..pushNamed(action.drawerItem.routeName);
 
   return state;
 }
 
 HomeState _homeActionItemPressed(HomeState state, HomeActionItemPressedAction action) {
-  Navigator.pushNamed(action.context, action.actionItem.routeName);
+  Navigator.of(action.context)
+    .pushNamed(action.actionItem.routeName);
 
   return state;
 }

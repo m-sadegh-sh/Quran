@@ -13,7 +13,7 @@ class ChapterListViewModel {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, int) chapterListOnChapterItemTapped;
 
   ChapterListViewModel({
     this.chapterListLoading,
@@ -37,9 +37,10 @@ class ChapterListViewModel {
       chapterListLoad: () {
         store.dispatch(ChapterListLoadAction());
       },
-      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterItem) {
-        store.dispatch(ChapterListChapterItemTappedAction(
-          chapterItem: chapterItem,
+      chapterListOnChapterItemTapped: (BuildContext context, int chapterListTappedItemId) {
+        store.dispatch(ChapterListItemTappedAction(
+          context: context,
+          chapterListTappedItemId: chapterListTappedItemId,
         ));
       }
     );

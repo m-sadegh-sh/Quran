@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:Quran/data/repository_base.dart';
 import 'package:Quran/items/chapter_item.dart';
 
@@ -20,4 +22,8 @@ class ChapterRepository extends RepositoryBase<ChapterItem> {
 
   @override
   ChapterItem fromJson(dynamic parsedJson) => ChapterItem.fromJson(parsedJson);
+
+  Future<ChapterItem> findById(int id) async {
+    return (await list()).firstWhere((ci) => ci.id == id);
+  }
 }
