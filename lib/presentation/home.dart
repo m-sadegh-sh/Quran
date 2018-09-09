@@ -57,6 +57,7 @@ class Home extends StatelessWidget {
     return homeActionItems
       .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
+        tooltip: item.tooltip,
         onPressed: () => homeOnActionItemPressed(context, item)
       )).toList();
   }

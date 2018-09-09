@@ -36,17 +36,42 @@ class HomeState {
     homeOnGenerateAccountEmail: (BuildContext context) => AppLocalizations.of(context).translate('home-drawer-account-email'),
     homeAccountBackgroundImage: 'assets/images/drawer_background.jpg',
     homeOnGenerateDrawerItems: (BuildContext context) => [
-      DrawerItem(routeName: '/help-and-support', title: AppLocalizations.of(context).translate('home-drawer-help-and-support'), icon: Icons.help),
-      DrawerItem(routeName: '/settings', title: AppLocalizations.of(context).translate('home-drawer-settings'), icon: Icons.settings),
-      DrawerItem(routeName: '/about', title: AppLocalizations.of(context).translate('home-drawer-about'), icon: Icons.info)
+      DrawerItem(
+        routeName: '/help-and-support',
+        title: AppLocalizations.of(context).translate('home-drawer-help-and-support'),
+        icon: Icons.help
+      ),
+      DrawerItem(
+        routeName: '/settings',
+        title: AppLocalizations.of(context).translate('home-drawer-settings'),
+        icon: Icons.settings
+      ),
+      DrawerItem(
+        routeName: '/about',
+        title: AppLocalizations.of(context).translate('home-drawer-about'),
+        icon: Icons.info
+      )
     ],
     homeOnGenerateActionItems: (BuildContext context) => [
-      ActionItem(routeName: '/search', icon: Icons.search)
+      ActionItem(
+        routeName: '/search',
+        tooltip: AppLocalizations.of(context).translate('home-action-search'),
+        icon: Icons.search
+      )
     ],
     homeOnGenerateTabItems: (BuildContext context) => [
-      TabItem(text: AppLocalizations.of(context).translate('home-tab-chapters'), icon: Icons.list),
-      TabItem(text: AppLocalizations.of(context).translate('home-tab-parts'), icon: Icons.view_module),
-      TabItem(text: AppLocalizations.of(context).translate('home-tab-bookmarks'), icon: Icons.bookmark)
+      TabItem(
+        text: AppLocalizations.of(context).translate('home-tab-chapters'),
+        icon: Icons.list
+      ),
+      TabItem(
+        text: AppLocalizations.of(context).translate('home-tab-parts'),
+        icon: Icons.view_module
+      ),
+      TabItem(
+        text: AppLocalizations.of(context).translate('home-tab-bookmarks'),
+        icon: Icons.bookmark
+      )
     ],
     homeOnGenerateTabContents: (BuildContext context) => [
       ChapterListContainer(),

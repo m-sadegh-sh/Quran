@@ -2,6 +2,7 @@
     "app-title": "قرآن مجید",
 
     "home-title": "قرآن مجید",
+    "home-action-search": "جستجو",
     "home-drawer-account-name": "قرآن مجید",
     "home-drawer-account-email": "نسخه 1.23",
     "home-drawer-help-and-support": "راهنما و پشتیبانی",
@@ -10,6 +11,8 @@
     "home-tab-chapters": "سوره‌ها",
     "home-tab-parts": "جزءها",
     "home-tab-bookmarks": "نشان‌شده‌ها",
+
+    "chapter-details-action-share": "اشتراک گذاری",
 
     "search-title": "جستجو",
 

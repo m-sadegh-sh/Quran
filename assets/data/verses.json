@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "chapterVerseId": 1,
         "chapterId": 1,
         "fullText": "",
         "cleanText": ""

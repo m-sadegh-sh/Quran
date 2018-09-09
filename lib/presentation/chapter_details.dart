@@ -35,6 +35,7 @@ class ChapterDetails extends StatelessWidget {
     return chapterDetailsActionItems
       .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
+        tooltip: item.tooltip,
         onPressed: () => chapterDetailsOnActionItemPressed(context, item)
       )).toList();
   }

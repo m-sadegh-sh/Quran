@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:Quran/app_localizations.dart';
 import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
@@ -26,7 +27,11 @@ class ChapterDetailsState {
   factory ChapterDetailsState.initial() => ChapterDetailsState(
     chapterDetailsItemId: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context) => [
-      ActionItem(routeName: '/share', icon: Icons.share)
+      ActionItem(
+        routeName: '/share-chapter',
+        tooltip: AppLocalizations.of(context).translate('chapter-details-action-share'),
+        icon: Icons.share
+      )
     ],
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
