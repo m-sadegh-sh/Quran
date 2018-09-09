@@ -47,7 +47,7 @@ class HomeViewModel {
         store.dispatch(HomeDrawerItemTappedAction(
           context: context,
           drawerItem: drawerItem,
-        ));        
+        ));
       },
       homeOnGenerateActionItems: homeOnGenerateActionItemsSelector(homeState),
       homeOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
