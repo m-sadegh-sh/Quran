@@ -37,6 +37,11 @@ class HomeState {
     homeAccountBackgroundImage: 'assets/images/drawer_background.jpg',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(
+        routeName: '/share',
+        title: AppLocalizations.of(context).translate('home-drawer-share'),
+        icon: Icons.share
+      ),
+      DrawerItem(
         routeName: '/help-and-support',
         title: AppLocalizations.of(context).translate('home-drawer-help-and-support'),
         icon: Icons.help

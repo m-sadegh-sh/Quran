@@ -5,10 +5,18 @@ import 'package:Quran/states/chapter_details_state.dart';
 import 'package:Quran/actions/chapter_details_action.dart';
 
 final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
+  TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadAction>(_chapterDetailsLoad),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed)
 ]);
+
+ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, ChapterDetailsActionItemPressedAction action) {
+  Navigator.of(action.context)
+    .pushNamed(action.chapterDetailsActionItem.routeName);
+
+  return state;
+}
 
 ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetailsLoadAction action) {
   return state.copyWith(

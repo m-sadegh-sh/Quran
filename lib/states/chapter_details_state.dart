@@ -28,7 +28,7 @@ class ChapterDetailsState {
     chapterDetailsItemId: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context) => [
       ActionItem(
-        routeName: '/share-chapter',
+        routeName: '/share',
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-share'),
         icon: Icons.share
       )
