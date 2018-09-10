@@ -21,8 +21,8 @@ flutter:
   assets:
    - assets/resources/fa_IR.json
    - assets/data/chapters.json
-   - assets/images/drawer_background.jpg
-   - assets/images/flexible_space_bar_background.jpg
+   - assets/images/drawer_background.png
+   - assets/images/flexible_space_bar_background.png
 
   fonts:
    - family: IranSans

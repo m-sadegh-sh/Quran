@@ -38,7 +38,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsItem: null,
-    chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.jpg',
+    chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );

@@ -34,7 +34,7 @@ class HomeState {
     homeOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('home-title'),
     homeOnGenerateAccountName: (BuildContext context) => AppLocalizations.of(context).translate('home-drawer-account-name'),
     homeOnGenerateAccountEmail: (BuildContext context) => AppLocalizations.of(context).translate('home-drawer-account-email'),
-    homeAccountBackgroundImage: 'assets/images/drawer_background.jpg',
+    homeAccountBackgroundImage: 'assets/images/drawer_background.png',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(
         routeName: '/share',
