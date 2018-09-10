@@ -14,6 +14,7 @@ class ChapterDetails extends StatelessWidget {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final ChapterItem chapterDetailsItem;
+  final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(int) chapterDetailsLoad;
@@ -26,6 +27,7 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsItem,
+    this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad
@@ -39,15 +41,37 @@ class ChapterDetails extends StatelessWidget {
         onPressed: () => chapterDetailsOnActionItemPressed(context, item)
       )).toList();
   }
-
-  AppBar _buildAppBar(BuildContext context) {
-    return AppBar(
-      title: Text(chapterDetailsItem.title),
-      actions: _buildActions(context)
+  
+  Widget _buildFlexibleSpace() {
+    return FlexibleSpaceBar(              
+      centerTitle: true,
+      title: Text(
+        chapterDetailsItem.title,
+        style: TextStyle(
+          color: Colors.white,
+          fontSize: 16.0,
+        )
+      ),
+      background: Image.asset(
+        chapterDetailsBackgroundImage,
+        fit: BoxFit.cover,
+      )
     );
   }
 
-  _buildChapterVerses(BuildContext context) {
+  List<Widget> _buildHeaderSliver(BuildContext context, bool innerBoxIsScrolled) {
+    return <Widget>[
+      SliverAppBar(
+        actions: _buildActions(context),
+        expandedHeight: 200.0,
+        floating: false,
+        pinned: true,
+        flexibleSpace: _buildFlexibleSpace(),
+      ),
+    ];
+  }
+
+  Widget _buildChapterVerses(BuildContext context) {
     if (chapterDetailsLoading)
       return ListLoading();
 
@@ -67,9 +91,13 @@ class ChapterDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: _buildAppBar(context),
+      //appBar: _buildAppBar(context),
       //drawer: _buildDrawer(context),
-      body: _buildChapterVerses(context)
+      //body: _buildChapterVerses(context)
+      body: NestedScrollView(
+        headerSliverBuilder: _buildHeaderSliver,
+        body: _buildChapterVerses(context)
+      )
     );
-  }      
+  }
 }

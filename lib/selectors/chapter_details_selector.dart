@@ -10,5 +10,6 @@ int chapterDetailsItemIdSelector(ChapterDetailsState state) => state.chapterDeta
 bool chapterDetailsLoadingSelector(ChapterDetailsState state) => state.chapterDetailsLoading;
 bool chapterDetailsLoadSucceededSelector(ChapterDetailsState state) => state.chapterDetailsLoadSucceeded;
 ChapterItem chapterDetailsItemSelector(ChapterDetailsState state) => state.chapterDetailsItem;
+String chapterDetailsBackgroundImageSelector(ChapterDetailsState state) => state.chapterDetailsBackgroundImage;
 bool chapterDetailsLoadFailedSelector(ChapterDetailsState state) => state.chapterDetailsLoadFailed;
 String chapterDetailsLoadErrorSelector(ChapterDetailsState state) => state.chapterDetailsLoadError;

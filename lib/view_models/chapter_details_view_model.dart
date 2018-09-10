@@ -15,6 +15,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final ChapterItem chapterDetailsItem;
+  final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(int) chapterDetailsLoad;
@@ -26,6 +27,7 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsItem,
+    this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad
@@ -46,6 +48,7 @@ class ChapterDetailsViewModel {
       chapterDetailsLoading: chapterDetailsLoadingSelector(chapterDetailsState),
       chapterDetailsLoadSucceeded: chapterDetailsLoadSucceededSelector(chapterDetailsState),
       chapterDetailsItem: chapterDetailsItemSelector(chapterDetailsState),
+      chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
       chapterDetailsLoad: (int chapterDetailsItemId) {
