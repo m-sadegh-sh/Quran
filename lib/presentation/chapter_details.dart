@@ -1,9 +1,10 @@
+import 'package:Quran/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
-import 'package:Quran/presentation/list_loading.dart';
-import 'package:Quran/presentation/list_load_error.dart';
+import 'package:Quran/presentation/circular_loading.dart';
+import 'package:Quran/presentation/action_failure.dart';
 import 'package:Quran/presentation/list_load_empty.dart';
 import 'package:Quran/presentation/chapter_list_item.dart';
 
@@ -42,11 +43,11 @@ class ChapterDetails extends StatelessWidget {
       )).toList();
   }
   
-  Widget _buildFlexibleSpace() {
+  Widget _buildFlexibleSpace(BuildContext context) {
     return FlexibleSpaceBar(              
       centerTitle: true,
       title: Text(
-        chapterDetailsItem.title,
+        chapterDetailsItem?.title ?? AppLocalizations.of(context).translate('chapter-details-title'),
         style: TextStyle(
           color: Colors.white,
           fontSize: 16.0,
@@ -62,22 +63,23 @@ class ChapterDetails extends StatelessWidget {
   List<Widget> _buildHeaderSliver(BuildContext context, bool innerBoxIsScrolled) {
     return <Widget>[
       SliverAppBar(
-        actions: _buildActions(context),
+        actions: chapterDetailsItem == null ? null : _buildActions(context),
         expandedHeight: 200.0,
         floating: false,
         pinned: true,
-        flexibleSpace: _buildFlexibleSpace(),
+        flexibleSpace: _buildFlexibleSpace(context),
       ),
     ];
   }
 
   Widget _buildChapterVerses(BuildContext context) {
     if (chapterDetailsLoading)
-      return ListLoading();
+      return CircularLoading();
 
     if (chapterDetailsLoadFailed)
-      return ListLoadError(
-        error: chapterDetailsLoadError
+      return ActionFailure(
+        errorMessage: chapterDetailsLoadError,
+        onRetryActionPressed: () => chapterDetailsLoad(chapterDetailsItemId),
       );
 
     if (chapterDetailsItem == null)
@@ -91,9 +93,6 @@ class ChapterDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //appBar: _buildAppBar(context),
-      //drawer: _buildDrawer(context),
-      //body: _buildChapterVerses(context)
       body: NestedScrollView(
         headerSliverBuilder: _buildHeaderSliver,
         body: _buildChapterVerses(context)

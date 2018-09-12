@@ -34,15 +34,12 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
-      chapterListLoad: () {
-        store.dispatch(ChapterListLoadAction());
-      },
-      chapterListOnChapterItemTapped: (BuildContext context, int chapterListTappedItemId) {
+      chapterListLoad: () => store.dispatch(ChapterListLoadAction()),
+      chapterListOnChapterItemTapped: (BuildContext context, int chapterListTappedItemId) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
           chapterListTappedItemId: chapterListTappedItemId,
-        ));
-      }
+        ))
     );
   }
 }

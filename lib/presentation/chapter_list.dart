@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/chapter_item.dart';
-import 'package:Quran/presentation/list_loading.dart';
-import 'package:Quran/presentation/list_load_error.dart';
+import 'package:Quran/presentation/circular_loading.dart';
+import 'package:Quran/presentation/action_failure.dart';
 import 'package:Quran/presentation/list_load_empty.dart';
 import 'package:Quran/presentation/chapter_list_item.dart';
 
@@ -25,18 +25,19 @@ class ChapterList extends StatelessWidget {
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped
   }) : super(key: key) {
-    if (!chapterListLoading && chapterListItems.length == 0)
+    if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
       chapterListLoad();
   }
 
   @override
   Widget build(BuildContext context) {
     if (chapterListLoading)
-      return ListLoading();
+      return CircularLoading();
 
     if (chapterListLoadFailed)
-      return ListLoadError(
-        error: chapterListLoadError
+      return ActionFailure(
+        errorMessage: chapterListLoadError,
+        onRetryActionPressed: chapterListLoad,
       );
 
     if (chapterListItems.length == 0)

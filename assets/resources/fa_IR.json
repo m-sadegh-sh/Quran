@@ -29,6 +29,11 @@
     "chapter-item-order": "ترتیب نزول ${order}",
     "chapter-item-part-number": "جزء ${partNumber}",
 
+    "chapter-details-title": "...",
+
     "chapter-classification-meccan": "مکی",
-    "chapter-classification-medinan": "مدنی"
+    "chapter-classification-medinan": "مدنی",
+
+    "action-failure-error-message": "یک خطای غیر منتظره رخ داده است...",
+    "action-failure-retry-action": "تلاش مجدد"
 }

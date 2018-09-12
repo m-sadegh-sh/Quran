@@ -16,7 +16,7 @@ Middleware<RootState> _createChapterDetailsLoad() {
       next(action);
 
       await ChapterRepository().init();
-
+      
       final chapterDetailsItem = await ChapterRepository().findById(
         (action as ChapterDetailsLoadAction).chapterDetailsItemId
       );
