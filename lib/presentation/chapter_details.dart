@@ -7,28 +7,26 @@ import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/items/verse_item.dart';
 
 class ChapterDetails extends StatelessWidget {
-  final int chapterDetailsChapterItemId;
+  final ChapterItem chapterDetailsChapterItem;
   final List<ActionItem> chapterDetailsActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
-  final ChapterItem chapterDetailsChapterItem;
   final List<VerseItem> chapterDetailsVerseItems;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final Function(int) chapterDetailsLoad;
+  final Function(ChapterItem) chapterDetailsLoad;
   final Function(BuildContext, int) chapterDetailsOnVerseItemTapped;
   final int chapterDetailsCurrentTranslatorId;
 
   ChapterDetails({
     Key key,
-    this.chapterDetailsChapterItemId,
+    this.chapterDetailsChapterItem,
     this.chapterDetailsActionItems,
     this.chapterDetailsOnActionItemPressed,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
-    this.chapterDetailsChapterItem,
     this.chapterDetailsVerseItems,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
@@ -39,9 +37,6 @@ class ChapterDetails extends StatelessWidget {
   }) : super(key: key);
 
   List<IconButton> _buildActions(BuildContext context) {
-    if (chapterDetailsChapterItem == null)
-      return null;
-
     return chapterDetailsActionItems
       .map<IconButton>((item) => IconButton(
         icon: Icon(item.icon),
@@ -56,7 +51,7 @@ class ChapterDetails extends StatelessWidget {
         bottom: 10.0
       ),
       child: Text(
-        chapterDetailsChapterItem?.title ?? AppLocalizations.of(context).translate('chapter-details-title'),
+        chapterDetailsChapterItem.title,
         style: TextStyle(
           color: Colors.white,
           fontSize: 16.0,
@@ -66,9 +61,6 @@ class ChapterDetails extends StatelessWidget {
   }
 
   Widget _buildFlexibleSpaceSubtitle(BuildContext context) {
-    if (chapterDetailsChapterItem == null)
-      return Text('');
-
     var description = AppLocalizations.of(context).translateFormatted(
       'chapter-details-sub-title',
       {
@@ -116,7 +108,7 @@ class ChapterDetails extends StatelessWidget {
         expandedHeight: 200.0,
         floating: false,
         pinned: true,
-        flexibleSpace: _buildFlexibleSpace(context),
+        flexibleSpace: _buildFlexibleSpace(context)        
       ),
     ];
   }

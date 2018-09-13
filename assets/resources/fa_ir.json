@@ -30,7 +30,6 @@
     "chapter-item-part-number": "جزء ${partNumber}",
     "chapter-item-translation-text": "...",
 
-    "chapter-details-title": "...",
     "chapter-details-sub-title": "این سوره ${classification} بوده و شامل ${versesCount} آیه، با ترتیب نزول ${order} و در جزء ${partNumber} قرآن قرار گرفته است.",
 
     "verse-item-translation-text": "...",

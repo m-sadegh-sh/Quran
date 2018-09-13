@@ -7,10 +7,9 @@ import 'package:Quran/items/verse_item.dart';
 
 ChapterDetailsState chapterDetailsStateSelector(RootState state) => state.chapterDetailsState;
 GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItemsSelector(ChapterDetailsState state) => state.chapterDetailsOnGenerateActionItems;
-int chapterDetailsChapterItemIdSelector(ChapterDetailsState state) => state.chapterDetailsChapterItemId;
+ChapterItem chapterDetailsChapterItemSelector(ChapterDetailsState state) => state.chapterDetailsChapterItem;
 bool chapterDetailsLoadingSelector(ChapterDetailsState state) => state.chapterDetailsLoading;
 bool chapterDetailsLoadSucceededSelector(ChapterDetailsState state) => state.chapterDetailsLoadSucceeded;
-ChapterItem chapterDetailsChapterItemSelector(ChapterDetailsState state) => state.chapterDetailsChapterItem;
 List<VerseItem> chapterDetailsVerseItemsSelector(ChapterDetailsState state) => state.chapterDetailsVerseItems;
 String chapterDetailsBackgroundImageSelector(ChapterDetailsState state) => state.chapterDetailsBackgroundImage;
 bool chapterDetailsLoadFailedSelector(ChapterDetailsState state) => state.chapterDetailsLoadFailed;

@@ -16,16 +16,11 @@ Middleware<RootState> _createChapterDetailsLoad() {
     try {
       next(action);
 
-      final chapterDetailsChapterItem = await ChapterRepository().findOneById(
-        (action as ChapterDetailsLoadAction).chapterDetailsChapterItemId
-      );
-      
       final chapterDetailsVerseItems = await VerseRepository().findAllByChapterId(
-        (action as ChapterDetailsLoadAction).chapterDetailsChapterItemId
+        (action as ChapterDetailsLoadAction).chapterDetailsChapterItem.id
       );
       
       store.dispatch(ChapterDetailsLoadSucceededAction(
-        chapterDetailsChapterItem: chapterDetailsChapterItem,
         chapterDetailsVerseItems: chapterDetailsVerseItems
       ));
     } catch(exception) {

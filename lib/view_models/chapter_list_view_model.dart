@@ -14,7 +14,7 @@ class ChapterListViewModel {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function chapterListLoad;
-  final Function(BuildContext, int) chapterListOnChapterItemTapped;
+  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
   final int chapterListCurrentTranslatorId;
 
   ChapterListViewModel({
@@ -39,10 +39,10 @@ class ChapterListViewModel {
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
       chapterListLoad: () => store.dispatch(ChapterListLoadAction()),
-      chapterListOnChapterItemTapped: (BuildContext context, int chapterListTappedItemId) =>
+      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
-          chapterListTappedItemId: chapterListTappedItemId,
+          chapterListTappedItem: chapterListTappedItem,
         )),
       chapterListCurrentTranslatorId: appCurrentTranslatorIdSelector(appState)
     );

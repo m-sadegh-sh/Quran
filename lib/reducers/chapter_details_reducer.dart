@@ -9,22 +9,15 @@ final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadAction>(_chapterDetailsLoad),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
-  TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed)
+  TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed),
+  TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed)
 ]);
-
-ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, ChapterDetailsActionItemPressedAction action) {
-  Navigator.of(action.context)
-    .pushNamed(action.chapterDetailsActionItem.routeName);
-
-  return state;
-}
 
 ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetailsLoadAction action) {
   return state.copyWith(
-    chapterDetailsChapterItemId: action.chapterDetailsChapterItemId,
+    chapterDetailsChapterItem: action.chapterDetailsChapterItem,
     chapterDetailsLoading: true,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsChapterItem: null,
     chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
@@ -35,7 +28,6 @@ ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, Chap
   return state.copyWith(
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
-    chapterDetailsChapterItem: action.chapterDetailsChapterItem,
     chapterDetailsVerseItems: List.unmodifiable<VerseItem>(action.chapterDetailsVerseItems)
   );
 }
@@ -46,4 +38,11 @@ ChapterDetailsState _chapterDetailsLoadFailed(ChapterDetailsState state, Chapter
     chapterDetailsLoadFailed: true,
     chapterDetailsLoadError: action.chapterDetailsLoadError
   );
+}
+
+ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, ChapterDetailsActionItemPressedAction action) {
+  Navigator.of(action.context)
+    .pushNamed(action.chapterDetailsActionItem.routeName);
+
+  return state;
 }

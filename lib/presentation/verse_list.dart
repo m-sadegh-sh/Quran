@@ -46,6 +46,7 @@ class VerseList extends StatelessWidget {
       return EmptyContent();
 
     return ListView.builder(
+      padding: EdgeInsets.all(0.0),
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItem(
         verseItem: verseListItems[index],

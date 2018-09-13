@@ -22,10 +22,10 @@ class ChapterListLoadFailedAction {
 
 class ChapterListItemTappedAction {
   final BuildContext context;
-  final int chapterListTappedItemId;
+  final ChapterItem chapterListTappedItem;
 
   ChapterListItemTappedAction({
     this.context,
-    this.chapterListTappedItemId
+    this.chapterListTappedItem
   });
 }

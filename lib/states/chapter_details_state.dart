@@ -7,22 +7,20 @@ import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/items/verse_item.dart';
 
 class ChapterDetailsState {
-  final int chapterDetailsChapterItemId;
+  final ChapterItem chapterDetailsChapterItem;
   final GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
-  final ChapterItem chapterDetailsChapterItem;
   final List<VerseItem> chapterDetailsVerseItems;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
 
   ChapterDetailsState({
-    this.chapterDetailsChapterItemId,
+    this.chapterDetailsChapterItem,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
-    this.chapterDetailsChapterItem,
     this.chapterDetailsVerseItems,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
@@ -30,7 +28,7 @@ class ChapterDetailsState {
   });
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
-    chapterDetailsChapterItemId: null,
+    chapterDetailsChapterItem: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context) => [
       ActionItem(
         routeName: '/share',
@@ -40,7 +38,6 @@ class ChapterDetailsState {
     ],
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsChapterItem: null,
     chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
     chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.png',
     chapterDetailsLoadFailed: false,
@@ -48,21 +45,19 @@ class ChapterDetailsState {
   );
 
   ChapterDetailsState copyWith({
-    chapterDetailsChapterItemId,
+    chapterDetailsChapterItem,
     chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading,
     chapterDetailsLoadSucceeded,
-    chapterDetailsChapterItem,
     chapterDetailsVerseItems,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError
   }) => ChapterDetailsState(
-    chapterDetailsChapterItemId: chapterDetailsChapterItemId ?? this.chapterDetailsChapterItemId,
+    chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
     chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItems ?? this.chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,
-    chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
     chapterDetailsVerseItems: chapterDetailsVerseItems ?? this.chapterDetailsVerseItems,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,

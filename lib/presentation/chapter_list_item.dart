@@ -6,7 +6,7 @@ import 'package:Quran/items/chapter_translation_item.dart';
 
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
-  final Function(BuildContext, int) onChapterItemTapped;
+  final Function(BuildContext, ChapterItem) onChapterItemTapped;
   final int currentTranslatorId;
 
   ChapterListItem({
@@ -46,14 +46,12 @@ class ChapterListItem extends StatelessWidget {
   }
 
   Widget _buildChapterTitle(BuildContext context) {
-    return Container(
-      child: Text(
-        chapterItem.title,
-        style: Theme.of(context).textTheme.title.apply(
-          fontWeightDelta: -2,
-          fontSizeDelta: 2.0,
-          fontFamily: 'Nabi'
-        )
+    return Text(
+      chapterItem.title,
+      style: Theme.of(context).textTheme.title.apply(
+        fontWeightDelta: -2,
+        fontSizeDelta: 2.0,
+        fontFamily: 'Nabi'
       )
     );
   }
@@ -62,12 +60,10 @@ class ChapterListItem extends StatelessWidget {
     return FutureBuilder(
       future: chapterItem.translation(currentTranslatorId),
       builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) =>
-        Container(
-          child: Text(
-            snapshot.hasData ? snapshot.data.text : AppLocalizations.of(context).translate('chapter-item-translation-text'),
-            style: Theme.of(context).textTheme.caption.apply(
-              fontWeightDelta: -1
-            )
+        Text(
+          snapshot.hasData ? snapshot.data.text : AppLocalizations.of(context).translate('chapter-item-translation-text'),
+          style: Theme.of(context).textTheme.caption.apply(
+            fontWeightDelta: -1
           )
         )
     );
@@ -127,10 +123,11 @@ class ChapterListItem extends StatelessWidget {
     return Material(
       color: chapterItem.id % 2 == 0 ? Theme.of(context).indicatorColor.withAlpha(35) : null,
       child: InkWell(
-        onTap: () => onChapterItemTapped(context, chapterItem.id),
+        onTap: () => onChapterItemTapped(context, chapterItem),
         child: Container(
           padding: const EdgeInsets.all(10.0),
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
               _buildChapterNumber(context),
               Expanded(
