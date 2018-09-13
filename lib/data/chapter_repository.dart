@@ -18,7 +18,7 @@ class ChapterRepository extends RepositoryBase<ChapterItem> {
   ChapterRepository._private();
 
   @override
-  String get dataFileName => "chapters";
+  String get dataFileName => 'chapters';
 
   @override
   ChapterItem fromJson(dynamic parsedJson) => ChapterItem.fromJson(parsedJson);

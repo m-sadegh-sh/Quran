@@ -9,24 +9,24 @@ import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/items/action_item.dart';
 
 class ChapterDetailsViewModel {
-  final int chapterDetailsItemId;
+  final int chapterDetailsChapterItemId;
   final GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
-  final ChapterItem chapterDetailsItem;
+  final ChapterItem chapterDetailsChapterItem;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(int) chapterDetailsLoad;
 
   ChapterDetailsViewModel({
-    this.chapterDetailsItemId,
+    this.chapterDetailsChapterItemId,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsOnActionItemPressed,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
-    this.chapterDetailsItem,
+    this.chapterDetailsChapterItem,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
@@ -37,7 +37,7 @@ class ChapterDetailsViewModel {
     final chapterDetailsState = chapterDetailsStateSelector(store.state);
 
     return ChapterDetailsViewModel(
-      chapterDetailsItemId: chapterDetailsItemIdSelector(chapterDetailsState),
+      chapterDetailsChapterItemId: chapterDetailsChapterItemIdSelector(chapterDetailsState),
       chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItemsSelector(chapterDetailsState),
       chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem chapterDetailsActionItem) {
         store.dispatch(ChapterDetailsActionItemPressedAction(
@@ -47,13 +47,13 @@ class ChapterDetailsViewModel {
       },
       chapterDetailsLoading: chapterDetailsLoadingSelector(chapterDetailsState),
       chapterDetailsLoadSucceeded: chapterDetailsLoadSucceededSelector(chapterDetailsState),
-      chapterDetailsItem: chapterDetailsItemSelector(chapterDetailsState),
+      chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
-      chapterDetailsLoad: (int chapterDetailsItemId) {
+      chapterDetailsLoad: (int chapterDetailsChapterItemId) {
         store.dispatch(ChapterDetailsLoadAction(
-          chapterDetailsItemId: chapterDetailsItemId
+          chapterDetailsChapterItemId: chapterDetailsChapterItemId
         ));
       }
     );

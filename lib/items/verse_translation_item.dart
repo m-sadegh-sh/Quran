@@ -2,7 +2,7 @@ class VerseTranslationItem {
   final int id;
   final int verseId;
   final int translatorId;
-  final int text;
+  final String text;
 
   VerseTranslationItem({
     this.id,

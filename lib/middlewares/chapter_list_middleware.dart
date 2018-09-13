@@ -38,7 +38,7 @@ Middleware<RootState> _createChapterListItemTapped() {
       next(action);
 
       store.dispatch(ChapterDetailsLoadAction(
-        chapterDetailsItemId: (action as ChapterListItemTappedAction).chapterListTappedItemId
+        chapterDetailsChapterItemId: (action as ChapterListItemTappedAction).chapterListTappedItemId
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(

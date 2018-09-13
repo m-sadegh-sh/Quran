@@ -20,10 +20,10 @@ ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, 
 
 ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetailsLoadAction action) {
   return state.copyWith(
-    chapterDetailsItemId: action.chapterDetailsItemId,
+    chapterDetailsChapterItemId: action.chapterDetailsChapterItemId,
     chapterDetailsLoading: true,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsItem: null,
+    chapterDetailsChapterItem: null,
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );
@@ -33,7 +33,7 @@ ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, Chap
   return state.copyWith(
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
-    chapterDetailsItem: action.chapterDetailsItem
+    chapterDetailsChapterItem: action.chapterDetailsChapterItem
   );
 }
 

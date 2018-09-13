@@ -1,4 +1,8 @@
+import 'dart:async';
+
+import 'package:Quran/data/chapter_translation_repository.dart';
 import 'package:Quran/enumerations/chapter_classification.dart';
+import 'package:Quran/items/chapter_translation_item.dart';
 
 class ChapterItem {
   final int id;
@@ -16,6 +20,10 @@ class ChapterItem {
     this.versesCount,
     this.classification
   });
+
+  Future<ChapterTranslationItem> translation() async {
+    return ChapterTranslationRepository().findByChapterId(id);
+  }
 
   factory ChapterItem.fromJson(dynamic parsedJson) {
     return ChapterItem(

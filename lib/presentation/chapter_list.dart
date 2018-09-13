@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/presentation/circular_loading.dart';
 import 'package:Quran/presentation/action_failure.dart';
-import 'package:Quran/presentation/list_load_empty.dart';
+import 'package:Quran/presentation/empty_content.dart';
 import 'package:Quran/presentation/chapter_list_item.dart';
 
 class ChapterList extends StatelessWidget {
@@ -41,13 +41,13 @@ class ChapterList extends StatelessWidget {
       );
 
     if (chapterListItems.length == 0)
-      return ListLoadEmpty();
+      return EmptyContent();
 
     return ListView.builder(
       itemCount: chapterListItems.length,
       itemBuilder: (BuildContext context, int index) => ChapterListItem(
         chapterItem: chapterListItems[index],
-        chapterListOnChapterItemTapped: chapterListOnChapterItemTapped
+        onChapterItemTapped: chapterListOnChapterItemTapped
       )
     );
   }

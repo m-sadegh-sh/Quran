@@ -6,28 +6,28 @@ import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
 
 class ChapterDetailsState {
-  final int chapterDetailsItemId;
+  final int chapterDetailsChapterItemId;
   final GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
-  final ChapterItem chapterDetailsItem;
+  final ChapterItem chapterDetailsChapterItem;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
 
   ChapterDetailsState({
-    this.chapterDetailsItemId,
+    this.chapterDetailsChapterItemId,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
-    this.chapterDetailsItem,
+    this.chapterDetailsChapterItem,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError
   });
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
-    chapterDetailsItemId: null,
+    chapterDetailsChapterItemId: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context) => [
       ActionItem(
         routeName: '/share',
@@ -37,27 +37,27 @@ class ChapterDetailsState {
     ],
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsItem: null,
+    chapterDetailsChapterItem: null,
     chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );
 
   ChapterDetailsState copyWith({
-    chapterDetailsItemId,
+    chapterDetailsChapterItemId,
     chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading,
     chapterDetailsLoadSucceeded,
-    chapterDetailsItem,
+    chapterDetailsChapterItem,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError
   }) => ChapterDetailsState(
-    chapterDetailsItemId: chapterDetailsItemId ?? this.chapterDetailsItemId,
+    chapterDetailsChapterItemId: chapterDetailsChapterItemId ?? this.chapterDetailsChapterItemId,
     chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItems ?? this.chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,
-    chapterDetailsItem: chapterDetailsItem ?? this.chapterDetailsItem,
+    chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError

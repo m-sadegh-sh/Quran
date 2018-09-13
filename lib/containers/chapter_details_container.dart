@@ -11,12 +11,12 @@ class ChapterDetailsContainer extends StatelessWidget {
     return StoreConnector<RootState, ChapterDetailsViewModel>(
       converter: ChapterDetailsViewModel.fromStore,
       builder: (BuildContext context, ChapterDetailsViewModel chapterDetailsViewModel) => ChapterDetails(
-        chapterDetailsItemId: chapterDetailsViewModel.chapterDetailsItemId,
+        chapterDetailsChapterItemId: chapterDetailsViewModel.chapterDetailsChapterItemId,
         chapterDetailsActionItems: chapterDetailsViewModel.chapterDetailsOnGenerateActionItems(context),
         chapterDetailsOnActionItemPressed: chapterDetailsViewModel.chapterDetailsOnActionItemPressed,
         chapterDetailsLoading: chapterDetailsViewModel.chapterDetailsLoading,
         chapterDetailsLoadSucceeded: chapterDetailsViewModel.chapterDetailsLoadSucceeded,
-        chapterDetailsItem: chapterDetailsViewModel.chapterDetailsItem,
+        chapterDetailsChapterItem: chapterDetailsViewModel.chapterDetailsChapterItem,
         chapterDetailsBackgroundImage: chapterDetailsViewModel.chapterDetailsBackgroundImage,
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,

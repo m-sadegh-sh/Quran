@@ -37,7 +37,7 @@ class AppLocalizations {
     if (_sentences.containsKey(key))
       return this._sentences[key];
 
-    return "$key not found.";
+    return '$key not found.';
   }
 
   String translateFormatted(String key, Map<String, dynamic> params) {

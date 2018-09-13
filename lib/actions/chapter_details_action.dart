@@ -4,18 +4,18 @@ import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
 
 class ChapterDetailsLoadAction {
-  final int chapterDetailsItemId;
+  final int chapterDetailsChapterItemId;
 
   ChapterDetailsLoadAction({
-    this.chapterDetailsItemId
+    this.chapterDetailsChapterItemId
   });
 }
 
 class ChapterDetailsLoadSucceededAction {
-  final ChapterItem chapterDetailsItem;
+  final ChapterItem chapterDetailsChapterItem;
 
   ChapterDetailsLoadSucceededAction({
-    this.chapterDetailsItem
+    this.chapterDetailsChapterItem
   });
 }
 

@@ -6,10 +6,10 @@ import 'package:Quran/items/chapter_item.dart';
 
 ChapterDetailsState chapterDetailsStateSelector(RootState state) => state.chapterDetailsState;
 GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItemsSelector(ChapterDetailsState state) => state.chapterDetailsOnGenerateActionItems;
-int chapterDetailsItemIdSelector(ChapterDetailsState state) => state.chapterDetailsItemId;
+int chapterDetailsChapterItemIdSelector(ChapterDetailsState state) => state.chapterDetailsChapterItemId;
 bool chapterDetailsLoadingSelector(ChapterDetailsState state) => state.chapterDetailsLoading;
 bool chapterDetailsLoadSucceededSelector(ChapterDetailsState state) => state.chapterDetailsLoadSucceeded;
-ChapterItem chapterDetailsItemSelector(ChapterDetailsState state) => state.chapterDetailsItem;
+ChapterItem chapterDetailsChapterItemSelector(ChapterDetailsState state) => state.chapterDetailsChapterItem;
 String chapterDetailsBackgroundImageSelector(ChapterDetailsState state) => state.chapterDetailsBackgroundImage;
 bool chapterDetailsLoadFailedSelector(ChapterDetailsState state) => state.chapterDetailsLoadFailed;
 String chapterDetailsLoadErrorSelector(ChapterDetailsState state) => state.chapterDetailsLoadError;

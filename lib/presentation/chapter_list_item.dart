@@ -5,12 +5,12 @@ import 'package:Quran/items/chapter_item.dart';
 
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
-  final Function(BuildContext, int) chapterListOnChapterItemTapped;
+  final Function(BuildContext, int) onChapterItemTapped;
 
   ChapterListItem({
     Key key,
     this.chapterItem,
-    this.chapterListOnChapterItemTapped
+    this.onChapterItemTapped
   }) : super(key: key);
 
   Widget _buildChapterNumber(BuildContext context) {
@@ -55,10 +55,10 @@ class ChapterListItem extends StatelessWidget {
 
   Widget _buildChapterDescription(BuildContext context) {
     var description = AppLocalizations.of(context).translateFormatted(
-      "chapter-item-description",
+      'chapter-item-description',
       {
-        "classification": AppLocalizations.of(context).translateEnum(chapterItem.classification),
-        "versesCount": chapterItem.versesCount
+        'classification': AppLocalizations.of(context).translateEnum(chapterItem.classification),
+        'versesCount': chapterItem.versesCount
       }        
     );
 
@@ -73,9 +73,9 @@ class ChapterListItem extends StatelessWidget {
 
   Widget _buildChapterOrder(BuildContext context) {
     var description = AppLocalizations.of(context).translateFormatted(
-      "chapter-item-order",
+      'chapter-item-order',
       {
-        "order": chapterItem.order
+        'order': chapterItem.order
       }        
     );
 
@@ -90,9 +90,9 @@ class ChapterListItem extends StatelessWidget {
 
   Widget _buildChapterPartNumber(BuildContext context) {
     var description = AppLocalizations.of(context).translateFormatted(
-      "chapter-item-part-number",
+      'chapter-item-part-number',
       {
-        "partNumber": chapterItem.partNumber
+        'partNumber': chapterItem.partNumber
       }        
     );
 
@@ -108,7 +108,7 @@ class ChapterListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () => chapterListOnChapterItemTapped(context, chapterItem.id),
+      onTap: () => onChapterItemTapped(context, chapterItem.id),
       child: Container(
         padding: const EdgeInsets.all(10.0),
         child: Row(          
