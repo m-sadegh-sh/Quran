@@ -51,7 +51,8 @@ class ChapterListItem extends StatelessWidget {
         chapterItem.title,
         style: Theme.of(context).textTheme.title.apply(
           fontWeightDelta: -2,
-          fontFamily: 'Thuluth'
+          fontSizeDelta: 2.0,
+          fontFamily: 'Nabi'
         )
       )
     );

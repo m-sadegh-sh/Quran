@@ -48,6 +48,7 @@ class VerseListItem extends StatelessWidget {
         verseItem.fullText,
         style: Theme.of(context).textTheme.title.apply(
           fontWeightDelta: -2,
+          fontSizeDelta: 2.0,
           fontFamily: 'Nabi'
         )
       )
