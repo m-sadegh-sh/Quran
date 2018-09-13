@@ -19,7 +19,7 @@ flutter:
   uses-material-design: true
 
   assets:
-   - assets/resources/fa_IR.json
+   - assets/resources/fa_ir.json
    - assets/data/translators.json
    - assets/data/chapters.json
    - assets/data/chapter_translations.json
