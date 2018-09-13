@@ -36,7 +36,7 @@ ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, Chap
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
     chapterDetailsChapterItem: action.chapterDetailsChapterItem,
-    chapterDetailsVerseItems: action.chapterDetailsVerseItems
+    chapterDetailsVerseItems: List.unmodifiable<VerseItem>(action.chapterDetailsVerseItems)
   );
 }
 

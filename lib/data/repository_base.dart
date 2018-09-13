@@ -16,10 +16,15 @@ abstract class RepositoryBase<T> {
     String data = await rootBundle.loadString(key);
     _cachedEntities = json.decode(data).map<T>(fromJson).toList();
 
+    print('Repository inited. (dataFileName: $dataFileName)');
+
     return true;
   }
 
   Future<List<T>> findAll() async {
+    if (_cachedEntities == null)
+      await init();
+
     return _cachedEntities;
   }
 }

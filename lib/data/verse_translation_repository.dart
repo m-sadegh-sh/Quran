@@ -9,8 +9,10 @@ class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
   VerseTranslationRepository.protected();
 
   factory VerseTranslationRepository() {
-    if (_instance == null)
+    if (_instance == null) {
       _instance = VerseTranslationRepository._private();
+      print('VerseTranslationRepository created.');
+    }
 
     return _instance;
   }
@@ -18,7 +20,7 @@ class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
   VerseTranslationRepository._private();
 
   @override
-  String get dataFileName => 'verse-translations';
+  String get dataFileName => 'verse_translations';
 
   @override
   VerseTranslationItem fromJson(dynamic parsedJson) => VerseTranslationItem.fromJson(parsedJson);

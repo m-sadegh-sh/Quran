@@ -17,8 +17,6 @@ Middleware<RootState> _createChapterListLoad() {
     try {
       next(action);
 
-      await ChapterRepository().init();
-
       final chapterListItems = await ChapterRepository().findAll();
       
       store.dispatch(ChapterListLoadSucceededAction(

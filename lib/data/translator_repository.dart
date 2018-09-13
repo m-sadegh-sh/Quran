@@ -9,8 +9,10 @@ class TranslatorRepository extends RepositoryBase<TranslatorItem> {
   TranslatorRepository.protected();
 
   factory TranslatorRepository() {
-    if (_instance == null)
+    if (_instance == null) {
       _instance = TranslatorRepository._private();
+      print('TranslatorRepository created.');
+    }
 
     return _instance;
   }

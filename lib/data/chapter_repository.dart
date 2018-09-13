@@ -9,8 +9,10 @@ class ChapterRepository extends RepositoryBase<ChapterItem> {
   ChapterRepository.protected();
 
   factory ChapterRepository() {
-    if (_instance == null)
+    if (_instance == null) {
       _instance = ChapterRepository._private();
+      print('ChapterRepository created.');
+    }
 
     return _instance;
   }

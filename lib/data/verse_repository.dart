@@ -9,8 +9,10 @@ class VerseRepository extends RepositoryBase<VerseItem> {
   VerseRepository.protected();
 
   factory VerseRepository() {
-    if (_instance == null)
+    if (_instance == null) {
       _instance = VerseRepository._private();
+      print('VerseRepository created.');
+    }
 
     return _instance;
   }
@@ -28,6 +30,6 @@ class VerseRepository extends RepositoryBase<VerseItem> {
   }
 
   Future<List<VerseItem>> findAllByChapterId(int chapterId) async {
-    return (await findAll()).where((vi) => vi.chapterId == chapterId);
+    return (await findAll()).where((vi) => vi.chapterId == chapterId).toList();
   }
 }

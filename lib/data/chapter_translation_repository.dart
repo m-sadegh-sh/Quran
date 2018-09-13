@@ -9,8 +9,10 @@ class ChapterTranslationRepository extends RepositoryBase<ChapterTranslationItem
   ChapterTranslationRepository.protected();
 
   factory ChapterTranslationRepository() {
-    if (_instance == null)
+    if (_instance == null) {
       _instance = ChapterTranslationRepository._private();
+      print('ChapterTranslationRepository created.');
+    }
 
     return _instance;
   }
@@ -18,7 +20,7 @@ class ChapterTranslationRepository extends RepositoryBase<ChapterTranslationItem
   ChapterTranslationRepository._private();
 
   @override
-  String get dataFileName => 'chapter-translations';
+  String get dataFileName => 'chapter_translations';
 
   @override
   ChapterTranslationItem fromJson(dynamic parsedJson) => ChapterTranslationItem.fromJson(parsedJson);
