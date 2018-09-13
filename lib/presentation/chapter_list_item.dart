@@ -36,7 +36,7 @@ class ChapterListItem extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 18.0,
                   color: Theme.of(context).primaryColorDark
-                )              
+                )
               )
             ]
           )
@@ -50,7 +50,8 @@ class ChapterListItem extends StatelessWidget {
       child: Text(
         chapterItem.title,
         style: Theme.of(context).textTheme.title.apply(
-          fontWeightDelta: -2
+          fontWeightDelta: -2,
+          fontFamily: 'Thuluth'
         )
       )
     );

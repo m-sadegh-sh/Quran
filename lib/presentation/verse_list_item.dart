@@ -42,13 +42,13 @@ class VerseListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildVerseFullText() {
+  Widget _buildVerseFullText(BuildContext context) {
     return Container(
       child: Text(
         verseItem.fullText,
-        style: TextStyle(
-          fontSize: 18.0,
-          fontFamily: 'Taha'
+        style: Theme.of(context).textTheme.title.apply(
+          fontWeightDelta: -2,
+          fontFamily: 'Nabi'
         )
       )
     );
@@ -83,7 +83,7 @@ class VerseListItem extends StatelessWidget {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  _buildVerseFullText(),
+                  _buildVerseFullText(context),
                   _buildVerseTranslationText(context)
                 ],
               )
