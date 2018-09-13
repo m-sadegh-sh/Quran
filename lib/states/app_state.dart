@@ -56,7 +56,7 @@ class AppState {
       GlobalWidgetsLocalizations.delegate,
     ],
     appSupportedLocales: [
-      const Locale('fa', 'IR'),
+      Locale('fa', 'IR'),
     ],
     appCurrentLocale: Locale('fa', 'IR'),
     appCurrentTranslatorId: 1

@@ -18,7 +18,7 @@ class VerseListItem extends StatelessWidget {
 
   Widget _buildVerseNumber(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10.0),
+      margin: EdgeInsets.only(left: 10.0),
       child: SizedBox(
         width: 48.0,
         height: 48.0,
@@ -76,7 +76,7 @@ class VerseListItem extends StatelessWidget {
       child: InkWell(
         onTap: () => onVerseItemTapped(context, verseItem.id),
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[

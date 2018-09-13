@@ -10,7 +10,7 @@ class AppLocalizations {
   final Locale _locale;
   Map<String, String> _sentences;
 
-  static const LocalizationsDelegate<AppLocalizations> delegate = const _AppLocalizationsDelegate();
+  static LocalizationsDelegate<AppLocalizations> delegate = _AppLocalizationsDelegate();
 
   static AppLocalizations of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
@@ -55,7 +55,7 @@ class AppLocalizations {
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
-  const _AppLocalizationsDelegate();
+  _AppLocalizationsDelegate();
 
   @override
   bool isSupported(Locale locale) => ['fa-IR'].contains('${locale.languageCode}-${locale.countryCode}');

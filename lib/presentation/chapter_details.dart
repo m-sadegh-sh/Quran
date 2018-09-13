@@ -1,10 +1,9 @@
-import 'package:Quran/app_localizations.dart';
-import 'package:Quran/presentation/verse_list.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
 import 'package:Quran/items/verse_item.dart';
+import 'package:Quran/presentation/verse_list.dart';
 
 class ChapterDetails extends StatelessWidget {
   final ChapterItem chapterDetailsChapterItem;
@@ -46,37 +45,13 @@ class ChapterDetails extends StatelessWidget {
   }
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(
-        bottom: 10.0
-      ),
-      child: Text(
-        chapterDetailsChapterItem.title,
-        style: TextStyle(
-          color: Colors.white,
-          fontSize: 16.0,
-        )
-      )
-    );
-  }
-
-  Widget _buildFlexibleSpaceSubtitle(BuildContext context) {
-    var description = AppLocalizations.of(context).translateFormatted(
-      'chapter-details-sub-title',
-      {
-        'classification': AppLocalizations.of(context).translateEnum(chapterDetailsChapterItem.classification),
-        'versesCount': chapterDetailsChapterItem.versesCount,
-        'order': chapterDetailsChapterItem.order,
-        'partNumber': chapterDetailsChapterItem.partNumber
-      }
-    );
-
     return Text(
-      description,
+      chapterDetailsChapterItem.title,
       textAlign: TextAlign.center,
-      style: TextStyle(
-        fontWeight: FontWeight.w200,
-        fontSize: 12.0
+      style: Theme.of(context).textTheme.title.apply(
+        color: Theme.of(context).scaffoldBackgroundColor,
+        fontSizeDelta: 2.0,
+        fontFamily: 'Nabi'
       )
     );
   }
@@ -84,16 +59,7 @@ class ChapterDetails extends StatelessWidget {
   Widget _buildFlexibleSpace(BuildContext context) {
     return FlexibleSpaceBar(
       centerTitle: true,
-      title: Container(
-        width: MediaQuery.of(context).size.width * 0.6,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            _buildFlexibleSpaceTitle(context),
-            _buildFlexibleSpaceSubtitle(context)
-          ]
-        )
-      ),
+      title: _buildFlexibleSpaceTitle(context),
       background: Image.asset(
         chapterDetailsBackgroundImage,
         fit: BoxFit.cover,
@@ -106,9 +72,8 @@ class ChapterDetails extends StatelessWidget {
       SliverAppBar(
         actions: _buildActions(context),
         expandedHeight: 200.0,
-        floating: false,
         pinned: true,
-        flexibleSpace: _buildFlexibleSpace(context)        
+        flexibleSpace: _buildFlexibleSpace(context)
       ),
     ];
   }

@@ -34,6 +34,11 @@ class ChapterDetailsState {
         routeName: '/share',
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-share'),
         icon: Icons.share
+      ),
+      ActionItem(
+        routeName: '/bookmark',
+        tooltip: AppLocalizations.of(context).translate('chapter-details-action-bookmark'),
+        icon: Icons.bookmark
       )
     ],
     chapterDetailsLoading: false,

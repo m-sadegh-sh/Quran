@@ -18,7 +18,7 @@ class ChapterListItem extends StatelessWidget {
 
   Widget _buildChapterNumber(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10.0),
+      margin: EdgeInsets.only(left: 10.0),
       child: SizedBox(
         width: 48.0,
         height: 48.0,
@@ -125,7 +125,7 @@ class ChapterListItem extends StatelessWidget {
       child: InkWell(
         onTap: () => onChapterItemTapped(context, chapterItem),
         child: Container(
-          padding: const EdgeInsets.all(10.0),
+          padding: EdgeInsets.all(10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
