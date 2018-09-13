@@ -25,8 +25,7 @@ flutter:
    - assets/data/chapter_translations.json
    - assets/data/verses.json
    - assets/data/verse_translations.json
-   - assets/images/drawer_background.png
-   - assets/images/flexible_space_bar_background.png
+   - assets/images/quran_background.png
 
   fonts:
    - family: IranSans

@@ -44,7 +44,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
-    chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.png',
+    chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );

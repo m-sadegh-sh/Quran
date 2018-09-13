@@ -45,19 +45,22 @@ class ChapterDetails extends StatelessWidget {
   }
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
-    return Text(
-      chapterDetailsChapterItem.title,
-      textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.title.apply(
-        color: Theme.of(context).scaffoldBackgroundColor,
-        fontSizeDelta: 2.0,
-        fontFamily: 'Nabi'
+    return SizedBox(
+      height: kTextTabBarHeight - 16,      
+      child: Text(
+        chapterDetailsChapterItem.title,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.title.apply(
+          color: Theme.of(context).scaffoldBackgroundColor,
+          fontSizeDelta: 2.0,
+          fontFamily: 'Nabi'
+        )
       )
     );
   }
 
   Widget _buildFlexibleSpace(BuildContext context) {
-    return FlexibleSpaceBar(
+    return FlexibleSpaceBar(      
       centerTitle: true,
       title: _buildFlexibleSpaceTitle(context),
       background: Image.asset(
@@ -71,9 +74,9 @@ class ChapterDetails extends StatelessWidget {
     return <Widget>[
       SliverAppBar(
         actions: _buildActions(context),
-        expandedHeight: 200.0,
+        expandedHeight: 120.0,
         pinned: true,
-        flexibleSpace: _buildFlexibleSpace(context)
+        flexibleSpace: _buildFlexibleSpace(context)        
       ),
     ];
   }
