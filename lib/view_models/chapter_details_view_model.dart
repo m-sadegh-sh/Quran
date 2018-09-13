@@ -6,6 +6,7 @@ import 'package:Quran/actions/chapter_details_action.dart';
 import 'package:Quran/selectors/chapter_details_selector.dart';
 import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/chapter_item.dart';
+import 'package:Quran/items/verse_item.dart';
 import 'package:Quran/items/action_item.dart';
 
 class ChapterDetailsViewModel {
@@ -15,6 +16,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final ChapterItem chapterDetailsChapterItem;
+  final List<VerseItem> chapterDetailsVerseItems;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
@@ -27,6 +29,7 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsChapterItem,
+    this.chapterDetailsVerseItems,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
@@ -48,6 +51,7 @@ class ChapterDetailsViewModel {
       chapterDetailsLoading: chapterDetailsLoadingSelector(chapterDetailsState),
       chapterDetailsLoadSucceeded: chapterDetailsLoadSucceededSelector(chapterDetailsState),
       chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
+      chapterDetailsVerseItems: chapterDetailsVerseItemsSelector(chapterDetailsState),
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),

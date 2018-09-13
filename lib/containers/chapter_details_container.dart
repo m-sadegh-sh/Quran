@@ -17,6 +17,7 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoading: chapterDetailsViewModel.chapterDetailsLoading,
         chapterDetailsLoadSucceeded: chapterDetailsViewModel.chapterDetailsLoadSucceeded,
         chapterDetailsChapterItem: chapterDetailsViewModel.chapterDetailsChapterItem,
+        chapterDetailsVerseItems: chapterDetailsViewModel.chapterDetailsVerseItems,
         chapterDetailsBackgroundImage: chapterDetailsViewModel.chapterDetailsBackgroundImage,
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,

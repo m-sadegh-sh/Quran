@@ -4,6 +4,7 @@ import 'package:Quran/app_localizations.dart';
 import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/action_item.dart';
 import 'package:Quran/items/chapter_item.dart';
+import 'package:Quran/items/verse_item.dart';
 
 class ChapterDetailsState {
   final int chapterDetailsChapterItemId;
@@ -11,6 +12,7 @@ class ChapterDetailsState {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final ChapterItem chapterDetailsChapterItem;
+  final List<VerseItem> chapterDetailsVerseItems;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
@@ -21,6 +23,7 @@ class ChapterDetailsState {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsChapterItem,
+    this.chapterDetailsVerseItems,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError
@@ -38,6 +41,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsChapterItem: null,
+    chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
     chapterDetailsBackgroundImage: 'assets/images/flexible_space_bar_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
@@ -49,6 +53,7 @@ class ChapterDetailsState {
     chapterDetailsLoading,
     chapterDetailsLoadSucceeded,
     chapterDetailsChapterItem,
+    chapterDetailsVerseItems,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError
@@ -58,6 +63,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,
     chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
+    chapterDetailsVerseItems: chapterDetailsVerseItems ?? this.chapterDetailsVerseItems,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError

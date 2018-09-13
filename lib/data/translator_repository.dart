@@ -23,11 +23,11 @@ class TranslatorRepository extends RepositoryBase<TranslatorItem> {
   @override
   TranslatorItem fromJson(dynamic parsedJson) => TranslatorItem.fromJson(parsedJson);
   
-  Future<TranslatorItem> findById(int id) async {
-    return (await list()).firstWhere((ti) => ti.id == id);
+  Future<TranslatorItem> findOneById(int id) async {
+    return (await findAll()).firstWhere((ti) => ti.id == id);
   }
 
-  Future<TranslatorItem> findByLocaleCode(String localeCode) async {
-    return (await list()).firstWhere((ti) => ti.localeCode == localeCode);
+  Future<TranslatorItem> findOneByLocaleCode(String localeCode) async {
+    return (await findAll()).firstWhere((ti) => ti.localeCode == localeCode);
   }
 }

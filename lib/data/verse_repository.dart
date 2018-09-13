@@ -23,7 +23,11 @@ class VerseRepository extends RepositoryBase<VerseItem> {
   @override
   VerseItem fromJson(dynamic parsedJson) => VerseItem.fromJson(parsedJson);
   
-  Future<VerseItem> findById(int id) async {
-    return (await list()).firstWhere((vi) => vi.id == id);
+  Future<VerseItem> findOneById(int id) async {
+    return (await findAll()).firstWhere((vi) => vi.id == id);
+  }
+
+  Future<List<VerseItem>> findAllByChapterId(int chapterId) async {
+    return (await findAll()).where((vi) => vi.chapterId == chapterId);
   }
 }

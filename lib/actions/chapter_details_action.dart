@@ -1,3 +1,4 @@
+import 'package:Quran/items/verse_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/action_item.dart';
@@ -13,9 +14,11 @@ class ChapterDetailsLoadAction {
 
 class ChapterDetailsLoadSucceededAction {
   final ChapterItem chapterDetailsChapterItem;
+  final List<VerseItem> chapterDetailsVerseItems;
 
   ChapterDetailsLoadSucceededAction({
-    this.chapterDetailsChapterItem
+    this.chapterDetailsChapterItem,
+    this.chapterDetailsVerseItems
   });
 }
 

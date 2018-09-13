@@ -23,7 +23,7 @@ class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
   @override
   VerseTranslationItem fromJson(dynamic parsedJson) => VerseTranslationItem.fromJson(parsedJson);
   
-  Future<VerseTranslationItem> findByVerseId(int verseId) async {
-    return (await list()).firstWhere((vti) => vti.verseId == verseId);
+  Future<VerseTranslationItem> findOneByVerseId(int verseId) async {
+    return (await findAll()).firstWhere((vti) => vti.verseId == verseId);
   }
 }

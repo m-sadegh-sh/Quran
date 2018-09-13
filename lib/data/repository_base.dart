@@ -19,7 +19,7 @@ abstract class RepositoryBase<T> {
     return true;
   }
 
-  Future<List<T>> list() async {
+  Future<List<T>> findAll() async {
     return _cachedEntities;
   }
 }

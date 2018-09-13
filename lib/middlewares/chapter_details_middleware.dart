@@ -1,3 +1,4 @@
+import 'package:Quran/data/verse_repository.dart';
 import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
@@ -17,12 +18,17 @@ Middleware<RootState> _createChapterDetailsLoad() {
 
       await ChapterRepository().init();
       
-      final chapterDetailsChapterItem = await ChapterRepository().findById(
+      final chapterDetailsChapterItem = await ChapterRepository().findOneById(
+        (action as ChapterDetailsLoadAction).chapterDetailsChapterItemId
+      );
+      
+      final chapterDetailsVerseItems = await VerseRepository().findAllByChapterId(
         (action as ChapterDetailsLoadAction).chapterDetailsChapterItemId
       );
       
       store.dispatch(ChapterDetailsLoadSucceededAction(
-        chapterDetailsChapterItem: chapterDetailsChapterItem
+        chapterDetailsChapterItem: chapterDetailsChapterItem,
+        chapterDetailsVerseItems: chapterDetailsVerseItems
       ));
     } catch(exception) {
       store.dispatch(ChapterDetailsLoadFailedAction(

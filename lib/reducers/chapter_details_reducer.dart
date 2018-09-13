@@ -3,6 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:Quran/states/chapter_details_state.dart';
 import 'package:Quran/actions/chapter_details_action.dart';
+import 'package:Quran/items/verse_item.dart';
 
 final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
@@ -24,6 +25,7 @@ ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetail
     chapterDetailsLoading: true,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsChapterItem: null,
+    chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );
@@ -33,7 +35,8 @@ ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, Chap
   return state.copyWith(
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
-    chapterDetailsChapterItem: action.chapterDetailsChapterItem
+    chapterDetailsChapterItem: action.chapterDetailsChapterItem,
+    chapterDetailsVerseItems: action.chapterDetailsVerseItems
   );
 }
 

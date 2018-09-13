@@ -22,7 +22,7 @@ class ChapterItem {
   });
 
   Future<ChapterTranslationItem> translation() async {
-    return ChapterTranslationRepository().findByChapterId(id);
+    return ChapterTranslationRepository().findOneByChapterId(id);
   }
 
   factory ChapterItem.fromJson(dynamic parsedJson) {
