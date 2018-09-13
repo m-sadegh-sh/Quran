@@ -25,7 +25,7 @@ class ChapterTranslationRepository extends RepositoryBase<ChapterTranslationItem
   @override
   ChapterTranslationItem fromJson(dynamic parsedJson) => ChapterTranslationItem.fromJson(parsedJson);
   
-  Future<ChapterTranslationItem> findOneByChapterId(int chapterId) async {
-    return (await findAll()).firstWhere((cti) => cti.chapterId == chapterId);
+  Future<ChapterTranslationItem> findOneByChapterId(int chapterId, int translatorId) async {    
+    return (await findAll()).singleWhere((cti) => cti.chapterId == chapterId && cti.translatorId == translatorId);
   }
 }

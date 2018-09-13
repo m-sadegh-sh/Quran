@@ -3,6 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/actions/chapter_list_action.dart';
+import 'package:Quran/selectors/app_selector.dart';
 import 'package:Quran/selectors/chapter_list_selector.dart';
 import 'package:Quran/items/chapter_item.dart';
 
@@ -14,6 +15,7 @@ class ChapterListViewModel {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, int) chapterListOnChapterItemTapped;
+  final int chapterListCurrentTranslatorId;
 
   ChapterListViewModel({
     this.chapterListLoading,
@@ -22,10 +24,12 @@ class ChapterListViewModel {
     this.chapterListLoadFailed,
     this.chapterListLoadError,
     this.chapterListLoad,
-    this.chapterListOnChapterItemTapped
+    this.chapterListOnChapterItemTapped,
+    this.chapterListCurrentTranslatorId
   });
 
   static ChapterListViewModel fromStore(Store<RootState> store) {
+    final appState = appStateSelector(store.state);
     final chapterListState = chapterListStateSelector(store.state);
 
     return ChapterListViewModel(
@@ -39,7 +43,8 @@ class ChapterListViewModel {
         store.dispatch(ChapterListItemTappedAction(
           context: context,
           chapterListTappedItemId: chapterListTappedItemId,
-        ))
+        )),
+      chapterListCurrentTranslatorId: appCurrentTranslatorIdSelector(appState)
     );
   }
 }

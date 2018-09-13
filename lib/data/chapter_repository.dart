@@ -26,6 +26,6 @@ class ChapterRepository extends RepositoryBase<ChapterItem> {
   ChapterItem fromJson(dynamic parsedJson) => ChapterItem.fromJson(parsedJson);
 
   Future<ChapterItem> findOneById(int id) async {
-    return (await findAll()).firstWhere((ci) => ci.id == id);
+    return (await findAll()).singleWhere((ci) => ci.id == id);
   }
 }

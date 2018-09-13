@@ -2,7 +2,7 @@ class ChapterTranslationItem {
   final int id;
   final int chapterId;
   final int translatorId;
-  final int text;
+  final String text;
 
   ChapterTranslationItem({
     this.id,

@@ -25,12 +25,15 @@
     
     "about-title": "درباره برنامه",
 
-    "chapter-item-description": "${classification}، ${versesCount} آیه",
+    "chapter-item-classification-and-verses-count": "${classification}، ${versesCount} آیه",
     "chapter-item-order": "ترتیب نزول ${order}",
     "chapter-item-part-number": "جزء ${partNumber}",
+    "chapter-item-translation-text": "...",
 
     "chapter-details-title": "...",
     "chapter-details-sub-title": "این سوره ${classification} بوده و شامل ${versesCount} آیه، با ترتیب نزول ${order} و در جزء ${partNumber} قرآن قرار گرفته است.",
+
+    "verse-item-translation-text": "...",
 
     "chapter-classification-meccan": "مکی",
     "chapter-classification-medinan": "مدنی",

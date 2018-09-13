@@ -18,6 +18,8 @@ class AppState {
   final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
+  final Locale appCurrentLocale;
+  final int appCurrentTranslatorId;
   
   AppState({
     this.appOnGenerateTitle,
@@ -25,7 +27,9 @@ class AppState {
     this.appInitialRoute,
     this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
-    this.appSupportedLocales
+    this.appSupportedLocales,
+    this.appCurrentLocale,
+    this.appCurrentTranslatorId
   });
 
   factory AppState.initial() => AppState(
@@ -53,6 +57,8 @@ class AppState {
     ],
     appSupportedLocales: [
       const Locale('fa', 'IR'),
-    ]
+    ],
+    appCurrentLocale: Locale('fa', 'IR'),
+    appCurrentTranslatorId: 1
   );
 }

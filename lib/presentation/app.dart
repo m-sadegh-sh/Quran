@@ -7,6 +7,7 @@ class App extends StatelessWidget {
   final Map<String, WidgetBuilder> appRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
+  final Locale appCurrentLocale;
 
   App({
     Key key,
@@ -15,7 +16,8 @@ class App extends StatelessWidget {
     this.appInitialRoute,
     this.appRoutes,
     this.appLocalizationsDelegates,
-    this.appSupportedLocales
+    this.appSupportedLocales,
+    this.appCurrentLocale
   }) : super(key: key);
 
   @override
@@ -28,7 +30,8 @@ class App extends StatelessWidget {
       initialRoute: appInitialRoute,
       routes: appRoutes,
       localizationsDelegates: appLocalizationsDelegates,
-      supportedLocales: appSupportedLocales
+      supportedLocales: appSupportedLocales,
+      locale: appCurrentLocale,
     );
   }
 }

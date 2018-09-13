@@ -36,6 +36,9 @@ flutter:
         weight: 200
       - asset: assets/fonts/iran_sans/bold.ttf
         weight: 700
+   - family: Taha
+     fonts:
+      - asset: assets/fonts/taha/regular.ttf
 
 flutter_icons:
   android: true 

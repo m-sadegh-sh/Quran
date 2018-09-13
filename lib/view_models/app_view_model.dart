@@ -12,14 +12,16 @@ class AppViewModel {
   final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
-  
+  final Locale appCurrentLocale;
+
   AppViewModel({
     this.appOnGenerateTitle,
     this.appTheme,
     this.appInitialRoute,
     this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
-    this.appSupportedLocales
+    this.appSupportedLocales,
+    this.appCurrentLocale
   });
 
   static AppViewModel fromStore(Store<RootState> store) {
@@ -31,7 +33,8 @@ class AppViewModel {
       appInitialRoute: appInitialRouteSelector(appState),
       appOnGenerateRoutes: appOnGenerateRoutesSelector(appState),
       appLocalizationsDelegates: appLocalizationsDelegatesSelector(appState),
-      appSupportedLocales: appSupportedLocalesSelector(appState)
+      appSupportedLocales: appSupportedLocalesSelector(appState),
+      appCurrentLocale: appCurrentLocaleSelector(appState)
     );
   }
 }

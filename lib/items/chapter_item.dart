@@ -21,8 +21,8 @@ class ChapterItem {
     this.classification
   });
 
-  Future<ChapterTranslationItem> translation() async {
-    return ChapterTranslationRepository().findOneByChapterId(id);
+  Future<ChapterTranslationItem> translation(int translatorId) async {
+    return await ChapterTranslationRepository().findOneByChapterId(id, translatorId);
   }
 
   factory ChapterItem.fromJson(dynamic parsedJson) {

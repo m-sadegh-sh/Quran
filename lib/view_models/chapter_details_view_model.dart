@@ -3,6 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/actions/chapter_details_action.dart';
+import 'package:Quran/selectors/app_selector.dart';
 import 'package:Quran/selectors/chapter_details_selector.dart';
 import 'package:Quran/delegates/generate_with_context.dart';
 import 'package:Quran/items/chapter_item.dart';
@@ -21,6 +22,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(int) chapterDetailsLoad;
+  final int chapterDetailsCurrentTranslatorId;
 
   ChapterDetailsViewModel({
     this.chapterDetailsChapterItemId,
@@ -33,10 +35,12 @@ class ChapterDetailsViewModel {
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
-    this.chapterDetailsLoad
+    this.chapterDetailsLoad,
+    this.chapterDetailsCurrentTranslatorId
   });
 
   static ChapterDetailsViewModel fromStore(Store<RootState> store) {
+    final appState = appStateSelector(store.state);
     final chapterDetailsState = chapterDetailsStateSelector(store.state);
 
     return ChapterDetailsViewModel(
@@ -55,11 +59,11 @@ class ChapterDetailsViewModel {
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
-      chapterDetailsLoad: (int chapterDetailsChapterItemId) {
+      chapterDetailsLoad: (int chapterDetailsChapterItemId) => 
         store.dispatch(ChapterDetailsLoadAction(
           chapterDetailsChapterItemId: chapterDetailsChapterItemId
-        ));
-      }
+        )),
+      chapterDetailsCurrentTranslatorId: appCurrentTranslatorIdSelector(appState)
     );
   }
 }

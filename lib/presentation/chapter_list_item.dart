@@ -2,6 +2,7 @@ import 'package:Quran/app_localizations.dart';
 import 'package:flutter/material.dart';
 
 import 'package:Quran/items/chapter_item.dart';
+import 'package:Quran/items/chapter_translation_item.dart';
 
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
@@ -42,37 +43,34 @@ class ChapterListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildChapterTitle() {
+  Widget _buildChapterTitle(BuildContext context) {
     return Container(
       child: Text(
         chapterItem.title,
-        style: TextStyle(
-          fontSize: 18.0
+        style: Theme.of(context).textTheme.title.apply(
+          fontWeightDelta: -2
         )
       )
     );
   }
 
-  Widget _buildChapterDescription(BuildContext context) {
-    var description = AppLocalizations.of(context).translateFormatted(
-      'chapter-item-description',
-      {
-        'classification': AppLocalizations.of(context).translateEnum(chapterItem.classification),
-        'versesCount': chapterItem.versesCount
-      }        
-    );
-
-    return Text(
-      description,
-      style: TextStyle(
-        fontWeight: FontWeight.w200,
-        fontSize: 14.0
-      )
+  Widget _buildChapterTranslationText(BuildContext context) {
+    return FutureBuilder(      
+      future: chapterItem.translation(),
+      builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) =>
+        Container(
+          child: Text(
+            snapshot.hasData ? snapshot.data.text : AppLocalizations.of(context).translate('chapter-item-translation-text'),
+            style: Theme.of(context).textTheme.caption.apply(
+              fontWeightDelta: -1
+            )
+          )
+        )
     );
   }
 
   Widget _buildChapterOrder(BuildContext context) {
-    var description = AppLocalizations.of(context).translateFormatted(
+    var order = AppLocalizations.of(context).translateFormatted(
       'chapter-item-order',
       {
         'order': chapterItem.order
@@ -80,16 +78,15 @@ class ChapterListItem extends StatelessWidget {
     );
 
     return Text(
-      description,
-      style: TextStyle(
-        fontWeight: FontWeight.w200,
-        fontSize: 14.0
+      order,
+      style: Theme.of(context).textTheme.caption.apply(
+        fontWeightDelta: -2
       )
     );
   }
 
   Widget _buildChapterPartNumber(BuildContext context) {
-    var description = AppLocalizations.of(context).translateFormatted(
+    var partNumber = AppLocalizations.of(context).translateFormatted(
       'chapter-item-part-number',
       {
         'partNumber': chapterItem.partNumber
@@ -97,44 +94,67 @@ class ChapterListItem extends StatelessWidget {
     );
 
     return Text(
-      description,
-      style: TextStyle(
-        fontWeight: FontWeight.w200,
-        fontSize: 14.0
+      partNumber,
+      style: Theme.of(context).textTheme.caption.apply(
+        fontWeightDelta: -2
+      )
+    );
+  }
+
+  Widget _buildChapterClassificationAndVersesCount(BuildContext context) {
+    var classificationAndVersesCount = AppLocalizations.of(context).translateFormatted(
+      'chapter-item-classification-and-verses-count',
+      {
+        'classification': AppLocalizations.of(context).translateEnum(chapterItem.classification),
+        'versesCount': chapterItem.versesCount
+      }        
+    );
+
+    return Text(
+      classificationAndVersesCount,
+      style: Theme.of(context).textTheme.caption.apply(
+        fontWeightDelta: -2
       )
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () => onChapterItemTapped(context, chapterItem.id),
-      child: Container(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(          
-          children: <Widget>[
-            _buildChapterNumber(context),
-            Expanded(
-              flex: 3,
-              child: Column(                
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _buildChapterTitle(),
-                  _buildChapterDescription(context)
-                ],
+    return Material(
+      color: chapterItem.id % 2 == 0 ? Theme.of(context).indicatorColor.withAlpha(35) : null,
+      child: InkWell(
+        onTap: () => onChapterItemTapped(context, chapterItem.id),
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(          
+            children: <Widget>[
+              _buildChapterNumber(context),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  margin: EdgeInsets.only(left: 10.0),
+                  child: Column(                
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      _buildChapterTitle(context),
+                      _buildChapterTranslationText(context)
+                    ],
+                  )
+                )
+              ),
+              Expanded(
+                flex: 2,
+                child: Column(                
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _buildChapterPartNumber(context),
+                    _buildChapterOrder(context),
+                    _buildChapterClassificationAndVersesCount(context)
+                  ],
+                )
               )
-            ),
-            Expanded(
-              flex: 2,
-              child: Column(                
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _buildChapterPartNumber(context),
-                  _buildChapterOrder(context)
-                ],
-              )
-            )
-          ],
+            ],
+          )
         )
       )
     );

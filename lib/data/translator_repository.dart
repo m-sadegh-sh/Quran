@@ -26,10 +26,10 @@ class TranslatorRepository extends RepositoryBase<TranslatorItem> {
   TranslatorItem fromJson(dynamic parsedJson) => TranslatorItem.fromJson(parsedJson);
   
   Future<TranslatorItem> findOneById(int id) async {
-    return (await findAll()).firstWhere((ti) => ti.id == id);
+    return (await findAll()).singleWhere((ti) => ti.id == id);
   }
 
   Future<TranslatorItem> findOneByLocaleCode(String localeCode) async {
-    return (await findAll()).firstWhere((ti) => ti.localeCode == localeCode);
+    return (await findAll()).singleWhere((ti) => ti.localeCode == localeCode);
   }
 }

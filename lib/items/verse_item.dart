@@ -18,8 +18,8 @@ class VerseItem {
     this.cleanText
   });
 
-  Future<VerseTranslationItem> translation() async {
-    return VerseTranslationRepository().findOneByVerseId(id);
+  Future<VerseTranslationItem> translation(int translatorId) async {
+    return await VerseTranslationRepository().findOneByVerseId(id, translatorId);
   }
 
   factory VerseItem.fromJson(dynamic parsedJson) {
