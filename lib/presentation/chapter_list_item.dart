@@ -7,11 +7,13 @@ import 'package:Quran/items/chapter_translation_item.dart';
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
   final Function(BuildContext, int) onChapterItemTapped;
+  final int currentTranslatorId;
 
   ChapterListItem({
     Key key,
     this.chapterItem,
-    this.onChapterItemTapped
+    this.onChapterItemTapped,
+    this.currentTranslatorId
   }) : super(key: key);
 
   Widget _buildChapterNumber(BuildContext context) {
@@ -55,8 +57,8 @@ class ChapterListItem extends StatelessWidget {
   }
 
   Widget _buildChapterTranslationText(BuildContext context) {
-    return FutureBuilder(      
-      future: chapterItem.translation(),
+    return FutureBuilder(
+      future: chapterItem.translation(currentTranslatorId),
       builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) =>
         Container(
           child: Text(
@@ -74,7 +76,7 @@ class ChapterListItem extends StatelessWidget {
       'chapter-item-order',
       {
         'order': chapterItem.order
-      }        
+      }
     );
 
     return Text(
@@ -90,7 +92,7 @@ class ChapterListItem extends StatelessWidget {
       'chapter-item-part-number',
       {
         'partNumber': chapterItem.partNumber
-      }        
+      }
     );
 
     return Text(
@@ -107,7 +109,7 @@ class ChapterListItem extends StatelessWidget {
       {
         'classification': AppLocalizations.of(context).translateEnum(chapterItem.classification),
         'versesCount': chapterItem.versesCount
-      }        
+      }
     );
 
     return Text(
@@ -126,14 +128,14 @@ class ChapterListItem extends StatelessWidget {
         onTap: () => onChapterItemTapped(context, chapterItem.id),
         child: Container(
           padding: const EdgeInsets.all(10.0),
-          child: Row(          
+          child: Row(
             children: <Widget>[
               _buildChapterNumber(context),
               Expanded(
                 flex: 3,
                 child: Container(
                   margin: EdgeInsets.only(left: 10.0),
-                  child: Column(                
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       _buildChapterTitle(context),
@@ -144,7 +146,7 @@ class ChapterListItem extends StatelessWidget {
               ),
               Expanded(
                 flex: 2,
-                child: Column(                
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     _buildChapterPartNumber(context),

@@ -14,6 +14,7 @@ class ChapterList extends StatelessWidget {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, int) chapterListOnChapterItemTapped;
+  final int chapterListCurrentTranslatorId;
 
   ChapterList({
     Key key,
@@ -23,7 +24,8 @@ class ChapterList extends StatelessWidget {
     this.chapterListLoadFailed,
     this.chapterListLoadError,
     this.chapterListLoad,
-    this.chapterListOnChapterItemTapped
+    this.chapterListOnChapterItemTapped,
+    this.chapterListCurrentTranslatorId
   }) : super(key: key) {
     if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
       chapterListLoad();
@@ -47,7 +49,8 @@ class ChapterList extends StatelessWidget {
       itemCount: chapterListItems.length,
       itemBuilder: (BuildContext context, int index) => ChapterListItem(
         chapterItem: chapterListItems[index],
-        onChapterItemTapped: chapterListOnChapterItemTapped
+        onChapterItemTapped: chapterListOnChapterItemTapped,
+        currentTranslatorId: chapterListCurrentTranslatorId
       )
     );
   }
