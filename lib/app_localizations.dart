@@ -4,7 +4,7 @@ import 'package:Quran/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:Quran/enumerations/chapter_classification.dart';
+import 'package:Quran/enumerations/chapter_revelation_place.dart';
 
 class AppLocalizations {
   final Locale _locale;
@@ -47,7 +47,7 @@ class AppLocalizations {
     );
   }
 
-  String translateEnum(ChapterClassification value) {
+  String translateEnum(ChapterRevelationPlace value) {
     return translate(
       StringUtils.toAphenized(value)
     );

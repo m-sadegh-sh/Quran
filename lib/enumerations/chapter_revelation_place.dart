@@ -1,0 +1,4 @@
+enum ChapterRevelationPlace {
+  Meccan,
+  Medinan
+}

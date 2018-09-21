@@ -26,15 +26,15 @@
     
     "about-title": "درباره برنامه",
 
-    "chapter-item-classification-and-verses-count": "${classification}، ${versesCount} آیه",
+    "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
     "chapter-item-order": "ترتیب نزول ${order}",
     "chapter-item-part-number": "جزء ${partNumber}",
     "chapter-item-translation-text": "...",
 
     "verse-item-translation-text": "...",
 
-    "chapter-classification-meccan": "مکی",
-    "chapter-classification-medinan": "مدنی",
+    "chapter-revelation-place-meccan": "مکی",
+    "chapter-revelation-place-medinan": "مدنی",
 
     "action-failure-error-message": "یک خطای غیر منتظره رخ داده است...",
     "action-failure-retry-action": "تلاش مجدد",

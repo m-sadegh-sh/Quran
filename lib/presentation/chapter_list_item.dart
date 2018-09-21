@@ -101,17 +101,17 @@ class ChapterListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildChapterClassificationAndVersesCount(BuildContext context) {
-    var classificationAndVersesCount = AppLocalizations.of(context).translateFormatted(
-      'chapter-item-classification-and-verses-count',
+  Widget _buildChapterRevelationPlaceAndVersesCount(BuildContext context) {
+    var revelationPlaceAndVersesCount = AppLocalizations.of(context).translateFormatted(
+      'chapter-item-revelation-place-and-verses-count',
       {
-        'classification': AppLocalizations.of(context).translateEnum(chapterItem.classification),
+        'revelationPlace': AppLocalizations.of(context).translateEnum(chapterItem.revelationPlace),
         'versesCount': chapterItem.versesCount
       }
     );
 
     return Text(
-      classificationAndVersesCount,
+      revelationPlaceAndVersesCount,
       style: Theme.of(context).textTheme.caption.apply(
         fontWeightDelta: -2
       )
@@ -150,7 +150,7 @@ class ChapterListItem extends StatelessWidget {
                   children: <Widget>[
                     _buildChapterPartNumber(context),
                     _buildChapterOrder(context),
-                    _buildChapterClassificationAndVersesCount(context)
+                    _buildChapterRevelationPlaceAndVersesCount(context)
                   ],
                 )
               )

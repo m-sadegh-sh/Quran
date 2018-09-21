@@ -5,7 +5,7 @@
         "order": 5,
         "partNumber": 1,
         "versesCount": 7,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 2,
@@ -13,7 +13,7 @@
         "order": 87,
         "partNumber": 1,
         "versesCount": 286,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 3,
@@ -21,7 +21,7 @@
         "order": 89,
         "partNumber": 3,
         "versesCount": 200,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 4,
@@ -29,7 +29,7 @@
         "order": 92,
         "partNumber": 4,
         "versesCount": 176,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
         "order": 112,
         "partNumber": 6,
         "versesCount": 120,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 6,
@@ -45,7 +45,7 @@
         "order": 55,
         "partNumber": 7,
         "versesCount": 165,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 7,
@@ -53,7 +53,7 @@
         "order": 39,
         "partNumber": 8,
         "versesCount": 206,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 8,
@@ -61,7 +61,7 @@
         "order": 88,
         "partNumber": 9,
         "versesCount": 75,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 9,
@@ -69,7 +69,7 @@
         "order": 113,
         "partNumber": 10,
         "versesCount": 129,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 10,
@@ -77,7 +77,7 @@
         "order": 51,
         "partNumber": 11,
         "versesCount": 109,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 11,
@@ -85,7 +85,7 @@
         "order": 52,
         "partNumber": 11,
         "versesCount": 123,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 12,
@@ -93,7 +93,7 @@
         "order": 53,
         "partNumber": 12,
         "versesCount": 111,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 13,
@@ -101,7 +101,7 @@
         "order": 96,
         "partNumber": 13,
         "versesCount": 43,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 14,
@@ -109,7 +109,7 @@
         "order": 72,
         "partNumber": 13,
         "versesCount": 52,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 15,
@@ -117,7 +117,7 @@
         "order": 54,
         "partNumber": 14,
         "versesCount": 99,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 16,
@@ -125,7 +125,7 @@
         "order": 70,
         "partNumber": 14,
         "versesCount": 128,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 17,
@@ -133,7 +133,7 @@
         "order": 50,
         "partNumber": 15,
         "versesCount": 111,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 18,
@@ -141,7 +141,7 @@
         "order": 69,
         "partNumber": 15,
         "versesCount": 110,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 19,
@@ -149,7 +149,7 @@
         "order": 44,
         "partNumber": 16,
         "versesCount": 98,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 20,
@@ -157,7 +157,7 @@
         "order": 45,
         "partNumber": 16,
         "versesCount": 135,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 21,
@@ -165,7 +165,7 @@
         "order": 73,
         "partNumber": 17,
         "versesCount": 112,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 22,
@@ -173,7 +173,7 @@
         "order": 103,
         "partNumber": 17,
         "versesCount": 78,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 23,
@@ -181,7 +181,7 @@
         "order": 74,
         "partNumber": 18,
         "versesCount": 118,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 24,
@@ -189,7 +189,7 @@
         "order": 102,
         "partNumber": 18,
         "versesCount": 64,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 25,
@@ -197,7 +197,7 @@
         "order": 42,
         "partNumber": 18,
         "versesCount": 77,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 26,
@@ -205,7 +205,7 @@
         "order": 47,
         "partNumber": 19,
         "versesCount": 227,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 27,
@@ -213,7 +213,7 @@
         "order": 48,
         "partNumber": 19,
         "versesCount": 93,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 28,
@@ -221,7 +221,7 @@
         "order": 49,
         "partNumber": 20,
         "versesCount": 88,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 29,
@@ -229,7 +229,7 @@
         "order": 85,
         "partNumber": 20,
         "versesCount": 69,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 30,
@@ -237,7 +237,7 @@
         "order": 84,
         "partNumber": 21,
         "versesCount": 60,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 31,
@@ -245,7 +245,7 @@
         "order": 57,
         "partNumber": 21,
         "versesCount": 34,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 32,
@@ -253,7 +253,7 @@
         "order": 75,
         "partNumber": 21,
         "versesCount": 30,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 33,
@@ -261,7 +261,7 @@
         "order": 90,
         "partNumber": 21,
         "versesCount": 73,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 34,
@@ -269,7 +269,7 @@
         "order": 58,
         "partNumber": 22,
         "versesCount": 54,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 35,
@@ -277,7 +277,7 @@
         "order": 43,
         "partNumber": 22,
         "versesCount": 45,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 36,
@@ -285,7 +285,7 @@
         "order": 41,
         "partNumber": 22,
         "versesCount": 83,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 37,
@@ -293,7 +293,7 @@
         "order": 56,
         "partNumber": 23,
         "versesCount": 182,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 38,
@@ -301,7 +301,7 @@
         "order": 38,
         "partNumber": 23,
         "versesCount": 88,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 39,
@@ -309,7 +309,7 @@
         "order": 59,
         "partNumber": 23,
         "versesCount": 75,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 40,
@@ -317,7 +317,7 @@
         "order": 60,
         "partNumber": 24,
         "versesCount": 85,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 41,
@@ -325,7 +325,7 @@
         "order": 61,
         "partNumber": 24,
         "versesCount": 54,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 42,
@@ -333,7 +333,7 @@
         "order": 62,
         "partNumber": 25,
         "versesCount": 53,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 43,
@@ -341,7 +341,7 @@
         "order": 63,
         "partNumber": 25,
         "versesCount": 89,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 44,
@@ -349,7 +349,7 @@
         "order": 64,
         "partNumber": 25,
         "versesCount": 59,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 45,
@@ -357,7 +357,7 @@
         "order": 65,
         "partNumber": 25,
         "versesCount": 37,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 46,
@@ -365,7 +365,7 @@
         "order": 66,
         "partNumber": 26,
         "versesCount": 35,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 47,
@@ -373,7 +373,7 @@
         "order": 95,
         "partNumber": 26,
         "versesCount": 38,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 48,
@@ -381,7 +381,7 @@
         "order": 111,
         "partNumber": 26,
         "versesCount": 29,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 49,
@@ -389,7 +389,7 @@
         "order": 106,
         "partNumber": 26,
         "versesCount": 18,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 50,
@@ -397,7 +397,7 @@
         "order": 34,
         "partNumber": 26,
         "versesCount": 45,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 51,
@@ -405,7 +405,7 @@
         "order": 67,
         "partNumber": 26,
         "versesCount": 60,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 52,
@@ -413,7 +413,7 @@
         "order": 76,
         "partNumber": 27,
         "versesCount": 49,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 53,
@@ -421,7 +421,7 @@
         "order": 23,
         "partNumber": 27,
         "versesCount": 62,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 54,
@@ -429,7 +429,7 @@
         "order": 37,
         "partNumber": 27,
         "versesCount": 55,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 55,
@@ -437,7 +437,7 @@
         "order": 97,
         "partNumber": 27,
         "versesCount": 78,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 56,
@@ -445,7 +445,7 @@
         "order": 46,
         "partNumber": 27,
         "versesCount": 96,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 57,
@@ -453,7 +453,7 @@
         "order": 94,
         "partNumber": 27,
         "versesCount": 29,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 58,
@@ -461,7 +461,7 @@
         "order": 105,
         "partNumber": 28,
         "versesCount": 22,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 59,
@@ -469,7 +469,7 @@
         "order": 101,
         "partNumber": 28,
         "versesCount": 24,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 60,
@@ -477,7 +477,7 @@
         "order": 91,
         "partNumber": 28,
         "versesCount": 13,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 61,
@@ -485,7 +485,7 @@
         "order": 109,
         "partNumber": 28,
         "versesCount": 14,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 62,
@@ -493,7 +493,7 @@
         "order": 110,
         "partNumber": 28,
         "versesCount": 11,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 63,
@@ -501,7 +501,7 @@
         "order": 104,
         "partNumber": 28,
         "versesCount": 11,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 64,
@@ -509,7 +509,7 @@
         "order": 108,
         "partNumber": 28,
         "versesCount": 18,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 65,
@@ -517,7 +517,7 @@
         "order": 99,
         "partNumber": 28,
         "versesCount": 12,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 66,
@@ -525,7 +525,7 @@
         "order": 107,
         "partNumber": 28,
         "versesCount": 12,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 67,
@@ -533,7 +533,7 @@
         "order": 77,
         "partNumber": 29,
         "versesCount": 30,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 68,
@@ -541,7 +541,7 @@
         "order": 2,
         "partNumber": 29,
         "versesCount": 52,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 69,
@@ -549,7 +549,7 @@
         "order": 78,
         "partNumber": 29,
         "versesCount": 52,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 70,
@@ -557,7 +557,7 @@
         "order": 79,
         "partNumber": 29,
         "versesCount": 44,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 71,
@@ -565,7 +565,7 @@
         "order": 71,
         "partNumber": 29,
         "versesCount": 28,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 72,
@@ -573,7 +573,7 @@
         "order": 40,
         "partNumber": 29,
         "versesCount": 28,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 73,
@@ -581,7 +581,7 @@
         "order": 3,
         "partNumber": 29,
         "versesCount": 20,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 74,
@@ -589,7 +589,7 @@
         "order": 4,
         "partNumber": 29,
         "versesCount": 56,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 75,
@@ -597,7 +597,7 @@
         "order": 31,
         "partNumber": 29,
         "versesCount": 40,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 76,
@@ -605,7 +605,7 @@
         "order": 98,
         "partNumber": 29,
         "versesCount": 31,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 77,
@@ -613,7 +613,7 @@
         "order": 33,
         "partNumber": 29,
         "versesCount": 50,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 78,
@@ -621,7 +621,7 @@
         "order": 80,
         "partNumber": 30,
         "versesCount": 40,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 79,
@@ -629,7 +629,7 @@
         "order": 81,
         "partNumber": 30,
         "versesCount": 46,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 80,
@@ -637,7 +637,7 @@
         "order": 24,
         "partNumber": 30,
         "versesCount": 42,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 81,
@@ -645,7 +645,7 @@
         "order": 7,
         "partNumber": 30,
         "versesCount": 29,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 82,
@@ -653,7 +653,7 @@
         "order": 82,
         "partNumber": 30,
         "versesCount": 19,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 83,
@@ -661,7 +661,7 @@
         "order": 86,
         "partNumber": 30,
         "versesCount": 36,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 84,
@@ -669,7 +669,7 @@
         "order": 83,
         "partNumber": 30,
         "versesCount": 25,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 85,
@@ -677,7 +677,7 @@
         "order": 27,
         "partNumber": 30,
         "versesCount": 22,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 86,
@@ -685,7 +685,7 @@
         "order": 36,
         "partNumber": 30,
         "versesCount": 17,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 87,
@@ -693,7 +693,7 @@
         "order": 8,
         "partNumber": 30,
         "versesCount": 19,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 88,
@@ -701,7 +701,7 @@
         "order": 68,
         "partNumber": 30,
         "versesCount": 26,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 89,
@@ -709,7 +709,7 @@
         "order": 10,
         "partNumber": 30,
         "versesCount": 30,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 90,
@@ -717,7 +717,7 @@
         "order": 35,
         "partNumber": 30,
         "versesCount": 20,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 91,
@@ -725,7 +725,7 @@
         "order": 26,
         "partNumber": 30,
         "versesCount": 15,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 92,
@@ -733,7 +733,7 @@
         "order": 9,
         "partNumber": 30,
         "versesCount": 21,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 93,
@@ -741,7 +741,7 @@
         "order": 11,
         "partNumber": 30,
         "versesCount": 11,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 94,
@@ -749,7 +749,7 @@
         "order": 12,
         "partNumber": 30,
         "versesCount": 8,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 95,
@@ -757,7 +757,7 @@
         "order": 28,
         "partNumber": 30,
         "versesCount": 8,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 96,
@@ -765,7 +765,7 @@
         "order": 1,
         "partNumber": 30,
         "versesCount": 19,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 97,
@@ -773,7 +773,7 @@
         "order": 25,
         "partNumber": 30,
         "versesCount": 5,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 98,
@@ -781,7 +781,7 @@
         "order": 100,
         "partNumber": 30,
         "versesCount": 8,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 99,
@@ -789,7 +789,7 @@
         "order": 93,
         "partNumber": 30,
         "versesCount": 8,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 100,
@@ -797,7 +797,7 @@
         "order": 14,
         "partNumber": 30,
         "versesCount": 11,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 101,
@@ -805,7 +805,7 @@
         "order": 30,
         "partNumber": 30,
         "versesCount": 11,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 102,
@@ -813,7 +813,7 @@
         "order": 16,
         "partNumber": 30,
         "versesCount": 8,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 103,
@@ -821,7 +821,7 @@
         "order": 13,
         "partNumber": 30,
         "versesCount": 3,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 104,
@@ -829,7 +829,7 @@
         "order": 32,
         "partNumber": 30,
         "versesCount": 9,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 105,
@@ -837,7 +837,7 @@
         "order": 19,
         "partNumber": 30,
         "versesCount": 5,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 106,
@@ -845,7 +845,7 @@
         "order": 29,
         "partNumber": 30,
         "versesCount": 4,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 107,
@@ -853,7 +853,7 @@
         "order": 17,
         "partNumber": 30,
         "versesCount": 7,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 108,
@@ -861,7 +861,7 @@
         "order": 15,
         "partNumber": 30,
         "versesCount": 3,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 109,
@@ -869,7 +869,7 @@
         "order": 18,
         "partNumber": 30,
         "versesCount": 6,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 110,
@@ -877,7 +877,7 @@
         "order": 114,
         "partNumber": 30,
         "versesCount": 3,
-        "classification": "ChapterClassification.Medinan"
+        "revelationPlace": "ChapterRevelationPlace.Medinan"
     },
     {
         "id": 111,
@@ -885,7 +885,7 @@
         "order": 6,
         "partNumber": 30,
         "versesCount": 5,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 112,
@@ -893,7 +893,7 @@
         "order": 22,
         "partNumber": 30,
         "versesCount": 4,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 113,
@@ -901,7 +901,7 @@
         "order": 20,
         "partNumber": 30,
         "versesCount": 5,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     },
     {
         "id": 114,
@@ -909,6 +909,6 @@
         "order": 21,
         "partNumber": 30,
         "versesCount": 6,
-        "classification": "ChapterClassification.Meccan"
+        "revelationPlace": "ChapterRevelationPlace.Meccan"
     }
 ]

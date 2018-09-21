@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:Quran/data/chapter_translation_repository.dart';
-import 'package:Quran/enumerations/chapter_classification.dart';
+import 'package:Quran/enumerations/chapter_revelation_place.dart';
 import 'package:Quran/items/chapter_translation_item.dart';
 
 class ChapterItem {
@@ -10,7 +10,7 @@ class ChapterItem {
   final int order;
   final int partNumber;
   final int versesCount;
-  final ChapterClassification classification;
+  final ChapterRevelationPlace revelationPlace;
 
   ChapterItem({
     this.id,
@@ -18,7 +18,7 @@ class ChapterItem {
     this.order,
     this.partNumber,
     this.versesCount,
-    this.classification
+    this.revelationPlace
   });
 
   Future<ChapterTranslationItem> translation(int translatorId) async {
@@ -32,7 +32,7 @@ class ChapterItem {
       order: parsedJson['order'],
       partNumber: parsedJson['partNumber'],
       versesCount: parsedJson['versesCount'],
-      classification: ChapterClassification.values.firstWhere((v) => v.toString() == parsedJson['classification'])
+      revelationPlace: ChapterRevelationPlace.values.firstWhere((v) => v.toString() == parsedJson['revelationPlace'])
     );
   }
 }
