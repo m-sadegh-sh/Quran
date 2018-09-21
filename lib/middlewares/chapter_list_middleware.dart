@@ -1,9 +1,13 @@
-import 'package:Quran/actions/chapter_details_action.dart';
 import 'package:redux/redux.dart';
 
 import 'package:Quran/states/root_state.dart';
 import 'package:Quran/actions/chapter_list_action.dart';
+import 'package:Quran/actions/chapter_details_action.dart';
+import 'package:Quran/data/translator_repository.dart';
 import 'package:Quran/data/chapter_repository.dart';
+import 'package:Quran/data/chapter_translation_repository.dart';
+import 'package:Quran/data/verse_repository.dart';
+import 'package:Quran/data/verse_translation_repository.dart';
 
 List<Middleware<RootState>> createChapterListMiddleware() {
   return [
@@ -17,8 +21,14 @@ Middleware<RootState> _createChapterListLoad() {
     try {
       next(action);
 
+      await TranslatorRepository().init();
+      await ChapterRepository().init();
+      await ChapterTranslationRepository().init();
+      await VerseRepository().init();
+      await VerseTranslationRepository().init();
+
       final chapterListItems = await ChapterRepository().findAll();
-      
+            
       store.dispatch(ChapterListLoadSucceededAction(
         chapterListItems: chapterListItems
       ));
