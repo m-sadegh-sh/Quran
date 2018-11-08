@@ -23,13 +23,18 @@ class ActionFailure extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Icon(
-                  Icons.error,
+                  Icons.error_outline,
                   size: 40.0,
                   color: Theme.of(context).errorColor,
                 ),
-                Text(
-                  errorMessage ?? AppLocalizations.of(context).translate('action-failure-error-message'),
-                  style: Theme.of(context).textTheme.subhead
+                Container(
+                  margin: EdgeInsets.only(right: 5.0),
+                  child: Text(
+                    errorMessage ?? AppLocalizations.of(context).translate('action-failure-error-message'),
+                    style: Theme.of(context).textTheme.subhead.apply(
+                      color: Theme.of(context).hintColor
+                    )
+                  )
                 )
               ]
             ),
@@ -40,8 +45,8 @@ class ActionFailure extends StatelessWidget {
               child: RaisedButton(
                 color: Theme.of(context).canvasColor,
                 padding: EdgeInsets.all(15.0),
-                shape: CircleBorder(
-                  side: BorderSide(
+                shape: OutlineInputBorder(
+                  borderSide: BorderSide(
                     color: Theme.of(context).primaryColor
                   )
                 ),

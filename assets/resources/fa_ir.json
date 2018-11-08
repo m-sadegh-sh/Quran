@@ -36,5 +36,7 @@
     "action-failure-error-message": "یک خطای غیر منتظره رخ داده است...",
     "action-failure-retry-action": "تلاش مجدد",
 
+    "empty-content-no-result-message": "محتوایی برای نمایش وجود ندارد.",
+
     "circular-loading-spin-message": "لطفا صبر کنید..."
 }
