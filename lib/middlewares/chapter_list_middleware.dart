@@ -21,12 +21,6 @@ Middleware<RootState> _createChapterListLoad() {
     try {
       next(action);
 
-      await TranslatorRepository().init();
-      await ChapterRepository().init();
-      await ChapterTranslationRepository().init();
-      await VerseRepository().init();
-      await VerseTranslationRepository().init();
-
       final chapterListItems = await ChapterRepository().findAll();
             
       store.dispatch(ChapterListLoadSucceededAction(
