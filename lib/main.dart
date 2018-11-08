@@ -15,28 +15,26 @@ import 'package:Quran/data/chapter_translation_repository.dart';
 import 'package:Quran/data/verse_repository.dart';
 import 'package:Quran/data/verse_translation_repository.dart';
 
-void main() {
+void main() async {
+  await TranslatorRepository().init();
+  await ChapterRepository().init();
+  await ChapterTranslationRepository().init();
+  await VerseRepository().init();
+  await VerseTranslationRepository().init();
+  
   final store = new Store<RootState>(
     rootReducer,
     initialState: RootState.initial(),
     middleware: [
       new LoggingMiddleware.printer(level: Level.SHOUT)
-    ]..addAll(createChapterListMiddleware()
+    ]..addAll(createChapterListMiddleware())
      ..addAll(createChapterDetailsMiddleware())
   );
 
-  Future.wait([
-    TranslatorRepository().init(),
-    ChapterRepository().init(),
-    ChapterTranslationRepository().init(),
-    VerseRepository().init(),
-    VerseTranslationRepository().init()
-  ]).then((e) => 
-    runApp(
-      StoreProvider(
-        store: store,
-        child: AppContainer()
-      )
+  runApp(
+    StoreProvider(
+      store: store,
+      child: AppContainer()
     )
   );
 }
