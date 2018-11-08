@@ -61,4 +61,20 @@ class AppState {
     appCurrentLocale: Locale('fa', 'IR'),
     appCurrentTranslatorId: 1
   );
+  
+  AppState copyWith({
+    appThemeFontFamily
+  }) => AppState(
+    appTheme: this.appTheme.copyWith(
+      textTheme: appThemeFontFamily ? this.appTheme.textTheme.apply(
+        fontFamily: appThemeFontFamily
+      ) : this.appTheme.textTheme,
+      primaryTextTheme: appThemeFontFamily ? this.appTheme.primaryTextTheme.apply(
+        fontFamily: appThemeFontFamily        
+      ) : this.appTheme.primaryTextTheme,
+      accentTextTheme: appThemeFontFamily ? this.appTheme.accentTextTheme.apply(
+        fontFamily: appThemeFontFamily        
+      ) : this.appTheme.accentTextTheme
+    )
+  );
 }
