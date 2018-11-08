@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/items/drawer_item.dart';
-import 'package:Quran/items/action_item.dart';
-import 'package:Quran/items/tab_item.dart';
+import 'package:quran/items/drawer_item.dart';
+import 'package:quran/items/action_item.dart';
+import 'package:quran/items/tab_item.dart';
 
 class Home extends StatelessWidget {  
   final String homeTitle;

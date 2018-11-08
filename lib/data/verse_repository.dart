@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:Quran/data/repository_base.dart';
-import 'package:Quran/items/verse_item.dart';
+import 'package:quran/data/repository_base.dart';
+import 'package:quran/items/verse_item.dart';
 
 class VerseRepository extends RepositoryBase<VerseItem> {
   static VerseRepository _instance;

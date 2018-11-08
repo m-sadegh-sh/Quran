@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/home_state.dart';
-import 'package:Quran/actions/home_action.dart';
+import 'package:quran/states/home_state.dart';
+import 'package:quran/actions/home_action.dart';
 
 final Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, HomeDrawerItemTappedAction>(_homeDrawerItemTapped),

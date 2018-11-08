@@ -29,9 +29,6 @@
     "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
     "chapter-item-order": "ترتیب نزول ${order}",
     "chapter-item-part-number": "جزء ${partNumber}",
-    "chapter-item-translation-text": "...",
-
-    "verse-item-translation-text": "...",
 
     "chapter-revelation-place-meccan": "مکی",
     "chapter-revelation-place-medinan": "مدنی",

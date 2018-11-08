@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/view_models/chapter_list_view_model.dart';
-import 'package:Quran/presentation/chapter_list.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/view_models/chapter_list_view_model.dart';
+import 'package:quran/presentation/chapter_list.dart';
 
 class ChapterListContainer extends StatelessWidget {
   @override

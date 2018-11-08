@@ -1,13 +1,13 @@
-import 'package:Quran/containers/chapter_list_container.dart';
-import 'package:Quran/items/tab_item.dart';
-import 'package:Quran/presentation/bookmark_list.dart';
-import 'package:Quran/presentation/part_list.dart';
+import 'package:quran/containers/chapter_list_container.dart';
+import 'package:quran/items/tab_item.dart';
+import 'package:quran/presentation/bookmark_list.dart';
+import 'package:quran/presentation/part_list.dart';
 import 'package:flutter/material.dart';
 
-import 'package:Quran/app_localizations.dart';
-import 'package:Quran/delegates/generate_with_context.dart';
-import 'package:Quran/items/drawer_item.dart';
-import 'package:Quran/items/action_item.dart';
+import 'package:quran/app_localizations.dart';
+import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/items/drawer_item.dart';
+import 'package:quran/items/action_item.dart';
 
 class HomeState {
   final GenerateWithContext<String> homeOnGenerateTitle;

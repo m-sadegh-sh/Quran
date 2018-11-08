@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:Quran/data/verse_translation_repository.dart';
-import 'package:Quran/items/verse_translation_item.dart';
+import 'package:quran/data/verse_translation_repository.dart';
+import 'package:quran/items/verse_translation_item.dart';
 
 class VerseItem {
   final int id;

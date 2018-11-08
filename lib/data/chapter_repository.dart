@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:Quran/data/repository_base.dart';
-import 'package:Quran/items/chapter_item.dart';
+import 'package:quran/data/repository_base.dart';
+import 'package:quran/items/chapter_item.dart';
 
 class ChapterRepository extends RepositoryBase<ChapterItem> {
   static ChapterRepository _instance;

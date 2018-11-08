@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/selectors/app_selector.dart';
-import 'package:Quran/delegates/generate_with_context.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/selectors/app_selector.dart';
+import 'package:quran/delegates/generate_with_context.dart';
 
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;

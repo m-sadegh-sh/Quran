@@ -1,8 +1,8 @@
-import 'package:Quran/items/verse_item.dart';
+import 'package:quran/items/verse_item.dart';
 import 'package:flutter/material.dart';
 
-import 'package:Quran/items/action_item.dart';
-import 'package:Quran/items/chapter_item.dart';
+import 'package:quran/items/action_item.dart';
+import 'package:quran/items/chapter_item.dart';
 
 class ChapterDetailsLoadAction {
   final ChapterItem chapterDetailsChapterItem;

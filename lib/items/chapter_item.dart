@@ -1,8 +1,8 @@
 import 'dart:async';
 
-import 'package:Quran/data/chapter_translation_repository.dart';
-import 'package:Quran/enumerations/chapter_revelation_place.dart';
-import 'package:Quran/items/chapter_translation_item.dart';
+import 'package:quran/data/chapter_translation_repository.dart';
+import 'package:quran/enumerations/chapter_revelation_place.dart';
+import 'package:quran/items/chapter_translation_item.dart';
 
 class ChapterItem {
   final int id;

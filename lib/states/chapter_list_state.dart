@@ -1,4 +1,4 @@
-import 'package:Quran/items/chapter_item.dart';
+import 'package:quran/items/chapter_item.dart';
 
 class ChapterListState {
   final bool chapterListLoading;

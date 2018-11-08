@@ -1,7 +1,7 @@
-import 'package:Quran/states/app_state.dart';
-import 'package:Quran/states/home_state.dart';
-import 'package:Quran/states/chapter_list_state.dart';
-import 'package:Quran/states/chapter_details_state.dart';
+import 'package:quran/states/app_state.dart';
+import 'package:quran/states/home_state.dart';
+import 'package:quran/states/chapter_list_state.dart';
+import 'package:quran/states/chapter_details_state.dart';
 
 class RootState {
   final AppState appState;

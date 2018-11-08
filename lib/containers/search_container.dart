@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/app_localizations.dart';
+import 'package:quran/app_localizations.dart';
 
 class SearchContainer extends StatefulWidget {
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('search-title');

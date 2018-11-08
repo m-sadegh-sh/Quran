@@ -1,6 +1,6 @@
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/states/chapter_list_state.dart';
-import 'package:Quran/items/chapter_item.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/states/chapter_list_state.dart';
+import 'package:quran/items/chapter_item.dart';
 
 ChapterListState chapterListStateSelector(RootState state) => state.chapterListState;
 bool chapterListLoadingSelector(ChapterListState state) => state.chapterListLoading;

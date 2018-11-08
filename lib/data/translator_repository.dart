@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:Quran/data/repository_base.dart';
-import 'package:Quran/items/translator_item.dart';
+import 'package:quran/data/repository_base.dart';
+import 'package:quran/items/translator_item.dart';
 
 class TranslatorRepository extends RepositoryBase<TranslatorItem> {
   static TranslatorRepository _instance;

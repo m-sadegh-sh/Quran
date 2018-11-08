@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/chapter_details_state.dart';
-import 'package:Quran/actions/chapter_details_action.dart';
-import 'package:Quran/items/verse_item.dart';
+import 'package:quran/states/chapter_details_state.dart';
+import 'package:quran/actions/chapter_details_action.dart';
+import 'package:quran/items/verse_item.dart';
 
 final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/items/drawer_item.dart';
-import 'package:Quran/items/action_item.dart';
+import 'package:quran/items/drawer_item.dart';
+import 'package:quran/items/action_item.dart';
 
 class HomeDrawerItemTappedAction {
   final BuildContext context;

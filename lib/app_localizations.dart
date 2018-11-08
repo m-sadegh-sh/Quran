@@ -1,10 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:Quran/utils/string_utils.dart';
+import 'package:quran/utils/string_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'package:Quran/enumerations/chapter_revelation_place.dart';
+import 'package:quran/enumerations/chapter_revelation_place.dart';
 
 class AppLocalizations {
   final Locale _locale;

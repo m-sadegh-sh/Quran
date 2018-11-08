@@ -1,8 +1,8 @@
-import 'package:Quran/data/verse_repository.dart';
+import 'package:quran/data/verse_repository.dart';
 import 'package:redux/redux.dart';
 
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/actions/chapter_details_action.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/actions/chapter_details_action.dart';
 
 List<Middleware<RootState>> createChapterDetailsMiddleware() {
   return [

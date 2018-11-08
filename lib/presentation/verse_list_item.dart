@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/app_localizations.dart';
-import 'package:Quran/items/verse_translation_item.dart';
-import 'package:Quran/items/verse_item.dart';
+import 'package:quran/presentation/circular_loading.dart';
+import 'package:quran/items/verse_translation_item.dart';
+import 'package:quran/items/verse_item.dart';
 
 class VerseListItem extends StatelessWidget {
   final VerseItem verseItem;
@@ -60,12 +60,13 @@ class VerseListItem extends StatelessWidget {
     return FutureBuilder(
       future: verseItem.translation(currentTranslatorId),
       builder: (BuildContext context, AsyncSnapshot<VerseTranslationItem> snapshot) =>
-        Text(
-          snapshot.hasData ? snapshot.data.text : AppLocalizations.of(context).translate('verse-item-translation-text'),
-          style: Theme.of(context).textTheme.caption.apply(
-            fontWeightDelta: -1
-          )
-        )
+        snapshot.hasData ?
+          Text(
+            snapshot.data.text,
+            style: Theme.of(context).textTheme.caption.apply(
+              fontWeightDelta: -1
+            )
+          ) : CircularLoading()
     );
   }
 

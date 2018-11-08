@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 
-import 'package:Quran/presentation/home.dart';
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/view_models/home_view_model.dart';
+import 'package:quran/presentation/home.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/view_models/home_view_model.dart';
 
 class HomeContainer extends StatelessWidget {
   @override

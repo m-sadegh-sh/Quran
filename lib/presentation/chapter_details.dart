@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/items/action_item.dart';
-import 'package:Quran/items/chapter_item.dart';
-import 'package:Quran/items/verse_item.dart';
-import 'package:Quran/presentation/verse_list.dart';
+import 'package:quran/items/action_item.dart';
+import 'package:quran/items/chapter_item.dart';
+import 'package:quran/items/verse_item.dart';
+import 'package:quran/presentation/verse_list.dart';
 
 class ChapterDetails extends StatelessWidget {
   final ChapterItem chapterDetailsChapterItem;

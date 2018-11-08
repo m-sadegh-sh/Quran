@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/states/home_state.dart';
-import 'package:Quran/states/root_state.dart';
-import 'package:Quran/items/action_item.dart';
-import 'package:Quran/items/drawer_item.dart';
-import 'package:Quran/items/tab_item.dart';
-import 'package:Quran/delegates/generate_with_context.dart';
+import 'package:quran/states/home_state.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/items/action_item.dart';
+import 'package:quran/items/drawer_item.dart';
+import 'package:quran/items/tab_item.dart';
+import 'package:quran/delegates/generate_with_context.dart';
 
 HomeState homeStateSelector(RootState state) => state.homeState;
 GenerateWithContext<String> homeOnGenerateTitleSelector(HomeState state) => state.homeOnGenerateTitle;

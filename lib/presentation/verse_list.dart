@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:Quran/items/verse_item.dart';
-import 'package:Quran/presentation/circular_loading.dart';
-import 'package:Quran/presentation/action_failure.dart';
-import 'package:Quran/presentation/empty_content.dart';
-import 'package:Quran/presentation/verse_list_item.dart';
+import 'package:quran/items/verse_item.dart';
+import 'package:quran/presentation/circular_loading.dart';
+import 'package:quran/presentation/action_failure.dart';
+import 'package:quran/presentation/empty_content.dart';
+import 'package:quran/presentation/verse_list_item.dart';
 
 class VerseList extends StatelessWidget {
   final bool verseListLoading;
