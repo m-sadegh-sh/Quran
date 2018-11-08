@@ -16,7 +16,7 @@ ChapterListState _chapterListLoad(ChapterListState state, ChapterListLoadAction 
   return state.copyWith(
     chapterListLoading: true,
     chapterListLoadSucceeded: false,
-    chapterListItems: List.unmodifiable<ChapterItem>([]),
+    chapterListItems: List<ChapterItem>.unmodifiable([]),
     chapterListLoadFailed: false,
     chapterListLoadError: null
   );
@@ -26,7 +26,7 @@ ChapterListState _chapterListLoadSucceeded(ChapterListState state, ChapterListLo
   return state.copyWith(
     chapterListLoading: false,
     chapterListLoadSucceeded: true,
-    chapterListItems: List.unmodifiable<ChapterItem>(action.chapterListItems)
+    chapterListItems: List<ChapterItem>.unmodifiable(action.chapterListItems)
   );
 }
 

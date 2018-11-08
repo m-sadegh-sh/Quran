@@ -43,7 +43,7 @@ class ChapterDetailsState {
     ],
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
+    chapterDetailsVerseItems: List<VerseItem>.unmodifiable([]),
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null

@@ -18,7 +18,7 @@ ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetail
     chapterDetailsChapterItem: action.chapterDetailsChapterItem,
     chapterDetailsLoading: true,
     chapterDetailsLoadSucceeded: false,
-    chapterDetailsVerseItems: List.unmodifiable<VerseItem>([]),
+    chapterDetailsVerseItems: List<VerseItem>.unmodifiable([]),
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
   );
@@ -28,7 +28,7 @@ ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, Chap
   return state.copyWith(
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
-    chapterDetailsVerseItems: List.unmodifiable<VerseItem>(action.chapterDetailsVerseItems)
+    chapterDetailsVerseItems: List<VerseItem>.unmodifiable(action.chapterDetailsVerseItems)
   );
 }
 
