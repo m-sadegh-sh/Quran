@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/app_localizations.dart';
-import 'package:quran/presentation/circular_loading.dart';
+import 'package:quran/presentation/inline_bouncing_loading.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/chapter_translation_item.dart';
 
@@ -60,14 +60,17 @@ class ChapterListItem extends StatelessWidget {
   Widget _buildChapterTranslationText(BuildContext context) {
     return FutureBuilder(
       future: chapterItem.translation(currentTranslatorId),
-      builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) =>
-        snapshot.hasData ? 
-          Text(
+      builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) {
+        if (snapshot.hasData)
+          return Text(
             snapshot.data.text,
             style: Theme.of(context).textTheme.caption.apply(
               fontWeightDelta: -1
             )
-          ) : CircularLoading()
+          );
+
+        return InlineBouncingLoading();
+      }
     );
   }
 
