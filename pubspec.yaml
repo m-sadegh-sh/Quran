@@ -4,6 +4,7 @@ description: An app to discover holy Quran.
 dependencies:
   flutter:
     sdk: flutter
+
   flutter_localizations:
     sdk: flutter
 
@@ -13,6 +14,7 @@ dependencies:
   flutter_launcher_icons: any
   flutter_spinkit: any
   flutter_redux: any
+  redux_persist_flutter: any
   redux_logging: any
   verbal_expressions: any
 
