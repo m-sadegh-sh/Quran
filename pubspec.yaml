@@ -8,15 +8,15 @@ dependencies:
   flutter_localizations:
     sdk: flutter
 
-  shared_preferences: any
-  cupertino_icons: any
-  path_provider: any
-  flutter_launcher_icons: any
-  flutter_spinkit: any
-  flutter_redux: any
-  redux_persist_flutter: any
-  redux_logging: any
-  verbal_expressions: any
+  shared_preferences: 0.4.3
+  cupertino_icons: 0.1.2
+  path_provider: 0.4.1
+  flutter_launcher_icons: 0.6.1
+  flutter_spinkit: 3.0.0
+  flutter_redux: 0.5.2
+  redux_persist_flutter: 0.8.0-rc.0
+  redux_logging: 0.3.0
+  verbal_expressions: 0.4.0
 
 flutter:
   uses-material-design: true

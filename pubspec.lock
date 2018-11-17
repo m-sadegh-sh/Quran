@@ -159,14 +159,14 @@ packages:
       name: redux_persist
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.7.0"
+    version: "0.8.0-rc.1"
   redux_persist_flutter:
     dependency: "direct main"
     description:
       name: redux_persist_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.6.0"
+    version: "0.8.0-rc.0"
   shared_preferences:
     dependency: "direct main"
     description:
@@ -193,6 +193,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  synchronized:
+    dependency: transitive
+    description:
+      name: synchronized
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.5.3"
   typed_data:
     dependency: transitive
     description:
@@ -229,5 +236,5 @@ packages:
     source: hosted
     version: "2.1.15"
 sdks:
-  dart: ">=2.0.0 <=2.1.0-dev.8.0.flutter-bf26f760b1"
+  dart: ">=2.0.0 <=2.1.0-dev.9.3.flutter-9c07fb64c4"
   flutter: ">=0.1.4 <2.0.0"

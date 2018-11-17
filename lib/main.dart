@@ -33,9 +33,10 @@ Persistor<RootState> _createPersistor() {
   return Persistor<RootState>(
     version: 1,
     storage: FlutterStorage(
-      "quran",      
+      "quran",
       location: FlutterSaveLocation.sharedPreferences
-    )
+    ),
+    
   );
 }
 
