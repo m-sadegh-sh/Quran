@@ -14,36 +14,33 @@ import 'package:quran/middlewares/chapter_details_middleware.dart';
 
 void main() async {
   final persistor = _createPersistor();
-  final store = _createStore(persistor);
   
-  persistor.load(store);
+  final initialState = await persistor.load();
+
+  final store = _createStore(persistor, initialState);
 
   runApp(
     StoreProvider(
       store: store,
-      child: PersistorGate(
-        persistor: persistor,
-        builder: (context) => AppContainer()
-      )
+      child: AppContainer()
     )
   );
 }
 
 Persistor<RootState> _createPersistor() {
   return Persistor<RootState>(
-    version: 1,
+    serializer: JsonSerializer<RootState>(RootState.fromJson),
     storage: FlutterStorage(
-      "quran",
+      key: "quran",
       location: FlutterSaveLocation.sharedPreferences
-    ),
-    
+    )
   );
 }
 
-Store<RootState> _createStore(Persistor<RootState> persistor) {
+Store<RootState> _createStore(Persistor<RootState> persistor, RootState initialState) {
   return new Store<RootState>(
     rootReducer,
-    initialState: RootState.initial(),
+    initialState: initialState ?? RootState.initial(),
     middleware: [
       persistor.createMiddleware(),
       new LoggingMiddleware.printer(level: Level.SHOUT)
