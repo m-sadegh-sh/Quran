@@ -48,11 +48,7 @@ class VerseListItem extends StatelessWidget {
   Widget _buildVerseFullText(BuildContext context) {
     return Text(
       verseItem.cleanText,
-      style: Theme.of(context).textTheme.title.apply(
-        fontWeightDelta: -2,
-        fontSizeDelta: 2.0,
-        fontFamily: 'Nabi'
-      )
+      style: Theme.of(context).textTheme.title
     );
   }
 

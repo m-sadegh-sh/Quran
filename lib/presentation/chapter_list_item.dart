@@ -49,11 +49,7 @@ class ChapterListItem extends StatelessWidget {
   Widget _buildChapterTitle(BuildContext context) {
     return Text(
       chapterItem.title,
-      style: Theme.of(context).textTheme.title.apply(
-        fontWeightDelta: -2,
-        fontSizeDelta: 2.0,
-        fontFamily: 'Nabi'
-      )
+      style: Theme.of(context).textTheme.title
     );
   }
 

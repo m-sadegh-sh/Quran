@@ -32,45 +32,70 @@ class AppState {
     this.appTranslatorId
   });
 
-  factory AppState.initial() => AppState(
-    appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
-    appTheme: ThemeData(
+  factory AppState.initial() {
+    final theme = ThemeData(
       primarySwatch: Colors.teal,
       accentColor: Colors.tealAccent,
       fontFamily: 'IranSans'
-    ),
-    appInitialRoute: '/',
-    appOnGenerateRoutes: (BuildContext context) => <String, WidgetBuilder>{
-      '/': (BuildContext context) => HomeContainer(),
-      '/home': (BuildContext context) => HomeContainer(),
-      '/chapter-details': (BuildContext context) => ChapterDetailsContainer(),
-      '/search': (BuildContext context) => SearchContainer(),
-      '/share': (BuildContext context) => ShareContainer(),
-      '/help-and-support': (BuildContext context) => HelpAndSupportContainer(),
-      '/settings': (BuildContext context) => SettingsContainer(),
-      '/about': (BuildContext context) => AboutContainer()
-    },
-    appLocalizationsDelegates: [
-      AppLocalizations.delegate,
-      GlobalMaterialLocalizations.delegate,
-      GlobalWidgetsLocalizations.delegate,
-    ],
-    appSupportedLocales: [
-      Locale('fa', 'IR'),
-    ],
-    appLocale: Locale('fa', 'IR'),
-    appTranslatorId: 1
-  );
+    );
+
+    return AppState(
+      appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
+      appTheme: theme.copyWith(
+        textTheme: TextTheme(
+          headline: theme.textTheme.headline.apply(
+            color: ThemeData().scaffoldBackgroundColor,
+            fontSizeFactor: 1.1,
+            fontFamily: 'Nabi'
+          ),
+          title: theme.textTheme.title.apply(
+            fontWeightDelta: -2,
+            fontSizeFactor: 1.1,
+            fontFamily: 'Nabi'
+          )
+        )
+      ),
+      appInitialRoute: '/',
+      appOnGenerateRoutes: (BuildContext context) => <String, WidgetBuilder>{
+        '/': (BuildContext context) => HomeContainer(),
+        '/home': (BuildContext context) => HomeContainer(),
+        '/chapter-details': (BuildContext context) => ChapterDetailsContainer(),
+        '/search': (BuildContext context) => SearchContainer(),
+        '/share': (BuildContext context) => ShareContainer(),
+        '/help-and-support': (BuildContext context) => HelpAndSupportContainer(),
+        '/settings': (BuildContext context) => SettingsContainer(),
+        '/about': (BuildContext context) => AboutContainer()
+      },
+      appLocalizationsDelegates: [
+        AppLocalizations.delegate,
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+      ],
+      appSupportedLocales: [
+        Locale('fa', 'IR'),
+      ],
+      appLocale: Locale('fa', 'IR'),
+      appTranslatorId: 1
+    );
+  }
   
   AppState copyWith({
     String appThemeFontFamily,
+    double appThemeFontSizeFactor,
     String appLocaleLanguageCode,
     String appLocaleCountryCode,
     int appTranslatorId
   }) => AppState(
     appTheme: (appThemeFontFamily?.isNotEmpty ?? false) ? appTheme.copyWith(
-      textTheme: appTheme.textTheme.apply(
-        fontFamily: appThemeFontFamily
+      textTheme: appTheme.textTheme.copyWith(
+        headline: appTheme.textTheme.headline.apply(
+          fontSizeFactor: appThemeFontSizeFactor,
+          fontFamily: appThemeFontFamily
+        ),
+        title: appTheme.textTheme.title.apply(
+          fontSizeFactor: appThemeFontSizeFactor,
+          fontFamily: appThemeFontFamily
+        )
       )
     ) : this.appTheme,
     appLocale: (appLocaleLanguageCode?.isNotEmpty ?? false) && (appLocaleCountryCode?.isNotEmpty ?? false) ? Locale(appLocaleLanguageCode, appLocaleCountryCode) : this.appLocale,

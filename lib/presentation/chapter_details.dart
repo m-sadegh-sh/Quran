@@ -50,11 +50,7 @@ class ChapterDetails extends StatelessWidget {
       child: Text(
         chapterDetailsChapterItem.title,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.title.apply(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          fontSizeDelta: 2.0,
-          fontFamily: 'Nabi'
-        )
+        style: Theme.of(context).textTheme.headline
       )
     );
   }
