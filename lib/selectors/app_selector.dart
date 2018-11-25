@@ -11,5 +11,5 @@ String appInitialRouteSelector(AppState state) => state.appInitialRoute;
 GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutesSelector(AppState state) => state.appOnGenerateRoutes;
 List<LocalizationsDelegate> appLocalizationsDelegatesSelector(AppState state) => state.appLocalizationsDelegates;
 List<Locale> appSupportedLocalesSelector(AppState state) => state.appSupportedLocales;
-Locale appCurrentLocaleSelector(AppState state) => state.appCurrentLocale;
-int appCurrentTranslatorIdSelector(AppState state) => state.appCurrentTranslatorId;
+Locale appLocaleSelector(AppState state) => state.appLocale;
+int appTranslatorIdSelector(AppState state) => state.appTranslatorId;

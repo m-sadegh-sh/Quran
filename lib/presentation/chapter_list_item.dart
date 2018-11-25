@@ -8,13 +8,13 @@ import 'package:quran/items/chapter_translation_item.dart';
 class ChapterListItem extends StatelessWidget {
   final ChapterItem chapterItem;
   final Function(BuildContext, ChapterItem) onChapterItemTapped;
-  final int currentTranslatorId;
+  final int translatorId;
 
   ChapterListItem({
     Key key,
     this.chapterItem,
     this.onChapterItemTapped,
-    this.currentTranslatorId
+    this.translatorId
   }) : super(key: key);
 
   Widget _buildChapterNumber(BuildContext context) {
@@ -59,7 +59,7 @@ class ChapterListItem extends StatelessWidget {
 
   Widget _buildChapterTranslationText(BuildContext context) {
     return FutureBuilder(
-      future: chapterItem.translation(currentTranslatorId),
+      future: chapterItem.translation(translatorId),
       builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) {
         if (snapshot.hasData)
           return Text(

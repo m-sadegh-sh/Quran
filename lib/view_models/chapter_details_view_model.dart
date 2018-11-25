@@ -21,7 +21,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final int chapterDetailsCurrentTranslatorId;
+  final int chapterDetailsTranslatorId;
 
   ChapterDetailsViewModel({
     this.chapterDetailsChapterItem,
@@ -34,7 +34,7 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
-    this.chapterDetailsCurrentTranslatorId
+    this.chapterDetailsTranslatorId
   });
 
   static ChapterDetailsViewModel fromStore(Store<RootState> store) {
@@ -60,7 +60,7 @@ class ChapterDetailsViewModel {
         store.dispatch(ChapterDetailsLoadAction(
           chapterDetailsChapterItem: chapterDetailsChapterItem
         )),
-      chapterDetailsCurrentTranslatorId: appCurrentTranslatorIdSelector(appState)
+      chapterDetailsTranslatorId: appTranslatorIdSelector(appState)
     );
   }
 }

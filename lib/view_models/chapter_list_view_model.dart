@@ -15,7 +15,7 @@ class ChapterListViewModel {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
-  final int chapterListCurrentTranslatorId;
+  final int chapterListTranslatorId;
 
   ChapterListViewModel({
     this.chapterListLoading,
@@ -25,7 +25,7 @@ class ChapterListViewModel {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
-    this.chapterListCurrentTranslatorId
+    this.chapterListTranslatorId
   });
 
   static ChapterListViewModel fromStore(Store<RootState> store) {
@@ -44,7 +44,7 @@ class ChapterListViewModel {
           context: context,
           chapterListTappedItem: chapterListTappedItem,
         )),
-      chapterListCurrentTranslatorId: appCurrentTranslatorIdSelector(appState)
+      chapterListTranslatorId: appTranslatorIdSelector(appState)
     );
   }
 }

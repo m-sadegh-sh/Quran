@@ -7,13 +7,13 @@ import 'package:quran/items/verse_item.dart';
 class VerseListItem extends StatelessWidget {
   final VerseItem verseItem;
   final Function(BuildContext, int) onVerseItemTapped;
-  final int currentTranslatorId;
+  final int translatorId;
 
   VerseListItem({
     Key key,
     this.verseItem,
     this.onVerseItemTapped,
-    this.currentTranslatorId
+    this.translatorId
   }) : super(key: key);
 
   Widget _buildVerseNumber(BuildContext context) {
@@ -58,7 +58,7 @@ class VerseListItem extends StatelessWidget {
 
   Widget _buildVerseTranslationText(BuildContext context) {
     return FutureBuilder(
-      future: verseItem.translation(currentTranslatorId),
+      future: verseItem.translation(translatorId),
       builder: (BuildContext context, AsyncSnapshot<VerseTranslationItem> snapshot) {
         if (snapshot.hasData)
           return Text(

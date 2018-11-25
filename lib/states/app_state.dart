@@ -18,8 +18,8 @@ class AppState {
   final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
-  final Locale appCurrentLocale;
-  final int appCurrentTranslatorId;
+  final Locale appLocale;
+  final int appTranslatorId;
   
   AppState({
     this.appOnGenerateTitle,
@@ -28,8 +28,8 @@ class AppState {
     this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales,
-    this.appCurrentLocale,
-    this.appCurrentTranslatorId
+    this.appLocale,
+    this.appTranslatorId
   });
 
   factory AppState.initial() => AppState(
@@ -58,23 +58,22 @@ class AppState {
     appSupportedLocales: [
       Locale('fa', 'IR'),
     ],
-    appCurrentLocale: Locale('fa', 'IR'),
-    appCurrentTranslatorId: 1
+    appLocale: Locale('fa', 'IR'),
+    appTranslatorId: 1
   );
   
   AppState copyWith({
-    appThemeFontFamily
+    String appThemeFontFamily,
+    String appLocaleLanguageCode,
+    String appLocaleCountryCode,
+    int appTranslatorId
   }) => AppState(
-    appTheme: this.appTheme.copyWith(
-      textTheme: appThemeFontFamily ? this.appTheme.textTheme.apply(
+    appTheme: (appThemeFontFamily?.isNotEmpty ?? false) ? appTheme.copyWith(
+      textTheme: appTheme.textTheme.apply(
         fontFamily: appThemeFontFamily
-      ) : this.appTheme.textTheme,
-      primaryTextTheme: appThemeFontFamily ? this.appTheme.primaryTextTheme.apply(
-        fontFamily: appThemeFontFamily        
-      ) : this.appTheme.primaryTextTheme,
-      accentTextTheme: appThemeFontFamily ? this.appTheme.accentTextTheme.apply(
-        fontFamily: appThemeFontFamily        
-      ) : this.appTheme.accentTextTheme
-    )
+      )
+    ) : this.appTheme,
+    appLocale: (appLocaleLanguageCode?.isNotEmpty ?? false) && (appLocaleCountryCode?.isNotEmpty ?? false) ? Locale(appLocaleLanguageCode, appLocaleCountryCode) : this.appLocale,
+    appTranslatorId: appTranslatorId ?? this.appTranslatorId
   );
 }
