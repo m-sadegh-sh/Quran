@@ -6,21 +6,26 @@ import 'package:redux_logging/redux_logging.dart';
 
 import 'package:quran/states/root_state.dart';
 import 'package:quran/reducers/root_reducer.dart';
-import 'package:quran/containers/app_container.dart';
+import 'package:quran/actions/app_action.dart';
 import 'package:quran/middlewares/app_middleware.dart';
 import 'package:quran/middlewares/chapter_list_middleware.dart';
 import 'package:quran/middlewares/chapter_details_middleware.dart';
+import 'package:quran/containers/app_container.dart';
 
 void main() async {
+  final store = _createStore();
+
+  store.dispatch(AppSharedPreferencesLoadAction());
+
   runApp(
     StoreProvider(
-      store: _createStore(),
+      store: store,
       child: AppContainer()
     )
   );
 }
 
-Store<RootState> _createStore() {
+Store<RootState> _createStore() {  
   return new Store<RootState>(
     rootReducer,
     initialState: RootState.initial(),

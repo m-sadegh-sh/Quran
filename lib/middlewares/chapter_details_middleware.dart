@@ -15,8 +15,10 @@ Middleware<RootState> _createChapterDetailsLoad() {
     try {
       next(action);
 
+      final castedAction = action as ChapterDetailsLoadAction;
+
       final chapterDetailsVerseItems = await VerseRepository().findAllByChapterId(
-        (action as ChapterDetailsLoadAction).chapterDetailsChapterItem.id
+        castedAction.chapterDetailsChapterItem.id
       );
       
       store.dispatch(ChapterDetailsLoadSucceededAction(
