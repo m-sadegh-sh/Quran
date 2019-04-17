@@ -33,8 +33,8 @@ class VerseListItem extends StatelessWidget {
               Text(
                 verseItem.chapterVerseId.toString(),
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18.0,
+                style: Theme.of(context).textTheme.title.apply(
+                  fontSizeDelta: 1,
                   color: Theme.of(context).primaryColorDark
                 )
               )

@@ -43,14 +43,11 @@ class AppState {
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
       appTheme: theme.copyWith(
         textTheme: TextTheme(
-          headline: theme.textTheme.headline.apply(
-            color: ThemeData().scaffoldBackgroundColor,
-            fontSizeFactor: 1.1,
+          headline: TextStyle(
+            color: theme.scaffoldBackgroundColor,
             fontFamily: 'Nabi'
           ),
-          title: theme.textTheme.title.apply(
-            fontWeightDelta: -2,
-            fontSizeFactor: 1.1,
+          title: TextStyle(
             fontFamily: 'Nabi'
           )
         )
