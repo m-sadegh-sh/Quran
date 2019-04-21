@@ -15,6 +15,7 @@ class Home extends StatelessWidget {
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final List<TabItem> homeTabItems;
   final List<Widget> homeTabContents;
+  final Function(BuildContext) homeOnFloatingActionButtonPressed;
 
   Home({
     Key key,
@@ -27,7 +28,8 @@ class Home extends StatelessWidget {
     this.homeActionItems,
     this.homeOnActionItemPressed,
     this.homeTabItems,
-    this.homeTabContents
+    this.homeTabContents,
+    this.homeOnFloatingActionButtonPressed
   }) : super(key: key);
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
@@ -106,6 +108,13 @@ class Home extends StatelessWidget {
     );
   }
 
+  FloatingActionButton _buildFloatingActionButton(BuildContext context) {
+    return FloatingActionButton(
+      child: Icon(Icons.refresh),
+      onPressed: () => homeOnFloatingActionButtonPressed(context)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -113,7 +122,8 @@ class Home extends StatelessWidget {
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: _buildDrawer(context),
-        body: _buildTabBarView(context)
+        body: _buildTabBarView(context),
+        floatingActionButton: _buildFloatingActionButton(context)
       )
     );
   }

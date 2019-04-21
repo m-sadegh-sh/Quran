@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
+import 'package:quran/actions/app_action.dart';
 import 'package:quran/actions/home_action.dart';
 import 'package:quran/selectors/home_selector.dart';
 import 'package:quran/delegates/generate_with_context.dart';
@@ -20,6 +21,7 @@ class HomeViewModel {
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
   final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
+  final Function(BuildContext) homeOnFloatingActionButtonPressed;
   
   HomeViewModel({
     this.homeOnGenerateTitle,
@@ -31,7 +33,8 @@ class HomeViewModel {
     this.homeOnGenerateActionItems,
     this.homeOnActionItemPressed,
     this.homeOnGenerateTabItems,
-    this.homeOnGenerateTabContents
+    this.homeOnGenerateTabContents,
+    this.homeOnFloatingActionButtonPressed
   });
 
   static HomeViewModel fromStore(Store<RootState> store) {
@@ -57,7 +60,10 @@ class HomeViewModel {
         ));
       },
       homeOnGenerateTabItems: homeOnGenerateTabItemsSelector(homeState),
-      homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState)
+      homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState),
+      homeOnFloatingActionButtonPressed: (BuildContext context) {
+        store.dispatch(AppReloadInitialStateAction());
+      }
     );
   }
 }

@@ -10,15 +10,15 @@ class App extends StatelessWidget {
   final Locale appLocale;
 
   App({
-    Key key,
-    this.appOnGenerateTitle,
-    this.appTheme,
-    this.appInitialRoute,
-    this.appRoutes,
-    this.appLocalizationsDelegates,
-    this.appSupportedLocales,
-    this.appLocale
-  }) : super(key: key);
+      Key key,
+      this.appOnGenerateTitle,
+      this.appTheme,
+      this.appInitialRoute,
+      this.appRoutes,
+      this.appLocalizationsDelegates,
+      this.appSupportedLocales,
+      this.appLocale
+      }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

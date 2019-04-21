@@ -1,3 +1,18 @@
+
+import 'package:quran/states/app_state.dart';
+
+class AppReloadInitialStateAction { }
+
+class AppReloadInitialStateSucceededAction {
+  final AppState appState;
+
+  AppReloadInitialStateSucceededAction({
+    this.appState
+  });
+}
+
+class AppReloadInitialStateFailedAction { }
+
 class AppSharedPreferencesLoadAction { }
 
 class AppSharedPreferencesLoadSucceededAction {
@@ -16,6 +31,8 @@ class AppSharedPreferencesLoadSucceededAction {
   });
 }
 
+class AppSharedPreferencesLoadFailedAction {}
+  
 class AppSharedPreferencesPersistAction {
   final String appThemeFontFamily;
   final double appThemeFontSizeFactor;
@@ -33,3 +50,5 @@ class AppSharedPreferencesPersistAction {
 }
 
 class AppSharedPreferencesPersistSucceededAction { }
+
+class AppSharedPreferencesPersistFailedAction { }

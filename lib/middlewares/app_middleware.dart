@@ -2,6 +2,7 @@ import 'package:redux/redux.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:quran/states/root_state.dart';
+import 'package:quran/states/app_state.dart';
 import 'package:quran/actions/app_action.dart';
 
 const APP_THEME_FONT_FAMILY_KEY = "rootState.appState.appTheme.textTheme.fontFamily";
@@ -12,9 +13,24 @@ const APP_TRANSLATOR_ID_KEY = "rootState.appState.appTranslatorId";
 
 List<Middleware<RootState>> createAppMiddleware() {
   return [
+    TypedMiddleware<RootState, AppReloadInitialStateAction>(_createAppReloadInitialState()),
     TypedMiddleware<RootState, AppSharedPreferencesLoadAction>(_createAppSharedPreferencesLoad()),
     TypedMiddleware<RootState, AppSharedPreferencesPersistAction>(_createAppSharedPreferencesPersist())
   ];
+}
+
+Middleware<RootState> _createAppReloadInitialState() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      next(action);
+
+      store.dispatch(AppReloadInitialStateSucceededAction(
+        appState: AppState.initial()
+      ));
+    } catch(exception) {
+      store.dispatch(AppReloadInitialStateFailedAction());
+    }
+  };
 }
 
 Middleware<RootState> _createAppSharedPreferencesLoad() {
@@ -60,7 +76,7 @@ Middleware<RootState> _createAppSharedPreferencesPersist() {
 
       store.dispatch(AppSharedPreferencesPersistSucceededAction());
     } catch(exception) {
-      store.dispatch(AppSharedPreferencesPersistSucceededAction());
+      store.dispatch(AppSharedPreferencesPersistFailedAction());
     }
   };
 }

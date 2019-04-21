@@ -7,11 +7,12 @@ import 'package:redux_logging/redux_logging.dart';
 import 'package:quran/states/root_state.dart';
 import 'package:quran/reducers/root_reducer.dart';
 import 'package:quran/middlewares/app_middleware.dart';
+import 'package:quran/middlewares/home_middleware.dart';
 import 'package:quran/middlewares/chapter_list_middleware.dart';
 import 'package:quran/middlewares/chapter_details_middleware.dart';
 import 'package:quran/containers/app_container.dart';
 
-void main() async {
+void main() {
   final store = _createStore();
 
   // store.dispatch(AppSharedPreferencesLoadAction());
@@ -31,6 +32,7 @@ Store<RootState> _createStore() {
     middleware: [
       new LoggingMiddleware.printer(level: Level.SHOUT)
     ]..addAll(createAppMiddleware())
+    ..addAll(createHomeMiddleware())
     ..addAll(createChapterListMiddleware())
     ..addAll(createChapterDetailsMiddleware())
   );
