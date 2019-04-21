@@ -33,22 +33,56 @@ class AppState {
   });
 
   factory AppState.initial() {
-    final theme = ThemeData(
-      primarySwatch: Colors.teal,
-      accentColor: Colors.tealAccent,
-      fontFamily: 'IranSans'
-    );
-
     return AppState(
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
-      appTheme: theme.copyWith(
+      appTheme: ThemeData(
+        primarySwatch: Colors.teal,
+        accentColor: Colors.tealAccent,
+        fontFamily: 'IranSans',
         textTheme: TextTheme(
+          body1: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          body2: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          button: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          caption: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          display1: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          display2: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          display3: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          display4: TextStyle(
+            fontFamily: 'IranSans'
+          ),
+          overline: TextStyle(
+            fontFamily: 'IranSans'
+          ),
           headline: TextStyle(
-            color: theme.scaffoldBackgroundColor,
-            fontFamily: 'Nabi'
+            color: Colors.white,
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'Taha'
+          ),
+          subhead: TextStyle(
+            fontFamily: 'IranSans'
           ),
           title: TextStyle(
-            fontFamily: 'Nabi'
+            fontSize: 17,
+            fontWeight: FontWeight.w300,
+            fontFamily: 'Taha'
+          ),
+          subtitle: TextStyle(
+            fontFamily: 'IranSans'
           )
         )
       ),
