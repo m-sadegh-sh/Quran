@@ -34,13 +34,13 @@ class Home extends StatelessWidget {
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
     return UserAccountsDrawerHeader(
-      accountName: Text(homeAccountName),
+      accountName: Text(
+        homeAccountName,
+        style: Theme.of(context).textTheme.headline
+      ),
       accountEmail: Text(
         homeAccountEmail,
-        style: Theme.of(context).textTheme.caption.apply(
-          color: Theme.of(context).scaffoldBackgroundColor,
-          fontWeightDelta: -2
-        )
+        style: Theme.of(context).textTheme.display2
       ),
       decoration: BoxDecoration(
         color: Theme.of(context).primaryColor,

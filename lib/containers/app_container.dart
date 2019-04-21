@@ -12,7 +12,7 @@ class AppContainer extends StatelessWidget {
       converter: AppViewModel.fromStore,
       builder: (BuildContext context, AppViewModel appViewModel)  => App(
         appOnGenerateTitle: appViewModel.appOnGenerateTitle,
-        appTheme: appViewModel.appTheme,
+        appOnGenerateThemeData: appViewModel.appOnGenerateThemeData,
         appInitialRoute: appViewModel.appInitialRoute,
         appRoutes: appViewModel.appOnGenerateRoutes(context),
         appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,

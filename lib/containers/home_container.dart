@@ -6,6 +6,8 @@ import 'package:quran/states/root_state.dart';
 import 'package:quran/view_models/home_view_model.dart';
 
 class HomeContainer extends StatelessWidget {
+  static const String routeName = '/';
+
   @override
   Widget build(BuildContext context) {
     return StoreConnector<RootState, HomeViewModel>(

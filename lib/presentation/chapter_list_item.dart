@@ -34,10 +34,7 @@ class ChapterListItem extends StatelessWidget {
               Text(
                 chapterItem.id.toString(),
                 textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 18.0,
-                  color: Theme.of(context).primaryColorDark
-                )
+                style: Theme.of(context).textTheme.display4
               )
             ]
           )
@@ -60,9 +57,7 @@ class ChapterListItem extends StatelessWidget {
         if (snapshot.hasData)
           return Text(
             snapshot.data.text,
-            style: Theme.of(context).textTheme.caption.apply(
-              fontWeightDelta: -1
-            )
+            style: Theme.of(context).textTheme.display1
           );
 
         return InlineBouncingLoading();
@@ -71,7 +66,7 @@ class ChapterListItem extends StatelessWidget {
   }
 
   Widget _buildChapterOrder(BuildContext context) {
-    var order = AppLocalizations.of(context).translateFormatted(
+    final order = AppLocalizations.of(context).translateFormatted(
       'chapter-item-order',
       {
         'order': chapterItem.order
@@ -80,14 +75,12 @@ class ChapterListItem extends StatelessWidget {
 
     return Text(
       order,
-      style: Theme.of(context).textTheme.caption.apply(
-        fontWeightDelta: -2
-      )
+      style: Theme.of(context).textTheme.display1
     );
   }
 
   Widget _buildChapterPartNumber(BuildContext context) {
-    var partNumber = AppLocalizations.of(context).translateFormatted(
+    final partNumber = AppLocalizations.of(context).translateFormatted(
       'chapter-item-part-number',
       {
         'partNumber': chapterItem.partNumber
@@ -96,14 +89,12 @@ class ChapterListItem extends StatelessWidget {
 
     return Text(
       partNumber,
-      style: Theme.of(context).textTheme.caption.apply(
-        fontWeightDelta: -2
-      )
+      style: Theme.of(context).textTheme.display1
     );
   }
 
   Widget _buildChapterRevelationPlaceAndVersesCount(BuildContext context) {
-    var revelationPlaceAndVersesCount = AppLocalizations.of(context).translateFormatted(
+    final revelationPlaceAndVersesCount = AppLocalizations.of(context).translateFormatted(
       'chapter-item-revelation-place-and-verses-count',
       {
         'revelationPlace': AppLocalizations.of(context).translateEnum(chapterItem.revelationPlace),
@@ -113,9 +104,7 @@ class ChapterListItem extends StatelessWidget {
 
     return Text(
       revelationPlaceAndVersesCount,
-      style: Theme.of(context).textTheme.caption.apply(
-        fontWeightDelta: -2
-      )
+      style: Theme.of(context).textTheme.display1
     );
   }
 

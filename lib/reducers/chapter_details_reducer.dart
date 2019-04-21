@@ -6,7 +6,6 @@ import 'package:quran/actions/chapter_details_action.dart';
 import 'package:quran/items/verse_item.dart';
 
 final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
-  TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadAction>(_chapterDetailsLoad),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed),

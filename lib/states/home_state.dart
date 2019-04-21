@@ -1,9 +1,14 @@
+import 'package:flutter/material.dart';
+import 'package:quran/containers/about_container.dart';
+
 import 'package:quran/containers/chapter_list_container.dart';
+import 'package:quran/containers/search_container.dart';
+import 'package:quran/containers/settings_container.dart';
+import 'package:quran/containers/share_container.dart';
 import 'package:quran/items/tab_item.dart';
 import 'package:quran/presentation/bookmark_list.dart';
+import 'package:quran/containers/help_and_support_container.dart';
 import 'package:quran/presentation/part_list.dart';
-import 'package:flutter/material.dart';
-
 import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generate_with_context.dart';
 import 'package:quran/items/drawer_item.dart';
@@ -37,29 +42,29 @@ class HomeState {
     homeAccountBackgroundImage: 'assets/images/quran_background.png',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(
-        routeName: '/share',
+        routeName: ShareContainer.routeName,
         title: AppLocalizations.of(context).translate('home-drawer-share'),
         icon: Icons.share
       ),
       DrawerItem(
-        routeName: '/help-and-support',
+        routeName: HelpAndSupportContainer.routeName,
         title: AppLocalizations.of(context).translate('home-drawer-help-and-support'),
         icon: Icons.help
       ),
       DrawerItem(
-        routeName: '/settings',
+        routeName: SettingsContainer.routeName,
         title: AppLocalizations.of(context).translate('home-drawer-settings'),
         icon: Icons.settings
       ),
       DrawerItem(
-        routeName: '/about',
+        routeName: AboutContainer.routeName,
         title: AppLocalizations.of(context).translate('home-drawer-about'),
         icon: Icons.info
       )
     ],
     homeOnGenerateActionItems: (BuildContext context) => [
       ActionItem(
-        routeName: '/search',
+        routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: Icons.search
       )

@@ -62,7 +62,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
 
   @override
   Future<AppLocalizations> load(Locale locale) async {
-    var localizations = AppLocalizations(locale);
+    final localizations = AppLocalizations(locale);
     
     await localizations.load();
 

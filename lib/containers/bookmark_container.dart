@@ -2,16 +2,16 @@ import 'package:flutter/material.dart';
 
 import 'package:quran/app_localizations.dart';
 
-class AboutContainer extends StatefulWidget {
-  static const String routeName = '/about';
+class BookmarkContainer extends StatefulWidget {
+  static const String routeName = '/bookmark';
 
-  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('about-title');
+  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('bookmark-title');
 
   @override
-  _AboutContainerState createState() => _AboutContainerState();
+  _BookmarkContainerState createState() => _BookmarkContainerState();
 }
 
-class _AboutContainerState extends State<AboutContainer> {
+class _BookmarkContainerState extends State<BookmarkContainer> {
   AppBar _getAppBarWidget() {
     return AppBar(
       title: Text(widget._getTitle(context)),      
@@ -23,7 +23,7 @@ class _AboutContainerState extends State<AboutContainer> {
     return Scaffold(
       appBar: _getAppBarWidget(),
       body: Center(
-        child: Text('About')
+        child: Text('Bookmark')
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () => {},

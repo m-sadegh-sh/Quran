@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:quran/delegates/generate_with_context.dart';
 
 class App extends StatelessWidget {
   final GenerateAppTitle appOnGenerateTitle;
-  final ThemeData appTheme;
+  final GenerateWithContext<ThemeData> appOnGenerateThemeData;
   final String appInitialRoute;
   final Map<String, WidgetBuilder> appRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
@@ -10,15 +11,15 @@ class App extends StatelessWidget {
   final Locale appLocale;
 
   App({
-      Key key,
-      this.appOnGenerateTitle,
-      this.appTheme,
-      this.appInitialRoute,
-      this.appRoutes,
-      this.appLocalizationsDelegates,
-      this.appSupportedLocales,
-      this.appLocale
-      }) : super(key: key);
+    Key key,
+    this.appOnGenerateTitle,
+    this.appOnGenerateThemeData,
+    this.appInitialRoute,
+    this.appRoutes,
+    this.appLocalizationsDelegates,
+    this.appSupportedLocales,
+    this.appLocale
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +27,17 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       onGenerateTitle: appOnGenerateTitle,
-      theme: appTheme,
       initialRoute: appInitialRoute,
       routes: appRoutes,
       localizationsDelegates: appLocalizationsDelegates,
       supportedLocales: appSupportedLocales,
       locale: appLocale,
+      builder: (BuildContext context, Widget navigator) {
+        return Theme(
+          child: navigator,
+          data: appOnGenerateThemeData(context)
+        );
+      }
     );
   }
 }

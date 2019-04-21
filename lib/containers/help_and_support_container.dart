@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:quran/app_localizations.dart';
 
 class HelpAndSupportContainer extends StatefulWidget {
+  static const String routeName = '/help-and-support';
+
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title');
 
   @override

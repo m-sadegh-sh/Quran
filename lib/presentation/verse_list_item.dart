@@ -33,10 +33,7 @@ class VerseListItem extends StatelessWidget {
               Text(
                 verseItem.chapterVerseId.toString(),
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.title.apply(
-                  fontSizeDelta: 1,
-                  color: Theme.of(context).primaryColorDark
-                )
+                style: Theme.of(context).textTheme.display4
               )
             ]
           )
@@ -59,9 +56,7 @@ class VerseListItem extends StatelessWidget {
         if (snapshot.hasData)
           return Text(
             snapshot.data.text,
-            style: Theme.of(context).textTheme.caption.apply(
-              fontWeightDelta: -1
-            )
+            style: Theme.of(context).textTheme.display1
           );
 
         return InlineBouncingLoading();

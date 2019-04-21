@@ -7,7 +7,7 @@ import 'package:quran/delegates/generate_with_context.dart';
 
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;
-  final ThemeData appTheme;
+  final GenerateWithContext<ThemeData> appOnGenerateThemeData;
   final String appInitialRoute;
   final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
@@ -16,7 +16,7 @@ class AppViewModel {
 
   AppViewModel({
     this.appOnGenerateTitle,
-    this.appTheme,
+    this.appOnGenerateThemeData,
     this.appInitialRoute,
     this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
@@ -29,7 +29,7 @@ class AppViewModel {
 
     return AppViewModel(
       appOnGenerateTitle: appOnGenerateTitleSelector(appState),
-      appTheme: appThemeSelector(appState),
+      appOnGenerateThemeData: appOnGenerateThemeDataSelector(appState),
       appInitialRoute: appInitialRouteSelector(appState),
       appOnGenerateRoutes: appOnGenerateRoutesSelector(appState),
       appLocalizationsDelegates: appLocalizationsDelegatesSelector(appState),

@@ -6,7 +6,7 @@ import 'package:quran/delegates/generate_with_context.dart';
 
 AppState appStateSelector(RootState state) => state.appState;
 GenerateAppTitle appOnGenerateTitleSelector(AppState state) => state.appOnGenerateTitle;
-ThemeData appThemeSelector(AppState state) => state.appTheme;
+GenerateWithContext<ThemeData> appOnGenerateThemeDataSelector(AppState state) => state.appOnGenerateThemeData;
 String appInitialRouteSelector(AppState state) => state.appInitialRoute;
 GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutesSelector(AppState state) => state.appOnGenerateRoutes;
 List<LocalizationsDelegate> appLocalizationsDelegatesSelector(AppState state) => state.appLocalizationsDelegates;
