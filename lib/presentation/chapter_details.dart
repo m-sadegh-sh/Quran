@@ -46,7 +46,7 @@ class ChapterDetails extends StatelessWidget {
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
     return SizedBox(
-      height: kTextTabBarHeight - 16,      
+      height: kTextTabBarHeight + 4,
       child: Text(
         chapterDetailsChapterItem.title,
         textAlign: TextAlign.center,
@@ -56,7 +56,8 @@ class ChapterDetails extends StatelessWidget {
   }
 
   Widget _buildFlexibleSpace(BuildContext context) {
-    return FlexibleSpaceBar(      
+    return FlexibleSpaceBar(
+      titlePadding: EdgeInsets.all(0),
       centerTitle: true,
       title: _buildFlexibleSpaceTitle(context),
       background: Image.asset(
@@ -70,7 +71,7 @@ class ChapterDetails extends StatelessWidget {
     return <Widget>[
       SliverAppBar(
         actions: _buildActions(context),
-        expandedHeight: 120.0,
+        expandedHeight: 200.0,
         pinned: true,
         flexibleSpace: _buildFlexibleSpace(context)        
       ),

@@ -81,7 +81,13 @@ class Home extends StatelessWidget {
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
-      title: Text(homeTitle),
+      title: Text(
+        homeTitle,
+        textAlign: TextAlign.center,
+        style: Theme.of(context).textTheme.headline.copyWith(
+          height: 1.1
+        )
+      ),
       actions: _buildActions(context),
       bottom: TabBar(
         tabs: _buildTabItems(context),
