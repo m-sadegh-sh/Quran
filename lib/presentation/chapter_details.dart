@@ -73,7 +73,7 @@ class ChapterDetails extends StatelessWidget {
         actions: _buildActions(context),
         expandedHeight: 200.0,
         pinned: true,
-        flexibleSpace: _buildFlexibleSpace(context)        
+        flexibleSpace: _buildFlexibleSpace(context)
       ),
     ];
   }

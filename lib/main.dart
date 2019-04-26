@@ -5,6 +5,7 @@ import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
 
 import 'package:quran/states/root_state.dart';
+import 'actions/app_action.dart';
 import 'package:quran/reducers/root_reducer.dart';
 import 'package:quran/middlewares/app_middleware.dart';
 import 'package:quran/middlewares/home_middleware.dart';
@@ -15,7 +16,7 @@ import 'package:quran/containers/app_container.dart';
 void main() {
   final store = _createStore();
 
-  // store.dispatch(AppSharedPreferencesLoadAction());
+  //store.dispatch(AppSharedPreferencesLoadAction());
 
   runApp(
     StoreProvider(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:quran/items/drawer_item.dart';
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/tab_item.dart';
 
 class Home extends StatelessWidget {  
@@ -13,6 +14,7 @@ class Home extends StatelessWidget {
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
+  final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final List<TabItem> homeTabItems;
   final List<Widget> homeTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
@@ -27,6 +29,7 @@ class Home extends StatelessWidget {
     this.homeOnDrawerItemTapped,
     this.homeActionItems,
     this.homeOnActionItemPressed,
+    this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
     this.homeOnFloatingActionButtonPressed
@@ -57,18 +60,52 @@ class Home extends StatelessWidget {
     return homeDrawerItems
       .map<ListTile>((item) => ListTile(
         leading: item.icon != null ? Icon(item.icon) : null,
-        title: Text(item.title),
+        title: Text(
+          item.title,
+          style: Theme.of(context).textTheme.display3,
+        ),
         onTap: () => homeOnDrawerItemTapped(context, item),
       )).toList();
   }
 
-  List<IconButton> _buildActions(BuildContext context) {
+  List<Widget> _buildActions(BuildContext context) {
     return homeActionItems
-      .map<IconButton>((item) => IconButton(
-        icon: Icon(item.icon),
-        tooltip: item.tooltip,
-        onPressed: () => homeOnActionItemPressed(context, item)
-      )).toList();
+      .map<Widget>((item) {
+        if (item.children == null)
+          return IconButton(
+            icon: Icon(item.icon),
+            tooltip: item.tooltip,
+            onPressed: () => homeOnActionItemPressed(context, item)
+          );
+
+        return PopupMenuButton(
+          offset: Offset(0, kToolbarHeight),
+          icon: Icon(item.icon),
+          tooltip: item.tooltip,
+          itemBuilder: (BuildContext context) {
+            return item.children.map((ActionChildItem child) {
+              return PopupMenuItem<ActionChildItem>(
+                value: child,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 20.0),
+                      child: Icon(child.icon)
+                    ),
+                    Text(
+                      child.text,
+                      style: Theme.of(context).textTheme.display3,
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center
+                    )
+                  ]
+                )
+              );
+            }).toList();
+          },
+          onSelected: (ActionChildItem item) => homeOnActionChildItemPressed(context, item),
+        );
+      }).toList();
   }
 
   List<Tab> _buildTabItems(BuildContext context) {

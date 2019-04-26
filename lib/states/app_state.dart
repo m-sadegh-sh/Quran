@@ -37,45 +37,8 @@ class AppState {
     return AppState(
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
       appOnGenerateThemeData: (BuildContext context) {
-        final theme = ThemeData(
-          brightness: Brightness.light,
-          primarySwatch: Colors.teal,
-          accentColor: Colors.tealAccent,
-          fontFamily: 'IranSans'
-        );
-
-        const iranSans = TextStyle(
-          fontFamily: 'IranSans'
-        );
-
-        const nabi = TextStyle(
-          fontFamily: 'Nabi'
-        );
-
-        return theme.copyWith(
-          textTheme: TextTheme(
-            headline: nabi.copyWith(
-              color: theme.cardColor
-            ),
-            title: nabi.copyWith(
-              color: theme.primaryColor
-            ),
-            display1: iranSans.copyWith(
-              color: theme.disabledColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w400
-            ),
-            display2: iranSans.copyWith(
-              color: theme.cardColor,
-              fontSize: 16,
-              fontWeight: FontWeight.w400
-            ),
-            display4: iranSans.copyWith(
-              color: theme.primaryColorDark,
-              fontSize: 20,
-              fontWeight: FontWeight.w500
-            )
-          )
+        return generateThemeData(
+          'Nabi'
         );
       },
       appInitialRoute: HomeContainer.routeName,
@@ -103,32 +66,71 @@ class AppState {
   }
   
   AppState copyWith({
-    String appThemeFontFamily,
-    double appThemeFontSizeFactor,
+    String appThemeQuraniFontFamily,
+    double appThemeQuraniFontSizeFactor,
     String appLocaleLanguageCode,
     String appLocaleCountryCode,
     int appTranslatorId
   }) => AppState(
+    appOnGenerateTitle: this.appOnGenerateTitle,
     appOnGenerateThemeData: (BuildContext context) {
-      final theme = this.appOnGenerateThemeData(context);
-
-      if (appThemeFontFamily?.isNotEmpty ?? false)
-        return theme.copyWith(
-          textTheme: theme.textTheme.copyWith(
-            headline: theme.textTheme.headline.apply(
-              fontSizeFactor: appThemeFontSizeFactor,
-              fontFamily: appThemeFontFamily
-            ),
-            title: theme.textTheme.title.apply(
-              fontSizeFactor: appThemeFontSizeFactor,
-              fontFamily: appThemeFontFamily
-            )
-          )
-        );
-
-      return theme;
+      return generateThemeData(
+        appThemeQuraniFontFamily ?? 'Nabi'
+      );
     },
+    appInitialRoute: this.appInitialRoute,
+    appOnGenerateRoutes: this.appOnGenerateRoutes,
+    appLocalizationsDelegates: this.appLocalizationsDelegates,
+    appSupportedLocales: this.appSupportedLocales,
     appLocale: (appLocaleLanguageCode?.isNotEmpty ?? false) && (appLocaleCountryCode?.isNotEmpty ?? false) ? Locale(appLocaleLanguageCode, appLocaleCountryCode) : this.appLocale,
     appTranslatorId: appTranslatorId ?? this.appTranslatorId
   );
+
+  static ThemeData generateThemeData(final String quraniFontFamily) {
+    final theme = ThemeData(
+      brightness: Brightness.light,
+      primarySwatch: Colors.teal,
+      accentColor: Colors.tealAccent,
+      fontFamily: 'IranSans'
+    );
+
+    final defaultFont = TextStyle(
+      fontFamily: 'IranSans'
+    );
+
+    final quraniFont = TextStyle(
+      fontFamily: quraniFontFamily
+    );
+
+    return theme.copyWith(
+      textTheme: TextTheme(
+        headline: quraniFont.copyWith(
+          color: theme.cardColor
+        ),
+        title: quraniFont.copyWith(
+          color: theme.primaryColor
+        ),
+        display1: defaultFont.copyWith(
+          color: theme.disabledColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w400
+        ),
+        display2: defaultFont.copyWith(
+          color: theme.cardColor,
+          fontSize: 16,
+          fontWeight: FontWeight.w400
+        ),
+        display3: defaultFont.copyWith(
+          color: Colors.black87,
+          fontSize: 16,
+          fontWeight: FontWeight.w300
+        ),
+        display4: defaultFont.copyWith(
+          color: theme.primaryColorDark,
+          fontSize: 20,
+          fontWeight: FontWeight.w500
+        )
+      )
+    );
+  }
 }

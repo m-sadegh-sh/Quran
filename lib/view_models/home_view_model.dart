@@ -8,6 +8,7 @@ import 'package:quran/selectors/home_selector.dart';
 import 'package:quran/delegates/generate_with_context.dart';
 import 'package:quran/items/drawer_item.dart';
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/tab_item.dart';
 
 class HomeViewModel {
@@ -19,6 +20,7 @@ class HomeViewModel {
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
   final GenerateWithContext<List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
+  final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
   final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
@@ -32,6 +34,7 @@ class HomeViewModel {
     this.homeOnDrawerItemTapped,
     this.homeOnGenerateActionItems,
     this.homeOnActionItemPressed,
+    this.homeOnActionChildItemPressed,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents,
     this.homeOnFloatingActionButtonPressed
@@ -59,10 +62,17 @@ class HomeViewModel {
           actionItem: actionItem,
         ));
       },
+      homeOnActionChildItemPressed: (BuildContext context, ActionChildItem actionChildItem) {
+        store.dispatch(HomeActionChildItemPressedAction(
+          context: context,
+          actionChildItem: actionChildItem,
+        ));
+      },
       homeOnGenerateTabItems: homeOnGenerateTabItemsSelector(homeState),
       homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState),
       homeOnFloatingActionButtonPressed: (BuildContext context) {
         store.dispatch(AppReloadInitialStateAction());
+        store.dispatch(HomeReloadInitialStateAction());
       }
     );
   }

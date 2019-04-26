@@ -14,8 +14,8 @@ AppState _appReloadInitialStateSucceeded(AppState state, AppReloadInitialStateSu
 
 AppState _appSharedPreferencesLoadSucceeded(AppState state, AppSharedPreferencesLoadSucceededAction action) {
   return state.copyWith(
-    appThemeFontFamily: action.appThemeFontFamily,
-    appThemeFontSizeFactor: action.appThemeFontSizeFactor,
+    appThemeQuraniFontFamily: action.appThemeQuraniFontFamily,
+    appThemeQuraniFontSizeFactor: action.appThemeQuraniFontSizeFactor,
     appLocaleLanguageCode: action.appLocaleLanguageCode,
     appLocaleCountryCode: action.appLocaleCountryCode,
     appTranslatorId: action.appTranslatorId

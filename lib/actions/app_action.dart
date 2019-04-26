@@ -16,15 +16,15 @@ class AppReloadInitialStateFailedAction { }
 class AppSharedPreferencesLoadAction { }
 
 class AppSharedPreferencesLoadSucceededAction {
-  final String appThemeFontFamily;
-  final double appThemeFontSizeFactor;
+  final String appThemeQuraniFontFamily;
+  final double appThemeQuraniFontSizeFactor;
   final String appLocaleLanguageCode;
   final String appLocaleCountryCode;
   final int appTranslatorId;
 
   AppSharedPreferencesLoadSucceededAction({
-    this.appThemeFontFamily,
-    this.appThemeFontSizeFactor,
+    this.appThemeQuraniFontFamily,
+    this.appThemeQuraniFontSizeFactor,
     this.appLocaleLanguageCode,
     this.appLocaleCountryCode,
     this.appTranslatorId
@@ -34,15 +34,15 @@ class AppSharedPreferencesLoadSucceededAction {
 class AppSharedPreferencesLoadFailedAction {}
   
 class AppSharedPreferencesPersistAction {
-  final String appThemeFontFamily;
-  final double appThemeFontSizeFactor;
+  final String appThemeQuraniFontFamily;
+  final double appThemeQuraniFontSizeFactor;
   final String appLocaleLanguageCode;
   final String appLocaleCountryCode;
   final int appTranslatorId;
 
   AppSharedPreferencesPersistAction({
-    this.appThemeFontFamily,
-    this.appThemeFontSizeFactor,
+    this.appThemeQuraniFontFamily,
+    this.appThemeQuraniFontSizeFactor,
     this.appLocaleLanguageCode,
     this.appLocaleCountryCode,
     this.appTranslatorId

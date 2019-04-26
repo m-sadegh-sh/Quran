@@ -13,6 +13,7 @@ import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generate_with_context.dart';
 import 'package:quran/items/drawer_item.dart';
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 
 class HomeState {
   final GenerateWithContext<String> homeOnGenerateTitle;
@@ -67,6 +68,22 @@ class HomeState {
         routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: Icons.search
+      ),
+      ActionItem(
+        tooltip: AppLocalizations.of(context).translate('home-action-more'),
+        icon: Icons.more_vert,
+        children: [
+          ActionChildItem(
+            value: SearchContainer.routeName,
+            text: AppLocalizations.of(context).translate('home-action-decrease-font-size'),
+            icon: Icons.exposure_neg_1
+          ),
+          ActionChildItem(
+            value: SearchContainer.routeName,
+            text: AppLocalizations.of(context).translate('home-action-increase-font-size'),
+            icon: Icons.exposure_plus_1
+          )
+        ]
       )
     ],
     homeOnGenerateTabItems: (BuildContext context) => [

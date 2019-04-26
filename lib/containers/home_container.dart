@@ -21,6 +21,7 @@ class HomeContainer extends StatelessWidget {
         homeOnDrawerItemTapped: homeViewModel.homeOnDrawerItemTapped,
         homeActionItems: homeViewModel.homeOnGenerateActionItems(context),
         homeOnActionItemPressed: homeViewModel.homeOnActionItemPressed,
+        homeOnActionChildItemPressed: homeViewModel.homeOnActionChildItemPressed,
         homeTabItems: homeViewModel.homeOnGenerateTabItems(context),
         homeTabContents: homeViewModel.homeOnGenerateTabContents(context),
         homeOnFloatingActionButtonPressed: homeViewModel.homeOnFloatingActionButtonPressed
