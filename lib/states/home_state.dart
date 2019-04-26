@@ -10,20 +10,20 @@ import 'package:quran/presentation/bookmark_list.dart';
 import 'package:quran/containers/help_and_support_container.dart';
 import 'package:quran/presentation/part_list.dart';
 import 'package:quran/app_localizations.dart';
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/drawer_item.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
 
 class HomeState {
-  final GenerateWithContext<String> homeOnGenerateTitle;
-  final GenerateWithContext<String> homeOnGenerateAccountName;
-  final GenerateWithContext<String> homeOnGenerateAccountEmail;
+  final GeneratorWNP<String> homeOnGenerateTitle;
+  final GeneratorWNP<String> homeOnGenerateAccountName;
+  final GeneratorWNP<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateWithContext<List<DrawerItem>> homeOnGenerateDrawerItems;
-  final GenerateWithContext<List<ActionItem>> homeOnGenerateActionItems;
-  final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
-  final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
+  final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
+  final GeneratorW1P<double, List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
+  final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
 
   HomeState({
     this.homeOnGenerateTitle,
@@ -63,7 +63,7 @@ class HomeState {
         icon: Icons.info
       )
     ],
-    homeOnGenerateActionItems: (BuildContext context) => [
+    homeOnGenerateActionItems: (BuildContext context, double quraniFontSize) => [
       ActionItem(
         routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
@@ -74,14 +74,18 @@ class HomeState {
         icon: Icons.more_vert,
         children: [
           ActionChildItem(
-            value: SearchContainer.routeName,
+            actionName: 'change-font-size',
+            value: quraniFontSize - 2.0,
             text: AppLocalizations.of(context).translate('home-action-decrease-font-size'),
-            icon: Icons.exposure_neg_1
+            icon: Icons.exposure_neg_1,
+            enabled: quraniFontSize >= 10.0
           ),
           ActionChildItem(
-            value: SearchContainer.routeName,
+            actionName: 'change-font-size',
+            value: quraniFontSize + 2.0,
             text: AppLocalizations.of(context).translate('home-action-increase-font-size'),
-            icon: Icons.exposure_plus_1
+            icon: Icons.exposure_plus_1,
+            enabled: quraniFontSize >= 26.0
           )
         ]
       )

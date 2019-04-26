@@ -19,12 +19,13 @@ class HomeContainer extends StatelessWidget {
         homeAccountBackgroundImage: homeViewModel.homeAccountBackgroundImage,
         homeDrawerItems: homeViewModel.homeOnGenerateDrawerItems(context),
         homeOnDrawerItemTapped: homeViewModel.homeOnDrawerItemTapped,
-        homeActionItems: homeViewModel.homeOnGenerateActionItems(context),
+        homeActionItems: homeViewModel.homeOnGenerateActionItems(context, homeViewModel.settingsThemeQuraniFontSize),
         homeOnActionItemPressed: homeViewModel.homeOnActionItemPressed,
         homeOnActionChildItemPressed: homeViewModel.homeOnActionChildItemPressed,
         homeTabItems: homeViewModel.homeOnGenerateTabItems(context),
         homeTabContents: homeViewModel.homeOnGenerateTabContents(context),
-        homeOnFloatingActionButtonPressed: homeViewModel.homeOnFloatingActionButtonPressed
+        homeOnFloatingActionButtonPressed: homeViewModel.homeOnFloatingActionButtonPressed,
+        settingsThemeQuraniFontSize: homeViewModel.settingsThemeQuraniFontSize,
       )
     );
   }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/app_localizations.dart';
 import 'package:quran/containers/home_container.dart';
 import 'package:quran/containers/chapter_details_container.dart';
@@ -14,9 +14,9 @@ import 'package:quran/containers/about_container.dart';
 
 class AppState {
   final GenerateAppTitle appOnGenerateTitle;
-  final GenerateWithContext<ThemeData> appOnGenerateThemeData;
+  final GeneratorWNP<ThemeData> appOnGenerateThemeData;
   final String appInitialRoute;
-  final GenerateWithContext<Map<String, WidgetBuilder>> appOnGenerateRoutes;
+  final GeneratorWNP<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final Locale appLocale;
@@ -38,7 +38,8 @@ class AppState {
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
       appOnGenerateThemeData: (BuildContext context) {
         return generateThemeData(
-          'Nabi'
+          'Nabi',
+          16.0
         );
       },
       appInitialRoute: HomeContainer.routeName,
@@ -67,7 +68,7 @@ class AppState {
   
   AppState copyWith({
     String appThemeQuraniFontFamily,
-    double appThemeQuraniFontSizeFactor,
+    double appThemeQuraniFontSize,
     String appLocaleLanguageCode,
     String appLocaleCountryCode,
     int appTranslatorId
@@ -75,7 +76,8 @@ class AppState {
     appOnGenerateTitle: this.appOnGenerateTitle,
     appOnGenerateThemeData: (BuildContext context) {
       return generateThemeData(
-        appThemeQuraniFontFamily ?? 'Nabi'
+        appThemeQuraniFontFamily ?? 'Nabi',
+        appThemeQuraniFontSize ?? 16.0
       );
     },
     appInitialRoute: this.appInitialRoute,
@@ -86,7 +88,10 @@ class AppState {
     appTranslatorId: appTranslatorId ?? this.appTranslatorId
   );
 
-  static ThemeData generateThemeData(final String quraniFontFamily) {
+  static ThemeData generateThemeData(
+    final String quraniFontFamily,
+    double quraniFontSize
+  ) {
     final theme = ThemeData(
       brightness: Brightness.light,
       primarySwatch: Colors.teal,
@@ -95,40 +100,48 @@ class AppState {
     );
 
     final defaultFont = TextStyle(
-      fontFamily: 'IranSans'
+      fontFamily: 'IranSans',
+      fontSize: 16,
+      fontWeight: FontWeight.w400
     );
 
     final quraniFont = TextStyle(
-      fontFamily: quraniFontFamily
+      fontFamily: quraniFontFamily,
+      fontSize: quraniFontSize,
+      fontWeight: FontWeight.w400
     );
 
     return theme.copyWith(
       textTheme: TextTheme(
-        headline: quraniFont.copyWith(
-          color: theme.cardColor
-        ),
-        title: quraniFont.copyWith(
-          color: theme.primaryColor
-        ),
-        display1: defaultFont.copyWith(
-          color: theme.disabledColor,
-          fontSize: 16,
-          fontWeight: FontWeight.w400
-        ),
-        display2: defaultFont.copyWith(
+        headline: quraniFont.apply(
           color: theme.cardColor,
-          fontSize: 16,
-          fontWeight: FontWeight.w400
+          fontSizeFactor: 1.25,
+          fontWeightDelta: 0
         ),
-        display3: defaultFont.copyWith(
+        title: quraniFont.apply(
+          color: theme.primaryColor,
+          fontSizeFactor: 1.25,
+          fontWeightDelta: 0
+        ),
+        display1: defaultFont.apply(
+          color: theme.disabledColor,
+          fontSizeFactor: 1.0,
+          fontWeightDelta: 0
+        ),
+        display2: defaultFont.apply(
+          color: theme.cardColor,
+          fontSizeFactor: 1.0,
+          fontWeightDelta: 0
+        ),
+        display3: defaultFont.apply(
           color: Colors.black87,
-          fontSize: 16,
-          fontWeight: FontWeight.w300
+          fontSizeFactor: 1.0,
+          fontWeightDelta: -1
         ),
-        display4: defaultFont.copyWith(
+        display4: defaultFont.apply(
           color: theme.primaryColorDark,
-          fontSize: 20,
-          fontWeight: FontWeight.w500
+          fontSizeFactor: 1.25,
+          fontWeightDelta: 1
         )
       )
     );

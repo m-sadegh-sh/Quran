@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/app_localizations.dart';
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
@@ -10,7 +10,7 @@ import 'package:quran/containers/bookmark_container.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
-  final GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorWNP<List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;

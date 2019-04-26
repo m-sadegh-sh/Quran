@@ -3,27 +3,30 @@ import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/app_action.dart';
+import 'package:quran/actions/settings_action.dart';
 import 'package:quran/actions/home_action.dart';
+import 'package:quran/selectors/settings_selector.dart';
 import 'package:quran/selectors/home_selector.dart';
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/drawer_item.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/tab_item.dart';
 
 class HomeViewModel {
-  final GenerateWithContext<String> homeOnGenerateTitle;
-  final GenerateWithContext<String> homeOnGenerateAccountName;
-  final GenerateWithContext<String> homeOnGenerateAccountEmail;
+  final GeneratorWNP<String> homeOnGenerateTitle;
+  final GeneratorWNP<String> homeOnGenerateAccountName;
+  final GeneratorWNP<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
-  final GenerateWithContext<List<DrawerItem>> homeOnGenerateDrawerItems;
+  final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
-  final GenerateWithContext<List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorW1P<double, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
-  final GenerateWithContext<List<TabItem>> homeOnGenerateTabItems;
-  final GenerateWithContext<List<Widget>> homeOnGenerateTabContents;
+  final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
+  final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
+  final double settingsThemeQuraniFontSize;
   
   HomeViewModel({
     this.homeOnGenerateTitle,
@@ -37,11 +40,13 @@ class HomeViewModel {
     this.homeOnActionChildItemPressed,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents,
-    this.homeOnFloatingActionButtonPressed
+    this.homeOnFloatingActionButtonPressed,
+    this.settingsThemeQuraniFontSize
   });
 
   static HomeViewModel fromStore(Store<RootState> store) {
     final homeState = homeStateSelector(store.state);
+    final settingsState = settingsStateSelector(store.state);
 
     return HomeViewModel(
       homeOnGenerateTitle: homeOnGenerateTitleSelector(homeState),
@@ -72,8 +77,10 @@ class HomeViewModel {
       homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState),
       homeOnFloatingActionButtonPressed: (BuildContext context) {
         store.dispatch(AppReloadInitialStateAction());
+        store.dispatch(SettingsReloadInitialStateAction());
         store.dispatch(HomeReloadInitialStateAction());
-      }
+      },
+      settingsThemeQuraniFontSize: settingsThemeQuraniFontSizeSelector(settingsState)
     );
   }
 }

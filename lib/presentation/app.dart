@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 
 class App extends StatelessWidget {
   final GenerateAppTitle appOnGenerateTitle;
-  final GenerateWithContext<ThemeData> appOnGenerateThemeData;
+  final GeneratorWNP<ThemeData> appOnGenerateThemeData;
   final String appInitialRoute;
   final Map<String, WidgetBuilder> appRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;

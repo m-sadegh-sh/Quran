@@ -5,14 +5,14 @@ import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_details_action.dart';
 import 'package:quran/selectors/app_selector.dart';
 import 'package:quran/selectors/chapter_details_selector.dart';
-import 'package:quran/delegates/generate_with_context.dart';
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/items/action_item.dart';
 
 class ChapterDetailsViewModel {
   final ChapterItem chapterDetailsChapterItem;
-  final GenerateWithContext<List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorWNP<List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
