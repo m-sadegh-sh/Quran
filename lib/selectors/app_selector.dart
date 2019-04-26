@@ -6,10 +6,8 @@ import 'package:quran/delegates/generators.dart';
 
 AppState appStateSelector(RootState state) => state.appState;
 GenerateAppTitle appOnGenerateTitleSelector(AppState state) => state.appOnGenerateTitle;
-GeneratorWNP<ThemeData> appOnGenerateThemeDataSelector(AppState state) => state.appOnGenerateThemeData;
+GeneratorW2P<String, double, ThemeData> appOnGenerateThemeDataSelector(AppState state) => state.appOnGenerateThemeData;
 String appInitialRouteSelector(AppState state) => state.appInitialRoute;
 GeneratorWNP<Map<String, WidgetBuilder>> appOnGenerateRoutesSelector(AppState state) => state.appOnGenerateRoutes;
 List<LocalizationsDelegate> appLocalizationsDelegatesSelector(AppState state) => state.appLocalizationsDelegates;
 List<Locale> appSupportedLocalesSelector(AppState state) => state.appSupportedLocales;
-Locale appLocaleSelector(AppState state) => state.appLocale;
-int appTranslatorIdSelector(AppState state) => state.appTranslatorId;

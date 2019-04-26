@@ -16,7 +16,11 @@ class AppContainer extends StatelessWidget {
         appInitialRoute: appViewModel.appInitialRoute,
         appRoutes: appViewModel.appOnGenerateRoutes(context),
         appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,
-        appSupportedLocales: appViewModel.appSupportedLocales
+        appSupportedLocales: appViewModel.appSupportedLocales,
+        settingsThemeQuraniFontFamily: appViewModel.settingsThemeQuraniFontFamily,
+        settingsThemeQuraniFontSize: appViewModel.settingsThemeQuraniFontSize,
+        settingsLocaleLanguageCode: appViewModel.settingsLocaleLanguageCode,
+        settingsLocaleCountryCode: appViewModel.settingsLocaleCountryCode
       )
     );
   }

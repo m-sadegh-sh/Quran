@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_list_action.dart';
-import 'package:quran/selectors/app_selector.dart';
+import 'package:quran/selectors/settings_selector.dart';
 import 'package:quran/selectors/chapter_list_selector.dart';
 import 'package:quran/items/chapter_item.dart';
 
@@ -15,7 +15,7 @@ class ChapterListViewModel {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
-  final int chapterListTranslatorId;
+  final int settingsTranslatorId;
 
   ChapterListViewModel({
     this.chapterListLoading,
@@ -25,12 +25,12 @@ class ChapterListViewModel {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
-    this.chapterListTranslatorId
+    this.settingsTranslatorId
   });
 
   static ChapterListViewModel fromStore(Store<RootState> store) {
-    final appState = appStateSelector(store.state);
     final chapterListState = chapterListStateSelector(store.state);
+    final settingsState = settingsStateSelector(store.state);
 
     return ChapterListViewModel(
       chapterListLoading: chapterListLoadingSelector(chapterListState),
@@ -44,7 +44,7 @@ class ChapterListViewModel {
           context: context,
           chapterListTappedItem: chapterListTappedItem,
         )),
-      chapterListTranslatorId: appTranslatorIdSelector(appState)
+      settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
   }
 }

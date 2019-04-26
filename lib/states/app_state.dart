@@ -14,13 +14,11 @@ import 'package:quran/containers/about_container.dart';
 
 class AppState {
   final GenerateAppTitle appOnGenerateTitle;
-  final GeneratorWNP<ThemeData> appOnGenerateThemeData;
+  final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
   final String appInitialRoute;
   final GeneratorWNP<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
-  final Locale appLocale;
-  final int appTranslatorId;
   
   AppState({
     this.appOnGenerateTitle,
@@ -28,18 +26,69 @@ class AppState {
     this.appInitialRoute,
     this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
-    this.appSupportedLocales,
-    this.appLocale,
-    this.appTranslatorId
+    this.appSupportedLocales
   });
 
   factory AppState.initial() {
     return AppState(
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
-      appOnGenerateThemeData: (BuildContext context) {
-        return generateThemeData(
-          'Nabi',
-          16.0
+      appOnGenerateThemeData: (
+        BuildContext context,
+        String quraniFontFamily,
+        double quraniFontSize
+      ) {
+        final theme = ThemeData(
+          brightness: Brightness.light,
+          primarySwatch: Colors.teal,
+          accentColor: Colors.tealAccent,
+          fontFamily: 'IranSans'
+        );
+
+        final defaultFont = TextStyle(
+          fontFamily: 'IranSans',
+          fontSize: 16,
+          fontWeight: FontWeight.w400
+        );
+
+        final quraniFont = TextStyle(
+          fontFamily: quraniFontFamily,
+          fontSize: quraniFontSize,
+          fontWeight: FontWeight.w400
+        );
+
+        return theme.copyWith(
+          textTheme: TextTheme(
+            headline: quraniFont.apply(
+              color: theme.cardColor,
+              fontSizeFactor: 1.25,
+              fontWeightDelta: 0
+            ),
+            title: quraniFont.apply(
+              color: theme.primaryColor,
+              fontSizeFactor: 1.25,
+              fontWeightDelta: 0
+            ),
+            display1: defaultFont.apply(
+              color: theme.disabledColor,
+              fontSizeFactor: 1.0,
+              fontWeightDelta: 0
+            ),
+            display2: defaultFont.apply(
+              color: theme.cardColor,
+              fontSizeFactor: 1.0,
+              fontWeightDelta: 0
+            ),
+            display3: defaultFont.apply(
+              color: Colors.black87,
+              fontSizeFactor: 1.0,
+              fontWeightDelta: -1
+            ),
+            display4: defaultFont.apply(
+              color: theme.primaryColorDark,
+              fontSizeFactor: 1.25,
+              fontWeightDelta: 1
+            )
+          )
         );
       },
       appInitialRoute: HomeContainer.routeName,
@@ -60,90 +109,7 @@ class AppState {
       ],
       appSupportedLocales: [
         Locale('fa', 'IR'),
-      ],
-      appLocale: Locale('fa', 'IR'),
-      appTranslatorId: 1
-    );
-  }
-  
-  AppState copyWith({
-    String appThemeQuraniFontFamily,
-    double appThemeQuraniFontSize,
-    String appLocaleLanguageCode,
-    String appLocaleCountryCode,
-    int appTranslatorId
-  }) => AppState(
-    appOnGenerateTitle: this.appOnGenerateTitle,
-    appOnGenerateThemeData: (BuildContext context) {
-      return generateThemeData(
-        appThemeQuraniFontFamily ?? 'Nabi',
-        appThemeQuraniFontSize ?? 16.0
-      );
-    },
-    appInitialRoute: this.appInitialRoute,
-    appOnGenerateRoutes: this.appOnGenerateRoutes,
-    appLocalizationsDelegates: this.appLocalizationsDelegates,
-    appSupportedLocales: this.appSupportedLocales,
-    appLocale: (appLocaleLanguageCode?.isNotEmpty ?? false) && (appLocaleCountryCode?.isNotEmpty ?? false) ? Locale(appLocaleLanguageCode, appLocaleCountryCode) : this.appLocale,
-    appTranslatorId: appTranslatorId ?? this.appTranslatorId
-  );
-
-  static ThemeData generateThemeData(
-    final String quraniFontFamily,
-    double quraniFontSize
-  ) {
-    final theme = ThemeData(
-      brightness: Brightness.light,
-      primarySwatch: Colors.teal,
-      accentColor: Colors.tealAccent,
-      fontFamily: 'IranSans'
-    );
-
-    final defaultFont = TextStyle(
-      fontFamily: 'IranSans',
-      fontSize: 16,
-      fontWeight: FontWeight.w400
-    );
-
-    final quraniFont = TextStyle(
-      fontFamily: quraniFontFamily,
-      fontSize: quraniFontSize,
-      fontWeight: FontWeight.w400
-    );
-
-    return theme.copyWith(
-      textTheme: TextTheme(
-        headline: quraniFont.apply(
-          color: theme.cardColor,
-          fontSizeFactor: 1.25,
-          fontWeightDelta: 0
-        ),
-        title: quraniFont.apply(
-          color: theme.primaryColor,
-          fontSizeFactor: 1.25,
-          fontWeightDelta: 0
-        ),
-        display1: defaultFont.apply(
-          color: theme.disabledColor,
-          fontSizeFactor: 1.0,
-          fontWeightDelta: 0
-        ),
-        display2: defaultFont.apply(
-          color: theme.cardColor,
-          fontSizeFactor: 1.0,
-          fontWeightDelta: 0
-        ),
-        display3: defaultFont.apply(
-          color: Colors.black87,
-          fontSizeFactor: 1.0,
-          fontWeightDelta: -1
-        ),
-        display4: defaultFont.apply(
-          color: theme.primaryColorDark,
-          fontSizeFactor: 1.25,
-          fontWeightDelta: 1
-        )
-      )
+      ]
     );
   }
 }

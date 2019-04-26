@@ -85,7 +85,7 @@ class HomeState {
             value: quraniFontSize + 2.0,
             text: AppLocalizations.of(context).translate('home-action-increase-font-size'),
             icon: Icons.exposure_plus_1,
-            enabled: quraniFontSize >= 26.0
+            enabled: quraniFontSize <= 26.0
           )
         ]
       )

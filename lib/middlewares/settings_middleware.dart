@@ -54,7 +54,7 @@ Middleware<RootState> _createSettingsSharedPreferencesLoad() {
         settingsTranslatorId: newSettingsTranslatorId
       ));
     } catch(exception) {
-      store.dispatch(SettingsSharedPreferencesLoadSucceededAction());
+      store.dispatch(SettingsSharedPreferencesLoadFailedAction());
     }
   };
 }

@@ -3,7 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_details_action.dart';
-import 'package:quran/selectors/app_selector.dart';
+import 'package:quran/selectors/settings_selector.dart';
 import 'package:quran/selectors/chapter_details_selector.dart';
 import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/chapter_item.dart';
@@ -21,7 +21,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final int chapterDetailsTranslatorId;
+  final int settingsTranslatorId;
 
   ChapterDetailsViewModel({
     this.chapterDetailsChapterItem,
@@ -34,12 +34,12 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
-    this.chapterDetailsTranslatorId
+    this.settingsTranslatorId
   });
 
   static ChapterDetailsViewModel fromStore(Store<RootState> store) {
-    final appState = appStateSelector(store.state);
     final chapterDetailsState = chapterDetailsStateSelector(store.state);
+    final settingsState = settingsStateSelector(store.state);
 
     return ChapterDetailsViewModel(
       chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
@@ -60,7 +60,7 @@ class ChapterDetailsViewModel {
         store.dispatch(ChapterDetailsLoadAction(
           chapterDetailsChapterItem: chapterDetailsChapterItem
         )),
-      chapterDetailsTranslatorId: appTranslatorIdSelector(appState)
+      settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
   }
 }

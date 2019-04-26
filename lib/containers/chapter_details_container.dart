@@ -23,7 +23,7 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,
         chapterDetailsLoad: chapterDetailsViewModel.chapterDetailsLoad,
-        chapterDetailsTranslatorId: chapterDetailsViewModel.chapterDetailsTranslatorId
+        settingsTranslatorId: chapterDetailsViewModel.settingsTranslatorId
       )
     );
   }
