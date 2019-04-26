@@ -5,7 +5,8 @@ import 'package:quran/actions/settings_action.dart';
 
 final Reducer<SettingsState> settingsReducer = combineReducers([
   TypedReducer<SettingsState, SettingsReloadInitialStateSucceededAction>(_settingsReloadInitialStateSucceeded),
-  TypedReducer<SettingsState, SettingsSharedPreferencesLoadSucceededAction>(_settingsSharedPreferencesLoadSucceeded)
+  TypedReducer<SettingsState, SettingsSharedPreferencesLoadSucceededAction>(_settingsSharedPreferencesLoadSucceeded),
+  TypedReducer<SettingsState, SettingsSharedPreferencesPersistSucceededAction>(_settingsSharedPreferencesPersistSucceeded)
 ]);
 
 SettingsState _settingsReloadInitialStateSucceeded(SettingsState state, SettingsReloadInitialStateSucceededAction action) {
@@ -13,6 +14,16 @@ SettingsState _settingsReloadInitialStateSucceeded(SettingsState state, Settings
 }
 
 SettingsState _settingsSharedPreferencesLoadSucceeded(SettingsState state, SettingsSharedPreferencesLoadSucceededAction action) {
+  return state.copyWith(
+    settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
+    settingsThemeQuraniFontSize: action.settingsThemeQuraniFontSize,
+    settingsLocaleLanguageCode: action.settingsLocaleLanguageCode,
+    settingsLocaleCountryCode: action.settingsLocaleCountryCode,
+    settingsTranslatorId: action.settingsTranslatorId
+  );
+}
+
+SettingsState _settingsSharedPreferencesPersistSucceeded(SettingsState state, SettingsSharedPreferencesPersistSucceededAction action) {
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
     settingsThemeQuraniFontSize: action.settingsThemeQuraniFontSize,

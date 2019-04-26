@@ -49,6 +49,20 @@ class SettingsSharedPreferencesPersistAction {
   });
 }
 
-class SettingsSharedPreferencesPersistSucceededAction { }
+class SettingsSharedPreferencesPersistSucceededAction {
+  final String settingsThemeQuraniFontFamily;
+  final double settingsThemeQuraniFontSize;
+  final String settingsLocaleLanguageCode;
+  final String settingsLocaleCountryCode;
+  final int settingsTranslatorId;
+
+  SettingsSharedPreferencesPersistSucceededAction({
+    this.settingsThemeQuraniFontFamily,
+    this.settingsThemeQuraniFontSize,
+    this.settingsLocaleLanguageCode,
+    this.settingsLocaleCountryCode,
+    this.settingsTranslatorId
+  });
+}
 
 class SettingsSharedPreferencesPersistFailedAction { }

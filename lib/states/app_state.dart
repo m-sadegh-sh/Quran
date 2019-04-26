@@ -58,10 +58,9 @@ class AppState {
 
         return theme.copyWith(
           textTheme: TextTheme(
-            headline: quraniFont.apply(
+            headline: quraniFont.copyWith(
               color: theme.cardColor,
-              fontSizeFactor: 1.25,
-              fontWeightDelta: 0
+              fontSize: 20
             ),
             title: quraniFont.apply(
               color: theme.primaryColor,

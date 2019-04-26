@@ -18,7 +18,6 @@ class Home extends StatelessWidget {
   final List<TabItem> homeTabItems;
   final List<Widget> homeTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
-  final double settingsThemeQuraniFontSize;
 
   Home({
     Key key,
@@ -33,8 +32,7 @@ class Home extends StatelessWidget {
     this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
-    this.homeOnFloatingActionButtonPressed,
-    this.settingsThemeQuraniFontSize
+    this.homeOnFloatingActionButtonPressed
   }) : super(key: key);
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {

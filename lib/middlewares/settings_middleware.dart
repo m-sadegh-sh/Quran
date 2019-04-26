@@ -24,8 +24,18 @@ Middleware<RootState> _createSettingsReloadInitialState() {
     try {
       next(action);
 
+      final settingsState = SettingsState.initial();
+
       store.dispatch(SettingsReloadInitialStateSucceededAction(
-        settingsState: SettingsState.initial()
+        settingsState: settingsState
+      ));
+
+      store.dispatch(SettingsSharedPreferencesPersistAction(
+        settingsThemeQuraniFontFamily: settingsState.settingsThemeQuraniFontFamily,
+        settingsThemeQuraniFontSize: settingsState.settingsThemeQuraniFontSize,
+        settingsLocaleLanguageCode: settingsState.settingsLocaleLanguageCode,
+        settingsLocaleCountryCode: settingsState.settingsLocaleCountryCode,
+        settingsTranslatorId: settingsState.settingsTranslatorId
       ));
     } catch(exception) {
       store.dispatch(SettingsReloadInitialStateFailedAction());
@@ -74,7 +84,13 @@ Middleware<RootState> _createSettingsSharedPreferencesPersist() {
       sharedPreferences.setString(SETTINGS_LOCALE_COUNTRY_CODE_KEY, castedAction.settingsLocaleCountryCode);
       sharedPreferences.setInt(SETTINGS_TRANSLATOR_ID_KEY, castedAction.settingsTranslatorId);
 
-      store.dispatch(SettingsSharedPreferencesPersistSucceededAction());
+      store.dispatch(SettingsSharedPreferencesPersistSucceededAction(
+        settingsThemeQuraniFontFamily: castedAction.settingsThemeQuraniFontFamily,
+        settingsThemeQuraniFontSize: castedAction.settingsThemeQuraniFontSize,
+        settingsLocaleLanguageCode: castedAction.settingsLocaleLanguageCode,
+        settingsLocaleCountryCode: castedAction.settingsLocaleCountryCode,
+        settingsTranslatorId: castedAction.settingsTranslatorId
+      ));
     } catch(exception) {
       store.dispatch(SettingsSharedPreferencesPersistFailedAction());
     }
