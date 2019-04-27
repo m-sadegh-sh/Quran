@@ -20,24 +20,24 @@ class ChapterListItem extends StatelessWidget {
   Widget _buildChapterNumber(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(left: 10.0),
-      child: SizedBox(
-        width: 48.0,
-        height: 48.0,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorLight,
-            borderRadius: BorderRadius.circular(180.0)
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text(
-                chapterItem.id.toString(),
-                textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.display4
-              )
-            ]
-          )
+      constraints: BoxConstraints(
+        minWidth: 48.0,
+        minHeight: 48.0
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColorLight,
+          borderRadius: BorderRadius.circular(180.0)
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              chapterItem.id.toString(),
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.display4
+            )
+          ]
         )
       )
     );
