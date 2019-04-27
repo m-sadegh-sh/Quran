@@ -37,8 +37,6 @@ Middleware<RootState> _createHomeActionChildItemPressed() {
         store.dispatch(SettingsSharedPreferencesPersistAction(
           settingsThemeFontSize: castedAction.actionChildItem.value as double
         ));
-    } catch(exception) {
-      store.dispatch(HomeReloadInitialStateFailedAction());
-    }
+    } catch(exception) { }
   };
 }

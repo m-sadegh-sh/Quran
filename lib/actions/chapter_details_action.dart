@@ -1,8 +1,22 @@
-import 'package:quran/items/verse_item.dart';
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
+import 'package:quran/items/verse_item.dart';
+import 'package:quran/states/chapter_details_state.dart';
+
+class ChapterDetailsReloadInitialStateAction { }
+
+class ChapterDetailsReloadInitialStateSucceededAction {
+  final ChapterDetailsState chapterDetailsState;
+
+  ChapterDetailsReloadInitialStateSucceededAction({
+    this.chapterDetailsState
+  });
+}
+
+class ChapterDetailsReloadInitialStateFailedAction { }
 
 class ChapterDetailsLoadAction {
   final ChapterItem chapterDetailsChapterItem;
@@ -30,10 +44,20 @@ class ChapterDetailsLoadFailedAction {
 
 class ChapterDetailsActionItemPressedAction {
   final BuildContext context;
-  final ActionItem chapterDetailsActionItem;
+  final ActionItem actionItem;
 
   ChapterDetailsActionItemPressedAction({
     this.context,
-    this.chapterDetailsActionItem
+    this.actionItem
+  });
+}
+
+class ChapterDetailsActionChildItemPressedAction {
+  final BuildContext context;
+  final ActionChildItem actionChildItem;
+
+  ChapterDetailsActionChildItemPressedAction({
+    this.context,
+    this.actionChildItem
   });
 }

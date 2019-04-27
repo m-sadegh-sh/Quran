@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/presentation/verse_list.dart';
@@ -9,6 +10,7 @@ class ChapterDetails extends StatelessWidget {
   final ChapterItem chapterDetailsChapterItem;
   final List<ActionItem> chapterDetailsActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
+  final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
@@ -24,6 +26,7 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsChapterItem,
     this.chapterDetailsActionItems,
     this.chapterDetailsOnActionItemPressed,
+    this.chapterDetailsOnActionChildItemPressed,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsVerseItems,
@@ -35,13 +38,45 @@ class ChapterDetails extends StatelessWidget {
     this.settingsTranslatorId
   }) : super(key: key);
 
-  List<IconButton> _buildActions(BuildContext context) {
+  List<Widget> _buildActions(BuildContext context) {
     return chapterDetailsActionItems
-      .map<IconButton>((item) => IconButton(
-        icon: Icon(item.icon),
-        tooltip: item.tooltip,
-        onPressed: () => chapterDetailsOnActionItemPressed(context, item)
-      )).toList();
+      .map<Widget>((item) {
+        if (item.children == null)
+          return IconButton(
+            icon: Icon(item.icon),
+            tooltip: item.tooltip,
+            onPressed: () => chapterDetailsOnActionItemPressed(context, item)
+          );
+
+        return PopupMenuButton(
+          offset: Offset(0, kToolbarHeight),
+          icon: Icon(item.icon),
+          tooltip: item.tooltip,
+          itemBuilder: (BuildContext context) {
+            return item.children.map((ActionChildItem child) {
+              return PopupMenuItem<ActionChildItem>(
+                enabled: child.enabled,
+                value: child,
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      margin: EdgeInsets.only(left: 20.0),
+                      child: Icon(child.icon)
+                    ),
+                    Text(
+                      child.text,
+                      style: Theme.of(context).textTheme.display3,
+                      textDirection: TextDirection.rtl,
+                      textAlign: TextAlign.center
+                    )
+                  ]
+                )
+              );
+            }).toList();
+          },
+          onSelected: (ActionChildItem item) => chapterDetailsOnActionChildItemPressed(context, item),
+        );
+      }).toList();
   }
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {

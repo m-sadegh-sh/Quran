@@ -9,11 +9,13 @@ import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/items/action_item.dart';
+import 'package:quran/items/action_child_item.dart';
 
 class ChapterDetailsViewModel {
   final ChapterItem chapterDetailsChapterItem;
-  final GeneratorWNP<List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorW1P<double, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
+  final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
@@ -22,11 +24,13 @@ class ChapterDetailsViewModel {
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
   final int settingsTranslatorId;
+  final double settingsThemeFontSize;
 
   ChapterDetailsViewModel({
     this.chapterDetailsChapterItem,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsOnActionItemPressed,
+    this.chapterDetailsOnActionChildItemPressed,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsVerseItems,
@@ -34,7 +38,8 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
-    this.settingsTranslatorId
+    this.settingsTranslatorId,
+    this.settingsThemeFontSize
   });
 
   static ChapterDetailsViewModel fromStore(Store<RootState> store) {
@@ -44,10 +49,16 @@ class ChapterDetailsViewModel {
     return ChapterDetailsViewModel(
       chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
       chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItemsSelector(chapterDetailsState),
-      chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem chapterDetailsActionItem) {
+      chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
         store.dispatch(ChapterDetailsActionItemPressedAction(
           context: context,
-          chapterDetailsActionItem: chapterDetailsActionItem,
+          actionItem: actionItem,
+        ));
+      },
+      chapterDetailsOnActionChildItemPressed: (BuildContext context, ActionChildItem actionChildItem) {
+        store.dispatch(ChapterDetailsActionChildItemPressedAction(
+          context: context,
+          actionChildItem: actionChildItem,
         ));
       },
       chapterDetailsLoading: chapterDetailsLoadingSelector(chapterDetailsState),
@@ -56,10 +67,12 @@ class ChapterDetailsViewModel {
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
-      chapterDetailsLoad: (ChapterItem chapterDetailsChapterItem) => 
+      chapterDetailsLoad: (ChapterItem chapterDetailsChapterItem) { 
         store.dispatch(ChapterDetailsLoadAction(
           chapterDetailsChapterItem: chapterDetailsChapterItem
-        )),
+        ));
+      },
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
   }

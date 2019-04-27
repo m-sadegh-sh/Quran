@@ -5,6 +5,7 @@ import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/app_action.dart';
 import 'package:quran/actions/settings_action.dart';
 import 'package:quran/actions/home_action.dart';
+import 'package:quran/actions/chapter_details_action.dart';
 import 'package:quran/selectors/settings_selector.dart';
 import 'package:quran/selectors/home_selector.dart';
 import 'package:quran/delegates/generators.dart';
@@ -79,6 +80,7 @@ class HomeViewModel {
         store.dispatch(AppReloadInitialStateAction());
         store.dispatch(SettingsReloadInitialStateAction());
         store.dispatch(HomeReloadInitialStateAction());
+        store.dispatch(ChapterDetailsReloadInitialStateAction());
       },
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState)
     );

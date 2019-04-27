@@ -16,8 +16,12 @@
     "home-tab-parts": "جزءها",
     "home-tab-bookmarks": "نشان‌شده‌ها",
 
+    "chapter-details-action-search": "جستجو",
     "chapter-details-action-share": "اشتراک گذاری",
     "chapter-details-action-bookmark": "نشان کردن",
+    "chapter-details-action-more": "بیشتر",
+    "chapter-details-action-decrease-font-size": "قلم کوچکتر",
+    "chapter-details-action-increase-font-size": "قلم بزرگتر",
 
     "search-title": "جستجو",
 
