@@ -46,11 +46,11 @@ class ChapterDetails extends StatelessWidget {
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
     return SizedBox(
-      height: kTextTabBarHeight + 4,
+      height: kTextTabBarHeight,
       child: Text(
         chapterDetailsChapterItem.title,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.headline
+        style: Theme.of(context).textTheme.overline
       )
     );
   }

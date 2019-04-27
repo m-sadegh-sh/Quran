@@ -35,7 +35,7 @@ Middleware<RootState> _createHomeActionChildItemPressed() {
    
       if (castedAction.actionChildItem.actionName == 'change-font-size')
         store.dispatch(SettingsSharedPreferencesPersistAction(
-          settingsThemeQuraniFontSize: castedAction.actionChildItem.value as double
+          settingsThemeFontSize: castedAction.actionChildItem.value as double
         ));
     } catch(exception) {
       store.dispatch(HomeReloadInitialStateFailedAction());

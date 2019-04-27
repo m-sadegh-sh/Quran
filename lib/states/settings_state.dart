@@ -1,13 +1,13 @@
 class SettingsState {
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
   
   SettingsState({
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode,
     this.settingsTranslatorId
@@ -16,7 +16,7 @@ class SettingsState {
   factory SettingsState.initial() {
     return SettingsState(
       settingsThemeQuraniFontFamily: 'Nabi',
-      settingsThemeQuraniFontSize: 16.0,
+      settingsThemeFontSize: 16.0,
       settingsLocaleLanguageCode: 'fa',
       settingsLocaleCountryCode: 'IR',
       settingsTranslatorId: 1
@@ -25,13 +25,13 @@ class SettingsState {
   
   SettingsState copyWith({
     String settingsThemeQuraniFontFamily,
-    double settingsThemeQuraniFontSize,
+    double settingsThemeFontSize,
     String settingsLocaleLanguageCode,
     String settingsLocaleCountryCode,
     int settingsTranslatorId
   }) => SettingsState(
     settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamily ?? this.settingsThemeQuraniFontFamily,
-    settingsThemeQuraniFontSize: settingsThemeQuraniFontSize ?? this.settingsThemeQuraniFontSize,
+    settingsThemeFontSize: settingsThemeFontSize ?? this.settingsThemeFontSize,
     settingsLocaleLanguageCode: settingsLocaleLanguageCode ?? this.settingsLocaleLanguageCode,
     settingsLocaleCountryCode: settingsLocaleCountryCode ?? this.settingsLocaleCountryCode,
     settingsTranslatorId: settingsTranslatorId ?? this.settingsTranslatorId

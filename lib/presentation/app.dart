@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
 
@@ -22,7 +22,7 @@ class App extends StatelessWidget {
     this.appLocalizationsDelegates,
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode
   }) : super(key: key);
@@ -47,7 +47,7 @@ class App extends StatelessWidget {
           data: appOnGenerateThemeData(
             context,
             this.settingsThemeQuraniFontFamily,
-            this.settingsThemeQuraniFontSize
+            this.settingsThemeFontSize
           )
         );
       }

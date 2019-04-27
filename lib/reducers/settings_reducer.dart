@@ -16,7 +16,7 @@ SettingsState _settingsReloadInitialStateSucceeded(SettingsState state, Settings
 SettingsState _settingsSharedPreferencesLoadSucceeded(SettingsState state, SettingsSharedPreferencesLoadSucceededAction action) {
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
-    settingsThemeQuraniFontSize: action.settingsThemeQuraniFontSize,
+    settingsThemeFontSize: action.settingsThemeFontSize,
     settingsLocaleLanguageCode: action.settingsLocaleLanguageCode,
     settingsLocaleCountryCode: action.settingsLocaleCountryCode,
     settingsTranslatorId: action.settingsTranslatorId
@@ -26,7 +26,7 @@ SettingsState _settingsSharedPreferencesLoadSucceeded(SettingsState state, Setti
 SettingsState _settingsSharedPreferencesPersistSucceeded(SettingsState state, SettingsSharedPreferencesPersistSucceededAction action) {
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
-    settingsThemeQuraniFontSize: action.settingsThemeQuraniFontSize,
+    settingsThemeFontSize: action.settingsThemeFontSize,
     settingsLocaleLanguageCode: action.settingsLocaleLanguageCode,
     settingsLocaleCountryCode: action.settingsLocaleCountryCode,
     settingsTranslatorId: action.settingsTranslatorId

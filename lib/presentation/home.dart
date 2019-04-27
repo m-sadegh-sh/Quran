@@ -122,9 +122,7 @@ class Home extends StatelessWidget {
       title: Text(
         homeTitle,
         textAlign: TextAlign.center,
-        style: Theme.of(context).textTheme.headline.copyWith(
-          height: 1.1
-        )
+        style: Theme.of(context).textTheme.headline
       ),
       actions: _buildActions(context),
       bottom: TabBar(

@@ -6,7 +6,7 @@ import 'package:quran/states/settings_state.dart';
 import 'package:quran/actions/settings_action.dart';
 
 const SETTINGS_THEME_QURANI_FONT_FAMILY_KEY = "rootState.settingsState.settingsTheme.textTheme.quraniFontFamily";
-const SETTINGS_THEME_QURANI_FONT_SIZE_KEY = "rootState.settingsState.settingsTheme.textTheme.quraniFontSize";
+const SETTINGS_THEME_FONT_SIZE_KEY = "rootState.settingsState.settingsTheme.textTheme.fontSize";
 const SETTINGS_LOCALE_LANGUAGE_CODE_KEY = "rootState.settingsState.settingsLocale.languageCode";
 const SETTINGS_LOCALE_COUNTRY_CODE_KEY = "rootState.settingsState.settingsLocale.countryCode";
 const SETTINGS_TRANSLATOR_ID_KEY = "rootState.settingsState.settingsTranslatorId";
@@ -32,7 +32,7 @@ Middleware<RootState> _createSettingsReloadInitialState() {
 
       store.dispatch(SettingsSharedPreferencesPersistAction(
         settingsThemeQuraniFontFamily: settingsState.settingsThemeQuraniFontFamily,
-        settingsThemeQuraniFontSize: settingsState.settingsThemeQuraniFontSize,
+        settingsThemeFontSize: settingsState.settingsThemeFontSize,
         settingsLocaleLanguageCode: settingsState.settingsLocaleLanguageCode,
         settingsLocaleCountryCode: settingsState.settingsLocaleCountryCode,
         settingsTranslatorId: settingsState.settingsTranslatorId
@@ -51,14 +51,14 @@ Middleware<RootState> _createSettingsSharedPreferencesLoad() {
       final sharedPreferences = await SharedPreferences.getInstance();
 
       final newSettingsThemeQuraniFontFamily = sharedPreferences.getString(SETTINGS_THEME_QURANI_FONT_FAMILY_KEY);
-      final newSettingsThemeQuraniFontSize = sharedPreferences.getDouble(SETTINGS_THEME_QURANI_FONT_SIZE_KEY);
+      final newSettingsThemeFontSize = sharedPreferences.getDouble(SETTINGS_THEME_FONT_SIZE_KEY);
       final newSettingsLocaleLanguageCode = sharedPreferences.getString(SETTINGS_LOCALE_LANGUAGE_CODE_KEY);
       final newSettingsLocaleCountryCode = sharedPreferences.getString(SETTINGS_LOCALE_COUNTRY_CODE_KEY);
       final newSettingsTranslatorId = sharedPreferences.getInt(SETTINGS_TRANSLATOR_ID_KEY);
 
       store.dispatch(SettingsSharedPreferencesLoadSucceededAction(
         settingsThemeQuraniFontFamily: newSettingsThemeQuraniFontFamily,
-        settingsThemeQuraniFontSize: newSettingsThemeQuraniFontSize,
+        settingsThemeFontSize: newSettingsThemeFontSize,
         settingsLocaleLanguageCode: newSettingsLocaleLanguageCode,
         settingsLocaleCountryCode: newSettingsLocaleCountryCode,
         settingsTranslatorId: newSettingsTranslatorId
@@ -79,14 +79,14 @@ Middleware<RootState> _createSettingsSharedPreferencesPersist() {
       final sharedPreferences = await SharedPreferences.getInstance();
 
       sharedPreferences.setString(SETTINGS_THEME_QURANI_FONT_FAMILY_KEY, castedAction.settingsThemeQuraniFontFamily);
-      sharedPreferences.setDouble(SETTINGS_THEME_QURANI_FONT_SIZE_KEY, castedAction.settingsThemeQuraniFontSize);
+      sharedPreferences.setDouble(SETTINGS_THEME_FONT_SIZE_KEY, castedAction.settingsThemeFontSize);
       sharedPreferences.setString(SETTINGS_LOCALE_LANGUAGE_CODE_KEY, castedAction.settingsLocaleLanguageCode);
       sharedPreferences.setString(SETTINGS_LOCALE_COUNTRY_CODE_KEY, castedAction.settingsLocaleCountryCode);
       sharedPreferences.setInt(SETTINGS_TRANSLATOR_ID_KEY, castedAction.settingsTranslatorId);
 
       store.dispatch(SettingsSharedPreferencesPersistSucceededAction(
         settingsThemeQuraniFontFamily: castedAction.settingsThemeQuraniFontFamily,
-        settingsThemeQuraniFontSize: castedAction.settingsThemeQuraniFontSize,
+        settingsThemeFontSize: castedAction.settingsThemeFontSize,
         settingsLocaleLanguageCode: castedAction.settingsLocaleLanguageCode,
         settingsLocaleCountryCode: castedAction.settingsLocaleCountryCode,
         settingsTranslatorId: castedAction.settingsTranslatorId

@@ -17,14 +17,14 @@ class SettingsSharedPreferencesLoadAction { }
 
 class SettingsSharedPreferencesLoadSucceededAction {
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
   SettingsSharedPreferencesLoadSucceededAction({
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode,
     this.settingsTranslatorId
@@ -35,14 +35,14 @@ class SettingsSharedPreferencesLoadFailedAction {}
   
 class SettingsSharedPreferencesPersistAction {
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
   SettingsSharedPreferencesPersistAction({
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode,
     this.settingsTranslatorId
@@ -51,14 +51,14 @@ class SettingsSharedPreferencesPersistAction {
 
 class SettingsSharedPreferencesPersistSucceededAction {
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
   SettingsSharedPreferencesPersistSucceededAction({
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode,
     this.settingsTranslatorId

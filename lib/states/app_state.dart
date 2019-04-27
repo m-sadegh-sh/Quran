@@ -35,7 +35,7 @@ class AppState {
       appOnGenerateThemeData: (
         BuildContext context,
         String quraniFontFamily,
-        double quraniFontSize
+        double fontSize
       ) {
         final theme = ThemeData(
           brightness: Brightness.light,
@@ -46,13 +46,13 @@ class AppState {
 
         final defaultFont = TextStyle(
           fontFamily: 'IranSans',
-          fontSize: 16,
+          fontSize: fontSize,
           fontWeight: FontWeight.w400
         );
 
         final quraniFont = TextStyle(
           fontFamily: quraniFontFamily,
-          fontSize: quraniFontSize,
+          fontSize: fontSize,
           fontWeight: FontWeight.w400
         );
 
@@ -60,32 +60,31 @@ class AppState {
           textTheme: TextTheme(
             headline: quraniFont.copyWith(
               color: theme.cardColor,
-              fontSize: 20
+              fontSize: 20,
+              height: 1.1
+            ),
+            overline: quraniFont.apply(
+              color: theme.cardColor
             ),
             title: quraniFont.apply(
               color: theme.primaryColor,
-              fontSizeFactor: 1.25,
-              fontWeightDelta: 0
+              fontSizeFactor: 1.25
             ),
             display1: defaultFont.apply(
               color: theme.disabledColor,
-              fontSizeFactor: 1.0,
-              fontWeightDelta: 0
+              fontSizeFactor: 0.8
             ),
-            display2: defaultFont.apply(
+            display2: defaultFont.copyWith(
               color: theme.cardColor,
-              fontSizeFactor: 1.0,
-              fontWeightDelta: 0
+              fontSize: 16.0
             ),
-            display3: defaultFont.apply(
+            display3: defaultFont.copyWith(
               color: Colors.black87,
-              fontSizeFactor: 1.0,
-              fontWeightDelta: -1
+              fontSize: 15.0
             ),
             display4: defaultFont.apply(
               color: theme.primaryColorDark,
-              fontSizeFactor: 1.25,
-              fontWeightDelta: 1
+              fontSizeFactor: 1.25
             )
           )
         );

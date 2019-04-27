@@ -63,7 +63,7 @@ class HomeState {
         icon: Icons.info
       )
     ],
-    homeOnGenerateActionItems: (BuildContext context, double quraniFontSize) => [
+    homeOnGenerateActionItems: (BuildContext context, double fontSize) => [
       ActionItem(
         routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
@@ -75,17 +75,17 @@ class HomeState {
         children: [
           ActionChildItem(
             actionName: 'change-font-size',
-            value: quraniFontSize - 2.0,
+            value: fontSize - 2.0,
             text: AppLocalizations.of(context).translate('home-action-decrease-font-size'),
             icon: Icons.exposure_neg_1,
-            enabled: quraniFontSize >= 16.0
+            enabled: fontSize > 16.0
           ),
           ActionChildItem(
             actionName: 'change-font-size',
-            value: quraniFontSize + 2.0,
+            value: fontSize + 2.0,
             text: AppLocalizations.of(context).translate('home-action-increase-font-size'),
             icon: Icons.exposure_plus_1,
-            enabled: quraniFontSize <= 26.0
+            enabled: fontSize < 24.0
           )
         ]
       )
