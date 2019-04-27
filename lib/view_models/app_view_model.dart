@@ -14,7 +14,7 @@ class AppViewModel {
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
 
@@ -26,7 +26,7 @@ class AppViewModel {
     this.appLocalizationsDelegates,
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode
   });
@@ -43,7 +43,7 @@ class AppViewModel {
       appLocalizationsDelegates: appLocalizationsDelegatesSelector(appState),
       appSupportedLocales: appSupportedLocalesSelector(appState),
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),
-      settingsThemeQuraniFontSize: settingsThemeQuraniFontSizeSelector(settingsState),
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsLocaleLanguageCode: settingsLocaleLanguageCodeSelector(settingsState),
       settingsLocaleCountryCode: settingsLocaleCountryCodeSelector(settingsState)
     );

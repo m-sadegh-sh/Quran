@@ -26,7 +26,7 @@ class HomeViewModel {
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   
   HomeViewModel({
     this.homeOnGenerateTitle,
@@ -41,7 +41,7 @@ class HomeViewModel {
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents,
     this.homeOnFloatingActionButtonPressed,
-    this.settingsThemeQuraniFontSize
+    this.settingsThemeFontSize
   });
 
   static HomeViewModel fromStore(Store<RootState> store) {
@@ -80,7 +80,7 @@ class HomeViewModel {
         store.dispatch(SettingsReloadInitialStateAction());
         store.dispatch(HomeReloadInitialStateAction());
       },
-      settingsThemeQuraniFontSize: settingsThemeQuraniFontSizeSelector(settingsState)
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState)
     );
   }
 }

@@ -5,14 +5,14 @@ import 'package:quran/selectors/settings_selector.dart';
 
 class SettingsViewModel {
   final String settingsThemeQuraniFontFamily;
-  final double settingsThemeQuraniFontSize;
+  final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
   SettingsViewModel({
     this.settingsThemeQuraniFontFamily,
-    this.settingsThemeQuraniFontSize,
+    this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
     this.settingsLocaleCountryCode,
     this.settingsTranslatorId
@@ -23,7 +23,7 @@ class SettingsViewModel {
 
     return SettingsViewModel(
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),
-      settingsThemeQuraniFontSize: settingsThemeQuraniFontSizeSelector(settingsState),
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsLocaleLanguageCode: settingsLocaleLanguageCodeSelector(settingsState),
       settingsLocaleCountryCode: settingsLocaleCountryCodeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
