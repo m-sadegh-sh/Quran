@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:quran/delegates/generators.dart';
 
 class App extends StatelessWidget {

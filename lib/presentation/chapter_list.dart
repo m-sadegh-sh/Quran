@@ -14,6 +14,8 @@ class ChapterList extends StatelessWidget {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final double settingsThemeFontSize;
+  final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
 
   ChapterList({
@@ -25,6 +27,8 @@ class ChapterList extends StatelessWidget {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
+    this.settingsThemeFontSize,
+    this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
@@ -45,12 +49,26 @@ class ChapterList extends StatelessWidget {
     if (chapterListItems.length == 0)
       return EmptyContent();
 
-    return ListView.builder(
-      itemCount: chapterListItems.length,
-      itemBuilder: (BuildContext context, int index) => ChapterListItem(
-        chapterItem: chapterListItems[index],
-        onChapterItemTapped: chapterListOnChapterItemTapped,
-        settingsTranslatorId: settingsTranslatorId
+    return GestureDetector(
+      onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
+        double newSettingsThemeFontSize = settingsThemeFontSize / scaleDetails.scale;
+
+        if (newSettingsThemeFontSize > 24.0)
+          newSettingsThemeFontSize = 24.0;
+        else if (newSettingsThemeFontSize < 16.0)
+          newSettingsThemeFontSize = 16.0;
+
+        chapterListOnThemeFontSizeChanging(
+          newSettingsThemeFontSize
+        );
+      },
+      child: ListView.builder(
+        itemCount: chapterListItems.length,
+        itemBuilder: (BuildContext context, int index) => ChapterListItem(
+          chapterItem: chapterListItems[index],
+          onChapterItemTapped: chapterListOnChapterItemTapped,
+          settingsTranslatorId: settingsTranslatorId
+        )
       )
     );
   }
