@@ -51,7 +51,7 @@ class ChapterList extends StatelessWidget {
 
     return GestureDetector(
       onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
-        double newSettingsThemeFontSize = settingsThemeFontSize / scaleDetails.scale;
+        double newSettingsThemeFontSize = settingsThemeFontSize * scaleDetails.scale;
 
         if (newSettingsThemeFontSize > 24.0)
           newSettingsThemeFontSize = 24.0;
