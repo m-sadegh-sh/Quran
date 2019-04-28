@@ -27,6 +27,9 @@ class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
       VerseTranslationItem.fromJson(parsedJson);
 
   Future<VerseTranslationItem> findOneByVerseId(int verseId, int translatorId) async {
+    if (verseId > 10000)
+      return (await findAll()).singleWhere((vti) => vti.verseId == 1 && vti.translatorId == translatorId);
+
     return (await findAll()).singleWhere((vti) => vti.verseId == verseId && vti.translatorId == translatorId);
   }
 }

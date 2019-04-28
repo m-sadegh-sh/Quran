@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/app_localizations.dart';
-import 'package:quran/containers/search_container.dart';
 import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
-import 'package:quran/containers/share_container.dart';
-import 'package:quran/containers/bookmark_container.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
@@ -35,7 +32,6 @@ class ChapterDetailsState {
     chapterDetailsChapterItem: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context, double fontSize) => [
       ActionItem(
-        routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-search'),
         icon: Icons.search
       ),
@@ -56,16 +52,6 @@ class ChapterDetailsState {
             text: AppLocalizations.of(context).translate('chapter-details-action-increase-font-size'),
             icon: Icons.exposure_plus_1,
             enabled: fontSize < 24.0
-          ),
-          ActionChildItem(
-            routeName: ShareContainer.routeName,
-            text: AppLocalizations.of(context).translate('chapter-details-action-share'),
-            icon: Icons.share
-          ),
-          ActionChildItem(
-            routeName: BookmarkContainer.routeName,
-            text: AppLocalizations.of(context).translate('chapter-details-action-bookmark'),
-            icon: Icons.bookmark
           )
         ]
       )

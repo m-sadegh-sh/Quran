@@ -5,9 +5,6 @@ import 'package:quran/delegates/generators.dart';
 import 'package:quran/app_localizations.dart';
 import 'package:quran/containers/home_container.dart';
 import 'package:quran/containers/chapter_details_container.dart';
-import 'package:quran/containers/search_container.dart';
-import 'package:quran/containers/share_container.dart';
-import 'package:quran/containers/bookmark_container.dart';
 import 'package:quran/containers/help_and_support_container.dart';
 import 'package:quran/containers/settings_container.dart';
 import 'package:quran/containers/about_container.dart';
@@ -93,9 +90,6 @@ class AppState {
       appOnGenerateRoutes: (BuildContext context) => <String, WidgetBuilder>{
         HomeContainer.routeName: (BuildContext context) => HomeContainer(),
         ChapterDetailsContainer.routeName: (BuildContext context) => ChapterDetailsContainer(),
-        SearchContainer.routeName: (BuildContext context) => SearchContainer(),
-        ShareContainer.routeName: (BuildContext context) => ShareContainer(),
-        BookmarkContainer.routeName: (BuildContext context) => BookmarkContainer(),
         HelpAndSupportContainer.routeName: (BuildContext context) => HelpAndSupportContainer(),
         SettingsContainer.routeName: (BuildContext context) => SettingsContainer(),
         AboutContainer.routeName: (BuildContext context) => AboutContainer()

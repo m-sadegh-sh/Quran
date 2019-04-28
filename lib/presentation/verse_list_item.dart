@@ -16,9 +16,19 @@ class VerseListItem extends StatelessWidget {
     this.settingsTranslatorId
   }) : super(key: key);
 
+  bool get isIndicatable {
+    if (verseItem.chapterId == 1)
+      return verseItem.chapterVerseId % 2 == 0;
+
+    return verseItem.chapterVerseId % 2 == 1;
+  }
+
   Widget _buildVerseNumber(BuildContext context) {
     return Visibility(
       visible: verseItem.showVerseId,
+      maintainState: true,
+      maintainAnimation: true,
+      maintainSize: true,
       child: Container(
         margin: EdgeInsets.only(left: 10.0),
         constraints: BoxConstraints(
@@ -70,7 +80,7 @@ class VerseListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      color: verseItem.id % 2 == 0 ? Theme.of(context).indicatorColor.withAlpha(35) : null,
+      color: isIndicatable ? Theme.of(context).indicatorColor.withAlpha(35) : null,
       child: InkWell(
         onTap: () => onVerseItemTapped(context, verseItem.id),
         child: Container(

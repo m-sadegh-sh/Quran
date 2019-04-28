@@ -2,13 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:quran/containers/about_container.dart';
 
 import 'package:quran/containers/chapter_list_container.dart';
-import 'package:quran/containers/search_container.dart';
+import 'package:quran/containers/bookmark_list_container.dart';
 import 'package:quran/containers/settings_container.dart';
-import 'package:quran/containers/share_container.dart';
 import 'package:quran/items/tab_item.dart';
-import 'package:quran/presentation/bookmark_list.dart';
 import 'package:quran/containers/help_and_support_container.dart';
-import 'package:quran/presentation/part_list.dart';
 import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/drawer_item.dart';
@@ -43,11 +40,6 @@ class HomeState {
     homeAccountBackgroundImage: 'assets/images/quran_background.png',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(
-        routeName: ShareContainer.routeName,
-        title: AppLocalizations.of(context).translate('home-drawer-share'),
-        icon: Icons.share
-      ),
-      DrawerItem(
         routeName: HelpAndSupportContainer.routeName,
         title: AppLocalizations.of(context).translate('home-drawer-help-and-support'),
         icon: Icons.help
@@ -65,7 +57,6 @@ class HomeState {
     ],
     homeOnGenerateActionItems: (BuildContext context, double fontSize) => [
       ActionItem(
-        routeName: SearchContainer.routeName,
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: Icons.search
       ),
@@ -96,18 +87,13 @@ class HomeState {
         icon: Icons.list
       ),
       TabItem(
-        text: AppLocalizations.of(context).translate('home-tab-parts'),
-        icon: Icons.view_module
-      ),
-      TabItem(
         text: AppLocalizations.of(context).translate('home-tab-bookmarks'),
         icon: Icons.bookmark
       )
     ],
     homeOnGenerateTabContents: (BuildContext context) => [
       ChapterListContainer(),
-      PartList(),
-      BookmarkList()
+      BookmarkListContainer()
     ]
   );
 }
