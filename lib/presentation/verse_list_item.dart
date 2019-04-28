@@ -17,26 +17,29 @@ class VerseListItem extends StatelessWidget {
   }) : super(key: key);
 
   Widget _buildVerseNumber(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(left: 10.0),
-      constraints: BoxConstraints(
-        minWidth: 48.0,
-        minHeight: 48.0
-      ),
+    return Visibility(
+      visible: verseItem.showVerseId,
       child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).primaryColorLight,
-          borderRadius: BorderRadius.circular(180.0)
+        margin: EdgeInsets.only(left: 10.0),
+        constraints: BoxConstraints(
+          minWidth: 48.0,
+          minHeight: 48.0
         ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              verseItem.chapterVerseId.toString(),
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.display4
-            )
-          ]
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColorLight,
+            borderRadius: BorderRadius.circular(180.0)
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                verseItem.chapterVerseId.toString(),
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.display4
+              )
+            ]
+          )
         )
       )
     );
