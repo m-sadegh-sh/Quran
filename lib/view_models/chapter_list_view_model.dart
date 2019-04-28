@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/actions/settings_action.dart';
 import 'package:redux/redux.dart';
 
-import 'package:quran/delegates/generators.dart';
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_list_action.dart';
 import 'package:quran/selectors/settings_selector.dart';
