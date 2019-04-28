@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quran/actions/settings_action.dart';
 import 'package:redux/redux.dart';
 
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_list_action.dart';
 import 'package:quran/selectors/settings_selector.dart';
@@ -15,6 +17,8 @@ class ChapterListViewModel {
   final String chapterListLoadError;
   final Function chapterListLoad;
   final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final double settingsThemeFontSize;
+  final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
 
   ChapterListViewModel({
@@ -25,6 +29,8 @@ class ChapterListViewModel {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
+    this.settingsThemeFontSize,
+    this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   });
 
@@ -43,6 +49,11 @@ class ChapterListViewModel {
         store.dispatch(ChapterListItemTappedAction(
           context: context,
           chapterListTappedItem: chapterListTappedItem,
+        )),
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
+      chapterListOnThemeFontSizeChanging: (newSettingsThemeFontSize) =>
+        store.dispatch(SettingsSharedPreferencesPersistAction(
+          settingsThemeFontSize: newSettingsThemeFontSize
         )),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
