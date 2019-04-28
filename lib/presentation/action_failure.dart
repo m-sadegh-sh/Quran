@@ -1,5 +1,6 @@
-import 'package:quran/app_localizations.dart';
 import 'package:flutter/material.dart';
+
+import 'package:quran/app_localizations.dart';
 
 class ActionFailure extends StatelessWidget {
   final String errorMessage;
