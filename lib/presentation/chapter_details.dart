@@ -18,7 +18,7 @@ class ChapterDetails extends StatelessWidget {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final Function(BuildContext, int) chapterDetailsOnVerseItemTapped;
+  final Function(BuildContext, VerseItem) chapterDetailsOnVerseItemLongPressed;
   final int settingsTranslatorId;
 
   ChapterDetails({
@@ -34,7 +34,7 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
-    this.chapterDetailsOnVerseItemTapped,
+    this.chapterDetailsOnVerseItemLongPressed,
     this.settingsTranslatorId
   }) : super(key: key);
 
@@ -125,7 +125,7 @@ class ChapterDetails extends StatelessWidget {
           verseListLoadFailed: chapterDetailsLoadFailed,
           verseListLoadError: chapterDetailsLoadError,
           verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem),
-          verseListOnVerseItemTapped: chapterDetailsOnVerseItemTapped,
+          verseListOnVerseItemLongPressed: chapterDetailsOnVerseItemLongPressed,
           settingsTranslatorId: settingsTranslatorId
         )
       )

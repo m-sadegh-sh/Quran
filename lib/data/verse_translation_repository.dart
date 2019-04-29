@@ -4,16 +4,9 @@ import 'package:quran/data/repository_base.dart';
 import 'package:quran/items/verse_translation_item.dart';
 
 class VerseTranslationRepository extends RepositoryBase<VerseTranslationItem> {
-  static VerseTranslationRepository _instance;
-
-  VerseTranslationRepository.protected();
+  static final VerseTranslationRepository _instance = VerseTranslationRepository._private();
 
   factory VerseTranslationRepository() {
-    if (_instance == null) {
-      _instance = VerseTranslationRepository._private();
-      print('VerseTranslationRepository created.');
-    }
-
     return _instance;
   }
 

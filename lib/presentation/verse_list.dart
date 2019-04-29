@@ -13,7 +13,7 @@ class VerseList extends StatelessWidget {
   final bool verseListLoadFailed;
   final String verseListLoadError;
   final Function verseListLoad;
-  final Function(BuildContext, int) verseListOnVerseItemTapped;
+  final Function(BuildContext, VerseItem) verseListOnVerseItemLongPressed;
   final int settingsTranslatorId;
 
   VerseList({
@@ -24,7 +24,7 @@ class VerseList extends StatelessWidget {
     this.verseListLoadFailed,
     this.verseListLoadError,
     this.verseListLoad,
-    this.verseListOnVerseItemTapped,
+    this.verseListOnVerseItemLongPressed,
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!verseListLoading && verseListItems.length == 0 && !verseListLoadFailed)
@@ -50,7 +50,7 @@ class VerseList extends StatelessWidget {
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItem(
         verseItem: verseListItems[index],
-        onVerseItemTapped: verseListOnVerseItemTapped,
+        onVerseItemLongPressed: verseListOnVerseItemLongPressed,
         settingsTranslatorId: settingsTranslatorId
       )
     );

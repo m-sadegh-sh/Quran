@@ -4,16 +4,9 @@ import 'package:quran/data/repository_base.dart';
 import 'package:quran/items/chapter_item.dart';
 
 class ChapterRepository extends RepositoryBase<ChapterItem> {
-  static ChapterRepository _instance;
-
-  ChapterRepository.protected();
+  static final ChapterRepository _instance = ChapterRepository._private();
 
   factory ChapterRepository() {
-    if (_instance == null) {
-      _instance = ChapterRepository._private();
-      print('ChapterRepository created.');
-    }
-
     return _instance;
   }
 
