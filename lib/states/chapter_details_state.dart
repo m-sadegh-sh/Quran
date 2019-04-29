@@ -13,6 +13,7 @@ class ChapterDetailsState {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
+  final VerseItem chapterDetailsSelectedVerseItem;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
@@ -23,6 +24,7 @@ class ChapterDetailsState {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsVerseItems,
+    this.chapterDetailsSelectedVerseItem,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError
@@ -59,6 +61,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsVerseItems: List<VerseItem>.unmodifiable([]),
+    chapterDetailsSelectedVerseItem: null,
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null
@@ -70,6 +73,7 @@ class ChapterDetailsState {
     chapterDetailsLoading,
     chapterDetailsLoadSucceeded,
     chapterDetailsVerseItems,
+    chapterDetailsSelectedVerseItem,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError
@@ -79,6 +83,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,
     chapterDetailsVerseItems: chapterDetailsVerseItems ?? this.chapterDetailsVerseItems,
+    chapterDetailsSelectedVerseItem: chapterDetailsSelectedVerseItem ?? this.chapterDetailsSelectedVerseItem,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError

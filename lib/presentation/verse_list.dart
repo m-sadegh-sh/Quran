@@ -13,7 +13,7 @@ class VerseList extends StatelessWidget {
   final bool verseListLoadFailed;
   final String verseListLoadError;
   final Function verseListLoad;
-  final Function(BuildContext, VerseItem) verseListOnVerseItemLongPressed;
+  final Function(VerseItem) verseListOnVerseItemLongPressed;
   final int settingsTranslatorId;
 
   VerseList({

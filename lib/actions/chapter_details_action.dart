@@ -61,3 +61,11 @@ class ChapterDetailsActionChildItemPressedAction {
     this.actionChildItem
   });
 }
+
+class ChapterDetailsVerseItemLongPressedAction {
+  final VerseItem chapterDetailsVerseItem;
+
+  ChapterDetailsVerseItemLongPressedAction({
+    this.chapterDetailsVerseItem
+  });
+}

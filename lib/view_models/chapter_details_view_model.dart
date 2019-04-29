@@ -19,10 +19,12 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
+  final VerseItem chapterDetailsSelectedVerseItem;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
+  final Function(VerseItem) chapterDetailsOnVerseItemLongPressed;
   final int settingsTranslatorId;
   final double settingsThemeFontSize;
 
@@ -34,10 +36,12 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsVerseItems,
+    this.chapterDetailsSelectedVerseItem,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
+    this.chapterDetailsOnVerseItemLongPressed,
     this.settingsTranslatorId,
     this.settingsThemeFontSize
   });
@@ -64,12 +68,18 @@ class ChapterDetailsViewModel {
       chapterDetailsLoading: chapterDetailsLoadingSelector(chapterDetailsState),
       chapterDetailsLoadSucceeded: chapterDetailsLoadSucceededSelector(chapterDetailsState),
       chapterDetailsVerseItems: chapterDetailsVerseItemsSelector(chapterDetailsState),
+      chapterDetailsSelectedVerseItem: chapterDetailsSelectedVerseItemSelector(chapterDetailsState),
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
       chapterDetailsLoad: (ChapterItem chapterDetailsChapterItem) { 
         store.dispatch(ChapterDetailsLoadAction(
           chapterDetailsChapterItem: chapterDetailsChapterItem
+        ));
+      },
+      chapterDetailsOnVerseItemLongPressed: (VerseItem chapterDetailsVerseItem) { 
+        store.dispatch(ChapterDetailsVerseItemLongPressedAction(
+          chapterDetailsVerseItem: chapterDetailsVerseItem
         ));
       },
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),

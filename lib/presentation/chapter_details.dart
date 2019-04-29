@@ -14,11 +14,12 @@ class ChapterDetails extends StatelessWidget {
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
+  final VerseItem chapterDetailsSelectedVerseItem;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final Function(BuildContext, VerseItem) chapterDetailsOnVerseItemLongPressed;
+  final Function(VerseItem) chapterDetailsOnVerseItemLongPressed;
   final int settingsTranslatorId;
 
   ChapterDetails({
@@ -30,6 +31,7 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
     this.chapterDetailsVerseItems,
+    this.chapterDetailsSelectedVerseItem,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
@@ -113,6 +115,31 @@ class ChapterDetails extends StatelessWidget {
     ];
   }
 
+  Widget _buildBottomNavigationBar(BuildContext context) {
+    if (chapterDetailsSelectedVerseItem == null)
+      return null;
+
+    return BottomNavigationBar(
+      //onTap: onTabTapped, // new
+      currentIndex: 1, // new
+      type: BottomNavigationBarType.shifting,
+      items: [
+        new BottomNavigationBarItem(
+          icon: Icon(Icons.home),
+          title: Text('Home'),
+        ),
+        new BottomNavigationBarItem(
+          icon: Icon(Icons.mail),
+          title: Text('Messages'),
+        ),
+        new BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          title: Text('Profile')
+        )
+      ]
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -128,7 +155,8 @@ class ChapterDetails extends StatelessWidget {
           verseListOnVerseItemLongPressed: chapterDetailsOnVerseItemLongPressed,
           settingsTranslatorId: settingsTranslatorId
         )
-      )
+      ),
+      bottomNavigationBar: _buildBottomNavigationBar(context),
     );
   }
 }

@@ -11,7 +11,8 @@ final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed),
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
-  TypedReducer<ChapterDetailsState, ChapterDetailsActionChildItemPressedAction>(_chapterDetailsActionChildItemPressed)
+  TypedReducer<ChapterDetailsState, ChapterDetailsActionChildItemPressedAction>(_chapterDetailsActionChildItemPressed),
+  TypedReducer<ChapterDetailsState, ChapterDetailsVerseItemLongPressedAction>(_chapterDetailsVerseItemLongPressed)
 ]);
 
 ChapterDetailsState _chapterDetailsReloadInitialStateSucceeded(ChapterDetailsState state, ChapterDetailsReloadInitialStateSucceededAction action) {
@@ -58,4 +59,10 @@ ChapterDetailsState _chapterDetailsActionChildItemPressed(ChapterDetailsState st
       .pushNamed(action.actionChildItem.routeName);
 
   return state;
+}
+
+ChapterDetailsState _chapterDetailsVerseItemLongPressed(ChapterDetailsState state, ChapterDetailsVerseItemLongPressedAction action) {
+  return state.copyWith(
+    chapterDetailsSelectedVerseItem: action.chapterDetailsVerseItem
+  );
 }

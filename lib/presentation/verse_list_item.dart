@@ -6,7 +6,7 @@ import 'package:quran/items/verse_item.dart';
 
 class VerseListItem extends StatelessWidget {
   final VerseItem verseItem;
-  final Function(BuildContext, VerseItem) onVerseItemLongPressed;
+  final Function(VerseItem) onVerseItemLongPressed;
   final int settingsTranslatorId;
 
   VerseListItem({
@@ -82,7 +82,7 @@ class VerseListItem extends StatelessWidget {
     return Material(
       color: isIndicatable ? Theme.of(context).indicatorColor.withAlpha(35) : null,
       child: InkWell(
-        onLongPress: () => onVerseItemLongPressed(context, verseItem),
+        onLongPress: () => onVerseItemLongPressed(verseItem),
         child: Container(
           padding: EdgeInsets.all(10.0),
           child: Row(
