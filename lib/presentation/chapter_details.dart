@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/app_localizations.dart';
 
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
@@ -120,21 +121,56 @@ class ChapterDetails extends StatelessWidget {
       return null;
 
     return BottomNavigationBar(
-      //onTap: onTabTapped, // new
-      currentIndex: 1, // new
-      type: BottomNavigationBarType.shifting,
+      unselectedFontSize: 10.0,
+      selectedFontSize: 10.0,
       items: [
         new BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          title: Text('Home'),
+          icon: Icon(
+            Icons.share,
+            size: 0.0
+          ),          
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.share,
+                color: Theme.of(context).textTheme.button.color
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  right: 5.0
+                ),
+                child: Text(
+                  AppLocalizations.of(context).translate('chapter-details-bottom-navigation-share'),
+                  style: Theme.of(context).textTheme.button
+                )
+              )
+            ]
+          )
         ),
         new BottomNavigationBarItem(
-          icon: Icon(Icons.mail),
-          title: Text('Messages'),
-        ),
-        new BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          title: Text('Profile')
+          icon: Icon(
+            Icons.bookmark,
+            size: 0.0
+          ),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Icon(
+                Icons.bookmark,
+                color: Theme.of(context).textTheme.button.color
+              ),
+              Container(
+                margin: EdgeInsets.only(
+                  right: 5.0
+                ),
+                child: Text(
+                  AppLocalizations.of(context).translate('chapter-details-bottom-navigation-bookmark'),
+                  style: Theme.of(context).textTheme.button
+                )
+              )
+            ]
+          )
         )
       ]
     );

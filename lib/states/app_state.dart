@@ -54,6 +54,11 @@ class AppState {
         );
 
         return theme.copyWith(
+          selectedRowColor: theme.primaryColor,
+          highlightColor: theme.primaryColor,
+          bottomAppBarTheme: BottomAppBarTheme(
+            color: theme.primaryColor,
+          ),
           textTheme: TextTheme(
             headline: quraniFont.copyWith(
               color: theme.cardColor,
@@ -76,12 +81,16 @@ class AppState {
               fontSize: 16.0
             ),
             display3: defaultFont.copyWith(
-              color: Colors.black87,
+              color: theme.unselectedWidgetColor,
               fontSize: 15.0
             ),
             display4: defaultFont.apply(
               color: theme.primaryColorDark,
               fontSizeFactor: 1.25
+            ),
+            button: defaultFont.copyWith(
+              color: theme.cardColor,
+              fontSize: 15.0
             )
           )
         );
