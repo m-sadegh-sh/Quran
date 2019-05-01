@@ -190,6 +190,7 @@ class ChapterDetails extends StatelessWidget {
           verseListLoadError: chapterDetailsLoadError,
           verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem),
           verseListOnVerseItemLongPressed: chapterDetailsOnVerseItemLongPressed,
+          verseListSelectedVerseItem: chapterDetailsSelectedVerseItem,
           settingsTranslatorId: settingsTranslatorId
         )
       ),

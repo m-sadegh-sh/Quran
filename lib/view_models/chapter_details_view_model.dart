@@ -77,10 +77,11 @@ class ChapterDetailsViewModel {
           chapterDetailsChapterItem: chapterDetailsChapterItem
         ));
       },
-      chapterDetailsOnVerseItemLongPressed: (VerseItem chapterDetailsVerseItem) { 
-        store.dispatch(ChapterDetailsVerseItemLongPressedAction(
-          chapterDetailsVerseItem: chapterDetailsVerseItem
-        ));
+      chapterDetailsOnVerseItemLongPressed: (VerseItem chapterDetailsVerseItem) {
+        if (chapterDetailsVerseItem.showVerseId)
+          store.dispatch(ChapterDetailsVerseItemLongPressedAction(
+            chapterDetailsVerseItem: chapterDetailsVerseItem
+          ));
       },
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)

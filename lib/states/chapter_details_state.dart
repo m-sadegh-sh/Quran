@@ -74,6 +74,7 @@ class ChapterDetailsState {
     chapterDetailsLoadSucceeded,
     chapterDetailsVerseItems,
     chapterDetailsSelectedVerseItem,
+    chapterDetailsResetSelectedVerseItem,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError
@@ -83,7 +84,7 @@ class ChapterDetailsState {
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,
     chapterDetailsVerseItems: chapterDetailsVerseItems ?? this.chapterDetailsVerseItems,
-    chapterDetailsSelectedVerseItem: chapterDetailsSelectedVerseItem ?? this.chapterDetailsSelectedVerseItem,
+    chapterDetailsSelectedVerseItem: chapterDetailsResetSelectedVerseItem == true ? chapterDetailsSelectedVerseItem : chapterDetailsSelectedVerseItem ?? this.chapterDetailsSelectedVerseItem,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError

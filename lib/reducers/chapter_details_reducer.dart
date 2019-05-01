@@ -63,6 +63,7 @@ ChapterDetailsState _chapterDetailsActionChildItemPressed(ChapterDetailsState st
 
 ChapterDetailsState _chapterDetailsVerseItemLongPressed(ChapterDetailsState state, ChapterDetailsVerseItemLongPressedAction action) {
   return state.copyWith(
-    chapterDetailsSelectedVerseItem: action.chapterDetailsVerseItem
+    chapterDetailsSelectedVerseItem: action.chapterDetailsVerseItem,
+    chapterDetailsResetSelectedVerseItem: true
   );
 }

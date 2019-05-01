@@ -1,3 +1,4 @@
+import 'package:quran/items/verse_item.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
@@ -39,6 +40,10 @@ Middleware<RootState> _createChapterListItemTapped() {
 
       store.dispatch(ChapterDetailsLoadAction(
         chapterDetailsChapterItem: castedAction.chapterListTappedItem
+      ));
+
+      store.dispatch(ChapterDetailsVerseItemLongPressedAction(
+        chapterDetailsVerseItem: null
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(
