@@ -55,7 +55,7 @@ class AppState {
 
         return theme.copyWith(
           selectedRowColor: theme.primaryColor,
-          highlightColor: theme.primaryColor,
+          highlightColor: theme.primaryColorLight,
           bottomAppBarTheme: BottomAppBarTheme(
             color: theme.primaryColor,
           ),
@@ -89,7 +89,7 @@ class AppState {
               fontSizeFactor: 1.25
             ),
             button: defaultFont.copyWith(
-              color: theme.cardColor,
+              color: theme.unselectedWidgetColor,
               fontSize: 15.0
             )
           )

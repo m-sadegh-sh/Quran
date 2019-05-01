@@ -125,13 +125,14 @@ class ChapterDetails extends StatelessWidget {
       selectedFontSize: 10.0,
       items: [
         new BottomNavigationBarItem(
+          backgroundColor: Colors.red,
           icon: Icon(
             Icons.share,
             size: 0.0
           ),          
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: <Widget> [
               Icon(
                 Icons.share,
                 color: Theme.of(context).textTheme.button.color
