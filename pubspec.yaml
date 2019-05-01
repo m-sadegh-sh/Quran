@@ -16,6 +16,7 @@ dependencies:
   flutter_redux: 0.5.2
   redux_logging: 0.3.0
   verbal_expressions: 0.4.0
+  flutter_slidable: 0.4.9
 
 flutter:
   uses-material-design: true

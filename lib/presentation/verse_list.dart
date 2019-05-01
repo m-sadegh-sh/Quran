@@ -47,14 +47,19 @@ class VerseList extends StatelessWidget {
     if (verseListItems.length == 0)
       return EmptyContent();
 
-    return ListView.builder(
-      padding: EdgeInsets.all(0.0),
-      itemCount: verseListItems.length,
-      itemBuilder: (BuildContext context, int index) => VerseListItem(
-        verseItem: verseListItems[index],
-        isSelected: verseListItems[index].id == verseListSelectedVerseItem?.id,
-        onVerseItemLongPressed: verseListOnVerseItemLongPressed,
-        settingsTranslatorId: settingsTranslatorId
+    return NotificationListener<ScrollNotification>(
+      onNotification: (ScrollNotification scrollNotification) {
+        verseListOnVerseItemLongPressed(null);
+      },
+      child: ListView.builder(
+        padding: EdgeInsets.all(0.0),
+        itemCount: verseListItems.length,
+        itemBuilder: (BuildContext context, int index) => VerseListItem(
+          verseItem: verseListItems[index],
+          isSelected: verseListItems[index].id == verseListSelectedVerseItem?.id,
+          onVerseItemLongPressed: verseListOnVerseItemLongPressed,
+          settingsTranslatorId: settingsTranslatorId
+        )
       )
     );
   }

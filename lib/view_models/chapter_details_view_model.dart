@@ -78,7 +78,7 @@ class ChapterDetailsViewModel {
         ));
       },
       chapterDetailsOnVerseItemLongPressed: (VerseItem chapterDetailsVerseItem) {
-        if (chapterDetailsVerseItem.showVerseId)
+        if (chapterDetailsVerseItem?.showVerseId ?? true)
           store.dispatch(ChapterDetailsVerseItemLongPressedAction(
             chapterDetailsVerseItem: chapterDetailsVerseItem
           ));
