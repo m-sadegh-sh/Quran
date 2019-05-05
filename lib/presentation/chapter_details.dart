@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
@@ -18,6 +19,8 @@ class ChapterDetails extends StatelessWidget {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
+  final List<IconSlideAction> chapterDetailsSlidableActions;
+  final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
 
   ChapterDetails({
@@ -33,6 +36,8 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
+    this.chapterDetailsSlidableActions,
+    this.chapterDetailsSlidableController,
     this.settingsTranslatorId
   }) : super(key: key);
 
@@ -123,6 +128,8 @@ class ChapterDetails extends StatelessWidget {
           verseListLoadFailed: chapterDetailsLoadFailed,
           verseListLoadError: chapterDetailsLoadError,
           verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem),
+          verseListSlidableActions: chapterDetailsSlidableActions,
+          verseListSlidableController: chapterDetailsSlidableController,
           settingsTranslatorId: settingsTranslatorId
         )
       )

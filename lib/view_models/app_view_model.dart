@@ -9,8 +9,6 @@ import 'package:quran/delegates/generators.dart';
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;
   final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
-  final String appInitialRoute;
-  final GeneratorWNP<Map<String, WidgetBuilder>> appOnGenerateRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
@@ -21,8 +19,6 @@ class AppViewModel {
   AppViewModel({
     this.appOnGenerateTitle,
     this.appOnGenerateThemeData,
-    this.appInitialRoute,
-    this.appOnGenerateRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
@@ -38,8 +34,6 @@ class AppViewModel {
     return AppViewModel(
       appOnGenerateTitle: appOnGenerateTitleSelector(appState),
       appOnGenerateThemeData: appOnGenerateThemeDataSelector(appState),
-      appInitialRoute: appInitialRouteSelector(appState),
-      appOnGenerateRoutes: appOnGenerateRoutesSelector(appState),
       appLocalizationsDelegates: appLocalizationsDelegatesSelector(appState),
       appSupportedLocales: appSupportedLocalesSelector(appState),
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),

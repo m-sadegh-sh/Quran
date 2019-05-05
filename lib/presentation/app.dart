@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:quran/delegates/generators.dart';
+import 'package:quran/containers/home_container.dart';
 
 class App extends StatelessWidget {
   final GenerateAppTitle appOnGenerateTitle;
   final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
-  final String appInitialRoute;
-  final Map<String, WidgetBuilder> appRoutes;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
@@ -18,8 +18,6 @@ class App extends StatelessWidget {
     Key key,
     this.appOnGenerateTitle,
     this.appOnGenerateThemeData,
-    this.appInitialRoute,
-    this.appRoutes,
     this.appLocalizationsDelegates,
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
@@ -34,8 +32,11 @@ class App extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
       onGenerateTitle: appOnGenerateTitle,
-      initialRoute: appInitialRoute,
-      routes: appRoutes,
+      onGenerateRoute: (RouteSettings settings) => PageTransition(
+        curve: Curves.easeInOutQuart,
+        type: PageTransitionType.rightToLeft,
+        child: HomeContainer()
+      ),
       localizationsDelegates: appLocalizationsDelegates,
       supportedLocales: appSupportedLocales,
       locale: Locale(

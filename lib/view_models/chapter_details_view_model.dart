@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root_state.dart';
@@ -23,6 +24,8 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
+  final GeneratorWNP<List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
   final double settingsThemeFontSize;
 
@@ -38,6 +41,8 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
+    this.chapterDetailsOnGenerateSlidableActions,
+    this.chapterDetailsSlidableController,
     this.settingsTranslatorId,
     this.settingsThemeFontSize
   });
@@ -72,6 +77,8 @@ class ChapterDetailsViewModel {
           chapterDetailsChapterItem: chapterDetailsChapterItem
         ));
       },
+      chapterDetailsOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState),
+      chapterDetailsSlidableController: chapterDetailsSlidableControllerSelector(chapterDetailsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );

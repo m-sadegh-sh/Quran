@@ -7,13 +7,16 @@ import 'package:quran/items/verse_item.dart';
 
 class VerseListItem extends StatelessWidget {
   final VerseItem verseItem;
+  final List<IconSlideAction> verseItemSlidableActions;
+  final SlidableController verseItemSlidableController;
+
   final int settingsTranslatorId;
   
-  final SlidableController slidableController = new SlidableController();
-
   VerseListItem({
     Key key,
     this.verseItem,
+    this.verseItemSlidableActions,
+    this.verseItemSlidableController,
     this.settingsTranslatorId
   }) : super(key: key);
 
@@ -63,64 +66,51 @@ class VerseListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildVerseTranslationText(BuildContext context) {
-    return FutureBuilder(
-      future: verseItem.translation(settingsTranslatorId),
-      builder: (BuildContext context, AsyncSnapshot<VerseTranslationItem> snapshot) {
-        if (snapshot.hasData)
-          return Text(
-            snapshot.data.text,
-            style: Theme.of(context).textTheme.display1
-          );
-
-        return InlineBouncingLoading();
-      }
+  Widget _buildVerseTranslationText(BuildContext context, VerseTranslationItem verseTranslationItem) {
+    return Text(
+      verseTranslationItem.text,
+      style: Theme.of(context).textTheme.display1
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Slidable(
-      controller: slidableController,
-      delegate: SlidableDrawerDelegate(),
-      actionExtentRatio: 0.25,
-      actions: <Widget>[
-        new IconSlideAction(
-          caption: 'Archive',
-          color: Colors.blue,
-          icon: Icons.archive,
-          //onTap: () => _showSnackBar('Archive'),
-        ),
-        new IconSlideAction(
-          caption: 'Share',
-          color: Colors.indigo,
-          icon: Icons.share,
-          //onTap: () => _showSnackBar('Share'),
-        )
-      ],
-      child: Material(
-        color: isIndicatable ? Theme.of(context).indicatorColor.withAlpha(35) : null,
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _buildVerseNumber(context),
-              Expanded(
-                child: Container(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      _buildVerseFullText(context),
-                      _buildVerseTranslationText(context)
-                    ],
-                  )
+    return FutureBuilder(
+      future: verseItem.translation(settingsTranslatorId),
+      builder: (BuildContext context, AsyncSnapshot<VerseTranslationItem> snapshot) {
+        if (snapshot.hasData)
+          return Slidable(
+            controller: verseItemSlidableController,
+            delegate: SlidableDrawerDelegate(),
+            actionExtentRatio: 0.25,
+            actions: verseItemSlidableActions,
+            child: Material(
+              color: isIndicatable ? Theme.of(context).indicatorColor.withAlpha(35) : null,
+              child: Container(
+                padding: EdgeInsets.all(10.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _buildVerseNumber(context),
+                    Expanded(
+                      child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _buildVerseFullText(context),
+                            _buildVerseTranslationText(context, snapshot.data)
+                          ],
+                        )
+                      )
+                    )
+                  ],
                 )
               )
-            ],
-          )
-        )
-      )
+            )
+          );
+
+        return InlineBouncingLoading();
+      }
     );
   }
 }

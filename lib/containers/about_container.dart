@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/app_localizations.dart';
 
 class AboutContainer extends StatefulWidget {
-  static const String routeName = '/about';
-
   String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('about-title');
 
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generators.dart';
@@ -16,6 +17,8 @@ class ChapterDetailsState {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
+  final GeneratorWNP<List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final SlidableController chapterDetailsSlidableController;
 
   ChapterDetailsState({
     this.chapterDetailsChapterItem,
@@ -25,7 +28,9 @@ class ChapterDetailsState {
     this.chapterDetailsVerseItems,
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
-    this.chapterDetailsLoadError
+    this.chapterDetailsLoadError,
+    this.chapterDetailsOnGenerateSlidableActions,
+    this.chapterDetailsSlidableController
   });
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
@@ -61,7 +66,20 @@ class ChapterDetailsState {
     chapterDetailsVerseItems: List<VerseItem>.unmodifiable([]),
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
-    chapterDetailsLoadError: null
+    chapterDetailsLoadError: null,
+    chapterDetailsOnGenerateSlidableActions: (BuildContext context) => [
+      new IconSlideAction(
+        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share'),
+        color: Colors.blue,
+        icon: Icons.share
+      ),
+      new IconSlideAction(
+        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-bookmark'),
+        color: Colors.indigo,
+        icon: Icons.bookmark
+      )
+    ],
+    chapterDetailsSlidableController: new SlidableController()
   );
 
   ChapterDetailsState copyWith({
@@ -72,7 +90,9 @@ class ChapterDetailsState {
     chapterDetailsVerseItems,
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
-    chapterDetailsLoadError
+    chapterDetailsLoadError,
+    chapterDetailsOnGenerateSlidableActions,
+    chapterDetailsSlidableController
   }) => ChapterDetailsState(
     chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
     chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItems ?? this.chapterDetailsOnGenerateActionItems,
@@ -81,6 +101,8 @@ class ChapterDetailsState {
     chapterDetailsVerseItems: chapterDetailsVerseItems ?? this.chapterDetailsVerseItems,
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
-    chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError
+    chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError,
+    chapterDetailsOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions ?? this.chapterDetailsOnGenerateSlidableActions,
+    chapterDetailsSlidableController: chapterDetailsSlidableController ?? this.chapterDetailsSlidableController
   );
 }

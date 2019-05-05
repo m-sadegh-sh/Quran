@@ -13,8 +13,6 @@ class AppContainer extends StatelessWidget {
       builder: (BuildContext context, AppViewModel appViewModel) => App(
         appOnGenerateTitle: appViewModel.appOnGenerateTitle,
         appOnGenerateThemeData: appViewModel.appOnGenerateThemeData,
-        appInitialRoute: appViewModel.appInitialRoute,
-        appRoutes: appViewModel.appOnGenerateRoutes(context),
         appLocalizationsDelegates: appViewModel.appLocalizationsDelegates,
         appSupportedLocales: appViewModel.appSupportedLocales,
         settingsThemeQuraniFontFamily: appViewModel.settingsThemeQuraniFontFamily,

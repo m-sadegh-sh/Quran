@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:quran/states/chapter_list_state.dart';
 import 'package:quran/actions/chapter_list_action.dart';
@@ -41,7 +42,11 @@ ChapterListState _chapterListLoadFailed(ChapterListState state, ChapterListLoadF
 
 ChapterListState _chapterListItemTapped(ChapterListState state, ChapterListItemTappedAction action) {
   Navigator.of(action.context)
-    .pushNamed(ChapterDetailsContainer.routeName);
+    .push(PageTransition(
+      curve: Curves.easeInOutQuart,
+      type: PageTransitionType.rightToLeft,
+      child: ChapterDetailsContainer()
+    ));
 
   return state;
 }

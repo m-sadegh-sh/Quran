@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:quran/states/chapter_details_state.dart';
 import 'package:quran/actions/chapter_details_action.dart';
@@ -47,15 +48,22 @@ ChapterDetailsState _chapterDetailsLoadFailed(ChapterDetailsState state, Chapter
 
 ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, ChapterDetailsActionItemPressedAction action) {
   Navigator.of(action.context)
-    .pushNamed(action.actionItem.routeName);
+    .push(PageTransition(
+      curve: Curves.easeInOutQuart,
+      type: PageTransitionType.rightToLeft,
+      child: action.actionItem.onGenerateChild(action.context)
+    ));
 
   return state;
 }
 
 ChapterDetailsState _chapterDetailsActionChildItemPressed(ChapterDetailsState state, ChapterDetailsActionChildItemPressedAction action) {
-  if (action.actionChildItem.routeName?.isNotEmpty ?? false)
-    Navigator.of(action.context)
-      .pushNamed(action.actionChildItem.routeName);
+  if (action.actionChildItem.onGenerateChild != null)
+    Navigator.of(action.context).push(PageTransition(
+      curve: Curves.easeInOutQuart,
+      type: PageTransitionType.rightToLeft,
+      child: action.actionChildItem.onGenerateChild(action.context)
+    ));
 
   return state;
 }

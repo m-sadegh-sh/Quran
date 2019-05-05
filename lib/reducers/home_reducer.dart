@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
+import 'package:page_transition/page_transition.dart';
 
 import 'package:quran/states/home_state.dart';
 import 'package:quran/actions/home_action.dart';
@@ -17,22 +18,34 @@ HomeState _homeReloadInitialStateSucceeded(HomeState state, HomeReloadInitialSta
 
 HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction action) {
   Navigator.of(action.context)
-    .pushNamed(action.drawerItem.routeName);
+    .push(PageTransition(
+      curve: Curves.easeInOutQuart,
+      type: PageTransitionType.rightToLeft,
+      child: action.drawerItem.onGenerateChild(action.context)
+    ));
 
   return state;
 }
 
 HomeState _homeActionItemPressed(HomeState state, HomeActionItemPressedAction action) {
   Navigator.of(action.context)
-    .pushNamed(action.actionItem.routeName);
+    .push(PageTransition(
+      curve: Curves.easeInOutQuart,
+      type: PageTransitionType.rightToLeft,
+      child: action.actionItem.onGenerateChild(action.context)
+    ));
 
   return state;
 }
 
 HomeState _homeActionChildItemPressed(HomeState state, HomeActionChildItemPressedAction action) {
-  if (action.actionChildItem.routeName?.isNotEmpty ?? false)
+  if (action.actionChildItem.onGenerateChild != null)
     Navigator.of(action.context)
-      .pushNamed(action.actionChildItem.routeName);
-
+      .push(PageTransition(
+        curve: Curves.easeInOutQuart,
+        type: PageTransitionType.rightToLeft,
+        child: action.actionChildItem.onGenerateChild(action.context)
+      ));
+      
   return state;
 }

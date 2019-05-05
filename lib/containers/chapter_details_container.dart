@@ -6,8 +6,6 @@ import 'package:quran/view_models/chapter_details_view_model.dart';
 import 'package:quran/presentation/chapter_details.dart';
 
 class ChapterDetailsContainer extends StatelessWidget {
-  static const String routeName = '/chapter-details';
-
   @override
   Widget build(BuildContext context) {
     return StoreConnector<RootState, ChapterDetailsViewModel>(
@@ -24,6 +22,8 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,
         chapterDetailsLoad: chapterDetailsViewModel.chapterDetailsLoad,
+        chapterDetailsSlidableActions: chapterDetailsViewModel.chapterDetailsOnGenerateSlidableActions(context),
+        chapterDetailsSlidableController: chapterDetailsViewModel.chapterDetailsSlidableController,
         settingsTranslatorId: chapterDetailsViewModel.settingsTranslatorId
       )
     );

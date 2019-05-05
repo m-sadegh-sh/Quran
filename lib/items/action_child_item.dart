@@ -1,7 +1,9 @@
 import 'package:flutter/widgets.dart';
 
+import 'package:quran/delegates/generators.dart';
+
 class ActionChildItem {
-  final String routeName;
+  final GeneratorWNP<Widget> onGenerateChild;
   final String actionName;
   final Object value;
   final String text;
@@ -9,7 +11,7 @@ class ActionChildItem {
   final bool enabled;
 
   ActionChildItem({
-    this.routeName,
+    this.onGenerateChild,
     this.actionName,
     this.value,
     this.text,

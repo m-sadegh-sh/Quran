@@ -1,3 +1,5 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
+
 import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/states/root_state.dart';
@@ -14,3 +16,5 @@ List<VerseItem> chapterDetailsVerseItemsSelector(ChapterDetailsState state) => s
 String chapterDetailsBackgroundImageSelector(ChapterDetailsState state) => state.chapterDetailsBackgroundImage;
 bool chapterDetailsLoadFailedSelector(ChapterDetailsState state) => state.chapterDetailsLoadFailed;
 String chapterDetailsLoadErrorSelector(ChapterDetailsState state) => state.chapterDetailsLoadError;
+GeneratorWNP<List<IconSlideAction>> chapterDetailsOnGenerateSlidableActionsSelector(ChapterDetailsState state) => state.chapterDetailsOnGenerateSlidableActions;
+SlidableController chapterDetailsSlidableControllerSelector(ChapterDetailsState state) => state.chapterDetailsSlidableController;

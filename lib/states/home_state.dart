@@ -40,17 +40,17 @@ class HomeState {
     homeAccountBackgroundImage: 'assets/images/quran_background.png',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(
-        routeName: HelpAndSupportContainer.routeName,
+        onGenerateChild: (BuildContext context) => HelpAndSupportContainer(),
         title: AppLocalizations.of(context).translate('home-drawer-help-and-support'),
         icon: Icons.help
       ),
       DrawerItem(
-        routeName: SettingsContainer.routeName,
+        onGenerateChild: (BuildContext context) => SettingsContainer(),
         title: AppLocalizations.of(context).translate('home-drawer-settings'),
         icon: Icons.settings
       ),
       DrawerItem(
-        routeName: AboutContainer.routeName,
+        onGenerateChild: (BuildContext context) => AboutContainer(),
         title: AppLocalizations.of(context).translate('home-drawer-about'),
         icon: Icons.info
       )
