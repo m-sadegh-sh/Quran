@@ -40,10 +40,6 @@ Middleware<RootState> _createChapterListItemTapped() {
       store.dispatch(ChapterDetailsLoadAction(
         chapterDetailsChapterItem: castedAction.chapterListTappedItem
       ));
-
-      store.dispatch(ChapterDetailsVerseItemLongPressedAction(
-        chapterDetailsVerseItem: null
-      ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(
         chapterListLoadError: exception?.toString()

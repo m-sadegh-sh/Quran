@@ -10,11 +10,9 @@ class VerseList extends StatelessWidget {
   final bool verseListLoading;
   final bool verseListLoadSucceeded;
   final List<VerseItem> verseListItems;
-  final VerseItem verseListSelectedVerseItem;
   final bool verseListLoadFailed;
   final String verseListLoadError;
   final Function verseListLoad;
-  final Function(VerseItem) verseListOnVerseItemLongPressed;
   final int settingsTranslatorId;
 
   VerseList({
@@ -22,11 +20,9 @@ class VerseList extends StatelessWidget {
     this.verseListLoading,
     this.verseListLoadSucceeded,
     this.verseListItems,
-    this.verseListSelectedVerseItem,
     this.verseListLoadFailed,
     this.verseListLoadError,
     this.verseListLoad,
-    this.verseListOnVerseItemLongPressed,
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!verseListLoading && verseListItems.length == 0 && !verseListLoadFailed)
@@ -47,19 +43,12 @@ class VerseList extends StatelessWidget {
     if (verseListItems.length == 0)
       return EmptyContent();
 
-    return NotificationListener<ScrollNotification>(
-      onNotification: (ScrollNotification scrollNotification) {
-        verseListOnVerseItemLongPressed(null);
-      },
-      child: ListView.builder(
-        padding: EdgeInsets.all(0.0),
-        itemCount: verseListItems.length,
-        itemBuilder: (BuildContext context, int index) => VerseListItem(
-          verseItem: verseListItems[index],
-          isSelected: verseListItems[index].id == verseListSelectedVerseItem?.id,
-          onVerseItemLongPressed: verseListOnVerseItemLongPressed,
-          settingsTranslatorId: settingsTranslatorId
-        )
+    return ListView.builder(
+      padding: EdgeInsets.all(0.0),
+      itemCount: verseListItems.length,
+      itemBuilder: (BuildContext context, int index) => VerseListItem(
+        verseItem: verseListItems[index],
+        settingsTranslatorId: settingsTranslatorId
       )
     );
   }

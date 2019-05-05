@@ -11,7 +11,6 @@ ChapterItem chapterDetailsChapterItemSelector(ChapterDetailsState state) => stat
 bool chapterDetailsLoadingSelector(ChapterDetailsState state) => state.chapterDetailsLoading;
 bool chapterDetailsLoadSucceededSelector(ChapterDetailsState state) => state.chapterDetailsLoadSucceeded;
 List<VerseItem> chapterDetailsVerseItemsSelector(ChapterDetailsState state) => state.chapterDetailsVerseItems;
-VerseItem chapterDetailsSelectedVerseItemSelector(ChapterDetailsState state) => state.chapterDetailsSelectedVerseItem;
 String chapterDetailsBackgroundImageSelector(ChapterDetailsState state) => state.chapterDetailsBackgroundImage;
 bool chapterDetailsLoadFailedSelector(ChapterDetailsState state) => state.chapterDetailsLoadFailed;
 String chapterDetailsLoadErrorSelector(ChapterDetailsState state) => state.chapterDetailsLoadError;

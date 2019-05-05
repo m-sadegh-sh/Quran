@@ -87,14 +87,6 @@ class AppState {
             display4: defaultFont.apply(
               color: theme.primaryColorDark,
               fontSizeFactor: 1.25
-            ),
-            body1: defaultFont.apply(
-              color: theme.primaryColorLight,
-              fontSizeFactor: 1.25
-            ),
-            button: defaultFont.copyWith(
-              color: theme.unselectedWidgetColor,
-              fontSize: 15.0
             )
           )
         );

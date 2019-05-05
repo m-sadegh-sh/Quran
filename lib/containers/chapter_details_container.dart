@@ -20,12 +20,10 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoading: chapterDetailsViewModel.chapterDetailsLoading,
         chapterDetailsLoadSucceeded: chapterDetailsViewModel.chapterDetailsLoadSucceeded,
         chapterDetailsVerseItems: chapterDetailsViewModel.chapterDetailsVerseItems,
-        chapterDetailsSelectedVerseItem: chapterDetailsViewModel.chapterDetailsSelectedVerseItem,
         chapterDetailsBackgroundImage: chapterDetailsViewModel.chapterDetailsBackgroundImage,
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,
         chapterDetailsLoad: chapterDetailsViewModel.chapterDetailsLoad,
-        chapterDetailsOnVerseItemLongPressed: chapterDetailsViewModel.chapterDetailsOnVerseItemLongPressed,
         settingsTranslatorId: chapterDetailsViewModel.settingsTranslatorId
       )
     );
