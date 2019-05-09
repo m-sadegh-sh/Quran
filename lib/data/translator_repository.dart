@@ -1,28 +1,36 @@
 import 'dart:async';
+import 'dart:convert';
 
-import 'package:quran/data/repository_base.dart';
+import 'package:flutter/services.dart';
 import 'package:quran/items/translator_item.dart';
 
-class TranslatorRepository extends RepositoryBase<TranslatorItem> {
+class TranslatorRepository {
+  static List<TranslatorItem> _cachedEntities;
+
   static final TranslatorRepository _instance = TranslatorRepository._private();
+
+  TranslatorRepository._private() {
+    _init();
+  }
 
   factory TranslatorRepository() {
     return _instance;
   }
 
-  TranslatorRepository._private();
-
-  @override
-  String get dataFileName => 'translators';
-
-  @override
-  TranslatorItem fromJson(dynamic parsedJson) => TranslatorItem.fromJson(parsedJson);
+  Future<List<TranslatorItem>> findAll() async {
+    return _cachedEntities;
+  }
   
-  Future<TranslatorItem> findOneById(int id) async {
-    return (await findAll()).singleWhere((ti) => ti.id == id);
+  Future<bool> _init() async {
+    final key = 'assets/data/translators.json';
+
+    String data = await rootBundle.loadString(key);
+    _cachedEntities = json.decode(data).map<TranslatorItem>(_fromJson).toList();
+
+    print('Repository inited. (dataFileName: $key)');
+
+    return true;
   }
 
-  Future<TranslatorItem> findOneByLocaleCode(String localeCode) async {
-    return (await findAll()).singleWhere((ti) => ti.localeCode == localeCode);
-  }
+  TranslatorItem _fromJson(dynamic parsedJson) => TranslatorItem.fromJson(parsedJson);
 }

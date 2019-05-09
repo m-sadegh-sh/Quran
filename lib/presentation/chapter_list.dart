@@ -38,7 +38,19 @@ class ChapterList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (chapterListLoading)
-      return CircularLoading();
+      return ListView.builder(
+        padding: const EdgeInsets.all(0.0),
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) => ChapterListItem(
+          shimmed: true,
+          chapterItem: ChapterItem(
+            id: index + 1,
+            title: ''
+          ),
+          onChapterItemTapped: chapterListOnChapterItemTapped,
+          settingsTranslatorId: settingsTranslatorId
+        )
+      );
 
     if (chapterListLoadFailed)
       return ActionFailure(
@@ -63,8 +75,10 @@ class ChapterList extends StatelessWidget {
         );
       },
       child: ListView.builder(
+        padding: const EdgeInsets.all(0.0),
         itemCount: chapterListItems.length,
         itemBuilder: (BuildContext context, int index) => ChapterListItem(
+          shimmed: false,
           chapterItem: chapterListItems[index],
           onChapterItemTapped: chapterListOnChapterItemTapped,
           settingsTranslatorId: settingsTranslatorId

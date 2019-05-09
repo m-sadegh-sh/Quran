@@ -26,9 +26,7 @@ class CircularLoading extends StatelessWidget {
           ),
           child: Text(
             spinMessage ?? AppLocalizations.of(context).translate('circular-loading-spin-message'),
-            style: Theme.of(context).textTheme.subhead.apply(
-              color: Theme.of(context).disabledColor
-            )
+            style: Theme.of(context).textTheme.display3
           )
         )
       ]

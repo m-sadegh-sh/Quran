@@ -26,9 +26,7 @@ class EmptyContent extends StatelessWidget {
               margin: EdgeInsets.only(right: 5.0),
               child: Text(
                 noResultMessage ?? AppLocalizations.of(context).translate('empty-content-no-result-message'),
-                style: Theme.of(context).textTheme.subhead.apply(
-                  color: Theme.of(context).hintColor
-                )
+                style: Theme.of(context).textTheme.display3
               )
             )
           ]

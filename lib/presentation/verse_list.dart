@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/presentation/circular_loading.dart';
 import 'package:quran/presentation/action_failure.dart';
@@ -8,6 +9,7 @@ import 'package:quran/presentation/empty_content.dart';
 import 'package:quran/presentation/verse_list_item.dart';
 
 class VerseList extends StatelessWidget {
+  final ChapterItem chapterItem;
   final bool verseListLoading;
   final bool verseListLoadSucceeded;
   final List<VerseItem> verseListItems;
@@ -20,6 +22,7 @@ class VerseList extends StatelessWidget {
 
   VerseList({
     Key key,
+    this.chapterItem,
     this.verseListLoading,
     this.verseListLoadSucceeded,
     this.verseListItems,
@@ -37,7 +40,23 @@ class VerseList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     if (verseListLoading)
-      return CircularLoading();
+      return ListView.builder(
+        padding: const EdgeInsets.all(0.0),
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) => VerseListItem(
+          shimmed: true,
+          verseItem: VerseItem(
+            showVerseId: true,
+            chapterId: chapterItem.id,
+            chapterVerseId: index,
+            fullText: '',
+            cleanText: ''
+          ),
+          verseItemSlidableActions: verseListSlidableActions,
+          verseItemSlidableController: verseListSlidableController,
+          settingsTranslatorId: settingsTranslatorId
+        )
+      );
 
     if (verseListLoadFailed)
       return ActionFailure(
@@ -49,9 +68,10 @@ class VerseList extends StatelessWidget {
       return EmptyContent();
 
     return ListView.builder(
-      padding: EdgeInsets.all(0.0),
+      padding: const EdgeInsets.all(0.0),
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItem(
+        shimmed: false,
         verseItem: verseListItems[index],
         verseItemSlidableActions: verseListSlidableActions,
         verseItemSlidableController: verseListSlidableController,

@@ -1,23 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 import 'package:quran/app_localizations.dart';
-import 'package:quran/presentation/inline_bouncing_loading.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/chapter_translation_item.dart';
 
 class ChapterListItem extends StatelessWidget {
+  final bool shimmed;
   final ChapterItem chapterItem;
   final Function(BuildContext, ChapterItem) onChapterItemTapped;
   final int settingsTranslatorId;
 
   ChapterListItem({
     Key key,
+    this.shimmed,
     this.chapterItem,
     this.onChapterItemTapped,
     this.settingsTranslatorId
   }) : super(key: key);
 
-  Widget _buildChapterNumber(BuildContext context) {
+  bool get isIndicatable {
+    return chapterItem.id % 2 == 0;
+  }
+
+  Widget _buildChapterNumber(BuildContext context, bool shimmed) {
     return Container(
       margin: EdgeInsets.only(left: 10.0),
       constraints: BoxConstraints(
@@ -33,7 +39,7 @@ class ChapterListItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Text(
-              chapterItem.id.toString(),
+              shimmed ? '' : chapterItem.id.toString(),
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.display4
             )
@@ -43,29 +49,21 @@ class ChapterListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildChapterTitle(BuildContext context) {
+  Widget _buildChapterTitle(BuildContext context, bool shimmed) {
     return Text(
-      chapterItem.title,
+      shimmed == true ? '' : chapterItem.title,
       style: Theme.of(context).textTheme.title
     );
   }
 
-  Widget _buildChapterTranslationText(BuildContext context) {
-    return FutureBuilder(
-      future: chapterItem.translation(settingsTranslatorId),
-      builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) {
-        if (snapshot.hasData)
-          return Text(
-            snapshot.data.text,
-            style: Theme.of(context).textTheme.display1
-          );
-
-        return InlineBouncingLoading();
-      }
+  Widget _buildChapterTranslationText(BuildContext context, ChapterTranslationItem chapterTranslationItem, bool shimmed) {
+    return Text(
+      shimmed ? '' : chapterTranslationItem?.text ?? '',
+      style: Theme.of(context).textTheme.display1
     );
   }
 
-  Widget _buildChapterOrder(BuildContext context) {
+  Widget _buildChapterOrder(BuildContext context, bool shimmed) {
     final order = AppLocalizations.of(context).translateFormatted(
       'chapter-item-order',
       {
@@ -74,12 +72,12 @@ class ChapterListItem extends StatelessWidget {
     );
 
     return Text(
-      order,
+      shimmed ? '' : order,
       style: Theme.of(context).textTheme.display1
     );
   }
 
-  Widget _buildChapterPartNumber(BuildContext context) {
+  Widget _buildChapterPartNumber(BuildContext context, bool shimmed) {
     final partNumber = AppLocalizations.of(context).translateFormatted(
       'chapter-item-part-number',
       {
@@ -88,12 +86,12 @@ class ChapterListItem extends StatelessWidget {
     );
 
     return Text(
-      partNumber,
+      shimmed ? '' : partNumber,
       style: Theme.of(context).textTheme.display1
     );
   }
 
-  Widget _buildChapterRevelationPlaceAndVersesCount(BuildContext context) {
+  Widget _buildChapterRevelationPlaceAndVersesCount(BuildContext context, bool shimmed) {
     final revelationPlaceAndVersesCount = AppLocalizations.of(context).translateFormatted(
       'chapter-item-revelation-place-and-verses-count',
       {
@@ -103,51 +101,133 @@ class ChapterListItem extends StatelessWidget {
     );
 
     return Text(
-      revelationPlaceAndVersesCount,
+      shimmed ? '' : revelationPlaceAndVersesCount,
       style: Theme.of(context).textTheme.display1
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return Material(
-      color: chapterItem.id % 2 == 0 ? Theme.of(context).indicatorColor.withAlpha(35) : null,
-      child: InkWell(
-        onTap: () => onChapterItemTapped(context, chapterItem),
-        child: Container(
-          padding: EdgeInsets.all(10.0),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              _buildChapterNumber(context),
-              Expanded(
-                flex: 3,
-                child: Container(
-                  margin: EdgeInsets.only(left: 10.0),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      _buildChapterTitle(context),
-                      _buildChapterTranslationText(context)
-                    ],
-                  )
-                )
-              ),
-              Expanded(
-                flex: 2,
-                child: Column(
+    return FutureBuilder(
+      future: chapterItem.translation(settingsTranslatorId),
+      builder: (BuildContext context, AsyncSnapshot<ChapterTranslationItem> snapshot) {
+        if (snapshot.hasData)
+          return Material(
+            color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
+            child: InkWell(
+              onTap: () => onChapterItemTapped(context, chapterItem),
+              child: Padding(
+                padding: EdgeInsets.all(10.0),
+                child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    _buildChapterPartNumber(context),
-                    _buildChapterOrder(context),
-                    _buildChapterRevelationPlaceAndVersesCount(context)
+                    _buildChapterNumber(context, shimmed),
+                    Expanded(
+                      flex: 3,
+                      child: Container(
+                        margin: EdgeInsets.only(left: 10.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            _buildChapterTitle(context, shimmed),
+                            Container(
+                              margin: const EdgeInsets.only(top: 5.0),
+                              child: _buildChapterTranslationText(context, snapshot.data, shimmed)
+                            )
+                          ]
+                        )
+                      )
+                    ),
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          _buildChapterPartNumber(context, shimmed),
+                          Container(
+                            margin: const EdgeInsets.only(
+                              top: 5.0,
+                              bottom: 5.0
+                            ),
+                            child: _buildChapterOrder(context, shimmed)
+                          ),
+                          _buildChapterRevelationPlaceAndVersesCount(context, shimmed)
+                        ]
+                      )
+                    )
                   ],
                 )
               )
-            ],
+            )
+          );
+          
+        return Material(
+          color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
+          child: Shimmer.fromColors(
+            baseColor: isIndicatable ? Colors.white : Theme.of(context).primaryColorLight.withOpacity(0.5),
+            highlightColor: isIndicatable ? Theme.of(context).primaryColorLight.withOpacity(0.5) : Colors.white,
+            direction: ShimmerDirection.rtl,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildChapterNumber(context, true),
+                  Expanded(
+                    flex: 3,
+                    child: Container(
+                      margin: EdgeInsets.only(left: 10.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: double.infinity,
+                            color: Theme.of(context).textTheme.title.color.withOpacity(0.5),
+                            child: _buildChapterTitle(context, true)
+                          ),
+                          Container(
+                            width: double.infinity,
+                            margin: const EdgeInsets.only(top: 5.0),
+                            color: Theme.of(context).textTheme.display1.color.withOpacity(0.5),
+                            child: _buildChapterTranslationText(context, null, true),
+                          )
+                        ]
+                      )
+                    )
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Container(
+                          width: double.infinity,
+                          color: Theme.of(context).textTheme.display1.color.withOpacity(0.5),
+                          child: _buildChapterPartNumber(context, true)
+                        ),
+                        Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.only(
+                            top: 5.0,
+                            bottom: 5.0
+                          ),
+                          color: Theme.of(context).textTheme.display1.color.withOpacity(0.5),
+                          child: _buildChapterOrder(context, true)
+                        ),
+                        Container(
+                          width: double.infinity,
+                          color: Theme.of(context).textTheme.display1.color.withOpacity(0.5),
+                          child: _buildChapterRevelationPlaceAndVersesCount(context, true)
+                        )
+                      ]
+                    )
+                  )
+                ]
+              )
+            )
           )
-        )
-      )
+        );
+      }
     );
   }
 }

@@ -1,28 +1,42 @@
 import 'dart:async';
+import 'dart:convert';
 
-import 'package:quran/data/repository_base.dart';
+import 'package:flutter/services.dart';
 import 'package:quran/items/verse_item.dart';
 
-class VerseRepository extends RepositoryBase<VerseItem> {
+class VerseRepository {
+  static List<VerseItem> _cachedEntities;
+
   static final VerseRepository _instance = VerseRepository._private();
+
+  VerseRepository._private() {
+    _init();
+  }
 
   factory VerseRepository() {
     return _instance;
   }
 
-  VerseRepository._private();
-
-  @override
-  String get dataFileName => 'verses';
-
-  @override
-  VerseItem fromJson(dynamic parsedJson) => VerseItem.fromJson(parsedJson);
-  
-  Future<VerseItem> findOneById(int id) async {
-    return (await findAll()).singleWhere((vi) => vi.id == id);
+  Future<List<VerseItem>> findAll() async {
+    return _cachedEntities;
   }
-
+  
   Future<List<VerseItem>> findAllByChapterId(int chapterId) async {
+    await Future.delayed(Duration(seconds: 3));
+
     return (await findAll()).where((vi) => vi.chapterId == chapterId).toList();
   }
+
+  Future<bool> _init() async {
+    final key = 'assets/data/verses.json';
+
+    String data = await rootBundle.loadString(key);
+    _cachedEntities = json.decode(data).map<VerseItem>(_fromJson).toList();
+
+    print('Repository inited. (dataFileName: $key)');
+
+    return true;
+  }
+
+  VerseItem _fromJson(dynamic parsedJson) => VerseItem.fromJson(parsedJson);
 }

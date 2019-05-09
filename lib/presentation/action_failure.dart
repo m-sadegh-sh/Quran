@@ -32,9 +32,7 @@ class ActionFailure extends StatelessWidget {
                   margin: EdgeInsets.only(right: 5.0),
                   child: Text(
                     errorMessage ?? AppLocalizations.of(context).translate('action-failure-error-message'),
-                    style: Theme.of(context).textTheme.subhead.apply(
-                      color: Theme.of(context).hintColor
-                    )
+                    style: Theme.of(context).textTheme.display3
                   )
                 )
               ]

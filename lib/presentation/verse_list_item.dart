@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:shimmer/shimmer.dart';
 
-import 'package:quran/presentation/inline_bouncing_loading.dart';
 import 'package:quran/items/verse_translation_item.dart';
 import 'package:quran/items/verse_item.dart';
 
 class VerseListItem extends StatelessWidget {
+  final bool shimmed;
   final VerseItem verseItem;
   final List<IconSlideAction> verseItemSlidableActions;
   final SlidableController verseItemSlidableController;
@@ -14,6 +15,7 @@ class VerseListItem extends StatelessWidget {
   
   VerseListItem({
     Key key,
+    this.shimmed,
     this.verseItem,
     this.verseItemSlidableActions,
     this.verseItemSlidableController,
@@ -27,7 +29,7 @@ class VerseListItem extends StatelessWidget {
     return verseItem.chapterVerseId % 2 == 1;
   }
 
-  Widget _buildVerseNumber(BuildContext context) {
+  Widget _buildVerseNumber(BuildContext context, bool shimmed) {
     return Visibility(
       visible: verseItem.showVerseId,
       maintainState: true,
@@ -48,7 +50,7 @@ class VerseListItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                verseItem.chapterVerseId.toString(),
+                shimmed ? '' : verseItem.chapterVerseId.toString(),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.display4
               )
@@ -59,16 +61,16 @@ class VerseListItem extends StatelessWidget {
     );
   }
 
-  Widget _buildVerseFullText(BuildContext context) {
+  Widget _buildVerseFullText(BuildContext context, bool shimmed) {
     return Text(
-      verseItem.cleanText,
+      shimmed ? '' : verseItem.fullText,
       style: Theme.of(context).textTheme.title
     );
   }
 
-  Widget _buildVerseTranslationText(BuildContext context, VerseTranslationItem verseTranslationItem) {
+  Widget _buildVerseTranslationText(BuildContext context, VerseTranslationItem verseTranslationItem, bool shimmed) {
     return Text(
-      verseTranslationItem.text,
+      shimmed ? '' : verseTranslationItem?.text ?? '',
       style: Theme.of(context).textTheme.display1
     );
   }
@@ -80,36 +82,74 @@ class VerseListItem extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot<VerseTranslationItem> snapshot) {
         if (snapshot.hasData)
           return Slidable(
+            enabled: verseItem.showVerseId,
             controller: verseItemSlidableController,
             delegate: SlidableDrawerDelegate(),
             actionExtentRatio: 0.25,
             actions: verseItemSlidableActions,
             child: Material(
-              color: isIndicatable ? Theme.of(context).indicatorColor.withAlpha(35) : null,
-              child: Container(
+              color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
+              child: Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    _buildVerseNumber(context),
+                    _buildVerseNumber(context, shimmed),
                     Expanded(
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            _buildVerseFullText(context),
-                            _buildVerseTranslationText(context, snapshot.data)
-                          ],
+                            _buildVerseFullText(context, shimmed),
+                            Container(
+                              margin: const EdgeInsets.only(top: 5.0),
+                              child: _buildVerseTranslationText(context, snapshot.data, shimmed)
+                            )
+                          ]
                         )
                       )
                     )
-                  ],
+                  ]
                 )
               )
             )
           );
 
-        return InlineBouncingLoading();
+        return Material(
+          color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
+          child: Shimmer.fromColors(
+            baseColor: isIndicatable ? Colors.white : Theme.of(context).primaryColorLight.withOpacity(0.5),
+            highlightColor: isIndicatable ? Theme.of(context).primaryColorLight.withOpacity(0.5) : Colors.white,
+            direction: ShimmerDirection.rtl,
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  _buildVerseNumber(context, true),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          color: Theme.of(context).textTheme.title.color,
+                          child: _buildVerseFullText(context, true)
+                        ),
+                        Container(
+                          width: double.infinity,
+                          margin: const EdgeInsets.only(top: 5.0),
+                          color: Theme.of(context).textTheme.display1.color,
+                          child: _buildVerseTranslationText(context, null, true),
+                        )
+                      ]
+                    )
+                  )
+                ]
+              )
+            )
+          )
+        );
       }
     );
   }

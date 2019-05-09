@@ -122,6 +122,7 @@ class ChapterDetails extends StatelessWidget {
       body: NestedScrollView(
         headerSliverBuilder: _buildHeaderSliver,
         body: VerseList(
+          chapterItem: chapterDetailsChapterItem,
           verseListLoading: chapterDetailsLoading,
           verseListLoadSucceeded: chapterDetailsLoadSucceeded,
           verseListItems: chapterDetailsVerseItems,
