@@ -22,7 +22,7 @@ class ChapterTranslationRepository {
   }
   
   Future<ChapterTranslationItem> findOneByChapterId(int chapterId, int translatorId) async {    
-    await Future.delayed(Duration(seconds: 1));
+    await Future.delayed(Duration(milliseconds: 500));
 
     return (await findAll()).singleWhere((cti) => cti.chapterId == chapterId && cti.translatorId == translatorId);
   }

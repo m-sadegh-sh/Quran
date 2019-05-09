@@ -18,7 +18,7 @@ class ChapterRepository {
   }
 
   Future<List<ChapterItem>> findAll() async {
-    await Future.delayed(Duration(seconds: 3));
+    await Future.delayed(Duration(seconds: 1));
 
     return _cachedEntities;
   }
