@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:redux/redux.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generators.dart';
+import 'package:quran/states/root_state.dart';
+import 'package:quran/actions/chapter_details_action.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
+import 'package:quran/enumerations/slidable_action_type.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
@@ -17,7 +21,7 @@ class ChapterDetailsState {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final GeneratorWNP<List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final GeneratorW2P<Store<RootState>, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
 
   ChapterDetailsState({
@@ -67,16 +71,26 @@ class ChapterDetailsState {
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null,
-    chapterDetailsOnGenerateSlidableActions: (BuildContext context) => [
+    chapterDetailsOnGenerateSlidableActions: (BuildContext context, Store<RootState> store, VerseItem verseItem) => [
       new IconSlideAction(
         caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share'),
-        color: Colors.blue,
-        icon: Icons.share
+        color: Theme.of(context).primaryColorDark,
+        icon: Icons.share,
+        onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
+          context: context,
+          verseItem: verseItem,
+          slidableActionType: SlidableActionType.Share
+        ))
       ),
       new IconSlideAction(
         caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-bookmark'),
-        color: Colors.indigo,
-        icon: Icons.bookmark
+        color: Theme.of(context).primaryColor,
+        icon: Icons.bookmark,
+        onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
+          context: context,
+          verseItem: verseItem,
+          slidableActionType: SlidableActionType.Bookmark
+        ))
       )
     ],
     chapterDetailsSlidableController: new SlidableController()
