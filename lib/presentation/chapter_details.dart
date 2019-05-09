@@ -63,8 +63,11 @@ class ChapterDetails extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Container(
-                      margin: EdgeInsets.only(left: 20.0),
-                      child: Icon(child.icon)
+                      margin: EdgeInsets.only(left: 15.0),
+                      child: Icon(
+                        child.icon,
+                        color: Theme.of(context).textTheme.display3.color.withOpacity(0.45)
+                      )
                     ),
                     Text(
                       child.text,

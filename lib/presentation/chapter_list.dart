@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/chapter_item.dart';
-import 'package:quran/presentation/circular_loading.dart';
 import 'package:quran/presentation/action_failure.dart';
 import 'package:quran/presentation/empty_content.dart';
 import 'package:quran/presentation/chapter_list_item.dart';
