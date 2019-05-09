@@ -61,3 +61,13 @@ class ChapterDetailsActionChildItemPressedAction {
     this.actionChildItem
   });
 }
+
+class ChapterDetailsSlidableActionTappedAction {
+  final BuildContext context;
+  final VerseItem verseItem;
+
+  ChapterDetailsSlidableActionTappedAction({
+    this.context,
+    this.verseItem
+  });
+}
