@@ -3,7 +3,6 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
-import 'package:quran/presentation/circular_loading.dart';
 import 'package:quran/presentation/action_failure.dart';
 import 'package:quran/presentation/empty_content.dart';
 import 'package:quran/presentation/verse_list_item.dart';
