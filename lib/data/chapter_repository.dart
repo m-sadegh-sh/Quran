@@ -5,16 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:quran/items/chapter_item.dart';
 
 class ChapterRepository {
-  static List<ChapterItem> _cachedEntities;
+  List<ChapterItem> _cachedEntities;
 
-  static final ChapterRepository _instance = ChapterRepository._private();
-
-  ChapterRepository._private() {
+  ChapterRepository() {
     _init();
-  }
-
-  factory ChapterRepository() {
-    return _instance;
   }
 
   Future<List<ChapterItem>> findAll() async {
@@ -27,12 +21,13 @@ class ChapterRepository {
     final key = 'assets/data/chapters.json';
 
     String data = await rootBundle.loadString(key);
-    _cachedEntities = json.decode(data).map<ChapterItem>(_fromJson).toList();
+    
+    _cachedEntities = json.decode(data).map<ChapterItem>(
+      (pj) => ChapterItem.fromJson(pj)
+    ).toList();
 
     print('Repository inited. (dataFileName: $key)');
 
     return true;
   }
-
-  ChapterItem _fromJson(dynamic parsedJson) => ChapterItem.fromJson(parsedJson);
 }

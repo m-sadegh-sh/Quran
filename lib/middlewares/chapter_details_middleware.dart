@@ -1,4 +1,5 @@
 import 'package:redux/redux.dart';
+import 'package:kiwi/kiwi.dart';
 
 import 'package:quran/data/verse_repository.dart';
 import 'package:quran/states/root_state.dart';
@@ -35,7 +36,7 @@ Middleware<RootState> _createChapterDetailsLoad() {
 
       final castedAction = action as ChapterDetailsLoadAction;
 
-      final chapterDetailsVerseItems = await VerseRepository().findAllByChapterId(
+      final chapterDetailsVerseItems = await Container().resolve<VerseRepository>().findAllByChapterId(
         castedAction.chapterDetailsChapterItem.id
       );
       

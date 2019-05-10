@@ -1,4 +1,5 @@
 import 'package:redux/redux.dart';
+import 'package:kiwi/kiwi.dart';
 
 import 'package:quran/states/root_state.dart';
 import 'package:quran/actions/chapter_list_action.dart';
@@ -17,7 +18,7 @@ Middleware<RootState> _createChapterListLoad() {
     try {
       next(action);
 
-      final chapterListItems = await ChapterRepository().findAll();
+      final chapterListItems = await Container().resolve<ChapterRepository>().findAll();
 
       store.dispatch(ChapterListLoadSucceededAction(
         chapterListItems: chapterListItems

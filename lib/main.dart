@@ -3,6 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:logging/logging.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
+import 'package:kiwi/kiwi.dart' as wiki;
 
 import 'package:quran/states/root_state.dart';
 import 'actions/settings_action.dart';
@@ -13,8 +14,15 @@ import 'package:quran/middlewares/home_middleware.dart';
 import 'package:quran/middlewares/chapter_list_middleware.dart';
 import 'package:quran/middlewares/chapter_details_middleware.dart';
 import 'package:quran/containers/app_container.dart';
+import 'data/translator_repository.dart';
+import 'data/chapter_repository.dart';
+import 'data/chapter_translation_repository.dart';
+import 'data/verse_repository.dart';
+import 'data/verse_translation_repository.dart';
 
 void main() {
+  registerDependencies();
+  
   final store = _createStore();
 
   store.dispatch(SettingsSharedPreferencesLoadAction());
@@ -25,6 +33,16 @@ void main() {
       child: AppContainer()
     )
   );
+}
+
+void registerDependencies() {
+  var container = wiki.Container();
+
+  container.registerSingleton((c) => TranslatorRepository());
+  container.registerSingleton((c) => ChapterRepository());
+  container.registerSingleton((c) => ChapterTranslationRepository());
+  container.registerSingleton((c) => VerseRepository());
+  container.registerSingleton((c) => VerseTranslationRepository());
 }
 
 Store<RootState> _createStore() {  

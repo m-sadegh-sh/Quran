@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:kiwi/kiwi.dart';
 
 import 'package:quran/data/verse_translation_repository.dart';
 import 'package:quran/items/verse_translation_item.dart';
@@ -23,7 +24,7 @@ class VerseItem {
   });
 
   Future<VerseTranslationItem> translation(int translatorId) async {
-    return await VerseTranslationRepository().findOneByVerseId(id, translatorId);
+    return await Container().resolve<VerseTranslationRepository>().findOneByVerseId(id, translatorId);
   }
 
   factory VerseItem.fromJson(dynamic parsedJson) {

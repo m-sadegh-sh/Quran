@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:kiwi/kiwi.dart';
 
 import 'package:quran/data/chapter_translation_repository.dart';
 import 'package:quran/enumerations/chapter_revelation_place.dart';
@@ -22,7 +23,7 @@ class ChapterItem {
   });
 
   Future<ChapterTranslationItem> translation(int translatorId) async {
-    return await ChapterTranslationRepository().findOneByChapterId(id, translatorId);
+    return await Container().resolve<ChapterTranslationRepository>().findOneByChapterId(id, translatorId);
   }
 
   factory ChapterItem.fromJson(dynamic parsedJson) {

@@ -5,16 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:quran/items/verse_translation_item.dart';
 
 class VerseTranslationRepository {
-  static List<VerseTranslationItem> _cachedEntities;
+  List<VerseTranslationItem> _cachedEntities;
 
-  static final VerseTranslationRepository _instance = VerseTranslationRepository._private();
-
-  VerseTranslationRepository._private() {
+  VerseTranslationRepository() {
     _init();
-  }
-
-  factory VerseTranslationRepository() {
-    return _instance;
   }
 
   Future<List<VerseTranslationItem>> findAll() async {
@@ -34,12 +28,13 @@ class VerseTranslationRepository {
     final key = 'assets/data/verse_translations.json';
 
     String data = await rootBundle.loadString(key);
-    _cachedEntities = json.decode(data).map<VerseTranslationItem>(_fromJson).toList();
+
+    _cachedEntities = json.decode(data).map<VerseTranslationItem>(
+      (pj) => VerseTranslationItem.fromJson(pj)
+    ).toList();
 
     print('Repository inited. (dataFileName: $key)');
 
     return true;
   }
-
-  VerseTranslationItem _fromJson(dynamic parsedJson) => VerseTranslationItem.fromJson(parsedJson);
 }
