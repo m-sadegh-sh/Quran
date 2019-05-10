@@ -3,14 +3,14 @@ import 'package:flutter_redux/flutter_redux.dart';
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/view_models/chapter_details.view_model.dart';
-import 'package:quran/presentation/chapter_details.dart';
+import 'package:quran/screens/chapter_details.screen.dart';
 
 class ChapterDetailsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StoreConnector<RootState, ChapterDetailsViewModel>(
       converter: ChapterDetailsViewModel.fromStore,
-      builder: (BuildContext context, ChapterDetailsViewModel chapterDetailsViewModel) => ChapterDetails(
+      builder: (BuildContext context, ChapterDetailsViewModel chapterDetailsViewModel) => ChapterDetailsScreen(
         chapterDetailsChapterItem: chapterDetailsViewModel.chapterDetailsChapterItem,
         chapterDetailsActionItems: chapterDetailsViewModel.chapterDetailsOnGenerateActionItems(context, chapterDetailsViewModel.settingsThemeFontSize),
         chapterDetailsOnActionItemPressed: chapterDetailsViewModel.chapterDetailsOnActionItemPressed,

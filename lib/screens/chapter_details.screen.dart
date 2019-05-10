@@ -6,7 +6,7 @@ import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
 import 'package:quran/items/chapter.item.dart';
 import 'package:quran/items/verse.item.dart';
-import 'package:quran/presentation/verse_list.dart';
+import 'package:quran/screens/verse_list.screen.dart';
 
 class ChapterDetailsScreen extends StatelessWidget {
   final ChapterItem chapterDetailsChapterItem;
@@ -125,7 +125,7 @@ class ChapterDetailsScreen extends StatelessWidget {
     return Scaffold(
       body: NestedScrollView(
         headerSliverBuilder: _buildHeaderSliver,
-        body: VerseList(
+        body: VerseListScreen(
           chapterItem: chapterDetailsChapterItem,
           verseListLoading: chapterDetailsLoading,
           verseListLoadSucceeded: chapterDetailsLoadSucceeded,
