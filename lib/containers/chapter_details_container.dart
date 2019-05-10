@@ -22,7 +22,7 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,
         chapterDetailsLoad: chapterDetailsViewModel.chapterDetailsLoad,
-        chapterDetailsSlidableActions: chapterDetailsViewModel.chapterDetailsOnGenerateSlidableActions(context),
+        chapterDetailsOnGenerateSlidableActions: chapterDetailsViewModel.chapterDetailsOnGenerateSlidableActions,
         chapterDetailsSlidableController: chapterDetailsViewModel.chapterDetailsSlidableController,
         settingsTranslatorId: chapterDetailsViewModel.settingsTranslatorId
       )

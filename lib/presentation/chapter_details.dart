@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/action_item.dart';
 import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
@@ -19,7 +20,7 @@ class ChapterDetails extends StatelessWidget {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final List<IconSlideAction> chapterDetailsSlidableActions;
+  final GeneratorW1P<VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
 
@@ -36,7 +37,7 @@ class ChapterDetails extends StatelessWidget {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
-    this.chapterDetailsSlidableActions,
+    this.chapterDetailsOnGenerateSlidableActions,
     this.chapterDetailsSlidableController,
     this.settingsTranslatorId
   }) : super(key: key);
@@ -132,7 +133,7 @@ class ChapterDetails extends StatelessWidget {
           verseListLoadFailed: chapterDetailsLoadFailed,
           verseListLoadError: chapterDetailsLoadError,
           verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem),
-          verseListSlidableActions: chapterDetailsSlidableActions,
+          verseListOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions,
           verseListSlidableController: chapterDetailsSlidableController,
           settingsTranslatorId: settingsTranslatorId
         )

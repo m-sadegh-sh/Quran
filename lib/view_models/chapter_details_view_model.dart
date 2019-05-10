@@ -24,8 +24,9 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final GeneratorWNP<List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final GeneratorW1P<VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
+  final Function(BuildContext, Store<RootState>) chapterDetailsOnSlidableActionTapped;
   final int settingsTranslatorId;
   final double settingsThemeFontSize;
 
@@ -43,6 +44,7 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoad,
     this.chapterDetailsOnGenerateSlidableActions,
     this.chapterDetailsSlidableController,
+    this.chapterDetailsOnSlidableActionTapped,
     this.settingsTranslatorId,
     this.settingsThemeFontSize
   });
@@ -77,7 +79,7 @@ class ChapterDetailsViewModel {
           chapterDetailsChapterItem: chapterDetailsChapterItem
         ));
       },
-      chapterDetailsOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState),
+      chapterDetailsOnGenerateSlidableActions: (BuildContext context, VerseItem verseItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, verseItem),
       chapterDetailsSlidableController: chapterDetailsSlidableControllerSelector(chapterDetailsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)

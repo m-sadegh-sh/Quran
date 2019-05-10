@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
+import 'package:quran/delegates/generators.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/presentation/action_failure.dart';
@@ -15,7 +16,7 @@ class VerseList extends StatelessWidget {
   final bool verseListLoadFailed;
   final String verseListLoadError;
   final Function verseListLoad;
-  final List<IconSlideAction> verseListSlidableActions;
+  final GeneratorW1P<VerseItem, List<IconSlideAction>> verseListOnGenerateSlidableActions;
   final SlidableController verseListSlidableController;
   final int settingsTranslatorId;
 
@@ -28,7 +29,7 @@ class VerseList extends StatelessWidget {
     this.verseListLoadFailed,
     this.verseListLoadError,
     this.verseListLoad,
-    this.verseListSlidableActions,
+    this.verseListOnGenerateSlidableActions,
     this.verseListSlidableController,
     this.settingsTranslatorId
   }) : super(key: key) {
@@ -51,7 +52,7 @@ class VerseList extends StatelessWidget {
             fullText: '',
             cleanText: ''
           ),
-          verseItemSlidableActions: verseListSlidableActions,
+          verseItemOnGenerateSlidableActions: verseListOnGenerateSlidableActions,
           verseItemSlidableController: verseListSlidableController,
           settingsTranslatorId: settingsTranslatorId
         )
@@ -72,7 +73,7 @@ class VerseList extends StatelessWidget {
       itemBuilder: (BuildContext context, int index) => VerseListItem(
         shimmed: false,
         verseItem: verseListItems[index],
-        verseItemSlidableActions: verseListSlidableActions,
+        verseItemOnGenerateSlidableActions: verseListOnGenerateSlidableActions,
         verseItemSlidableController: verseListSlidableController,
         settingsTranslatorId: settingsTranslatorId
       )
