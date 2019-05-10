@@ -22,7 +22,7 @@ import 'package:quran/repositories/verse.repository.dart';
 import 'package:quran/repositories/verse_translation.repository.dart';
 
 void main() {
-  registerDependencies();
+  _registerDependencies();
   
   final store = _createStore();
 
@@ -36,7 +36,7 @@ void main() {
   );
 }
 
-void registerDependencies() {
+void _registerDependencies() {
   var container = wiki.Container();
 
   container.registerSingleton((c) => TranslatorRepository());
