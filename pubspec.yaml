@@ -27,11 +27,11 @@ flutter:
 
   assets:
    - assets/resources/fa_ir.json
-   - assets/repositories/translators.json
-   - assets/repositories/chapters.json
-   - assets/repositories/chapter_translations.json
-   - assets/repositories/verses.json
-   - assets/repositories/verse_translations.json
+   - assets/data/translators.json
+   - assets/data/chapters.json
+   - assets/data/chapter_translations.json
+   - assets/data/verses.json
+   - assets/data/verse_translations.json
    - assets/images/quran_background.png
 
   fonts:
