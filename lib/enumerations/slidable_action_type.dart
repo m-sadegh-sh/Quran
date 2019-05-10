@@ -1,0 +1,4 @@
+enum SlidableActionType {
+  Share,
+  Bookmark
+}

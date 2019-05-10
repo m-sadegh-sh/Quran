@@ -5,6 +5,7 @@ import 'package:quran/items/action_child_item.dart';
 import 'package:quran/items/chapter_item.dart';
 import 'package:quran/items/verse_item.dart';
 import 'package:quran/states/chapter_details_state.dart';
+import 'package:quran/enumerations/slidable_action_type.dart';
 
 class ChapterDetailsReloadInitialStateAction { }
 
@@ -65,9 +66,11 @@ class ChapterDetailsActionChildItemPressedAction {
 class ChapterDetailsSlidableActionTappedAction {
   final BuildContext context;
   final VerseItem verseItem;
+  final SlidableActionType slidableActionType;
 
   ChapterDetailsSlidableActionTappedAction({
     this.context,
-    this.verseItem
+    this.verseItem,
+    this.slidableActionType
   });
 }
