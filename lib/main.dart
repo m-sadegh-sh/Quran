@@ -5,20 +5,21 @@ import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
 import 'package:kiwi/kiwi.dart' as wiki;
 
-import 'package:quran/states/root_state.dart';
-import 'actions/settings_action.dart';
-import 'package:quran/reducers/root_reducer.dart';
-import 'package:quran/middlewares/app_middleware.dart';
-import 'package:quran/middlewares/settings_middleware.dart';
-import 'package:quran/middlewares/home_middleware.dart';
-import 'package:quran/middlewares/chapter_list_middleware.dart';
-import 'package:quran/middlewares/chapter_details_middleware.dart';
-import 'package:quran/containers/app_container.dart';
-import 'data/translator_repository.dart';
-import 'data/chapter_repository.dart';
-import 'data/chapter_translation_repository.dart';
-import 'data/verse_repository.dart';
-import 'data/verse_translation_repository.dart';
+import 'package:quran/states/root.state.dart';
+import 'package:quran/actions/settings.action.dart';
+import 'package:quran/reducers/root.reducer.dart';
+import 'package:quran/middlewares/common.middleware.dart';
+import 'package:quran/middlewares/app.middleware.dart';
+import 'package:quran/middlewares/settings.middleware.dart';
+import 'package:quran/middlewares/home.middleware.dart';
+import 'package:quran/middlewares/chapter_list.middleware.dart';
+import 'package:quran/middlewares/chapter_details.middleware.dart';
+import 'package:quran/containers/app.container.dart';
+import 'package:quran/repositories/translator.repository.dart';
+import 'package:quran/repositories/chapter.repository.dart';
+import 'package:quran/repositories/chapter_translation.repository.dart';
+import 'package:quran/repositories/verse.repository.dart';
+import 'package:quran/repositories/verse_translation.repository.dart';
 
 void main() {
   registerDependencies();
@@ -51,7 +52,8 @@ Store<RootState> _createStore() {
     initialState: RootState.initial(),
     middleware: [
       new LoggingMiddleware.printer(level: Level.SHOUT)
-    ]..addAll(createAppMiddleware())
+    ]..addAll(createCommonMiddleware())
+    ..addAll(createAppMiddleware())
     ..addAll(createSettingsMiddleware())
     ..addAll(createHomeMiddleware())
     ..addAll(createChapterListMiddleware())

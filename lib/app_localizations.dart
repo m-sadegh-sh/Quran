@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
-import 'package:quran/utils/string_utils.dart';
+import 'package:quran/utils/string.utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 

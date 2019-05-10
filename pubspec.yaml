@@ -20,17 +20,18 @@ dependencies:
   page_transition: 1.0.9
   shimmer: 1.0.0
   kiwi: 0.1.0
+  share: 0.6.1+1
 
 flutter:
   uses-material-design: true
 
   assets:
    - assets/resources/fa_ir.json
-   - assets/data/translators.json
-   - assets/data/chapters.json
-   - assets/data/chapter_translations.json
-   - assets/data/verses.json
-   - assets/data/verse_translations.json
+   - assets/repositories/translators.json
+   - assets/repositories/chapters.json
+   - assets/repositories/chapter_translations.json
+   - assets/repositories/verses.json
+   - assets/repositories/verse_translations.json
    - assets/images/quran_background.png
 
   fonts:
