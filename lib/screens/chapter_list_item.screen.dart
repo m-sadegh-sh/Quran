@@ -25,7 +25,7 @@ class ChapterListItemScreen extends StatelessWidget {
 
   Widget _buildChapterNumber(BuildContext context, bool shimmed) {
     return Container(
-      margin: EdgeInsets.only(left: 10.0),
+      margin: const EdgeInsets.only(left: 10.0),
       constraints: BoxConstraints(
         minWidth: 48.0,
         minHeight: 48.0
@@ -117,7 +117,7 @@ class ChapterListItemScreen extends StatelessWidget {
             child: InkWell(
               onTap: () => onChapterItemTapped(context, chapterItem),
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
@@ -125,7 +125,7 @@ class ChapterListItemScreen extends StatelessWidget {
                     Expanded(
                       flex: 3,
                       child: Container(
-                        margin: EdgeInsets.only(left: 10.0),
+                        margin: const EdgeInsets.only(left: 10.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -176,7 +176,7 @@ class ChapterListItemScreen extends StatelessWidget {
                   Expanded(
                     flex: 3,
                     child: Container(
-                      margin: EdgeInsets.only(left: 10.0),
+                      margin: const EdgeInsets.only(left: 10.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

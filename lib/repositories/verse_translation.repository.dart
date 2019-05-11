@@ -12,6 +12,9 @@ class VerseTranslationRepository {
   }
 
   Future<List<VerseTranslationItem>> findAll() async {
+    if (_cachedEntities == null)
+      await _init();
+
     return _cachedEntities;
   }
 
@@ -24,8 +27,8 @@ class VerseTranslationRepository {
     return (await findAll()).singleWhere((vti) => vti.verseId == verseId && vti.translatorId == translatorId);
   }
 
-  Future<bool> _init() async {
-    final key = 'assets/repositories/verse_translations.json';
+  Future _init() async {
+    final key = 'assets/data/verse_translations.json';
 
     String data = await rootBundle.loadString(key);
 
@@ -34,7 +37,5 @@ class VerseTranslationRepository {
     ).toList();
 
     print('Repository inited. (dataFileName: $key)');
-
-    return true;
   }
 }

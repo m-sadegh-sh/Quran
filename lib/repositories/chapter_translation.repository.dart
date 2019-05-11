@@ -12,6 +12,9 @@ class ChapterTranslationRepository {
   }
 
   Future<List<ChapterTranslationItem>> findAll() async {
+    if (_cachedEntities == null)
+      await _init();
+
     return _cachedEntities;
   }
   
@@ -21,8 +24,8 @@ class ChapterTranslationRepository {
     return (await findAll()).singleWhere((cti) => cti.chapterId == chapterId && cti.translatorId == translatorId);
   }
 
-  Future<bool> _init() async {
-    final key = 'assets/repositories/chapter_translations.json';
+  Future _init() async {
+    final key = 'assets/data/chapter_translations.json';
 
     String data = await rootBundle.loadString(key);
     
@@ -31,7 +34,5 @@ class ChapterTranslationRepository {
     ).toList();
 
     print('Repository inited. (dataFileName: $key)');
-
-    return true;
   }
 }

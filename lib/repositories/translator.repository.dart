@@ -12,11 +12,14 @@ class TranslatorRepository {
   }
 
   Future<List<TranslatorItem>> findAll() async {
+    if (_cachedEntities == null)
+      await _init();
+
     return _cachedEntities;
   }
   
-  Future<bool> _init() async {
-    final key = 'assets/repositories/translators.json';
+  Future _init() async {
+    final key = 'assets/data/translators.json';
 
     String data = await rootBundle.loadString(key);
     
@@ -25,7 +28,5 @@ class TranslatorRepository {
     ).toList();
 
     print('Repository inited. (dataFileName: $key)');
-
-    return true;
   }
 }

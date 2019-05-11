@@ -12,7 +12,7 @@ class EmptyContentScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -23,7 +23,7 @@ class EmptyContentScreen extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
             Container(
-              margin: EdgeInsets.only(right: 5.0),
+              margin: const EdgeInsets.only(right: 5.0),
               child: Text(
                 noResultMessage ?? AppLocalizations.of(context).translate('empty-content-no-result-message'),
                 style: Theme.of(context).textTheme.display3

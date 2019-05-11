@@ -37,7 +37,7 @@ class VerseListItemScreen extends StatelessWidget {
       maintainAnimation: true,
       maintainSize: true,
       child: Container(
-        margin: EdgeInsets.only(left: 10.0),
+        margin: const EdgeInsets.only(left: 10.0),
         constraints: BoxConstraints(
           minWidth: 48.0,
           minHeight: 48.0
@@ -91,7 +91,7 @@ class VerseListItemScreen extends StatelessWidget {
             child: Material(
               color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
               child: Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[

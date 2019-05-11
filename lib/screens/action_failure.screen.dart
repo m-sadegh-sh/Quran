@@ -15,7 +15,7 @@ class ActionFailureScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.all(10.0),
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -29,7 +29,7 @@ class ActionFailureScreen extends StatelessWidget {
                   color: Theme.of(context).errorColor,
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 5.0),
+                  margin: const EdgeInsets.only(right: 5.0),
                   child: Text(
                     errorMessage ?? AppLocalizations.of(context).translate('action-failure-error-message'),
                     style: Theme.of(context).textTheme.display3
@@ -38,12 +38,12 @@ class ActionFailureScreen extends StatelessWidget {
               ]
             ),
             Container(
-              margin: EdgeInsets.only(
+              margin: const EdgeInsets.only(
                 top: 20.0
               ),
               child: RaisedButton(
                 color: Theme.of(context).canvasColor,
-                padding: EdgeInsets.all(15.0),
+                padding: const EdgeInsets.all(15.0),
                 shape: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: Theme.of(context).primaryColor

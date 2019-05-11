@@ -21,7 +21,7 @@ class CircularLoadingScreen extends StatelessWidget {
           size: 64.0,
         ),
         Container(
-          margin: EdgeInsets.only(
+          margin: const EdgeInsets.only(
             top: 20.0
           ),
           child: Text(

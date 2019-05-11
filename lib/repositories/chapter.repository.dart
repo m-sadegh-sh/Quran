@@ -14,11 +14,14 @@ class ChapterRepository {
   Future<List<ChapterItem>> findAll() async {
     await Future.delayed(Duration(seconds: 1));
 
+    if (_cachedEntities == null)
+      await _init();
+
     return _cachedEntities;
   }
   
-  Future<bool> _init() async {
-    final key = 'assets/repositories/chapters.json';
+  Future _init() async {
+    final key = 'assets/data/chapters.json';
 
     String data = await rootBundle.loadString(key);
     
@@ -27,7 +30,5 @@ class ChapterRepository {
     ).toList();
 
     print('Repository inited. (dataFileName: $key)');
-
-    return true;
   }
 }
