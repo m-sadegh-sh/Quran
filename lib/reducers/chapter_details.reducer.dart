@@ -22,6 +22,7 @@ ChapterDetailsState _chapterDetailsReloadInitialStateSucceeded(ChapterDetailsSta
 ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetailsLoadAction action) {
   return state.copyWith(
     chapterDetailsChapterItem: action.chapterDetailsChapterItem,
+    chapterDetailsChapterTranslationItem: action.chapterDetailsChapterTranslationItem,
     chapterDetailsLoading: true,
     chapterDetailsLoadSucceeded: false,
     chapterDetailsVerseItems: List<VerseItem>.unmodifiable([]),

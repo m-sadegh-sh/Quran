@@ -11,10 +11,13 @@ import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
 import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/items/verse.item.dart';
+import 'package:quran/items/verse_translation.item.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
+  final ChapterTranslationItem chapterDetailsChapterTranslationItem;
   final GeneratorW1P<double, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
@@ -22,11 +25,12 @@ class ChapterDetailsState {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final GeneratorW2P<Store<RootState>, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final GeneratorW5P<Store<RootState>, ChapterItem, ChapterTranslationItem, VerseItem, VerseTranslationItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
 
   ChapterDetailsState({
     this.chapterDetailsChapterItem,
+    this.chapterDetailsChapterTranslationItem,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsLoading,
     this.chapterDetailsLoadSucceeded,
@@ -40,6 +44,7 @@ class ChapterDetailsState {
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
     chapterDetailsChapterItem: null,
+    chapterDetailsChapterTranslationItem: null,
     chapterDetailsOnGenerateActionItems: (BuildContext context, double fontSize) => [
       ActionItem(
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-search'),
@@ -72,14 +77,17 @@ class ChapterDetailsState {
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null,
-    chapterDetailsOnGenerateSlidableActions: (BuildContext context, Store<RootState> store, VerseItem verseItem) => [
+    chapterDetailsOnGenerateSlidableActions: (BuildContext context, Store<RootState> store, ChapterItem chapterItem, ChapterTranslationItem chapterTranslationItem, VerseItem verseItem, VerseTranslationItem verseTranslationItem) => [
       new IconSlideAction(
         caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share'),
         color: Theme.of(context).primaryColorDark,
         icon: Icons.share,
         onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
           context: context,
+          chapterDetailsChapterItem: chapterItem,
+          chapterDetailsChapterTranslationItem: chapterTranslationItem,
           chapterDetailsVerseItem: verseItem,
+          chapterDetailsVerseTranslationItem: verseTranslationItem,
           chapterDetailsSlidableActionType: SlidableActionType.Share
         ))
       ),
@@ -99,6 +107,7 @@ class ChapterDetailsState {
 
   ChapterDetailsState copyWith({
     chapterDetailsChapterItem,
+    chapterDetailsChapterTranslationItem,
     chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading,
     chapterDetailsLoadSucceeded,
@@ -110,6 +119,7 @@ class ChapterDetailsState {
     chapterDetailsSlidableController
   }) => ChapterDetailsState(
     chapterDetailsChapterItem: chapterDetailsChapterItem ?? this.chapterDetailsChapterItem,
+    chapterDetailsChapterTranslationItem: chapterDetailsChapterTranslationItem ?? this.chapterDetailsChapterTranslationItem,
     chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItems ?? this.chapterDetailsOnGenerateActionItems,
     chapterDetailsLoading: chapterDetailsLoading ?? this.chapterDetailsLoading,
     chapterDetailsLoadSucceeded: chapterDetailsLoadSucceeded ?? this.chapterDetailsLoadSucceeded,

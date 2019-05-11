@@ -21,6 +21,9 @@ class VerseTranslationRepository {
   Future<VerseTranslationItem> findOneByVerseId(int verseId, int translatorId) async {
     await Future.delayed(Duration(milliseconds: 500));
 
+    if (verseId == null)
+      return null;
+
     if (verseId > 10000)
       return (await findAll()).singleWhere((vti) => vti.verseId == 1 && vti.translatorId == translatorId);
 

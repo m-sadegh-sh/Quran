@@ -3,26 +3,30 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/items/verse.item.dart';
+import 'package:quran/items/verse_translation.item.dart';
 import 'package:quran/screens/action_failure.screen.dart';
 import 'package:quran/screens/empty_content.screen.dart';
 import 'package:quran/screens/verse_list_item.screen.dart';
 
 class VerseListScreen extends StatelessWidget {
   final ChapterItem chapterItem;
+  final ChapterTranslationItem chapterTranslationItem;
   final bool verseListLoading;
   final bool verseListLoadSucceeded;
   final List<VerseItem> verseListItems;
   final bool verseListLoadFailed;
   final String verseListLoadError;
   final Function verseListLoad;
-  final GeneratorW1P<VerseItem, List<IconSlideAction>> verseListOnGenerateSlidableActions;
+  final GeneratorW4P<ChapterItem, ChapterTranslationItem, VerseItem, VerseTranslationItem, List<IconSlideAction>> verseListOnGenerateSlidableActions;
   final SlidableController verseListSlidableController;
   final int settingsTranslatorId;
 
   VerseListScreen({
     Key key,
     this.chapterItem,
+    this.chapterTranslationItem,
     this.verseListLoading,
     this.verseListLoadSucceeded,
     this.verseListItems,
@@ -72,6 +76,8 @@ class VerseListScreen extends StatelessWidget {
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItemScreen(
         shimmed: false,
+        chapterItem: chapterItem,
+        chapterTranslationItem: chapterTranslationItem,
         verseItem: verseListItems[index],
         verseItemOnGenerateSlidableActions: verseListOnGenerateSlidableActions,
         verseItemSlidableController: verseListSlidableController,

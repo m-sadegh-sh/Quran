@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:quran/actions/settings.action.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/chapter_list.action.dart';
+import 'package:quran/actions/settings.action.dart';
 import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/chapter_list.selector.dart';
 import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 
 class ChapterListViewModel {
   final bool chapterListLoading;
@@ -15,7 +16,7 @@ class ChapterListViewModel {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
@@ -44,10 +45,11 @@ class ChapterListViewModel {
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
       chapterListLoad: () => store.dispatch(ChapterListLoadAction()),
-      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem) =>
+      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem, ChapterTranslationItem chapterListTappedTranslationItem) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
           chapterListTappedItem: chapterListTappedItem,
+          chapterListTappedTranslationItem: chapterListTappedTranslationItem
         )),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       chapterListOnThemeFontSizeChanging: (newSettingsThemeFontSize) =>

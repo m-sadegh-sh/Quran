@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 
 class ChapterListLoadAction { }
 
@@ -23,9 +24,11 @@ class ChapterListLoadFailedAction {
 class ChapterListItemTappedAction {
   final BuildContext context;
   final ChapterItem chapterListTappedItem;
+  final ChapterTranslationItem chapterListTappedTranslationItem;
 
   ChapterListItemTappedAction({
     this.context,
-    this.chapterListTappedItem
+    this.chapterListTappedItem,
+    this.chapterListTappedTranslationItem
   });
 }

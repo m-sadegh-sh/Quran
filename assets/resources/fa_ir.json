@@ -1,5 +1,6 @@
 {
     "app-title": "قرآن مجید",
+    "app-share-footage": "اپ قرآن مجید",
 
     "home-title": "قرآن مجید",
     "home-action-search": "جستجو",
@@ -20,6 +21,7 @@
     "chapter-details-action-increase-font-size": "قلم بزرگتر",
     "chapter-details-slidable-action-share": "اشتراک",
     "chapter-details-slidable-action-bookmark": "نشان کن",
+    "chapter-details-share-verse-item": "سروه ${chapterTitle} (${chapterTranslationText})\r\n\r\n${verseFullText}\r\n\r\n${verseTranslationText}\r\n\r\n${appShareFootage}",
 
     "help-and-support-title": "راهنما و پشتیبانی",
 

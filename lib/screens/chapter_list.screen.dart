@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/screens/action_failure.screen.dart';
 import 'package:quran/screens/empty_content.screen.dart';
 import 'package:quran/screens/chapter_list_item.screen.dart';
@@ -12,7 +13,7 @@ class ChapterListScreen extends StatelessWidget {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;

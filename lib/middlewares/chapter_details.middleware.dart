@@ -2,6 +2,7 @@ import 'package:redux/redux.dart';
 import 'package:kiwi/kiwi.dart';
 import 'package:share/share.dart';
 
+import 'package:quran/app_localizations.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/enumerations/slidable_action_type.dart';
 import 'package:quran/repositories/verse.repository.dart';
@@ -78,12 +79,23 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
 
       final castedAction = action as ChapterDetailsSlidableActionTappedAction;
    
-      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share)
+      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share) {
+        final content = AppLocalizations.of(castedAction.context).translateFormatted(
+          'chapter-details-share-verse-item',
+          {
+            'chapterTitle': castedAction.chapterDetailsChapterItem.title,
+            'chapterTranslationText': castedAction.chapterDetailsChapterTranslationItem.text,
+            'verseFullText': castedAction.chapterDetailsVerseItem.fullText,
+            'verseTranslationText': castedAction.chapterDetailsVerseTranslationItem.text,
+            'appShareFootage': AppLocalizations.of(castedAction.context).translate('app-share-footage')
+          }
+        );
+
+        Share.share(content);
+      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share)
         store.dispatch(CommonShareAction(
           commonContent: castedAction.chapterDetailsVerseItem.fullText
         ));
-      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share)
-        Share.share(castedAction.chapterDetailsVerseItem.fullText);
     } catch(exception) { }
   };
 }

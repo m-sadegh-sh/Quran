@@ -3,13 +3,18 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:shimmer/shimmer.dart';
 
 import 'package:quran/delegates/generator.delegate.dart';
+import 'package:quran/items/chapter.item.dart';
+import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/items/verse_translation.item.dart';
 import 'package:quran/items/verse.item.dart';
 
 class VerseListItemScreen extends StatelessWidget {
   final bool shimmed;
+  final ChapterItem chapterItem;
+  final ChapterTranslationItem chapterTranslationItem;
   final VerseItem verseItem;
-  final GeneratorW1P<VerseItem, List<IconSlideAction>> verseItemOnGenerateSlidableActions;
+  final VerseTranslationItem verseTranslationItem;
+  final GeneratorW4P<ChapterItem, ChapterTranslationItem, VerseItem, VerseTranslationItem, List<IconSlideAction>> verseItemOnGenerateSlidableActions;
   final SlidableController verseItemSlidableController;
 
   final int settingsTranslatorId;
@@ -17,7 +22,10 @@ class VerseListItemScreen extends StatelessWidget {
   VerseListItemScreen({
     Key key,
     this.shimmed,
+    this.chapterItem,
+    this.chapterTranslationItem,
     this.verseItem,
+    this.verseTranslationItem,
     this.verseItemOnGenerateSlidableActions,
     this.verseItemSlidableController,
     this.settingsTranslatorId
@@ -87,7 +95,7 @@ class VerseListItemScreen extends StatelessWidget {
             controller: verseItemSlidableController,
             delegate: SlidableDrawerDelegate(),
             actionExtentRatio: 0.25,
-            actions: verseItemOnGenerateSlidableActions(context, verseItem),
+            actions: verseItemOnGenerateSlidableActions(context, chapterItem, chapterTranslationItem, verseItem, snapshot.data),
             child: Material(
               color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
               child: Padding(

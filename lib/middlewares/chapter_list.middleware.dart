@@ -39,7 +39,8 @@ Middleware<RootState> _createChapterListItemTapped() {
       final castedAction = action as ChapterListItemTappedAction;
 
       store.dispatch(ChapterDetailsLoadAction(
-        chapterDetailsChapterItem: castedAction.chapterListTappedItem
+        chapterDetailsChapterItem: castedAction.chapterListTappedItem,
+        chapterDetailsChapterTranslationItem: castedAction.chapterListTappedTranslationItem
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(
