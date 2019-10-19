@@ -24,6 +24,10 @@ class VerseRepository {
     return (await findAll()).where((vi) => vi.chapterId == chapterId).toList();
   }
 
+  Future<VerseItem> findOneById(int id) async {
+    return (await findAll()).singleWhere((vi) => vi.id == id);
+  }
+  
   Future _init() async {
     final key = 'assets/data/verses.json';
 

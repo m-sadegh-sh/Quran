@@ -1,6 +1,5 @@
 import 'package:redux/redux.dart';
 import 'package:kiwi/kiwi.dart';
-import 'package:share/share.dart';
 
 import 'package:quran/app_localizations.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
@@ -11,6 +10,7 @@ import 'package:quran/states/chapter_details.state.dart';
 import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/actions/settings.action.dart';
 import 'package:quran/actions/common.action.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 List<Middleware<RootState>> createChapterDetailsMiddleware() {
   return [
@@ -79,7 +79,7 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
 
       final castedAction = action as ChapterDetailsSlidableActionTappedAction;
    
-      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share) {
+      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.ShareVerse) {
         final content = AppLocalizations.of(castedAction.context).translateFormatted(
           'chapter-details-share-verse-item',
           {
@@ -91,11 +91,14 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
           }
         );
 
-        Share.share(content);
-      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.Share)
         store.dispatch(CommonShareAction(
-          commonContent: castedAction.chapterDetailsVerseItem.fullText
+          commonContent: content
         ));
+      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.AddVerseToBookmarks) {
+        store.dispatch(CommonShareAction(
+          // commonContent: content
+        ));
+      }
     } catch(exception) { }
   };
 }

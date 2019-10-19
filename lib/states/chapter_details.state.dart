@@ -88,7 +88,7 @@ class ChapterDetailsState {
           chapterDetailsChapterTranslationItem: chapterTranslationItem,
           chapterDetailsVerseItem: verseItem,
           chapterDetailsVerseTranslationItem: verseTranslationItem,
-          chapterDetailsSlidableActionType: SlidableActionType.Share
+          chapterDetailsSlidableActionType: SlidableActionType.ShareVerse
         ))
       ),
       new IconSlideAction(
@@ -98,7 +98,7 @@ class ChapterDetailsState {
         onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
           context: context,
           chapterDetailsVerseItem: verseItem,
-          chapterDetailsSlidableActionType: SlidableActionType.Bookmark
+          chapterDetailsSlidableActionType: SlidableActionType.AddVerseToBookmarks
         ))
       )
     ],
