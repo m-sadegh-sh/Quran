@@ -21,6 +21,8 @@ class HomeViewModel {
   final String homeAccountBackgroundImage;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
+  final bool homeIsSearching;
+  final String homeSearchQuery;
   final GeneratorW1P<double, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -36,6 +38,8 @@ class HomeViewModel {
     this.homeAccountBackgroundImage,
     this.homeOnGenerateDrawerItems,
     this.homeOnDrawerItemTapped,
+    this.homeIsSearching,
+    this.homeSearchQuery,  
     this.homeOnGenerateActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
@@ -61,6 +65,8 @@ class HomeViewModel {
           homeDrawerItem: drawerItem,
         ));
       },
+      homeIsSearching: homeIsSearchingSelector(homeState),
+      homeSearchQuery: homeSearchQuerySelector(homeState),
       homeOnGenerateActionItems: homeOnGenerateActionItemsSelector(homeState),
       homeOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
         store.dispatch(HomeActionItemPressedAction(

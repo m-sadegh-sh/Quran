@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/bookmark.item.dart';
+import 'package:quran/states/bookmark_list.state.dart';
 
 class BookmarkListReloadInitialStateAction { }
 

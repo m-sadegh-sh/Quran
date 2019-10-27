@@ -10,7 +10,6 @@ import 'package:quran/states/chapter_details.state.dart';
 import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/actions/settings.action.dart';
 import 'package:quran/actions/common.action.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 List<Middleware<RootState>> createChapterDetailsMiddleware() {
   return [

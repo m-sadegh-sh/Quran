@@ -30,7 +30,7 @@ class HomeDrawerItemTappedAction {
 
 class HomeActionItemPressedAction {
   final BuildContext context;
-  final ActionItem homeActionItem;
+  final ActionItem<HomeState> homeActionItem;
 
   HomeActionItemPressedAction({
     this.context,

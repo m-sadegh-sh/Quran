@@ -18,6 +18,8 @@ class HomeState {
   final GeneratorWNP<String> homeOnGenerateAccountName;
   final GeneratorWNP<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
+  final bool homeIsSearching;
+  final String homeSearchQuery;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final GeneratorW1P<double, List<ActionItem>> homeOnGenerateActionItems;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
@@ -29,6 +31,8 @@ class HomeState {
     this.homeOnGenerateAccountEmail,
     this.homeAccountBackgroundImage,
     this.homeOnGenerateDrawerItems,
+    this.homeIsSearching,
+    this.homeSearchQuery,
     this.homeOnGenerateActionItems,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents
@@ -56,8 +60,13 @@ class HomeState {
         icon: Icons.info
       )
     ],
+    homeIsSearching: false,
+    homeSearchQuery: null,
     homeOnGenerateActionItems: (BuildContext context, double fontSize) => [
-      ActionItem(
+      ActionItem<HomeState>(
+        onUpdateState: (BuildContext context, HomeState state) => state.copyWith(
+          homeIsSearching: !state.homeIsSearching
+        ),
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: Icons.search
       ),
@@ -96,5 +105,29 @@ class HomeState {
       ChapterListContainer(),
       BookmarkListContainer()
     ]
+  );
+
+  HomeState copyWith({
+    homeOnGenerateTitle,
+    homeOnGenerateAccountName,
+    homeOnGenerateAccountEmail,
+    homeAccountBackgroundImage,
+    homeIsSearching,
+    homeSearchQuery,
+    homeOnGenerateDrawerItems,
+    homeOnGenerateActionItems,
+    homeOnGenerateTabItems,
+    homeOnGenerateTabContents
+  }) => HomeState(
+    homeOnGenerateTitle : homeOnGenerateTitle ?? this.homeOnGenerateTitle,
+    homeOnGenerateAccountName : homeOnGenerateAccountName ?? this.homeOnGenerateAccountName,
+    homeOnGenerateAccountEmail : homeOnGenerateAccountEmail ?? this.homeOnGenerateAccountEmail,
+    homeAccountBackgroundImage : homeAccountBackgroundImage ?? this.homeAccountBackgroundImage,
+    homeIsSearching : homeIsSearching ?? this.homeIsSearching,
+    homeSearchQuery : homeSearchQuery ?? this.homeSearchQuery,
+    homeOnGenerateDrawerItems : homeOnGenerateDrawerItems ?? this.homeOnGenerateDrawerItems,
+    homeOnGenerateActionItems : homeOnGenerateActionItems ?? this.homeOnGenerateActionItems,
+    homeOnGenerateTabItems : homeOnGenerateTabItems ?? this.homeOnGenerateTabItems,
+    homeOnGenerateTabContents : homeOnGenerateTabContents ?? this.homeOnGenerateTabContents
   );
 }

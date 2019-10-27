@@ -12,6 +12,8 @@ class HomeScreen extends StatelessWidget {
   final String homeAccountBackgroundImage;
   final List<DrawerItem> homeDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
+  final bool homeIsSearching;
+  final String homeSearchQuery;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -27,6 +29,8 @@ class HomeScreen extends StatelessWidget {
     this.homeAccountBackgroundImage,
     this.homeDrawerItems,
     this.homeOnDrawerItemTapped,
+    this.homeIsSearching,
+    this.homeSearchQuery,
     this.homeActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
@@ -121,6 +125,28 @@ class HomeScreen extends StatelessWidget {
   }
 
   AppBar _buildAppBar(BuildContext context) {
+    if (homeIsSearching) {
+      return AppBar(
+        backgroundColor: Colors.white,
+        title: TextField(
+          decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.red,
+                width: 2.0
+              )
+            ),
+            hintText: 'Enter a search term'
+          ),
+          
+        ),
+        actions: _buildActions(context),
+        bottom: TabBar(
+          tabs: _buildTabItems(context),
+        ),
+      );
+    }
+
     return AppBar(
       title: Text(
         homeTitle,

@@ -28,12 +28,16 @@ HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction acti
 }
 
 HomeState _homeActionItemPressed(HomeState state, HomeActionItemPressedAction action) {
-  Navigator.of(action.context)
-    .push(PageTransition(
-      curve: Curves.easeInOutQuart,
-      type: PageTransitionType.rightToLeft,
-      child: action.homeActionItem.onGenerateChild(action.context)
-    ));
+  if (action.homeActionItem.onGenerateChild != null) {
+    Navigator.of(action.context)
+      .push(PageTransition(
+        curve: Curves.easeInOutQuart,
+        type: PageTransitionType.rightToLeft,
+        child: action.homeActionItem.onGenerateChild(action.context)
+      ));
+  } else if (action.homeActionItem.onUpdateState != null) {
+    return action.homeActionItem.onUpdateState(action.context, state);
+  }
 
   return state;
 }

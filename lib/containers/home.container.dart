@@ -17,6 +17,8 @@ class HomeContainer extends StatelessWidget {
         homeAccountBackgroundImage: homeViewModel.homeAccountBackgroundImage,
         homeDrawerItems: homeViewModel.homeOnGenerateDrawerItems(context),
         homeOnDrawerItemTapped: homeViewModel.homeOnDrawerItemTapped,
+        homeIsSearching: homeViewModel.homeIsSearching,
+        homeSearchQuery: homeViewModel.homeSearchQuery,
         homeActionItems: homeViewModel.homeOnGenerateActionItems(context, homeViewModel.settingsThemeFontSize),
         homeOnActionItemPressed: homeViewModel.homeOnActionItemPressed,
         homeOnActionChildItemPressed: homeViewModel.homeOnActionChildItemPressed,
