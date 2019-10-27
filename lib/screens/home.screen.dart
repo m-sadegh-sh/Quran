@@ -13,7 +13,10 @@ class HomeScreen extends StatelessWidget {
   final List<DrawerItem> homeDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
   final bool homeIsSearching;
+  final String homeSearchHintText;
   final String homeSearchQuery;
+  final Function(BuildContext, String) homeOnSearchQueryChanged;
+  final TextEditingController homeSearchQueryController;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -30,14 +33,23 @@ class HomeScreen extends StatelessWidget {
     this.homeDrawerItems,
     this.homeOnDrawerItemTapped,
     this.homeIsSearching,
+    this.homeSearchHintText,
     this.homeSearchQuery,
+    this.homeOnSearchQueryChanged,
+    this.homeSearchQueryController,
     this.homeActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
     this.homeOnFloatingActionButtonPressed
-  }) : super(key: key);
+  }) : super(key: key) {
+    homeSearchQueryController.addListener(_homeSearchQueryControllerOnChange);
+  }
+
+  void _homeSearchQueryControllerOnChange() {
+    homeOnSearchQueryChanged(null, homeSearchQueryController.text);
+  }
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
     return UserAccountsDrawerHeader(
@@ -127,18 +139,22 @@ class HomeScreen extends StatelessWidget {
   AppBar _buildAppBar(BuildContext context) {
     if (homeIsSearching) {
       return AppBar(
-        backgroundColor: Colors.white,
-        title: TextField(
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderSide: BorderSide(
-                color: Colors.red,
-                width: 2.0
-              )
+        title: Container(
+          alignment: Alignment.center,
+          color: Theme.of(context).appBarTheme.color,
+          child: TextField(
+            keyboardType: TextInputType.text,
+            autofocus: true,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: homeSearchHintText,
+              hintStyle: Theme.of(context).textTheme.headline,
             ),
-            hintText: 'Enter a search term'
-          ),
-          
+            controller: homeSearchQueryController,
+            //onChanged: (String text) => homeOnSearchQueryChanged(context, text),
+            textInputAction: TextInputAction.search,
+            cursorRadius: Radius.circular(5.0),
+          )
         ),
         actions: _buildActions(context),
         bottom: TabBar(

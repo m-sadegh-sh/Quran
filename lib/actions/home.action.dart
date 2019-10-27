@@ -18,6 +18,16 @@ class HomeReloadInitialStateSucceededAction {
 
 class HomeReloadInitialStateFailedAction { }
 
+class HomeSearchQueryChangedAction {
+  final BuildContext context;
+  final String homeSearchChangedQuery;
+
+  HomeSearchQueryChangedAction({
+    this.context,
+    this.homeSearchChangedQuery
+  });
+}
+
 class HomeDrawerItemTappedAction {
   final BuildContext context;
   final DrawerItem homeDrawerItem;

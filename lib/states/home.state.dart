@@ -19,9 +19,11 @@ class HomeState {
   final GeneratorWNP<String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
   final bool homeIsSearching;
+  final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
+  final TextEditingController homeSearchQueryController;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
-  final GeneratorW1P<double, List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItems;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
 
@@ -32,7 +34,9 @@ class HomeState {
     this.homeAccountBackgroundImage,
     this.homeOnGenerateDrawerItems,
     this.homeIsSearching,
+    this.homeOnGenerateSearchHintText,
     this.homeSearchQuery,
+    this.homeSearchQueryController,
     this.homeOnGenerateActionItems,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents
@@ -61,14 +65,16 @@ class HomeState {
       )
     ],
     homeIsSearching: false,
+    homeOnGenerateSearchHintText: (BuildContext context) => AppLocalizations.of(context).translate('home-search-hint-text'),
     homeSearchQuery: null,
-    homeOnGenerateActionItems: (BuildContext context, double fontSize) => [
+    homeSearchQueryController: new TextEditingController(),
+    homeOnGenerateActionItems: (BuildContext context, double fontSize, bool homeIsSearching) => [
       ActionItem<HomeState>(
         onUpdateState: (BuildContext context, HomeState state) => state.copyWith(
           homeIsSearching: !state.homeIsSearching
         ),
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
-        icon: Icons.search
+        icon: homeIsSearching ? Icons.close : Icons.search
       ),
       ActionItem(
         tooltip: AppLocalizations.of(context).translate('home-action-more'),
@@ -113,7 +119,9 @@ class HomeState {
     homeOnGenerateAccountEmail,
     homeAccountBackgroundImage,
     homeIsSearching,
+    homeOnGenerateSearchHintText,
     homeSearchQuery,
+    homeSearchQueryController,
     homeOnGenerateDrawerItems,
     homeOnGenerateActionItems,
     homeOnGenerateTabItems,
@@ -124,7 +132,9 @@ class HomeState {
     homeOnGenerateAccountEmail : homeOnGenerateAccountEmail ?? this.homeOnGenerateAccountEmail,
     homeAccountBackgroundImage : homeAccountBackgroundImage ?? this.homeAccountBackgroundImage,
     homeIsSearching : homeIsSearching ?? this.homeIsSearching,
+    homeOnGenerateSearchHintText : homeOnGenerateSearchHintText ?? this.homeOnGenerateSearchHintText,
     homeSearchQuery : homeSearchQuery ?? this.homeSearchQuery,
+    homeSearchQueryController : homeSearchQueryController ?? this.homeSearchQueryController,
     homeOnGenerateDrawerItems : homeOnGenerateDrawerItems ?? this.homeOnGenerateDrawerItems,
     homeOnGenerateActionItems : homeOnGenerateActionItems ?? this.homeOnGenerateActionItems,
     homeOnGenerateTabItems : homeOnGenerateTabItems ?? this.homeOnGenerateTabItems,

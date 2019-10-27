@@ -50,7 +50,8 @@ class ChapterListViewModel {
           context: context,
           chapterListTappedItem: chapterListTappedItem,
           chapterListTappedTranslationItem: chapterListTappedTranslationItem
-        )),
+        )
+      ),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       chapterListOnThemeFontSizeChanging: (newSettingsThemeFontSize) =>
         store.dispatch(SettingsSharedPreferencesPersistAction(

@@ -7,6 +7,7 @@ import 'package:quran/actions/home.action.dart';
 
 final Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, HomeReloadInitialStateSucceededAction>(_homeReloadInitialStateSucceeded),
+  TypedReducer<HomeState, HomeSearchQueryChangedAction>(_homeSearchQueryChanged),
   TypedReducer<HomeState, HomeDrawerItemTappedAction>(_homeDrawerItemTapped),
   TypedReducer<HomeState, HomeActionItemPressedAction>(_homeActionItemPressed),
   TypedReducer<HomeState, HomeActionChildItemPressedAction>(_homeActionChildItemPressed)
@@ -14,6 +15,13 @@ final Reducer<HomeState> homeReducer = combineReducers([
 
 HomeState _homeReloadInitialStateSucceeded(HomeState state, HomeReloadInitialStateSucceededAction action) {
   return action.homeState;
+}
+
+HomeState _homeSearchQueryChanged(HomeState state, HomeSearchQueryChangedAction action) {
+  return state.copyWith(
+    homeSearchQuery: action.homeSearchChangedQuery,
+    homeSearchQueryController: new TextEditingController(text: action.homeSearchChangedQuery)
+  );
 }
 
 HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction action) {

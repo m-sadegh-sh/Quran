@@ -3,15 +3,20 @@
     "app-share-footage": "اپ قرآن مجید",
 
     "home-title": "قرآن مجید",
+    
+    "home-search-hint-text": "جستجو...",
+
     "home-action-search": "جستجو",
     "home-action-more": "بیشتر",
     "home-action-decrease-font-size": "قلم کوچکتر",
     "home-action-increase-font-size": "قلم بزرگتر",
+
     "home-drawer-account-name": "قرآن مجید",
     "home-drawer-account-email": "نسخه 1.23",
     "home-drawer-help-and-support": "راهنما و پشتیبانی",
     "home-drawer-settings": "تنظیمات",
     "home-drawer-about": "درباره برنامه",
+
     "home-tab-chapters": "سوره‌ها",
     "home-tab-bookmarks": "نشان‌شده‌ها",
 
