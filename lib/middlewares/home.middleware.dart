@@ -37,7 +37,7 @@ Middleware<RootState> _createHomeSearchOpen() {
       await Future.delayed(Duration(milliseconds: 50));
 
       next(action);
-    } catch(exception) {}
+    } catch(exception) { }
   };
 }
 
@@ -54,7 +54,7 @@ Middleware<RootState> _createHomeSearchClose() {
         settingsTranslatorId: castedAction.settingsTranslatorId,
         homeSearchQuery: null
       ));
-    } catch(exception) {}
+    } catch(exception) { }
   };
 }
 
@@ -73,7 +73,7 @@ Middleware<RootState> _createHomeSearchQueryChanging() {
       store.dispatch(HomeSearchQueryChangeSucceededAction(
         homeSearchChangedQuery: castedAction.homeSearchChangingQuery
       ));
-    } catch(exception) {}
+    } catch(exception) { }
   };
 }
 

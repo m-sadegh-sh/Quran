@@ -23,19 +23,25 @@ class ChapterDetailsLoadAction {
   final ChapterItem chapterDetailsChapterItem;
   final int settingsTranslatorId;
   final String chapterDetailsSearchQuery;
+  final bool chapterDetailsNavigateToContainer;
 
   ChapterDetailsLoadAction({
     this.chapterDetailsChapterItem,
     this.settingsTranslatorId,
-    this.chapterDetailsSearchQuery
+    this.chapterDetailsSearchQuery,
+    this.chapterDetailsNavigateToContainer
   });
 }
 
 class ChapterDetailsLoadSucceededAction {
+  final BuildContext context;
   final List<VerseItem> chapterDetailsVerseItems;
+  final bool chapterDetailsNavigateToContainer;
 
   ChapterDetailsLoadSucceededAction({
-    this.chapterDetailsVerseItems
+    this.context,
+    this.chapterDetailsVerseItems,
+    this.chapterDetailsNavigateToContainer
   });
 }
 

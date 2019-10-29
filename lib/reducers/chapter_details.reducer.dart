@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quran/containers/chapter_details.container.dart';
 import 'package:redux/redux.dart';
 import 'package:page_transition/page_transition.dart';
 
@@ -31,6 +32,14 @@ ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetail
 }
 
 ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, ChapterDetailsLoadSucceededAction action) {
+  if(action.chapterDetailsNavigateToContainer)
+    Navigator.of(action.context)
+      .push(PageTransition(
+        curve: Curves.easeInOutQuart,
+        type: PageTransitionType.rightToLeft,
+        child: ChapterDetailsContainer()
+      ));
+
   return state.copyWith(
     chapterDetailsLoading: false,
     chapterDetailsLoadSucceeded: true,
