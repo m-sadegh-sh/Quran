@@ -10,6 +10,7 @@ import 'package:quran/items/verse.item.dart';
 
 class VerseListItemScreen extends StatelessWidget {
   final bool shimmed;
+  final int index;
   final ChapterItem chapterItem;
   final ChapterTranslationItem chapterTranslationItem;
   final VerseItem verseItem;
@@ -22,6 +23,7 @@ class VerseListItemScreen extends StatelessWidget {
   VerseListItemScreen({
     Key key,
     this.shimmed,
+    this.index,
     this.chapterItem,
     this.chapterTranslationItem,
     this.verseItem,
@@ -33,9 +35,9 @@ class VerseListItemScreen extends StatelessWidget {
 
   bool get isIndicatable {
     if (verseItem.chapterId == 1)
-      return verseItem.chapterVerseId % 2 == 0;
+      return index % 2 == 0;
 
-    return verseItem.chapterVerseId % 2 == 1;
+    return index % 2 == 1;
   }
 
   Widget _buildVerseNumber(BuildContext context, bool shimmed) {

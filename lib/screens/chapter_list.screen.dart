@@ -45,6 +45,7 @@ class ChapterListScreen extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
           shimmed: true,
+          index: index,
           chapterItem: ChapterItem(
             id: index + 1,
             title: ''
@@ -81,6 +82,7 @@ class ChapterListScreen extends StatelessWidget {
         itemCount: chapterListItems.length,
         itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
           shimmed: false,
+          index: index,
           chapterItem: chapterListItems[index],
           onChapterItemTapped: chapterListOnChapterItemTapped,
           homeSearchQuery: homeSearchQuery,

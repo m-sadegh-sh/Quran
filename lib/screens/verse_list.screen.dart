@@ -49,6 +49,7 @@ class VerseListScreen extends StatelessWidget {
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) => VerseListItemScreen(
           shimmed: true,
+          index: index,
           verseItem: VerseItem(
             showVerseId: true,
             chapterId: chapterItem.id,
@@ -76,6 +77,7 @@ class VerseListScreen extends StatelessWidget {
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItemScreen(
         shimmed: false,
+        index: index,
         chapterItem: chapterItem,
         chapterTranslationItem: chapterTranslationItem,
         verseItem: verseListItems[index],

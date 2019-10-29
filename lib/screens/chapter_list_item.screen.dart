@@ -7,6 +7,7 @@ import 'package:quran/items/chapter_translation.item.dart';
 
 class ChapterListItemScreen extends StatelessWidget {
   final bool shimmed;
+  final int index;
   final ChapterItem chapterItem;
   final Function(BuildContext, ChapterItem, ChapterTranslationItem) onChapterItemTapped;
   final String homeSearchQuery;
@@ -15,6 +16,7 @@ class ChapterListItemScreen extends StatelessWidget {
   ChapterListItemScreen({
     Key key,
     this.shimmed,
+    this.index,
     this.chapterItem,
     this.onChapterItemTapped,
     this.homeSearchQuery,
@@ -22,7 +24,7 @@ class ChapterListItemScreen extends StatelessWidget {
   }) : super(key: key);
 
   bool get isIndicatable {
-    return chapterItem.id % 2 == 0;
+    return index % 2 == 1;
   }
 
   Widget _buildChapterNumber(BuildContext context, bool shimmed) {
