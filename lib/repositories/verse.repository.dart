@@ -9,14 +9,7 @@ import 'package:quran/repositories/verse_translation.repository.dart';
 class VerseRepository {
   List<VerseItem> _cachedEntities;
 
-  VerseRepository() {
-    _init();
-  }
-
   Future<List<VerseItem>> findAll() async {
-    if (_cachedEntities == null)
-      await _init();
-
     return _cachedEntities;
   }
   
@@ -53,7 +46,7 @@ class VerseRepository {
     ).toList();
   }
 
-  Future _init() async {
+  Future init() async {
     final key = 'assets/data/verses.json';
 
     String data = await rootBundle.loadString(key);

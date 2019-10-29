@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:redux/redux.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -48,8 +47,6 @@ Middleware<RootState> _createSettingsSharedPreferencesLoad() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
       next(action);
-
-      WidgetsFlutterBinding.ensureInitialized();
 
       final sharedPreferences = await SharedPreferences.getInstance();
 

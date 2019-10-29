@@ -21,8 +21,10 @@ import 'package:quran/repositories/chapter_translation.repository.dart';
 import 'package:quran/repositories/verse.repository.dart';
 import 'package:quran/repositories/verse_translation.repository.dart';
 
-void main() {
-  _registerDependencies();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await _registerDependencies();
   
   final store = _createStore();
 
@@ -36,7 +38,7 @@ void main() {
   );
 }
 
-void _registerDependencies() {
+Future _registerDependencies() {
   final container = kiwi.Container();
 
   container.registerSingleton((c) => TranslatorRepository(),);
@@ -44,6 +46,14 @@ void _registerDependencies() {
   container.registerSingleton((c) => ChapterTranslationRepository());
   container.registerSingleton((c) => VerseRepository());
   container.registerSingleton((c) => VerseTranslationRepository());
+
+  return Future.wait([
+    container.resolve<TranslatorRepository>().init(),
+    container.resolve<ChapterRepository>().init(),
+    container.resolve<ChapterTranslationRepository>().init(),
+    container.resolve<VerseRepository>().init(),
+    container.resolve<VerseTranslationRepository>().init()
+  ]);
 }
 
 Store<RootState> _createStore() {  

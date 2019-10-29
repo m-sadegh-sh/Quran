@@ -7,14 +7,7 @@ import 'package:quran/items/chapter_translation.item.dart';
 class ChapterTranslationRepository {
   List<ChapterTranslationItem> _cachedEntities;
 
-  ChapterTranslationRepository() {
-    _init();
-  }
-
   Future<List<ChapterTranslationItem>> findAll() async {
-    if (_cachedEntities == null)
-      await _init();
-
     return _cachedEntities;
   }
   
@@ -24,7 +17,7 @@ class ChapterTranslationRepository {
     )?.title;
   }
 
-  Future _init() async {
+  Future init() async {
     final key = 'assets/data/chapter_translations.json';
 
     String data = await rootBundle.loadString(key);
