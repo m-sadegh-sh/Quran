@@ -138,13 +138,11 @@ class HomeScreen extends StatelessWidget {
             color: Theme.of(context).primaryColorDark,
             borderRadius: BorderRadius.circular(10.0)
           ),
-          margin: const EdgeInsets.only(
-            top: 60.0,
-            bottom: 60.0
+          margin: const EdgeInsets.symmetric(
+            vertical: 60.0
           ),
-          padding: const EdgeInsets.only(
-            left: 5.0,
-            right: 5.0
+          padding: const EdgeInsets.symmetric(
+            horizontal: 5.0
           ),
           child: TextFormField(
             keyboardType: TextInputType.text,

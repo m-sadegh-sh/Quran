@@ -12,6 +12,9 @@ final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadAction>(_chapterDetailsLoad),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed),
+  TypedReducer<ChapterDetailsState, ChapterDetailsSearchOpenAction>(_chapterDetailsSearchOpen),
+  TypedReducer<ChapterDetailsState, ChapterDetailsSearchCloseAction>(_chapterDetailsSearchClose),
+  TypedReducer<ChapterDetailsState, ChapterDetailsSearchQueryChangeSucceededAction>(_chapterDetailsSearchQueryChangeSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
   TypedReducer<ChapterDetailsState, ChapterDetailsActionChildItemPressedAction>(_chapterDetailsActionChildItemPressed)
 ]);
@@ -52,6 +55,25 @@ ChapterDetailsState _chapterDetailsLoadFailed(ChapterDetailsState state, Chapter
     chapterDetailsLoading: false,
     chapterDetailsLoadFailed: true,
     chapterDetailsLoadError: action.chapterDetailsLoadError
+  );
+}
+
+ChapterDetailsState _chapterDetailsSearchOpen(ChapterDetailsState state, ChapterDetailsSearchOpenAction action) {
+  return state.copyWith(
+    chapterDetailsIsSearching: true
+  );
+}
+
+ChapterDetailsState _chapterDetailsSearchClose(ChapterDetailsState state, ChapterDetailsSearchCloseAction action) {
+  return state.copyWith(
+    chapterDetailsIsSearching: false,
+    chapterDetailsSearchResetQuery: true
+  );
+}
+
+ChapterDetailsState _chapterDetailsSearchQueryChangeSucceeded(ChapterDetailsState state, ChapterDetailsSearchQueryChangeSucceededAction action) {
+  return state.copyWith(
+    chapterDetailsSearchQuery: action.chapterDetailsSearchChangedQuery
   );
 }
 

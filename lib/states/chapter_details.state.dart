@@ -126,6 +126,7 @@ class ChapterDetailsState {
     chapterDetailsIsSearching,
     chapterDetailsOnGenerateSearchHintText,
     chapterDetailsSearchQuery,
+    chapterDetailsSearchResetQuery,
     chapterDetailsOnGenerateSlidableActions,
     chapterDetailsSlidableController
   }) => ChapterDetailsState(
@@ -139,7 +140,7 @@ class ChapterDetailsState {
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError,
     chapterDetailsIsSearching: chapterDetailsIsSearching ?? this.chapterDetailsIsSearching,
     chapterDetailsOnGenerateSearchHintText: chapterDetailsOnGenerateSearchHintText ?? this.chapterDetailsOnGenerateSearchHintText,
-    chapterDetailsSearchQuery: chapterDetailsSearchQuery ?? this.chapterDetailsSearchQuery,
+    chapterDetailsSearchQuery: chapterDetailsSearchResetQuery ?? false ? null : chapterDetailsSearchQuery ?? this.chapterDetailsSearchQuery,
     chapterDetailsOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions ?? this.chapterDetailsOnGenerateSlidableActions,
     chapterDetailsSlidableController: chapterDetailsSlidableController ?? this.chapterDetailsSlidableController
   );

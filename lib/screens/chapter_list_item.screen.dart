@@ -141,9 +141,8 @@ class ChapterListItemScreen extends StatelessWidget {
                   children: <Widget>[
                     _buildChapterPartNumber(context),
                     Container(
-                      margin: const EdgeInsets.only(
-                        top: 5.0,
-                        bottom: 5.0
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 5.0
                       ),
                       child: _buildChapterOrder(context)
                     ),
