@@ -8,7 +8,6 @@ import 'package:quran/actions/settings.action.dart';
 import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/chapter_list.selector.dart';
 import 'package:quran/items/chapter.item.dart';
-import 'package:quran/items/chapter_translation.item.dart';
 
 class ChapterListViewModel {
   final bool chapterListLoading;
@@ -16,8 +15,8 @@ class ChapterListViewModel {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function(String) chapterListLoad;
-  final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
+  final Function(int, String) chapterListLoad;
+  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
@@ -48,16 +47,16 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
-      chapterListLoad: (String homeSearchQuery) => 
+      chapterListLoad: (int settingTranslatorId, String homeSearchQuery) => 
         store.dispatch(ChapterListLoadAction(
+          settingTranslatorId: settingTranslatorId,
           homeSearchQuery: homeSearchQuery
         )
       ),
-      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem, ChapterTranslationItem chapterListTappedTranslationItem) =>
+      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
-          chapterListTappedItem: chapterListTappedItem,
-          chapterListTappedTranslationItem: chapterListTappedTranslationItem
+          chapterListTappedItem: chapterListTappedItem
         )
       ),
       homeSearchQuery: homeSearchQuerySelector(homeState),

@@ -12,7 +12,6 @@ class ChapterDetailsContainer extends StatelessWidget {
       converter: ChapterDetailsViewModel.fromStore,
       builder: (BuildContext context, ChapterDetailsViewModel chapterDetailsViewModel) => ChapterDetailsScreen(
         chapterDetailsChapterItem: chapterDetailsViewModel.chapterDetailsChapterItem,
-        chapterDetailsChapterTranslationItem: chapterDetailsViewModel.chapterDetailsChapterTranslationItem,
         chapterDetailsActionItems: chapterDetailsViewModel.chapterDetailsOnGenerateActionItems(context, chapterDetailsViewModel.settingsThemeFontSize),
         chapterDetailsOnActionItemPressed: chapterDetailsViewModel.chapterDetailsOnActionItemPressed,
         chapterDetailsOnActionChildItemPressed: chapterDetailsViewModel.chapterDetailsOnActionChildItemPressed,

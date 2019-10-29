@@ -37,6 +37,7 @@ Middleware<RootState> _createHomeSearchQueryChanging() {
       final castedAction = action as HomeSearchQueryChangingAction;
    
       store.dispatch(ChapterListLoadAction(
+        settingTranslatorId: castedAction.settingTranslatorId,
         homeSearchQuery: castedAction.homeSearchChangingQuery
       ));
 

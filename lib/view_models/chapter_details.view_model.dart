@@ -8,15 +8,12 @@ import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/chapter_details.selector.dart';
 import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/chapter.item.dart';
-import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/items/verse.item.dart';
-import 'package:quran/items/verse_translation.item.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
 
 class ChapterDetailsViewModel {
   final ChapterItem chapterDetailsChapterItem;
-  final ChapterTranslationItem chapterDetailsChapterTranslationItem;
   final GeneratorW1P<double, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
@@ -27,7 +24,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final GeneratorW4P<ChapterItem, ChapterTranslationItem, VerseItem, VerseTranslationItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final Function(BuildContext, Store<RootState>) chapterDetailsOnSlidableActionTapped;
   final int settingsTranslatorId;
@@ -35,7 +32,6 @@ class ChapterDetailsViewModel {
 
   ChapterDetailsViewModel({
     this.chapterDetailsChapterItem,
-    this.chapterDetailsChapterTranslationItem,
     this.chapterDetailsOnGenerateActionItems,
     this.chapterDetailsOnActionItemPressed,
     this.chapterDetailsOnActionChildItemPressed,
@@ -59,7 +55,6 @@ class ChapterDetailsViewModel {
 
     return ChapterDetailsViewModel(
       chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
-      chapterDetailsChapterTranslationItem: chapterDetailsChapterTranslationItemSelector(chapterDetailsState),
       chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItemsSelector(chapterDetailsState),
       chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
         store.dispatch(ChapterDetailsActionItemPressedAction(
@@ -86,7 +81,7 @@ class ChapterDetailsViewModel {
           chapterDetailsChapterItem: chapterDetailsChapterItem
         ));
       },
-      chapterDetailsOnGenerateSlidableActions: (BuildContext context, ChapterItem chapterItem, ChapterTranslationItem chapterTranslationItem, VerseItem verseItem, VerseTranslationItem verseTranslationItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, chapterItem, chapterTranslationItem, verseItem, verseTranslationItem),
+      chapterDetailsOnGenerateSlidableActions: (BuildContext context, ChapterItem chapterItem, VerseItem verseItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, chapterItem, verseItem),
       chapterDetailsSlidableController: chapterDetailsSlidableControllerSelector(chapterDetailsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)

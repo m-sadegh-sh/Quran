@@ -1,9 +1,3 @@
-import 'dart:async';
-import 'package:kiwi/kiwi.dart';
-
-import 'package:quran/repositories/verse_translation.repository.dart';
-import 'package:quran/items/verse_translation.item.dart';
-
 class VerseItem {
   final int id;
   final bool showVerseId;
@@ -12,6 +6,7 @@ class VerseItem {
   final int chapterVerseId;
   final String fullText;
   final String cleanText;
+  final String translatedText;
 
   VerseItem({
     this.id,
@@ -20,11 +15,21 @@ class VerseItem {
     this.chapterId,
     this.chapterVerseId,
     this.fullText,
-    this.cleanText
+    this.cleanText,
+    this.translatedText
   });
 
-  Future<VerseTranslationItem> translation(int translatorId) async {
-    return await Container().resolve<VerseTranslationRepository>().findOneByVerseId(id, translatorId);
+  factory VerseItem.toTranslated(VerseItem verse, String translatedText) {
+    return VerseItem(
+      id: verse.id,
+      showVerseId: verse.showVerseId,
+      includesInSearch: verse.includesInSearch,
+      chapterId: verse.chapterId,
+      chapterVerseId: verse.chapterVerseId,
+      fullText: verse.fullText,
+      cleanText: verse.cleanText,
+      translatedText: translatedText
+    );
   }
 
   factory VerseItem.fromJson(dynamic parsedJson) {

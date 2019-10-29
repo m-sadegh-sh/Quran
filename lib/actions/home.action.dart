@@ -20,10 +20,12 @@ class HomeReloadInitialStateFailedAction { }
 
 class HomeSearchQueryChangingAction {
   final BuildContext context;
+  final int settingTranslatorId;
   final String homeSearchChangingQuery;
 
   HomeSearchQueryChangingAction({
     this.context,
+    this.settingTranslatorId,
     this.homeSearchChangingQuery
   });
 }

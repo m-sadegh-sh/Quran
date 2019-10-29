@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:quran/items/chapter.item.dart';
-import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/screens/action_failure.screen.dart';
 import 'package:quran/screens/empty_content.screen.dart';
 import 'package:quran/screens/chapter_list_item.screen.dart';
@@ -12,8 +11,8 @@ class ChapterListScreen extends StatelessWidget {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function(String) chapterListLoad;
-  final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
+  final Function(int, String) chapterListLoad;
+  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
@@ -34,7 +33,7 @@ class ChapterListScreen extends StatelessWidget {
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
-      chapterListLoad(homeSearchQuery);
+      chapterListLoad(settingsTranslatorId, homeSearchQuery);
   }
 
   @override
@@ -44,7 +43,6 @@ class ChapterListScreen extends StatelessWidget {
         padding: const EdgeInsets.all(0.0),
         itemCount: 10,
         itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
-          shimmed: true,
           index: index,
           chapterItem: ChapterItem(
             id: index + 1,
@@ -58,7 +56,7 @@ class ChapterListScreen extends StatelessWidget {
     if (chapterListLoadFailed)
       return ActionFailureScreen(
         errorMessage: chapterListLoadError,
-        onRetryActionPressed: () => chapterListLoad(homeSearchQuery),
+        onRetryActionPressed: () => chapterListLoad(settingsTranslatorId, homeSearchQuery),
       );
 
     if (chapterListItems.length == 0)
@@ -81,7 +79,6 @@ class ChapterListScreen extends StatelessWidget {
         padding: const EdgeInsets.all(0.0),
         itemCount: chapterListItems.length,
         itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
-          shimmed: false,
           index: index,
           chapterItem: chapterListItems[index],
           onChapterItemTapped: chapterListOnChapterItemTapped,

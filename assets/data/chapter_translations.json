@@ -3,684 +3,684 @@
         "id": 1,
         "chapterId": 1,
         "translatorId": 1,
-        "text": "باز کردن"
+        "title": "باز کردن"
     },
     {
         "id": 2,
         "chapterId": 2,
         "translatorId": 1,
-        "text": "گاو ماده"
+        "title": "گاو ماده"
     },
     {
         "id": 3,
         "chapterId": 3,
         "translatorId": 1,
-        "text": "خاندان عمران"
+        "title": "خاندان عمران"
     },
     {
         "id": 4,
         "chapterId": 4,
         "translatorId": 1,
-        "text": "زنان"
+        "title": "زنان"
     },
     {
         "id": 5,
         "chapterId": 5,
         "translatorId": 1,
-        "text": "طَبَق غذا (سفره غذا)"
+        "title": "طَبَق غذا (سفره غذا)"
     },
     {
         "id": 6,
         "chapterId": 6,
         "translatorId": 1,
-        "text": "چهارپایان"
+        "title": "چهارپایان"
     },
     {
         "id": 7,
         "chapterId": 7,
         "translatorId": 1,
-        "text": "مکانی بین بهشت و جهنم"
+        "title": "مکانی بین بهشت و جهنم"
     },
     {
         "id": 8,
         "chapterId": 8,
         "translatorId": 1,
-        "text": "زیادی، غنیمت، هبه"
+        "title": "زیادی، غنیمت، هبه"
     },
     {
         "id": 9,
         "chapterId": 9,
         "translatorId": 1,
-        "text": "بازگشتن"
+        "title": "بازگشتن"
     },
     {
         "id": 10,
         "chapterId": 10,
         "translatorId": 1,
-        "text": "نام حضرت یونس (علیه السّلام) یکی از پیامبران خدا"
+        "title": "نام حضرت یونس (علیه السّلام) یکی از پیامبران خدا"
     },
     {
         "id": 11,
         "chapterId": 11,
         "translatorId": 1,
-        "text": "نام حضرت هود (علیه السّلام) یکی از پیامبران خدا"
+        "title": "نام حضرت هود (علیه السّلام) یکی از پیامبران خدا"
     },
     {
         "id": 12,
         "chapterId": 12,
         "translatorId": 1,
-        "text": "نام حضرت یوسف (علیه السّلام) یکی از پیامبران خدا"
+        "title": "نام حضرت یوسف (علیه السّلام) یکی از پیامبران خدا"
     },
     {
         "id": 13,
         "chapterId": 13,
         "translatorId": 1,
-        "text": "صدای غرش ابر"
+        "title": "صدای غرش ابر"
     },
     {
         "id": 14,
         "chapterId": 14,
         "translatorId": 1,
-        "text": "نام حضرت ابراهیم (علیه السّلام) یکی از پیامبران خدا"
+        "title": "نام حضرت ابراهیم (علیه السّلام) یکی از پیامبران خدا"
     },
     {
         "id": 15,
         "chapterId": 15,
         "translatorId": 1,
-        "text": "منع، نام شهر اصحاب الحجر"
+        "title": "منع، نام شهر اصحاب الحجر"
     },
     {
         "id": 16,
         "chapterId": 16,
         "translatorId": 1,
-        "text": "زنبور عسل"
+        "title": "زنبور عسل"
     },
     {
         "id": 17,
         "chapterId": 17,
         "translatorId": 1,
-        "text": "رفتن در شب"
+        "title": "رفتن در شب"
     },
     {
         "id": 18,
         "chapterId": 18,
         "translatorId": 1,
-        "text": "غار وسیع"
+        "title": "غار وسیع"
     },
     {
         "id": 19,
         "chapterId": 19,
         "translatorId": 1,
-        "text": "نام حضرت مریم (سلام الله علیها)"
+        "title": "نام حضرت مریم (سلام الله علیها)"
     },
     {
         "id": 20,
         "chapterId": 20,
         "translatorId": 1,
-        "text": "از حروف مقطعه و نیز از اسامی پیامبر (صلّی الله علیه و آله)"
+        "title": "از حروف مقطعه و نیز از اسامی پیامبر (صلّی الله علیه و آله)"
     },
     {
         "id": 21,
         "chapterId": 21,
         "translatorId": 1,
-        "text": "پیامبران"
+        "title": "پیامبران"
     },
     {
         "id": 22,
         "chapterId": 22,
         "translatorId": 1,
-        "text": "قصد، نام یکی از فروعات دین"
+        "title": "قصد، نام یکی از فروعات دین"
     },
     {
         "id": 23,
         "chapterId": 23,
         "translatorId": 1,
-        "text": "ایمان آورندگان، گروندگان"
+        "title": "ایمان آورندگان، گروندگان"
     },
     {
         "id": 24,
         "chapterId": 24,
         "translatorId": 1,
-        "text": "روشنایی"
+        "title": "روشنایی"
     },
     {
         "id": 25,
         "chapterId": 25,
         "translatorId": 1,
-        "text": "قرآن، روشنگر و جداکننده حق از باطل"
+        "title": "قرآن، روشنگر و جداکننده حق از باطل"
     },
     {
         "id": 26,
         "chapterId": 26,
         "translatorId": 1,
-        "text": "شاعران"
+        "title": "شاعران"
     },
     {
         "id": 27,
         "chapterId": 27,
         "translatorId": 1,
-        "text": "مورچه"
+        "title": "مورچه"
     },
     {
         "id": 28,
         "chapterId": 28,
         "translatorId": 1,
-        "text": "داستان ها"
+        "title": "داستان ها"
     },
     {
         "id": 29,
         "chapterId": 29,
         "translatorId": 1,
-        "text": "نام حشره"
+        "title": "نام حشره"
     },
     {
         "id": 30,
         "chapterId": 30,
         "translatorId": 1,
-        "text": "نام شهر یا کشور"
+        "title": "نام شهر یا کشور"
     },
     {
         "id": 31,
         "chapterId": 31,
         "translatorId": 1,
-        "text": "نام فردی حکیم"
+        "title": "نام فردی حکیم"
     },
     {
         "id": 32,
         "chapterId": 32,
         "translatorId": 1,
-        "text": "خضوع و اظهار فروتنی"
+        "title": "خضوع و اظهار فروتنی"
     },
     {
         "id": 33,
         "chapterId": 33,
         "translatorId": 1,
-        "text": "گروه ها"
+        "title": "گروه ها"
     },
     {
         "id": 34,
         "chapterId": 34,
         "translatorId": 1,
-        "text": "نام قوم که پادشاه شان زن بود"
+        "title": "نام قوم که پادشاه شان زن بود"
     },
     {
         "id": 35,
         "chapterId": 35,
         "translatorId": 1,
-        "text": "شکافنده"
+        "title": "شکافنده"
     },
     {
         "id": 36,
         "chapterId": 36,
         "translatorId": 1,
-        "text": "حروف مقطعه و رمز است"
+        "title": "حروف مقطعه و رمز است"
     },
     {
         "id": 37,
         "chapterId": 37,
         "translatorId": 1,
-        "text": "منظم ساختن صفوف"
+        "title": "منظم ساختن صفوف"
     },
     {
         "id": 38,
         "chapterId": 38,
         "translatorId": 1,
-        "text": "حروف مقطعه قرآن"
+        "title": "حروف مقطعه قرآن"
     },
     {
         "id": 39,
         "chapterId": 39,
         "translatorId": 1,
-        "text": "دسته، جماعت"
+        "title": "دسته، جماعت"
     },
     {
         "id": 40,
         "chapterId": 40,
         "translatorId": 1,
-        "text": "بخشاینده"
+        "title": "بخشاینده"
     },
     {
         "id": 41,
         "chapterId": 41,
         "translatorId": 1,
-        "text": "بیان روشن"
+        "title": "بیان روشن"
     },
     {
         "id": 42,
         "chapterId": 42,
         "translatorId": 1,
-        "text": "مشورت"
+        "title": "مشورت"
     },
     {
         "id": 43,
         "chapterId": 43,
         "translatorId": 1,
-        "text": "زینت"
+        "title": "زینت"
     },
     {
         "id": 44,
         "chapterId": 44,
         "translatorId": 1,
-        "text": "دود"
+        "title": "دود"
     },
     {
         "id": 45,
         "chapterId": 45,
         "translatorId": 1,
-        "text": "به زانو درآمده"
+        "title": "به زانو درآمده"
     },
     {
         "id": 46,
         "chapterId": 46,
         "translatorId": 1,
-        "text": "نام مکانی در عمان"
+        "title": "نام مکانی در عمان"
     },
     {
         "id": 47,
         "chapterId": 47,
         "translatorId": 1,
-        "text": "نام پیامبر اسلام (صلّی الله علیه و آله)"
+        "title": "نام پیامبر اسلام (صلّی الله علیه و آله)"
     },
     {
         "id": 48,
         "chapterId": 48,
         "translatorId": 1,
-        "text": "پیروزی"
+        "title": "پیروزی"
     },
     {
         "id": 49,
         "chapterId": 49,
         "translatorId": 1,
-        "text": "خانه ها"
+        "title": "خانه ها"
     },
     {
         "id": 50,
         "chapterId": 50,
         "translatorId": 1,
-        "text": "حروف مقطعه"
+        "title": "حروف مقطعه"
     },
     {
         "id": 51,
         "chapterId": 51,
         "translatorId": 1,
-        "text": "بادهایی که اشیاء را به پرواز در می آورد"
+        "title": "بادهایی که اشیاء را به پرواز در می آورد"
     },
     {
         "id": 52,
         "chapterId": 52,
         "translatorId": 1,
-        "text": "نام کوه است"
+        "title": "نام کوه است"
     },
     {
         "id": 53,
         "chapterId": 53,
         "translatorId": 1,
-        "text": "ستاره"
+        "title": "ستاره"
     },
     {
         "id": 54,
         "chapterId": 54,
         "translatorId": 1,
-        "text": "ماه"
+        "title": "ماه"
     },
     {
         "id": 55,
         "chapterId": 55,
         "translatorId": 1,
-        "text": "بخشنده"
+        "title": "بخشنده"
     },
     {
         "id": 56,
         "chapterId": 56,
         "translatorId": 1,
-        "text": "حادثه عظیم قیامت"
+        "title": "حادثه عظیم قیامت"
     },
     {
         "id": 57,
         "chapterId": 57,
         "translatorId": 1,
-        "text": "آهن"
+        "title": "آهن"
     },
     {
         "id": 58,
         "chapterId": 58,
         "translatorId": 1,
-        "text": "تابیدن طناب، جدل و مناظره"
+        "title": "تابیدن طناب، جدل و مناظره"
     },
     {
         "id": 59,
         "chapterId": 59,
         "translatorId": 1,
-        "text": "جمع کردن"
+        "title": "جمع کردن"
     },
     {
         "id": 60,
         "chapterId": 60,
         "translatorId": 1,
-        "text": "آزمون شده (مؤنث)"
+        "title": "آزمون شده (مؤنث)"
     },
     {
         "id": 61,
         "chapterId": 61,
         "translatorId": 1,
-        "text": "صف کشیدن"
+        "title": "صف کشیدن"
     },
     {
         "id": 62,
         "chapterId": 62,
         "translatorId": 1,
-        "text": "آخرین روز هفته"
+        "title": "آخرین روز هفته"
     },
     {
         "id": 63,
         "chapterId": 63,
         "translatorId": 1,
-        "text": "منافقان (نفاق پیشه گان و دورویان)"
+        "title": "منافقان (نفاق پیشه گان و دورویان)"
     },
     {
         "id": 64,
         "chapterId": 64,
         "translatorId": 1,
-        "text": "مغبون کردن یکدیگر"
+        "title": "مغبون کردن یکدیگر"
     },
     {
         "id": 65,
         "chapterId": 65,
         "translatorId": 1,
-        "text": "باز کردن عقد نکاح"
+        "title": "باز کردن عقد نکاح"
     },
     {
         "id": 66,
         "chapterId": 66,
         "translatorId": 1,
-        "text": "حرام کردن"
+        "title": "حرام کردن"
     },
     {
         "id": 67,
         "chapterId": 67,
         "translatorId": 1,
-        "text": "حکومت و اداره امور"
+        "title": "حکومت و اداره امور"
     },
     {
         "id": 68,
         "chapterId": 68,
         "translatorId": 1,
-        "text": "وسیله نگارش و نوشتن"
+        "title": "وسیله نگارش و نوشتن"
     },
     {
         "id": 69,
         "chapterId": 69,
         "translatorId": 1,
-        "text": "روز رستاخیز"
+        "title": "روز رستاخیز"
     },
     {
         "id": 70,
         "chapterId": 70,
         "translatorId": 1,
-        "text": "صعود از پله"
+        "title": "صعود از پله"
     },
     {
         "id": 71,
         "chapterId": 71,
         "translatorId": 1,
-        "text": "نام حضرت نوح (علیه السّلام) یکی از پیامبران خدا"
+        "title": "نام حضرت نوح (علیه السّلام) یکی از پیامبران خدا"
     },
     {
         "id": 72,
         "chapterId": 72,
         "translatorId": 1,
-        "text": "پوشیده، نام موجود نامرئی"
+        "title": "پوشیده، نام موجود نامرئی"
     },
     {
         "id": 73,
         "chapterId": 73,
         "translatorId": 1,
-        "text": "پیچیدن پارچه (خطاب به پیامبر (صلّی الله علیه و آله) است که بعد از فرود از غار حرا خود را در پارچه پیچیده بود)"
+        "title": "پیچیدن پارچه (خطاب به پیامبر (صلّی الله علیه و آله) است که بعد از فرود از غار حرا خود را در پارچه پیچیده بود)"
     },
     {
         "id": 74,
         "chapterId": 74,
         "translatorId": 1,
-        "text": "آرامیدن در بستر"
+        "title": "آرامیدن در بستر"
     },
     {
         "id": 75,
         "chapterId": 75,
         "translatorId": 1,
-        "text": "به پاداشتن"
+        "title": "به پاداشتن"
     },
     {
         "id": 76,
         "chapterId": 76,
         "translatorId": 1,
-        "text": "نوع انسان، بشر"
+        "title": "نوع انسان، بشر"
     },
     {
         "id": 77,
         "chapterId": 77,
         "translatorId": 1,
-        "text": "فرستاده شدگان"
+        "title": "فرستاده شدگان"
     },
     {
         "id": 78,
         "chapterId": 78,
         "translatorId": 1,
-        "text": "خبر مهم"
+        "title": "خبر مهم"
     },
     {
         "id": 79,
         "chapterId": 79,
         "translatorId": 1,
-        "text": "کشیدن"
+        "title": "کشیدن"
     },
     {
         "id": 80,
         "chapterId": 80,
         "translatorId": 1,
-        "text": "عبوس، چهره در هم کشیدن"
+        "title": "عبوس، چهره در هم کشیدن"
     },
     {
         "id": 81,
         "chapterId": 81,
         "translatorId": 1,
-        "text": "پیچیدن نور خورشید"
+        "title": "پیچیدن نور خورشید"
     },
     {
         "id": 82,
         "chapterId": 82,
         "translatorId": 1,
-        "text": "شکافته شدن"
+        "title": "شکافته شدن"
     },
     {
         "id": 83,
         "chapterId": 83,
         "translatorId": 1,
-        "text": "کم فروشان"
+        "title": "کم فروشان"
     },
     {
         "id": 84,
         "chapterId": 84,
         "translatorId": 1,
-        "text": "شکافته شدن"
+        "title": "شکافته شدن"
     },
     {
         "id": 85,
         "chapterId": 85,
         "translatorId": 1,
-        "text": "شیء ظاهر و آشکار"
+        "title": "شیء ظاهر و آشکار"
     },
     {
         "id": 86,
         "chapterId": 86,
         "translatorId": 1,
-        "text": "کوبیدن"
+        "title": "کوبیدن"
     },
     {
         "id": 87,
         "chapterId": 87,
         "translatorId": 1,
-        "text": "برتر، بالاتر"
+        "title": "برتر، بالاتر"
     },
     {
         "id": 88,
         "chapterId": 88,
         "translatorId": 1,
-        "text": "پوشاندن"
+        "title": "پوشاندن"
     },
     {
         "id": 89,
         "chapterId": 89,
         "translatorId": 1,
-        "text": "شکافتن وسیع، صبح"
+        "title": "شکافتن وسیع، صبح"
     },
     {
         "id": 90,
         "chapterId": 90,
         "translatorId": 1,
-        "text": "شهر (مکه)"
+        "title": "شهر (مکه)"
     },
     {
         "id": 91,
         "chapterId": 91,
         "translatorId": 1,
-        "text": "خورشید"
+        "title": "خورشید"
     },
     {
         "id": 92,
         "chapterId": 92,
         "translatorId": 1,
-        "text": "شب"
+        "title": "شب"
     },
     {
         "id": 93,
         "chapterId": 93,
         "translatorId": 1,
-        "text": "اوائل روز"
+        "title": "اوائل روز"
     },
     {
         "id": 94,
         "chapterId": 94,
         "translatorId": 1,
-        "text": "شرح صدر، آرامش"
+        "title": "شرح صدر، آرامش"
     },
     {
         "id": 95,
         "chapterId": 95,
         "translatorId": 1,
-        "text": "انجیر"
+        "title": "انجیر"
     },
     {
         "id": 96,
         "chapterId": 96,
         "translatorId": 1,
-        "text": "خون بسته"
+        "title": "خون بسته"
     },
     {
         "id": 97,
         "chapterId": 97,
         "translatorId": 1,
-        "text": "اندازه گیری و تقدیر"
+        "title": "اندازه گیری و تقدیر"
     },
     {
         "id": 98,
         "chapterId": 98,
         "translatorId": 1,
-        "text": "دلیل روشن"
+        "title": "دلیل روشن"
     },
     {
         "id": 99,
         "chapterId": 99,
         "translatorId": 1,
-        "text": "به لرزه درآمدن"
+        "title": "به لرزه درآمدن"
     },
     {
         "id": 100,
         "chapterId": 100,
         "translatorId": 1,
-        "text": "دویدن با سرعت"
+        "title": "دویدن با سرعت"
     },
     {
         "id": 101,
         "chapterId": 101,
         "translatorId": 1,
-        "text": "حادثه مهم و سخت"
+        "title": "حادثه مهم و سخت"
     },
     {
         "id": 102,
         "chapterId": 102,
         "translatorId": 1,
-        "text": "تفاخر و فخرفروشی"
+        "title": "تفاخر و فخرفروشی"
     },
     {
         "id": 103,
         "chapterId": 103,
         "translatorId": 1,
-        "text": "فشردن، وقت عصر"
+        "title": "فشردن، وقت عصر"
     },
     {
         "id": 104,
         "chapterId": 104,
         "translatorId": 1,
-        "text": "عیب جو و غیبت کننده"
+        "title": "عیب جو و غیبت کننده"
     },
     {
         "id": 105,
         "chapterId": 105,
         "translatorId": 1,
-        "text": "نام حیوان"
+        "title": "نام حیوان"
     },
     {
         "id": 106,
         "chapterId": 106,
         "translatorId": 1,
-        "text": "قدرت، اکتساب، اجتماع. نام قبیله معروف در مکه که پیامبر اسلام (صلّی الله علیه و آله) نیز جزء آن قبیله بود"
+        "title": "قدرت، اکتساب، اجتماع. نام قبیله معروف در مکه که پیامبر اسلام (صلّی الله علیه و آله) نیز جزء آن قبیله بود"
     },
     {
         "id": 107,
         "chapterId": 107,
         "translatorId": 1,
-        "text": "چیز کم"
+        "title": "چیز کم"
     },
     {
         "id": 108,
         "chapterId": 108,
         "translatorId": 1,
-        "text": "خیر کثیر و فراوان"
+        "title": "خیر کثیر و فراوان"
     },
     {
         "id": 109,
         "chapterId": 109,
         "translatorId": 1,
-        "text": "کسانی که حق را می پوشانند"
+        "title": "کسانی که حق را می پوشانند"
     },
     {
         "id": 110,
         "chapterId": 110,
         "translatorId": 1,
-        "text": "پیروزی"
+        "title": "پیروزی"
     },
     {
         "id": 111,
         "chapterId": 111,
         "translatorId": 1,
-        "text": "طنابی که از الیاف بافته شده"
+        "title": "طنابی که از الیاف بافته شده"
     },
     {
         "id": 112,
         "chapterId": 112,
         "translatorId": 1,
-        "text": "یگانگی"
+        "title": "یگانگی"
     },
     {
         "id": 113,
         "chapterId": 113,
         "translatorId": 1,
-        "text": "شکافتن، طلوع صبح"
+        "title": "شکافتن، طلوع صبح"
     },
     {
         "id": 114,
         "chapterId": 114,
         "translatorId": 1,
-        "text": "مردم"
+        "title": "مردم"
     }
 ]

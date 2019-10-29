@@ -2,13 +2,13 @@ class ChapterTranslationItem {
   final int id;
   final int chapterId;
   final int translatorId;
-  final String text;
+  final String title;
 
   ChapterTranslationItem({
     this.id,
     this.chapterId,
     this.translatorId,
-    this.text
+    this.title
   });
   
   factory ChapterTranslationItem.fromJson(dynamic parsedJson) {
@@ -16,7 +16,7 @@ class ChapterTranslationItem {
       id: parsedJson['id'],
       chapterId: parsedJson['chapterId'],
       translatorId: parsedJson['translatorId'],
-      text: parsedJson['text']
+      title: parsedJson['title']
     );
   }
 }

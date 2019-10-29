@@ -5,14 +5,11 @@ import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
 import 'package:quran/items/chapter.item.dart';
-import 'package:quran/items/chapter_translation.item.dart';
 import 'package:quran/items/verse.item.dart';
-import 'package:quran/items/verse_translation.item.dart';
 import 'package:quran/screens/verse_list.screen.dart';
 
 class ChapterDetailsScreen extends StatelessWidget {
   final ChapterItem chapterDetailsChapterItem;
-  final ChapterTranslationItem chapterDetailsChapterTranslationItem;
   final List<ActionItem> chapterDetailsActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
@@ -23,14 +20,13 @@ class ChapterDetailsScreen extends StatelessWidget {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(ChapterItem) chapterDetailsLoad;
-  final GeneratorW4P<ChapterItem, ChapterTranslationItem, VerseItem, VerseTranslationItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
+  final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
 
   ChapterDetailsScreen({
     Key key,
     this.chapterDetailsChapterItem,
-    this.chapterDetailsChapterTranslationItem,
     this.chapterDetailsActionItems,
     this.chapterDetailsOnActionItemPressed,
     this.chapterDetailsOnActionChildItemPressed,
@@ -131,7 +127,6 @@ class ChapterDetailsScreen extends StatelessWidget {
         headerSliverBuilder: _buildHeaderSliver,
         body: VerseListScreen(
           chapterItem: chapterDetailsChapterItem,
-          chapterTranslationItem: chapterDetailsChapterTranslationItem,
           verseListLoading: chapterDetailsLoading,
           verseListLoadSucceeded: chapterDetailsLoadSucceeded,
           verseListItems: chapterDetailsVerseItems,

@@ -83,9 +83,9 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
           'chapter-details-share-verse-item',
           {
             'chapterFullTitle': castedAction.chapterDetailsChapterItem.fullTitle,
-            'chapterTranslationText': castedAction.chapterDetailsChapterTranslationItem.text,
+            'chapterTranslatedTitle': castedAction.chapterDetailsChapterItem.translatedTitle,
             'verseFullText': castedAction.chapterDetailsVerseItem.fullText,
-            'verseTranslationText': castedAction.chapterDetailsVerseTranslationItem.text,
+            'verseTranslatedText': castedAction.chapterDetailsVerseItem.translatedText,
             'appShareFootage': AppLocalizations.of(castedAction.context).translate('app-share-footage')
           }
         );

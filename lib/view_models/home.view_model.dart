@@ -24,7 +24,7 @@ class HomeViewModel {
   final bool homeIsSearching;
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, String) homeOnSearchQueryChanging;
+  final Function(BuildContext, int, String) homeOnSearchQueryChanging;
   final GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -32,6 +32,7 @@ class HomeViewModel {
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
   final double settingsThemeFontSize;
+  final int settingsTranslatorId;
   
   HomeViewModel({
     this.homeOnGenerateTitle,
@@ -50,7 +51,8 @@ class HomeViewModel {
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents,
     this.homeOnFloatingActionButtonPressed,
-    this.settingsThemeFontSize
+    this.settingsThemeFontSize,
+    this.settingsTranslatorId
   });
 
   static HomeViewModel fromStore(Store<RootState> store) {
@@ -72,9 +74,10 @@ class HomeViewModel {
       homeIsSearching: homeIsSearchingSelector(homeState),
       homeOnGenerateSearchHintText: homeOnGenerateSearchHintTextSelector(homeState),
       homeSearchQuery: homeSearchQuerySelector(homeState),
-      homeOnSearchQueryChanging: (BuildContext context, String homeSearchChangingQuery) =>
+      homeOnSearchQueryChanging: (BuildContext context, int settingTranslatorId, String homeSearchChangingQuery) =>
         store.dispatch(HomeSearchQueryChangingAction(
           context: context,
+          settingTranslatorId: settingTranslatorId,
           homeSearchChangingQuery: homeSearchChangingQuery
         )
       ),
@@ -101,7 +104,8 @@ class HomeViewModel {
         store.dispatch(HomeReloadInitialStateAction());
         store.dispatch(ChapterDetailsReloadInitialStateAction());
       },
-      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState)
+      settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
+      settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
   }
 }

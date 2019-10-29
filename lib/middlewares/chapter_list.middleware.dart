@@ -25,11 +25,14 @@ Middleware<RootState> _createChapterListLoad() {
       List<ChapterItem> chapterListItems;
 
       if (castedAction.homeSearchQuery?.isNotEmpty ?? false)
-        chapterListItems = await chapterRepository.searchAll(
+        chapterListItems = await chapterRepository.searchAllTranslated(
+          castedAction.settingTranslatorId,
           castedAction.homeSearchQuery
         );
       else
-        chapterListItems = await chapterRepository.findAll();
+        chapterListItems = await chapterRepository.findAllTranslated(
+          castedAction.settingTranslatorId
+        );
 
       store.dispatch(ChapterListLoadSucceededAction(
         chapterListItems: chapterListItems
@@ -50,8 +53,7 @@ Middleware<RootState> _createChapterListItemTapped() {
       final castedAction = action as ChapterListItemTappedAction;
 
       store.dispatch(ChapterDetailsLoadAction(
-        chapterDetailsChapterItem: castedAction.chapterListTappedItem,
-        chapterDetailsChapterTranslationItem: castedAction.chapterListTappedTranslationItem
+        chapterDetailsChapterItem: castedAction.chapterListTappedItem
       ));
     } catch(exception) {
       store.dispatch(ChapterListLoadFailedAction(

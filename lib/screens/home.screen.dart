@@ -15,13 +15,14 @@ class HomeScreen extends StatelessWidget {
   final bool homeIsSearching;
   final String homeSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, String) homeOnSearchQueryChanging;
+  final Function(BuildContext, int, String) homeOnSearchQueryChanging;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final List<TabItem> homeTabItems;
   final List<Widget> homeTabContents;
   final Function(BuildContext) homeOnFloatingActionButtonPressed;
+  final int settingsTranslatorId;
 
   HomeScreen({
     Key key,
@@ -40,7 +41,8 @@ class HomeScreen extends StatelessWidget {
     this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
-    this.homeOnFloatingActionButtonPressed
+    this.homeOnFloatingActionButtonPressed,
+    this.settingsTranslatorId
   }) : super(key: key);
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
@@ -156,7 +158,7 @@ class HomeScreen extends StatelessWidget {
             ),
             style: Theme.of(context).textTheme.headline,
             initialValue: homeSearchQuery,
-            onFieldSubmitted: (String text) => homeOnSearchQueryChanging(context, text),
+            onFieldSubmitted: (String text) => homeOnSearchQueryChanging(context, settingsTranslatorId, text),
             textInputAction: TextInputAction.search
           )
         ),
