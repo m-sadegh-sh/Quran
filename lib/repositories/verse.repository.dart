@@ -19,8 +19,6 @@ class VerseRepository {
   }
   
   Future<List<VerseItem>> findAllByChapterId(int chapterId) async {
-    await Future.delayed(Duration(seconds: 1));
-
     return (await findAll()).where((vi) => vi.chapterId == chapterId).toList();
   }
 

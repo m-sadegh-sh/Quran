@@ -12,12 +12,14 @@ class ChapterRepository {
   }
 
   Future<List<ChapterItem>> findAll() async {
-    await Future.delayed(Duration(seconds: 1));
-
     if (_cachedEntities == null)
       await _init();
 
     return _cachedEntities;
+  }
+  
+  Future<List<ChapterItem>> searchAll(String homeSearchQuery) async {
+    return (await findAll()).where((ci) => ci.title.contains(homeSearchQuery)).toList();
   }
   
   Future _init() async {

@@ -9,6 +9,7 @@ class ChapterListItemScreen extends StatelessWidget {
   final bool shimmed;
   final ChapterItem chapterItem;
   final Function(BuildContext, ChapterItem, ChapterTranslationItem) onChapterItemTapped;
+  final String homeSearchQuery;
   final int settingsTranslatorId;
 
   ChapterListItemScreen({
@@ -16,6 +17,7 @@ class ChapterListItemScreen extends StatelessWidget {
     this.shimmed,
     this.chapterItem,
     this.onChapterItemTapped,
+    this.homeSearchQuery,
     this.settingsTranslatorId
   }) : super(key: key);
 

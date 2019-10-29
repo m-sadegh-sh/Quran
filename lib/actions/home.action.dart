@@ -18,15 +18,25 @@ class HomeReloadInitialStateSucceededAction {
 
 class HomeReloadInitialStateFailedAction { }
 
-class HomeSearchQueryChangedAction {
+class HomeSearchQueryChangingAction {
   final BuildContext context;
+  final String homeSearchChangingQuery;
+
+  HomeSearchQueryChangingAction({
+    this.context,
+    this.homeSearchChangingQuery
+  });
+}
+
+class HomeSearchQueryChangeSucceededAction {
   final String homeSearchChangedQuery;
 
-  HomeSearchQueryChangedAction({
-    this.context,
+  HomeSearchQueryChangeSucceededAction({
     this.homeSearchChangedQuery
   });
 }
+
+class HomeSearchQueryChangeFailedAction { }
 
 class HomeDrawerItemTappedAction {
   final BuildContext context;

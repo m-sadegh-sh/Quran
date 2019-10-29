@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root.state.dart';
+import 'package:quran/selectors/home.selector.dart';
 import 'package:quran/actions/chapter_list.action.dart';
 import 'package:quran/actions/settings.action.dart';
 import 'package:quran/selectors/settings.selector.dart';
@@ -15,8 +16,9 @@ class ChapterListViewModel {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function chapterListLoad;
+  final Function(String) chapterListLoad;
   final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
+  final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
@@ -29,6 +31,7 @@ class ChapterListViewModel {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
+    this.homeSearchQuery,
     this.settingsThemeFontSize,
     this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
@@ -36,6 +39,7 @@ class ChapterListViewModel {
 
   static ChapterListViewModel fromStore(Store<RootState> store) {
     final chapterListState = chapterListStateSelector(store.state);
+    final homeState = homeStateSelector(store.state);
     final settingsState = settingsStateSelector(store.state);
 
     return ChapterListViewModel(
@@ -44,7 +48,11 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
-      chapterListLoad: () => store.dispatch(ChapterListLoadAction()),
+      chapterListLoad: (String homeSearchQuery) => 
+        store.dispatch(ChapterListLoadAction(
+          homeSearchQuery: homeSearchQuery
+        )
+      ),
       chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem, ChapterTranslationItem chapterListTappedTranslationItem) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
@@ -52,6 +60,7 @@ class ChapterListViewModel {
           chapterListTappedTranslationItem: chapterListTappedTranslationItem
         )
       ),
+      homeSearchQuery: homeSearchQuerySelector(homeState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       chapterListOnThemeFontSizeChanging: (newSettingsThemeFontSize) =>
         store.dispatch(SettingsSharedPreferencesPersistAction(

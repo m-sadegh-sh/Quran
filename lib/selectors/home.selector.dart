@@ -16,7 +16,6 @@ GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItemsSelector(HomeState state
 bool homeIsSearchingSelector(HomeState state) => state.homeIsSearching;
 GeneratorWNP<String> homeOnGenerateSearchHintTextSelector(HomeState state) => state.homeOnGenerateSearchHintText;
 String homeSearchQuerySelector(HomeState state) => state.homeSearchQuery;
-TextEditingController homeSearchQueryControllerSelector(HomeState state) => state.homeSearchQueryController;
 GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItemsSelector(HomeState state) => state.homeOnGenerateActionItems;
 GeneratorWNP<List<TabItem>> homeOnGenerateTabItemsSelector(HomeState state) => state.homeOnGenerateTabItems;
 GeneratorWNP<List<Widget>> homeOnGenerateTabContentsSelector(HomeState state) => state.homeOnGenerateTabContents;

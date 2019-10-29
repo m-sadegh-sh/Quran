@@ -15,8 +15,7 @@ class HomeScreen extends StatelessWidget {
   final bool homeIsSearching;
   final String homeSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, String) homeOnSearchQueryChanged;
-  final TextEditingController homeSearchQueryController;
+  final Function(BuildContext, String) homeOnSearchQueryChanging;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -35,21 +34,14 @@ class HomeScreen extends StatelessWidget {
     this.homeIsSearching,
     this.homeSearchHintText,
     this.homeSearchQuery,
-    this.homeOnSearchQueryChanged,
-    this.homeSearchQueryController,
+    this.homeOnSearchQueryChanging,
     this.homeActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
     this.homeOnFloatingActionButtonPressed
-  }) : super(key: key) {
-    homeSearchQueryController.addListener(_homeSearchQueryControllerOnChange);
-  }
-
-  void _homeSearchQueryControllerOnChange() {
-    homeOnSearchQueryChanged(null, homeSearchQueryController.text);
-  }
+  }) : super(key: key);
 
   UserAccountsDrawerHeader _buildAccountHeader(BuildContext context) {
     return UserAccountsDrawerHeader(
@@ -140,20 +132,32 @@ class HomeScreen extends StatelessWidget {
     if (homeIsSearching) {
       return AppBar(
         title: Container(
-          alignment: Alignment.center,
-          color: Theme.of(context).appBarTheme.color,
-          child: TextField(
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColorDark,
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          margin: const EdgeInsets.only(
+            top: 60.0,
+            bottom: 60.0
+          ),
+          padding: const EdgeInsets.only(
+            left: 5.0,
+            right: 5.0
+          ),
+          child: TextFormField(
             keyboardType: TextInputType.text,
             autofocus: true,
             decoration: InputDecoration(
               border: InputBorder.none,
               hintText: homeSearchHintText,
-              hintStyle: Theme.of(context).textTheme.headline,
+              hintStyle: Theme.of(context).textTheme.headline.apply(
+                color: Theme.of(context).textSelectionColor
+              ),
             ),
-            controller: homeSearchQueryController,
-            //onChanged: (String text) => homeOnSearchQueryChanged(context, text),
-            textInputAction: TextInputAction.search,
-            cursorRadius: Radius.circular(5.0),
+            style: Theme.of(context).textTheme.headline,
+            initialValue: homeSearchQuery,
+            onFieldSubmitted: (String text) => homeOnSearchQueryChanging(context, text),
+            textInputAction: TextInputAction.search
           )
         ),
         actions: _buildActions(context),

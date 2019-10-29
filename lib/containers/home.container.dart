@@ -20,7 +20,7 @@ class HomeContainer extends StatelessWidget {
         homeIsSearching: homeViewModel.homeIsSearching,
         homeSearchHintText: homeViewModel.homeOnGenerateSearchHintText(context),
         homeSearchQuery: homeViewModel.homeSearchQuery,
-        homeSearchQueryController: homeViewModel.homeSearchQueryController,
+        homeOnSearchQueryChanging: homeViewModel.homeOnSearchQueryChanging,
         homeActionItems: homeViewModel.homeOnGenerateActionItems(context, homeViewModel.settingsThemeFontSize, homeViewModel.homeIsSearching),
         homeOnActionItemPressed: homeViewModel.homeOnActionItemPressed,
         homeOnActionChildItemPressed: homeViewModel.homeOnActionChildItemPressed,

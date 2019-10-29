@@ -7,7 +7,8 @@ import 'package:quran/actions/home.action.dart';
 
 final Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, HomeReloadInitialStateSucceededAction>(_homeReloadInitialStateSucceeded),
-  TypedReducer<HomeState, HomeSearchQueryChangedAction>(_homeSearchQueryChanged),
+  TypedReducer<HomeState, HomeSearchQueryChangeSucceededAction>(_homeSearchQueryChangeSucceededAction),
+  TypedReducer<HomeState, HomeSearchQueryChangeFailedAction>(_homeSearchQueryChangeFailedAction),
   TypedReducer<HomeState, HomeDrawerItemTappedAction>(_homeDrawerItemTapped),
   TypedReducer<HomeState, HomeActionItemPressedAction>(_homeActionItemPressed),
   TypedReducer<HomeState, HomeActionChildItemPressedAction>(_homeActionChildItemPressed)
@@ -17,11 +18,14 @@ HomeState _homeReloadInitialStateSucceeded(HomeState state, HomeReloadInitialSta
   return action.homeState;
 }
 
-HomeState _homeSearchQueryChanged(HomeState state, HomeSearchQueryChangedAction action) {
+HomeState _homeSearchQueryChangeSucceededAction(HomeState state, HomeSearchQueryChangeSucceededAction action) {
   return state.copyWith(
-    homeSearchQuery: action.homeSearchChangedQuery,
-    homeSearchQueryController: new TextEditingController(text: action.homeSearchChangedQuery)
+    homeSearchQuery: action.homeSearchChangedQuery
   );
+}
+
+HomeState _homeSearchQueryChangeFailedAction(HomeState state, HomeSearchQueryChangeFailedAction action) {
+  return state;
 }
 
 HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction action) {

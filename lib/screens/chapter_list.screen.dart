@@ -12,8 +12,9 @@ class ChapterListScreen extends StatelessWidget {
   final List<ChapterItem> chapterListItems;
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
-  final Function chapterListLoad;
+  final Function(String) chapterListLoad;
   final Function(BuildContext, ChapterItem, ChapterTranslationItem) chapterListOnChapterItemTapped;
+  final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
@@ -27,12 +28,13 @@ class ChapterListScreen extends StatelessWidget {
     this.chapterListLoadError,
     this.chapterListLoad,
     this.chapterListOnChapterItemTapped,
+    this.homeSearchQuery,
     this.settingsThemeFontSize,
     this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
-      chapterListLoad();
+      chapterListLoad(homeSearchQuery);
   }
 
   @override
@@ -55,7 +57,7 @@ class ChapterListScreen extends StatelessWidget {
     if (chapterListLoadFailed)
       return ActionFailureScreen(
         errorMessage: chapterListLoadError,
-        onRetryActionPressed: chapterListLoad,
+        onRetryActionPressed: () => chapterListLoad(homeSearchQuery),
       );
 
     if (chapterListItems.length == 0)
@@ -81,6 +83,7 @@ class ChapterListScreen extends StatelessWidget {
           shimmed: false,
           chapterItem: chapterListItems[index],
           onChapterItemTapped: chapterListOnChapterItemTapped,
+          homeSearchQuery: homeSearchQuery,
           settingsTranslatorId: settingsTranslatorId
         )
       )

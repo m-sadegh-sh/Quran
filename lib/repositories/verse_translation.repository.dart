@@ -19,8 +19,6 @@ class VerseTranslationRepository {
   }
 
   Future<VerseTranslationItem> findOneByVerseId(int verseId, int translatorId) async {
-    await Future.delayed(Duration(milliseconds: 500));
-
     if (verseId == null)
       return null;
 

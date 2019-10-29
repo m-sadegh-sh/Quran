@@ -21,7 +21,6 @@ class HomeState {
   final bool homeIsSearching;
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
-  final TextEditingController homeSearchQueryController;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItems;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
@@ -36,7 +35,6 @@ class HomeState {
     this.homeIsSearching,
     this.homeOnGenerateSearchHintText,
     this.homeSearchQuery,
-    this.homeSearchQueryController,
     this.homeOnGenerateActionItems,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents
@@ -67,11 +65,11 @@ class HomeState {
     homeIsSearching: false,
     homeOnGenerateSearchHintText: (BuildContext context) => AppLocalizations.of(context).translate('home-search-hint-text'),
     homeSearchQuery: null,
-    homeSearchQueryController: new TextEditingController(),
     homeOnGenerateActionItems: (BuildContext context, double fontSize, bool homeIsSearching) => [
       ActionItem<HomeState>(
         onUpdateState: (BuildContext context, HomeState state) => state.copyWith(
-          homeIsSearching: !state.homeIsSearching
+          homeIsSearching: !state.homeIsSearching,
+          homeSearchResetQuery: true
         ),
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: homeIsSearching ? Icons.close : Icons.search
@@ -121,7 +119,7 @@ class HomeState {
     homeIsSearching,
     homeOnGenerateSearchHintText,
     homeSearchQuery,
-    homeSearchQueryController,
+    homeSearchResetQuery,
     homeOnGenerateDrawerItems,
     homeOnGenerateActionItems,
     homeOnGenerateTabItems,
@@ -133,8 +131,7 @@ class HomeState {
     homeAccountBackgroundImage : homeAccountBackgroundImage ?? this.homeAccountBackgroundImage,
     homeIsSearching : homeIsSearching ?? this.homeIsSearching,
     homeOnGenerateSearchHintText : homeOnGenerateSearchHintText ?? this.homeOnGenerateSearchHintText,
-    homeSearchQuery : homeSearchQuery ?? this.homeSearchQuery,
-    homeSearchQueryController : homeSearchQueryController ?? this.homeSearchQueryController,
+    homeSearchQuery : homeSearchResetQuery ?? false ? null : homeSearchQuery ?? this.homeSearchQuery,
     homeOnGenerateDrawerItems : homeOnGenerateDrawerItems ?? this.homeOnGenerateDrawerItems,
     homeOnGenerateActionItems : homeOnGenerateActionItems ?? this.homeOnGenerateActionItems,
     homeOnGenerateTabItems : homeOnGenerateTabItems ?? this.homeOnGenerateTabItems,

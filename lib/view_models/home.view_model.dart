@@ -24,8 +24,7 @@ class HomeViewModel {
   final bool homeIsSearching;
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, String) homeOnSearchQueryChanged;
-  final TextEditingController homeSearchQueryController;
+  final Function(BuildContext, String) homeOnSearchQueryChanging;
   final GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -44,8 +43,7 @@ class HomeViewModel {
     this.homeIsSearching,
     this.homeOnGenerateSearchHintText,
     this.homeSearchQuery,
-    this.homeOnSearchQueryChanged,
-    this.homeSearchQueryController,
+    this.homeOnSearchQueryChanging,
     this.homeOnGenerateActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
@@ -74,13 +72,12 @@ class HomeViewModel {
       homeIsSearching: homeIsSearchingSelector(homeState),
       homeOnGenerateSearchHintText: homeOnGenerateSearchHintTextSelector(homeState),
       homeSearchQuery: homeSearchQuerySelector(homeState),
-      homeOnSearchQueryChanged: (BuildContext context, String homeSearchChangedQuery) =>
-        store.dispatch(HomeSearchQueryChangedAction(
+      homeOnSearchQueryChanging: (BuildContext context, String homeSearchChangingQuery) =>
+        store.dispatch(HomeSearchQueryChangingAction(
           context: context,
-          homeSearchChangedQuery: homeSearchChangedQuery
+          homeSearchChangingQuery: homeSearchChangingQuery
         )
       ),
-      homeSearchQueryController: homeSearchQueryControllerSelector(homeState),
       homeOnGenerateActionItems: homeOnGenerateActionItemsSelector(homeState),
       homeOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
         store.dispatch(HomeActionItemPressedAction(

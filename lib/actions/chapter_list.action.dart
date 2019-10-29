@@ -3,7 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:quran/items/chapter.item.dart';
 import 'package:quran/items/chapter_translation.item.dart';
 
-class ChapterListLoadAction { }
+class ChapterListLoadAction {
+  final String homeSearchQuery;
+
+  ChapterListLoadAction({
+    this.homeSearchQuery
+  });
+}
 
 class ChapterListLoadSucceededAction {
   final List<ChapterItem> chapterListItems;

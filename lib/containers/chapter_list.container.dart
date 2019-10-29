@@ -18,6 +18,7 @@ class ChapterListContainer extends StatelessWidget {
         chapterListLoadError: chapterListViewModel.chapterListLoadError,
         chapterListLoad: chapterListViewModel.chapterListLoad,
         chapterListOnChapterItemTapped: chapterListViewModel.chapterListOnChapterItemTapped,
+        homeSearchQuery: chapterListViewModel.homeSearchQuery,
         settingsThemeFontSize: chapterListViewModel.settingsThemeFontSize,
         chapterListOnThemeFontSizeChanging: chapterListViewModel.chapterListOnThemeFontSizeChanging,
         settingsTranslatorId: chapterListViewModel.settingsTranslatorId

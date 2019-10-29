@@ -5,6 +5,7 @@ import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/chapter_list.action.dart';
 import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/repositories/chapter.repository.dart';
+import 'package:quran/items/chapter.item.dart';
 
 List<Middleware<RootState>> createChapterListMiddleware() {
   return [
@@ -18,7 +19,17 @@ Middleware<RootState> _createChapterListLoad() {
     try {
       next(action);
 
-      final chapterListItems = await Container().resolve<ChapterRepository>().findAll();
+      final castedAction = action as ChapterListLoadAction;
+      final chapterRepository = Container().resolve<ChapterRepository>();
+
+      List<ChapterItem> chapterListItems;
+
+      if (castedAction.homeSearchQuery?.isNotEmpty ?? false)
+        chapterListItems = await chapterRepository.searchAll(
+          castedAction.homeSearchQuery
+        );
+      else
+        chapterListItems = await chapterRepository.findAll();
 
       store.dispatch(ChapterListLoadSucceededAction(
         chapterListItems: chapterListItems
