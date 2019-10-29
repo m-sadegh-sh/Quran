@@ -14,7 +14,7 @@ import 'package:quran/items/action_child.item.dart';
 
 class ChapterDetailsViewModel {
   final ChapterItem chapterDetailsChapterItem;
-  final GeneratorW1P<double, List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorW3P<bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
   final bool chapterDetailsLoading;
@@ -24,6 +24,10 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(BuildContext, ChapterItem, int) chapterDetailsLoad;
+  final bool chapterDetailsIsSearching;
+  final GeneratorWNP<String> chapterDetailsOnGenerateSearchHintText;
+  final String chapterDetailsSearchQuery;
+  final Function(BuildContext, int, String) chapterDetailsOnSearchQueryChanging;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final Function(BuildContext, Store<RootState>) chapterDetailsOnSlidableActionTapped;
@@ -42,6 +46,10 @@ class ChapterDetailsViewModel {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
+    this.chapterDetailsIsSearching,
+    this.chapterDetailsOnGenerateSearchHintText,
+    this.chapterDetailsSearchQuery,
+    this.chapterDetailsOnSearchQueryChanging,
     this.chapterDetailsOnGenerateSlidableActions,
     this.chapterDetailsSlidableController,
     this.chapterDetailsOnSlidableActionTapped,
@@ -56,10 +64,11 @@ class ChapterDetailsViewModel {
     return ChapterDetailsViewModel(
       chapterDetailsChapterItem: chapterDetailsChapterItemSelector(chapterDetailsState),
       chapterDetailsOnGenerateActionItems: chapterDetailsOnGenerateActionItemsSelector(chapterDetailsState),
-      chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
+      chapterDetailsOnActionItemPressed: (BuildContext context, ActionItem chapterDetailsActionItem) {
         store.dispatch(ChapterDetailsActionItemPressedAction(
           context: context,
-          chapterDetailsOnGenerateChild: actionItem.onGenerateChild,
+          store: store,
+          chapterDetailsActionItem: chapterDetailsActionItem,
         ));
       },
       chapterDetailsOnActionChildItemPressed: (BuildContext context, ActionChildItem actionChildItem) {
@@ -83,6 +92,16 @@ class ChapterDetailsViewModel {
           settingsTranslatorId: settingsTranslatorId
         ));
       },
+      chapterDetailsIsSearching: chapterDetailsIsSearchingSelector(chapterDetailsState),
+      chapterDetailsOnGenerateSearchHintText: chapterDetailsOnGenerateSearchHintTextSelector(chapterDetailsState),
+      chapterDetailsSearchQuery: chapterDetailsSearchQuerySelector(chapterDetailsState),
+      chapterDetailsOnSearchQueryChanging: (BuildContext context, int settingsTranslatorId, String chapterDetailsSearchChangingQuery) =>
+        store.dispatch(ChapterDetailsSearchQueryChangingAction(
+          context: context,
+          settingsTranslatorId: settingsTranslatorId,
+          chapterDetailsSearchChangingQuery: chapterDetailsSearchChangingQuery
+        )
+      ),
       chapterDetailsOnGenerateSlidableActions: (BuildContext context, ChapterItem chapterItem, VerseItem verseItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, chapterItem, verseItem),
       chapterDetailsSlidableController: chapterDetailsSlidableControllerSelector(chapterDetailsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),

@@ -25,7 +25,7 @@ class HomeState {
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
-  final GeneratorW3P<double, bool, int, List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorW3P<bool, double, int, List<ActionItem>> homeOnGenerateActionItems;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
 
@@ -68,7 +68,7 @@ class HomeState {
     homeIsSearching: false,
     homeOnGenerateSearchHintText: (BuildContext context) => AppLocalizations.of(context).translate('home-search-hint-text'),
     homeSearchQuery: null,
-    homeOnGenerateActionItems: (BuildContext context, double settingsThemeFontSize, bool homeIsSearching, int settingsTranslatorId) => [
+    homeOnGenerateActionItems: (BuildContext context, bool homeIsSearching, double settingsThemeFontSize, int settingsTranslatorId) => [
       ActionItem(
         onDispatchAction: (BuildContext context, Store<RootState> store) =>
           store.dispatch(

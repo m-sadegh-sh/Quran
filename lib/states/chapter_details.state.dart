@@ -15,13 +15,16 @@ import 'package:quran/items/verse.item.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
-  final GeneratorW1P<double, List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorW3P<bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
+  final bool chapterDetailsIsSearching;
+  final GeneratorWNP<String> chapterDetailsOnGenerateSearchHintText;
+  final String chapterDetailsSearchQuery;
   final GeneratorW3P<Store<RootState>, ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
 
@@ -34,16 +37,23 @@ class ChapterDetailsState {
     this.chapterDetailsBackgroundImage,
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
+    this.chapterDetailsIsSearching,
+    this.chapterDetailsOnGenerateSearchHintText,
+    this.chapterDetailsSearchQuery,
     this.chapterDetailsOnGenerateSlidableActions,
     this.chapterDetailsSlidableController
   });
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
     chapterDetailsChapterItem: null,
-    chapterDetailsOnGenerateActionItems: (BuildContext context, double fontSize) => [
+    chapterDetailsOnGenerateActionItems: (BuildContext context, bool chapterDetailsIsSearching, double settingsThemeFontSize, int settingsTranslatorId) => [
       ActionItem(
+        onDispatchAction: (BuildContext context, Store<RootState> store) =>
+          store.dispatch(
+            chapterDetailsIsSearching ? ChapterDetailsSearchCloseAction(settingsTranslatorId: settingsTranslatorId) : ChapterDetailsSearchOpenAction()
+          ),
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-search'),
-        icon: Icons.search
+        icon: chapterDetailsIsSearching ? Icons.close : Icons.search
       ),
       ActionItem(
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-more'),
@@ -51,17 +61,17 @@ class ChapterDetailsState {
         children: [
           ActionChildItem(
             actionChildItemType: ActionChildItemType.ChangeFontSize,
-            value: fontSize - 2.0,
+            value: settingsThemeFontSize - 2.0,
             text: AppLocalizations.of(context).translate('chapter-details-action-decrease-font-size'),
             icon: Icons.exposure_neg_1,
-            enabled: fontSize > 16.0
+            enabled: settingsThemeFontSize > 16.0
           ),
           ActionChildItem(
             actionChildItemType: ActionChildItemType.ChangeFontSize,
-            value: fontSize + 2.0,
+            value: settingsThemeFontSize + 2.0,
             text: AppLocalizations.of(context).translate('chapter-details-action-increase-font-size'),
             icon: Icons.exposure_plus_1,
-            enabled: fontSize < 24.0
+            enabled: settingsThemeFontSize < 24.0
           )
         ]
       )
@@ -72,6 +82,9 @@ class ChapterDetailsState {
     chapterDetailsBackgroundImage: 'assets/images/quran_background.png',
     chapterDetailsLoadFailed: false,
     chapterDetailsLoadError: null,
+    chapterDetailsIsSearching: false,
+    chapterDetailsOnGenerateSearchHintText: (BuildContext context) => AppLocalizations.of(context).translate('chapter-details-search-hint-text'),
+    chapterDetailsSearchQuery: null,
     chapterDetailsOnGenerateSlidableActions: (BuildContext context, Store<RootState> store, ChapterItem chapterItem, VerseItem verseItem) => [
       new IconSlideAction(
         caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share'),
@@ -107,6 +120,9 @@ class ChapterDetailsState {
     chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed,
     chapterDetailsLoadError,
+    chapterDetailsIsSearching,
+    chapterDetailsOnGenerateSearchHintText,
+    chapterDetailsSearchQuery,
     chapterDetailsOnGenerateSlidableActions,
     chapterDetailsSlidableController
   }) => ChapterDetailsState(
@@ -118,6 +134,9 @@ class ChapterDetailsState {
     chapterDetailsBackgroundImage: chapterDetailsBackgroundImage ?? this.chapterDetailsBackgroundImage,
     chapterDetailsLoadFailed: chapterDetailsLoadFailed ?? this.chapterDetailsLoadFailed,
     chapterDetailsLoadError: chapterDetailsLoadError ?? this.chapterDetailsLoadError,
+    chapterDetailsIsSearching: chapterDetailsIsSearching ?? this.chapterDetailsIsSearching,
+    chapterDetailsOnGenerateSearchHintText: chapterDetailsOnGenerateSearchHintText ?? this.chapterDetailsOnGenerateSearchHintText,
+    chapterDetailsSearchQuery: chapterDetailsSearchQuery ?? this.chapterDetailsSearchQuery,
     chapterDetailsOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions ?? this.chapterDetailsOnGenerateSlidableActions,
     chapterDetailsSlidableController: chapterDetailsSlidableController ?? this.chapterDetailsSlidableController
   );

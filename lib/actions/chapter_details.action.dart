@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:redux/redux.dart';
 
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/enumerations/slidable_action_type.dart';
 import 'package:quran/delegates/generator.delegate.dart';
+import 'package:quran/items/action.item.dart';
 import 'package:quran/items/chapter.item.dart';
 import 'package:quran/items/verse.item.dart';
 import 'package:quran/states/chapter_details.state.dart';
+import 'package:quran/states/root.state.dart';
 
 class ChapterDetailsReloadInitialStateAction { }
 
@@ -55,13 +58,45 @@ class ChapterDetailsLoadFailedAction {
   });
 }
 
+class ChapterDetailsSearchOpenAction { }
+
+class ChapterDetailsSearchCloseAction {
+  final int settingsTranslatorId;
+
+  ChapterDetailsSearchCloseAction({
+    this.settingsTranslatorId
+  });
+}
+
+class ChapterDetailsSearchQueryChangingAction {
+  final BuildContext context;
+  final int settingsTranslatorId;
+  final String chapterDetailsSearchChangingQuery;
+
+  ChapterDetailsSearchQueryChangingAction({
+    this.context,
+    this.settingsTranslatorId,
+    this.chapterDetailsSearchChangingQuery
+  });
+}
+
+class ChapterDetailsSearchQueryChangeSucceededAction {
+  final String chapterDetailsSearchChangedQuery;
+
+  ChapterDetailsSearchQueryChangeSucceededAction({
+    this.chapterDetailsSearchChangedQuery
+  });
+}
+
 class ChapterDetailsActionItemPressedAction {
   final BuildContext context;
-  final GeneratorWNP<Widget> chapterDetailsOnGenerateChild;
+  final Store<RootState> store;
+  final ActionItem chapterDetailsActionItem;
 
   ChapterDetailsActionItemPressedAction({
     this.context,
-    this.chapterDetailsOnGenerateChild
+    this.store,
+    this.chapterDetailsActionItem
   });
 }
 

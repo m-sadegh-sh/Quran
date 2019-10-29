@@ -20,6 +20,10 @@ class ChapterDetailsScreen extends StatelessWidget {
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
   final Function(BuildContext, ChapterItem, int) chapterDetailsLoad;
+  final bool chapterDetailsIsSearching;
+  final String chapterDetailsSearchHintText;
+  final String chapterDetailsSearchQuery;
+  final Function(BuildContext, int, String) chapterDetailsOnSearchQueryChanging;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
@@ -37,6 +41,10 @@ class ChapterDetailsScreen extends StatelessWidget {
     this.chapterDetailsLoadFailed,
     this.chapterDetailsLoadError,
     this.chapterDetailsLoad,
+    this.chapterDetailsIsSearching,
+    this.chapterDetailsSearchHintText,
+    this.chapterDetailsSearchQuery,
+    this.chapterDetailsOnSearchQueryChanging,
     this.chapterDetailsOnGenerateSlidableActions,
     this.chapterDetailsSlidableController,
     this.settingsTranslatorId
@@ -87,6 +95,40 @@ class ChapterDetailsScreen extends StatelessWidget {
   }
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
+    if (chapterDetailsIsSearching)
+      return SizedBox(
+        height: kTextTabBarHeight,
+        child: Container(
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColorDark,
+            borderRadius: BorderRadius.circular(10.0)
+          ),
+          margin: const EdgeInsets.only(
+            top: 60.0,
+            bottom: 60.0
+          ),
+          padding: const EdgeInsets.only(
+            left: 5.0,
+            right: 5.0
+          ),
+          child: TextFormField(
+            keyboardType: TextInputType.text,
+            autofocus: true,
+            decoration: InputDecoration(
+              border: InputBorder.none,
+              hintText: chapterDetailsSearchHintText,
+              hintStyle: Theme.of(context).textTheme.headline.apply(
+                color: Theme.of(context).textSelectionColor
+              ),
+            ),
+            style: Theme.of(context).textTheme.headline,
+            initialValue: chapterDetailsSearchQuery,
+            onFieldSubmitted: (String text) => chapterDetailsOnSearchQueryChanging(context, settingsTranslatorId, text),
+            textInputAction: TextInputAction.search
+          )
+        )
+      );
+
     return SizedBox(
       height: kTextTabBarHeight,
       child: Text(

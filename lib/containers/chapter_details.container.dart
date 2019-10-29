@@ -12,7 +12,7 @@ class ChapterDetailsContainer extends StatelessWidget {
       converter: ChapterDetailsViewModel.fromStore,
       builder: (BuildContext context, ChapterDetailsViewModel chapterDetailsViewModel) => ChapterDetailsScreen(
         chapterDetailsChapterItem: chapterDetailsViewModel.chapterDetailsChapterItem,
-        chapterDetailsActionItems: chapterDetailsViewModel.chapterDetailsOnGenerateActionItems(context, chapterDetailsViewModel.settingsThemeFontSize),
+        chapterDetailsActionItems: chapterDetailsViewModel.chapterDetailsOnGenerateActionItems(context, chapterDetailsViewModel.chapterDetailsIsSearching, chapterDetailsViewModel.settingsThemeFontSize, chapterDetailsViewModel.settingsTranslatorId),
         chapterDetailsOnActionItemPressed: chapterDetailsViewModel.chapterDetailsOnActionItemPressed,
         chapterDetailsOnActionChildItemPressed: chapterDetailsViewModel.chapterDetailsOnActionChildItemPressed,
         chapterDetailsLoading: chapterDetailsViewModel.chapterDetailsLoading,
@@ -22,6 +22,10 @@ class ChapterDetailsContainer extends StatelessWidget {
         chapterDetailsLoadFailed: chapterDetailsViewModel.chapterDetailsLoadFailed,
         chapterDetailsLoadError: chapterDetailsViewModel.chapterDetailsLoadError,
         chapterDetailsLoad: chapterDetailsViewModel.chapterDetailsLoad,
+        chapterDetailsIsSearching: chapterDetailsViewModel.chapterDetailsIsSearching,
+        chapterDetailsSearchHintText: chapterDetailsViewModel.chapterDetailsOnGenerateSearchHintText(context),
+        chapterDetailsSearchQuery: chapterDetailsViewModel.chapterDetailsSearchQuery,
+        chapterDetailsOnSearchQueryChanging: chapterDetailsViewModel.chapterDetailsOnSearchQueryChanging,
         chapterDetailsOnGenerateSlidableActions: chapterDetailsViewModel.chapterDetailsOnGenerateSlidableActions,
         chapterDetailsSlidableController: chapterDetailsViewModel.chapterDetailsSlidableController,
         settingsTranslatorId: chapterDetailsViewModel.settingsTranslatorId

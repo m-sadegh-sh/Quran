@@ -25,7 +25,7 @@ class HomeViewModel {
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
   final Function(BuildContext, int, String) homeOnSearchQueryChanging;
-  final GeneratorW3P<double, bool, int, List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorW3P<bool, double, int, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
@@ -82,11 +82,11 @@ class HomeViewModel {
         )
       ),
       homeOnGenerateActionItems: homeOnGenerateActionItemsSelector(homeState),
-      homeOnActionItemPressed: (BuildContext context, ActionItem actionItem) {
+      homeOnActionItemPressed: (BuildContext context, ActionItem homeActionItem) {
         store.dispatch(HomeActionItemPressedAction(
           context: context,
           store: store,
-          homeActionItem: actionItem,
+          homeActionItem: homeActionItem,
         ));
       },
       homeOnActionChildItemPressed: (BuildContext context, ActionChildItem actionChildItem) {

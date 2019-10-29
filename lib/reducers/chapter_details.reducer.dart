@@ -56,12 +56,15 @@ ChapterDetailsState _chapterDetailsLoadFailed(ChapterDetailsState state, Chapter
 }
 
 ChapterDetailsState _chapterDetailsActionItemPressed(ChapterDetailsState state, ChapterDetailsActionItemPressedAction action) {
-  Navigator.of(action.context)
-    .push(PageTransition(
-      curve: Curves.easeInOutQuart,
-      type: PageTransitionType.rightToLeft,
-      child: action.chapterDetailsOnGenerateChild(action.context)
-    ));
+  if (action.chapterDetailsActionItem.onGenerateChild != null)
+    Navigator.of(action.context)
+      .push(PageTransition(
+        curve: Curves.easeInOutQuart,
+        type: PageTransitionType.rightToLeft,
+        child: action.chapterDetailsActionItem.onGenerateChild(action.context)
+      ));
+  else if (action.chapterDetailsActionItem.onDispatchAction != null)
+    action.chapterDetailsActionItem.onDispatchAction(action.context, action.store);
 
   return state;
 }

@@ -50,16 +50,15 @@ HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction acti
 }
 
 HomeState _homeActionItemPressed(HomeState state, HomeActionItemPressedAction action) {
-  if (action.homeActionItem.onGenerateChild != null) {
+  if (action.homeActionItem.onGenerateChild != null)
     Navigator.of(action.context)
       .push(PageTransition(
         curve: Curves.easeInOutQuart,
         type: PageTransitionType.rightToLeft,
         child: action.homeActionItem.onGenerateChild(action.context)
       ));
-  } else if (action.homeActionItem.onDispatchAction != null) {
+  else if (action.homeActionItem.onDispatchAction != null)
     action.homeActionItem.onDispatchAction(action.context, action.store);
-  }
 
   return state;
 }
