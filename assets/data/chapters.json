@@ -1,7 +1,8 @@
 [
     {
         "id": 1,
-        "title": "الفاتحة",
+        "fullTitle": "الفاتحة",
+        "cleanTitle": "الفاتحه",
         "order": 5,
         "partNumber": 1,
         "versesCount": 7,
@@ -9,7 +10,8 @@
     },
     {
         "id": 2,
-        "title": "البَقَرَة",
+        "fullTitle": "البَقَرَة",
+        "cleanTitle": "البقره",
         "order": 87,
         "partNumber": 1,
         "versesCount": 286,
@@ -17,7 +19,8 @@
     },
     {
         "id": 3,
-        "title": "آل عِمرَان",
+        "fullTitle": "آل عِمرَان",
+        "cleanTitle": "ال عمران",
         "order": 89,
         "partNumber": 3,
         "versesCount": 200,
@@ -25,7 +28,8 @@
     },
     {
         "id": 4,
-        "title": "النِّسَاء",
+        "fullTitle": "النِّسَاء",
+        "cleanTitle": "النسا",
         "order": 92,
         "partNumber": 4,
         "versesCount": 176,
@@ -33,7 +37,8 @@
     },
     {
         "id": 5,
-        "title": "المَائدة",
+        "fullTitle": "المَائدة",
+        "cleanTitle": "المائده",
         "order": 112,
         "partNumber": 6,
         "versesCount": 120,
@@ -41,7 +46,8 @@
     },
     {
         "id": 6,
-        "title": "الأنعَام",
+        "fullTitle": "الأنعَام",
+        "cleanTitle": "الانعام",
         "order": 55,
         "partNumber": 7,
         "versesCount": 165,
@@ -49,7 +55,8 @@
     },
     {
         "id": 7,
-        "title": "الأعرَاف",
+        "fullTitle": "الأعرَاف",
+        "cleanTitle": "الاعراف",
         "order": 39,
         "partNumber": 8,
         "versesCount": 206,
@@ -57,7 +64,8 @@
     },
     {
         "id": 8,
-        "title": "الأنفَال",
+        "fullTitle": "الأنفَال",
+        "cleanTitle": "الانفال",
         "order": 88,
         "partNumber": 9,
         "versesCount": 75,
@@ -65,7 +73,8 @@
     },
     {
         "id": 9,
-        "title": "التوبَة",
+        "fullTitle": "التوبَة",
+        "cleanTitle": "التوبه",
         "order": 113,
         "partNumber": 10,
         "versesCount": 129,
@@ -73,7 +82,8 @@
     },
     {
         "id": 10,
-        "title": "يُونس",
+        "fullTitle": "يُونس",
+        "cleanTitle": "يونس",
         "order": 51,
         "partNumber": 11,
         "versesCount": 109,
@@ -81,7 +91,8 @@
     },
     {
         "id": 11,
-        "title": "هُود",
+        "fullTitle": "هُود",
+        "cleanTitle": "هود",
         "order": 52,
         "partNumber": 11,
         "versesCount": 123,
@@ -89,7 +100,8 @@
     },
     {
         "id": 12,
-        "title": "يُوسُف",
+        "fullTitle": "يُوسُف",
+        "cleanTitle": "يوسف",
         "order": 53,
         "partNumber": 12,
         "versesCount": 111,
@@ -97,7 +109,8 @@
     },
     {
         "id": 13,
-        "title": "الرَّعْد",
+        "fullTitle": "الرَّعْد",
+        "cleanTitle": "الرعد",
         "order": 96,
         "partNumber": 13,
         "versesCount": 43,
@@ -105,7 +118,8 @@
     },
     {
         "id": 14,
-        "title": "إبراهِيم",
+        "fullTitle": "إبراهِيم",
+        "cleanTitle": "ابراهيم",
         "order": 72,
         "partNumber": 13,
         "versesCount": 52,
@@ -113,7 +127,8 @@
     },
     {
         "id": 15,
-        "title": "الحِجْر",
+        "fullTitle": "الحِجْر",
+        "cleanTitle": "الحجر",
         "order": 54,
         "partNumber": 14,
         "versesCount": 99,
@@ -121,7 +136,8 @@
     },
     {
         "id": 16,
-        "title": "النَّحْل",
+        "fullTitle": "النَّحْل",
+        "cleanTitle": "النحل",
         "order": 70,
         "partNumber": 14,
         "versesCount": 128,
@@ -129,7 +145,8 @@
     },
     {
         "id": 17,
-        "title": "الإسْرَاء",
+        "fullTitle": "الإسْرَاء",
+        "cleanTitle": "الاسرا",
         "order": 50,
         "partNumber": 15,
         "versesCount": 111,
@@ -137,7 +154,8 @@
     },
     {
         "id": 18,
-        "title": "الكهْف",
+        "fullTitle": "الكهْف",
+        "cleanTitle": "الكهف",
         "order": 69,
         "partNumber": 15,
         "versesCount": 110,
@@ -145,7 +163,8 @@
     },
     {
         "id": 19,
-        "title": "مَريَم",
+        "fullTitle": "مَريَم",
+        "cleanTitle": "مريم",
         "order": 44,
         "partNumber": 16,
         "versesCount": 98,
@@ -153,7 +172,8 @@
     },
     {
         "id": 20,
-        "title": "طه",
+        "fullTitle": "طه",
+        "cleanTitle": "طه",
         "order": 45,
         "partNumber": 16,
         "versesCount": 135,
@@ -161,7 +181,8 @@
     },
     {
         "id": 21,
-        "title": "الأنبيَاء",
+        "fullTitle": "الأنبيَاء",
+        "cleanTitle": "الانبيا",
         "order": 73,
         "partNumber": 17,
         "versesCount": 112,
@@ -169,7 +190,8 @@
     },
     {
         "id": 22,
-        "title": "الحَج",
+        "fullTitle": "الحَج",
+        "cleanTitle": "الحج",
         "order": 103,
         "partNumber": 17,
         "versesCount": 78,
@@ -177,7 +199,8 @@
     },
     {
         "id": 23,
-        "title": "المُؤمنون",
+        "fullTitle": "المُؤمنون",
+        "cleanTitle": "المومنون",
         "order": 74,
         "partNumber": 18,
         "versesCount": 118,
@@ -185,7 +208,8 @@
     },
     {
         "id": 24,
-        "title": "النُّور",
+        "fullTitle": "النُّور",
+        "cleanTitle": "النور",
         "order": 102,
         "partNumber": 18,
         "versesCount": 64,
@@ -193,7 +217,8 @@
     },
     {
         "id": 25,
-        "title": "الفُرْقان",
+        "fullTitle": "الفُرْقان",
+        "cleanTitle": "الفرقان",
         "order": 42,
         "partNumber": 18,
         "versesCount": 77,
@@ -201,7 +226,8 @@
     },
     {
         "id": 26,
-        "title": "الشُّعَرَاء",
+        "fullTitle": "الشُّعَرَاء",
+        "cleanTitle": "الشعرا",
         "order": 47,
         "partNumber": 19,
         "versesCount": 227,
@@ -209,7 +235,8 @@
     },
     {
         "id": 27,
-        "title": "النَّمْل",
+        "fullTitle": "النَّمْل",
+        "cleanTitle": "النمل",
         "order": 48,
         "partNumber": 19,
         "versesCount": 93,
@@ -217,7 +244,8 @@
     },
     {
         "id": 28,
-        "title": "القَصَص",
+        "fullTitle": "القَصَص",
+        "cleanTitle": "القصص",
         "order": 49,
         "partNumber": 20,
         "versesCount": 88,
@@ -225,7 +253,8 @@
     },
     {
         "id": 29,
-        "title": "العَنكبوت",
+        "fullTitle": "العَنكبوت",
+        "cleanTitle": "العنكبوت",
         "order": 85,
         "partNumber": 20,
         "versesCount": 69,
@@ -233,7 +262,8 @@
     },
     {
         "id": 30,
-        "title": "الرُّوم",
+        "fullTitle": "الرُّوم",
+        "cleanTitle": "الروم",
         "order": 84,
         "partNumber": 21,
         "versesCount": 60,
@@ -241,7 +271,8 @@
     },
     {
         "id": 31,
-        "title": "لقمَان",
+        "fullTitle": "لقمَان",
+        "cleanTitle": "لقمان",
         "order": 57,
         "partNumber": 21,
         "versesCount": 34,
@@ -249,7 +280,8 @@
     },
     {
         "id": 32,
-        "title": "السَّجدَة",
+        "fullTitle": "السَّجدَة",
+        "cleanTitle": "السجده",
         "order": 75,
         "partNumber": 21,
         "versesCount": 30,
@@ -257,7 +289,8 @@
     },
     {
         "id": 33,
-        "title": "الأحزَاب",
+        "fullTitle": "الأحزَاب",
+        "cleanTitle": "الاحزاب",
         "order": 90,
         "partNumber": 21,
         "versesCount": 73,
@@ -265,7 +298,8 @@
     },
     {
         "id": 34,
-        "title": "سَبَأ",
+        "fullTitle": "سَبَأ",
+        "cleanTitle": "سبا",
         "order": 58,
         "partNumber": 22,
         "versesCount": 54,
@@ -273,7 +307,8 @@
     },
     {
         "id": 35,
-        "title": "فَاطِر",
+        "fullTitle": "فَاطِر",
+        "cleanTitle": "فاطر",
         "order": 43,
         "partNumber": 22,
         "versesCount": 45,
@@ -281,7 +316,8 @@
     },
     {
         "id": 36,
-        "title": "يس",
+        "fullTitle": "يس",
+        "cleanTitle": "يس",
         "order": 41,
         "partNumber": 22,
         "versesCount": 83,
@@ -289,7 +325,8 @@
     },
     {
         "id": 37,
-        "title": "الصَّافات",
+        "fullTitle": "الصَّافات",
+        "cleanTitle": "الصافات",
         "order": 56,
         "partNumber": 23,
         "versesCount": 182,
@@ -297,7 +334,8 @@
     },
     {
         "id": 38,
-        "title": "ص",
+        "fullTitle": "ص",
+        "cleanTitle": "ص",
         "order": 38,
         "partNumber": 23,
         "versesCount": 88,
@@ -305,7 +343,8 @@
     },
     {
         "id": 39,
-        "title": "الزُّمَر",
+        "fullTitle": "الزُّمَر",
+        "cleanTitle": "الزمر",
         "order": 59,
         "partNumber": 23,
         "versesCount": 75,
@@ -313,7 +352,8 @@
     },
     {
         "id": 40,
-        "title": "غَافِر",
+        "fullTitle": "غَافِر",
+        "cleanTitle": "غافر",
         "order": 60,
         "partNumber": 24,
         "versesCount": 85,
@@ -321,7 +361,8 @@
     },
     {
         "id": 41,
-        "title": "فُصِّلَتْ",
+        "fullTitle": "فُصِّلَتْ",
+        "cleanTitle": "فصلت",
         "order": 61,
         "partNumber": 24,
         "versesCount": 54,
@@ -329,7 +370,8 @@
     },
     {
         "id": 42,
-        "title": "الشُّورَى",
+        "fullTitle": "الشُّورَى",
+        "cleanTitle": "الشورى",
         "order": 62,
         "partNumber": 25,
         "versesCount": 53,
@@ -337,7 +379,8 @@
     },
     {
         "id": 43,
-        "title": "الزُّخْرُف",
+        "fullTitle": "الزُّخْرُف",
+        "cleanTitle": "الزخرف",
         "order": 63,
         "partNumber": 25,
         "versesCount": 89,
@@ -345,7 +388,8 @@
     },
     {
         "id": 44,
-        "title": "الدخَان",
+        "fullTitle": "الدخَان",
+        "cleanTitle": "الدخان",
         "order": 64,
         "partNumber": 25,
         "versesCount": 59,
@@ -353,7 +397,8 @@
     },
     {
         "id": 45,
-        "title": "الجَاثيَة",
+        "fullTitle": "الجَاثيَة",
+        "cleanTitle": "الجاثيه",
         "order": 65,
         "partNumber": 25,
         "versesCount": 37,
@@ -361,7 +406,8 @@
     },
     {
         "id": 46,
-        "title": "الأحْقاف",
+        "fullTitle": "الأحْقاف",
+        "cleanTitle": "الاحقاف",
         "order": 66,
         "partNumber": 26,
         "versesCount": 35,
@@ -369,7 +415,8 @@
     },
     {
         "id": 47,
-        "title": "محَمَّد",
+        "fullTitle": "محَمَّد",
+        "cleanTitle": "محمد",
         "order": 95,
         "partNumber": 26,
         "versesCount": 38,
@@ -377,7 +424,8 @@
     },
     {
         "id": 48,
-        "title": "الفَتْح",
+        "fullTitle": "الفَتْح",
+        "cleanTitle": "الفتح",
         "order": 111,
         "partNumber": 26,
         "versesCount": 29,
@@ -385,7 +433,8 @@
     },
     {
         "id": 49,
-        "title": "الحُجرَات",
+        "fullTitle": "الحُجرَات",
+        "cleanTitle": "الحجرات",
         "order": 106,
         "partNumber": 26,
         "versesCount": 18,
@@ -393,7 +442,8 @@
     },
     {
         "id": 50,
-        "title": "ق",
+        "fullTitle": "ق",
+        "cleanTitle": "ق",
         "order": 34,
         "partNumber": 26,
         "versesCount": 45,
@@ -401,7 +451,8 @@
     },
     {
         "id": 51,
-        "title": "الذَّاريَات",
+        "fullTitle": "الذَّاريَات",
+        "cleanTitle": "الذاريات",
         "order": 67,
         "partNumber": 26,
         "versesCount": 60,
@@ -409,7 +460,8 @@
     },
     {
         "id": 52,
-        "title": "الطُّور",
+        "fullTitle": "الطُّور",
+        "cleanTitle": "الطور",
         "order": 76,
         "partNumber": 27,
         "versesCount": 49,
@@ -417,7 +469,8 @@
     },
     {
         "id": 53,
-        "title": "النَّجْم",
+        "fullTitle": "النَّجْم",
+        "cleanTitle": "النجم",
         "order": 23,
         "partNumber": 27,
         "versesCount": 62,
@@ -425,7 +478,8 @@
     },
     {
         "id": 54,
-        "title": "القَمَر",
+        "fullTitle": "القَمَر",
+        "cleanTitle": "القمر",
         "order": 37,
         "partNumber": 27,
         "versesCount": 55,
@@ -433,7 +487,8 @@
     },
     {
         "id": 55,
-        "title": "الرَّحمن",
+        "fullTitle": "الرَّحمن",
+        "cleanTitle": "الرحمن",
         "order": 97,
         "partNumber": 27,
         "versesCount": 78,
@@ -441,7 +496,8 @@
     },
     {
         "id": 56,
-        "title": "الوَاقِعَة",
+        "fullTitle": "الوَاقِعَة",
+        "cleanTitle": "الواقعه",
         "order": 46,
         "partNumber": 27,
         "versesCount": 96,
@@ -449,7 +505,8 @@
     },
     {
         "id": 57,
-        "title": "الحَديد",
+        "fullTitle": "الحَديد",
+        "cleanTitle": "الحديد",
         "order": 94,
         "partNumber": 27,
         "versesCount": 29,
@@ -457,7 +514,8 @@
     },
     {
         "id": 58,
-        "title": "المجَادلة",
+        "fullTitle": "المجَادلة",
+        "cleanTitle": "المجادله",
         "order": 105,
         "partNumber": 28,
         "versesCount": 22,
@@ -465,7 +523,8 @@
     },
     {
         "id": 59,
-        "title": "الحَشر",
+        "fullTitle": "الحَشر",
+        "cleanTitle": "الحشر",
         "order": 101,
         "partNumber": 28,
         "versesCount": 24,
@@ -473,7 +532,8 @@
     },
     {
         "id": 60,
-        "title": "المُمتَحنَة",
+        "fullTitle": "المُمتَحنَة",
+        "cleanTitle": "الممتحنه",
         "order": 91,
         "partNumber": 28,
         "versesCount": 13,
@@ -481,7 +541,8 @@
     },
     {
         "id": 61,
-        "title": "الصَّف",
+        "fullTitle": "الصَّف",
+        "cleanTitle": "الصف",
         "order": 109,
         "partNumber": 28,
         "versesCount": 14,
@@ -489,7 +550,8 @@
     },
     {
         "id": 62,
-        "title": "الجُمُعَة",
+        "fullTitle": "الجُمُعَة",
+        "cleanTitle": "الجمعه",
         "order": 110,
         "partNumber": 28,
         "versesCount": 11,
@@ -497,7 +559,8 @@
     },
     {
         "id": 63,
-        "title": "المنَافِقون",
+        "fullTitle": "المنَافِقون",
+        "cleanTitle": "المنافقون",
         "order": 104,
         "partNumber": 28,
         "versesCount": 11,
@@ -505,7 +568,8 @@
     },
     {
         "id": 64,
-        "title": "التغَابُن",
+        "fullTitle": "التغَابُن",
+        "cleanTitle": "التغابن",
         "order": 108,
         "partNumber": 28,
         "versesCount": 18,
@@ -513,7 +577,8 @@
     },
     {
         "id": 65,
-        "title": "الطلَاق",
+        "fullTitle": "الطلَاق",
+        "cleanTitle": "الطلاق",
         "order": 99,
         "partNumber": 28,
         "versesCount": 12,
@@ -521,7 +586,8 @@
     },
     {
         "id": 66,
-        "title": "التحْريم",
+        "fullTitle": "التحْريم",
+        "cleanTitle": "التحريم",
         "order": 107,
         "partNumber": 28,
         "versesCount": 12,
@@ -529,7 +595,8 @@
     },
     {
         "id": 67,
-        "title": "المُلْك",
+        "fullTitle": "المُلْك",
+        "cleanTitle": "الملک",
         "order": 77,
         "partNumber": 29,
         "versesCount": 30,
@@ -537,7 +604,8 @@
     },
     {
         "id": 68,
-        "title": "القَلَم",
+        "fullTitle": "القَلَم",
+        "cleanTitle": "القلم",
         "order": 2,
         "partNumber": 29,
         "versesCount": 52,
@@ -545,7 +613,8 @@
     },
     {
         "id": 69,
-        "title": "الحَاقَّة",
+        "fullTitle": "الحَاقَّة",
+        "cleanTitle": "الحاقه",
         "order": 78,
         "partNumber": 29,
         "versesCount": 52,
@@ -553,7 +622,8 @@
     },
     {
         "id": 70,
-        "title": "المعَارج",
+        "fullTitle": "المعَارج",
+        "cleanTitle": "المعارج",
         "order": 79,
         "partNumber": 29,
         "versesCount": 44,
@@ -561,7 +631,8 @@
     },
     {
         "id": 71,
-        "title": "نُوح",
+        "fullTitle": "نُوح",
+        "cleanTitle": "نوح",
         "order": 71,
         "partNumber": 29,
         "versesCount": 28,
@@ -569,7 +640,8 @@
     },
     {
         "id": 72,
-        "title": "الجِن",
+        "fullTitle": "الجِن",
+        "cleanTitle": "الجن",
         "order": 40,
         "partNumber": 29,
         "versesCount": 28,
@@ -577,7 +649,8 @@
     },
     {
         "id": 73,
-        "title": "المُزَّمِّل",
+        "fullTitle": "المُزَّمِّل",
+        "cleanTitle": "المزمل",
         "order": 3,
         "partNumber": 29,
         "versesCount": 20,
@@ -585,7 +658,8 @@
     },
     {
         "id": 74,
-        "title": "المُدَّثِّر",
+        "fullTitle": "المُدَّثِّر",
+        "cleanTitle": "المدثر",
         "order": 4,
         "partNumber": 29,
         "versesCount": 56,
@@ -593,7 +667,8 @@
     },
     {
         "id": 75,
-        "title": "القِيَامَة",
+        "fullTitle": "القِيَامَة",
+        "cleanTitle": "القيامه",
         "order": 31,
         "partNumber": 29,
         "versesCount": 40,
@@ -601,7 +676,8 @@
     },
     {
         "id": 76,
-        "title": "الإنسَان",
+        "fullTitle": "الإنسَان",
+        "cleanTitle": "الانسان",
         "order": 98,
         "partNumber": 29,
         "versesCount": 31,
@@ -609,7 +685,8 @@
     },
     {
         "id": 77,
-        "title": "المُرسَلات",
+        "fullTitle": "المُرسَلات",
+        "cleanTitle": "المرسلات",
         "order": 33,
         "partNumber": 29,
         "versesCount": 50,
@@ -617,7 +694,8 @@
     },
     {
         "id": 78,
-        "title": "النَّبَأ",
+        "fullTitle": "النَّبَأ",
+        "cleanTitle": "النبا",
         "order": 80,
         "partNumber": 30,
         "versesCount": 40,
@@ -625,7 +703,8 @@
     },
     {
         "id": 79,
-        "title": "النّازعَات",
+        "fullTitle": "النّازعَات",
+        "cleanTitle": "النازعات",
         "order": 81,
         "partNumber": 30,
         "versesCount": 46,
@@ -633,7 +712,8 @@
     },
     {
         "id": 80,
-        "title": "عَبَس",
+        "fullTitle": "عَبَس",
+        "cleanTitle": "عبس",
         "order": 24,
         "partNumber": 30,
         "versesCount": 42,
@@ -641,7 +721,8 @@
     },
     {
         "id": 81,
-        "title": "التَّكوير",
+        "fullTitle": "التَّكوير",
+        "cleanTitle": "التكوير",
         "order": 7,
         "partNumber": 30,
         "versesCount": 29,
@@ -649,7 +730,8 @@
     },
     {
         "id": 82,
-        "title": "الانفِطار",
+        "fullTitle": "الانفِطار",
+        "cleanTitle": "الانفطار",
         "order": 82,
         "partNumber": 30,
         "versesCount": 19,
@@ -657,7 +739,8 @@
     },
     {
         "id": 83,
-        "title": "المطفِّفِين",
+        "fullTitle": "المطفِّفِين",
+        "cleanTitle": "المطففين",
         "order": 86,
         "partNumber": 30,
         "versesCount": 36,
@@ -665,7 +748,8 @@
     },
     {
         "id": 84,
-        "title": "الانْشِقَاق",
+        "fullTitle": "الانْشِقَاق",
+        "cleanTitle": "الانشقاق",
         "order": 83,
         "partNumber": 30,
         "versesCount": 25,
@@ -673,7 +757,8 @@
     },
     {
         "id": 85,
-        "title": "البرُوج",
+        "fullTitle": "البرُوج",
+        "cleanTitle": "البروج",
         "order": 27,
         "partNumber": 30,
         "versesCount": 22,
@@ -681,7 +766,8 @@
     },
     {
         "id": 86,
-        "title": "الطَّارِق",
+        "fullTitle": "الطَّارِق",
+        "cleanTitle": "الطارق",
         "order": 36,
         "partNumber": 30,
         "versesCount": 17,
@@ -689,7 +775,8 @@
     },
     {
         "id": 87,
-        "title": "الأَعْلى",
+        "fullTitle": "الأَعْلى",
+        "cleanTitle": "الاعلى",
         "order": 8,
         "partNumber": 30,
         "versesCount": 19,
@@ -697,7 +784,8 @@
     },
     {
         "id": 88,
-        "title": "الغَاشِية",
+        "fullTitle": "الغَاشِية",
+        "cleanTitle": "الغاشيه",
         "order": 68,
         "partNumber": 30,
         "versesCount": 26,
@@ -705,7 +793,8 @@
     },
     {
         "id": 89,
-        "title": "الفَجْر",
+        "fullTitle": "الفَجْر",
+        "cleanTitle": "الفجر",
         "order": 10,
         "partNumber": 30,
         "versesCount": 30,
@@ -713,7 +802,8 @@
     },
     {
         "id": 90,
-        "title": "البَلَد",
+        "fullTitle": "البَلَد",
+        "cleanTitle": "البلد",
         "order": 35,
         "partNumber": 30,
         "versesCount": 20,
@@ -721,7 +811,8 @@
     },
     {
         "id": 91,
-        "title": "الشَّمْس",
+        "fullTitle": "الشَّمْس",
+        "cleanTitle": "الشمس",
         "order": 26,
         "partNumber": 30,
         "versesCount": 15,
@@ -729,7 +820,8 @@
     },
     {
         "id": 92,
-        "title": "الليْل",
+        "fullTitle": "الليْل",
+        "cleanTitle": "الليل",
         "order": 9,
         "partNumber": 30,
         "versesCount": 21,
@@ -737,7 +829,8 @@
     },
     {
         "id": 93,
-        "title": "الضُّحَى",
+        "fullTitle": "الضُّحَى",
+        "cleanTitle": "الضحى",
         "order": 11,
         "partNumber": 30,
         "versesCount": 11,
@@ -745,7 +838,8 @@
     },
     {
         "id": 94,
-        "title": "الشَّرْح",
+        "fullTitle": "الشَّرْح",
+        "cleanTitle": "الشرح",
         "order": 12,
         "partNumber": 30,
         "versesCount": 8,
@@ -753,7 +847,8 @@
     },
     {
         "id": 95,
-        "title": "التِّين",
+        "fullTitle": "التِّين",
+        "cleanTitle": "التين",
         "order": 28,
         "partNumber": 30,
         "versesCount": 8,
@@ -761,7 +856,8 @@
     },
     {
         "id": 96,
-        "title": "العَلَق",
+        "fullTitle": "العَلَق",
+        "cleanTitle": "العلق",
         "order": 1,
         "partNumber": 30,
         "versesCount": 19,
@@ -769,7 +865,8 @@
     },
     {
         "id": 97,
-        "title": "القَدْر",
+        "fullTitle": "القَدْر",
+        "cleanTitle": "القدر",
         "order": 25,
         "partNumber": 30,
         "versesCount": 5,
@@ -777,7 +874,8 @@
     },
     {
         "id": 98,
-        "title": "البَينَة",
+        "fullTitle": "البَينَة",
+        "cleanTitle": "البينه",
         "order": 100,
         "partNumber": 30,
         "versesCount": 8,
@@ -785,7 +883,8 @@
     },
     {
         "id": 99,
-        "title": "الزلزَلة",
+        "fullTitle": "الزلزَلة",
+        "cleanTitle": "الزلزله",
         "order": 93,
         "partNumber": 30,
         "versesCount": 8,
@@ -793,7 +892,8 @@
     },
     {
         "id": 100,
-        "title": "العَادِيات",
+        "fullTitle": "العَادِيات",
+        "cleanTitle": "العاديات",
         "order": 14,
         "partNumber": 30,
         "versesCount": 11,
@@ -801,7 +901,8 @@
     },
     {
         "id": 101,
-        "title": "القَارِعة",
+        "fullTitle": "القَارِعة",
+        "cleanTitle": "القارعه",
         "order": 30,
         "partNumber": 30,
         "versesCount": 11,
@@ -809,7 +910,8 @@
     },
     {
         "id": 102,
-        "title": "التَّكَاثر",
+        "fullTitle": "التَّكَاثر",
+        "cleanTitle": "التكاثر",
         "order": 16,
         "partNumber": 30,
         "versesCount": 8,
@@ -817,7 +919,8 @@
     },
     {
         "id": 103,
-        "title": "العَصْر",
+        "fullTitle": "العَصْر",
+        "cleanTitle": "العصر",
         "order": 13,
         "partNumber": 30,
         "versesCount": 3,
@@ -825,7 +928,8 @@
     },
     {
         "id": 104,
-        "title": "الهُمَزَة",
+        "fullTitle": "الهُمَزَة",
+        "cleanTitle": "الهمزه",
         "order": 32,
         "partNumber": 30,
         "versesCount": 9,
@@ -833,7 +937,8 @@
     },
     {
         "id": 105,
-        "title": "الفِيل",
+        "fullTitle": "الفِيل",
+        "cleanTitle": "الفيل",
         "order": 19,
         "partNumber": 30,
         "versesCount": 5,
@@ -841,7 +946,8 @@
     },
     {
         "id": 106,
-        "title": "قُرَيْش",
+        "fullTitle": "قُرَيْش",
+        "cleanTitle": "قريش",
         "order": 29,
         "partNumber": 30,
         "versesCount": 4,
@@ -849,7 +955,8 @@
     },
     {
         "id": 107,
-        "title": "المَاعُون",
+        "fullTitle": "المَاعُون",
+        "cleanTitle": "الماعون",
         "order": 17,
         "partNumber": 30,
         "versesCount": 7,
@@ -857,7 +964,8 @@
     },
     {
         "id": 108,
-        "title": "الكَوْثَر",
+        "fullTitle": "الكَوْثَر",
+        "cleanTitle": "الكوثر",
         "order": 15,
         "partNumber": 30,
         "versesCount": 3,
@@ -865,7 +973,8 @@
     },
     {
         "id": 109,
-        "title": "الكَافِرُون",
+        "fullTitle": "الكَافِرُون",
+        "cleanTitle": "الكافرون",
         "order": 18,
         "partNumber": 30,
         "versesCount": 6,
@@ -873,7 +982,8 @@
     },
     {
         "id": 110,
-        "title": "النَّصر",
+        "fullTitle": "النَّصر",
+        "cleanTitle": "النصر",
         "order": 114,
         "partNumber": 30,
         "versesCount": 3,
@@ -881,7 +991,8 @@
     },
     {
         "id": 111,
-        "title": "المَسَد",
+        "fullTitle": "المَسَد",
+        "cleanTitle": "المسد",
         "order": 6,
         "partNumber": 30,
         "versesCount": 5,
@@ -889,7 +1000,8 @@
     },
     {
         "id": 112,
-        "title": "الإخْلَاص",
+        "fullTitle": "الإخْلَاص",
+        "cleanTitle": "الاخلاص",
         "order": 22,
         "partNumber": 30,
         "versesCount": 4,
@@ -897,7 +1009,8 @@
     },
     {
         "id": 113,
-        "title": "الفَلَق",
+        "fullTitle": "الفَلَق",
+        "cleanTitle": "الفلق",
         "order": 20,
         "partNumber": 30,
         "versesCount": 5,
@@ -905,7 +1018,8 @@
     },
     {
         "id": 114,
-        "title": "النَّاس",
+        "fullTitle": "النَّاس",
+        "cleanTitle": "الناس",
         "order": 21,
         "partNumber": 30,
         "versesCount": 6,

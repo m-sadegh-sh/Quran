@@ -19,7 +19,10 @@ class ChapterRepository {
   }
   
   Future<List<ChapterItem>> searchAll(String homeSearchQuery) async {
-    return (await findAll()).where((ci) => ci.title.contains(homeSearchQuery)).toList();
+    return (await findAll()).where((ci) => 
+      ci.fullTitle.contains(homeSearchQuery) ||
+      ci.cleanTitle.contains(homeSearchQuery)
+    ).toList();
   }
   
   Future _init() async {

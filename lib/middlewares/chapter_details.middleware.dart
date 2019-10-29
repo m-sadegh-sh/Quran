@@ -82,7 +82,7 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
         final content = AppLocalizations.of(castedAction.context).translateFormatted(
           'chapter-details-share-verse-item',
           {
-            'chapterTitle': castedAction.chapterDetailsChapterItem.title,
+            'chapterFullTitle': castedAction.chapterDetailsChapterItem.fullTitle,
             'chapterTranslationText': castedAction.chapterDetailsChapterTranslationItem.text,
             'verseFullText': castedAction.chapterDetailsVerseItem.fullText,
             'verseTranslationText': castedAction.chapterDetailsVerseTranslationItem.text,

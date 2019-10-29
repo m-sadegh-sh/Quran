@@ -94,7 +94,7 @@ class ChapterDetailsScreen extends StatelessWidget {
     return SizedBox(
       height: kTextTabBarHeight,
       child: Text(
-        chapterDetailsChapterItem.title,
+        chapterDetailsChapterItem.fullTitle,
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.overline
       )

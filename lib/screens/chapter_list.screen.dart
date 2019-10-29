@@ -48,7 +48,7 @@ class ChapterListScreen extends StatelessWidget {
           index: index,
           chapterItem: ChapterItem(
             id: index + 1,
-            title: ''
+            fullTitle: ''
           ),
           onChapterItemTapped: chapterListOnChapterItemTapped,
           settingsTranslatorId: settingsTranslatorId

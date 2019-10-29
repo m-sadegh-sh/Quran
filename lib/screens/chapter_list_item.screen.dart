@@ -53,9 +53,9 @@ class ChapterListItemScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildChapterTitle(BuildContext context, bool shimmed) {
+  Widget _buildChapterFullTitle(BuildContext context, bool shimmed) {
     return Text(
-      shimmed == true ? '' : chapterItem.title,
+      shimmed == true ? '' : chapterItem.fullTitle,
       style: Theme.of(context).textTheme.title
     );
   }
@@ -133,7 +133,7 @@ class ChapterListItemScreen extends StatelessWidget {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
-                            _buildChapterTitle(context, shimmed),
+                            _buildChapterFullTitle(context, shimmed),
                             Container(
                               margin: const EdgeInsets.only(top: 5.0),
                               child: _buildChapterTranslationText(context, snapshot.data, shimmed)
@@ -187,7 +187,7 @@ class ChapterListItemScreen extends StatelessWidget {
                           Container(
                             width: double.infinity,
                             color: Theme.of(context).textTheme.title.color.withOpacity(0.5),
-                            child: _buildChapterTitle(context, true)
+                            child: _buildChapterFullTitle(context, true)
                           ),
                           Container(
                             width: double.infinity,

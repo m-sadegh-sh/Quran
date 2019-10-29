@@ -7,7 +7,8 @@ import 'package:quran/items/chapter_translation.item.dart';
 
 class ChapterItem {
   final int id;
-  final String title;
+  final String fullTitle;
+  final String cleanTitle;
   final int order;
   final int partNumber;
   final int versesCount;
@@ -15,7 +16,8 @@ class ChapterItem {
 
   ChapterItem({
     this.id,
-    this.title,
+    this.fullTitle,
+    this.cleanTitle,
     this.order,
     this.partNumber,
     this.versesCount,
@@ -29,7 +31,8 @@ class ChapterItem {
   factory ChapterItem.fromJson(dynamic parsedJson) {
     return ChapterItem(
       id: parsedJson['id'],
-      title: parsedJson['title'],
+      fullTitle: parsedJson['fullTitle'],
+      cleanTitle: parsedJson['cleanTitle'],
       order: parsedJson['order'],
       partNumber: parsedJson['partNumber'],
       versesCount: parsedJson['versesCount'],
