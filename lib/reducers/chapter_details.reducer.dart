@@ -32,7 +32,7 @@ ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetail
 }
 
 ChapterDetailsState _chapterDetailsLoadSucceeded(ChapterDetailsState state, ChapterDetailsLoadSucceededAction action) {
-  if(action.chapterDetailsNavigateToContainer)
+  if(action.chapterDetailsNavigateToContainer ?? false)
     Navigator.of(action.context)
       .push(PageTransition(
         curve: Curves.easeInOutQuart,

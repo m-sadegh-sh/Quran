@@ -3,7 +3,7 @@ import 'package:flutter_redux/flutter_redux.dart';
 import 'package:logging/logging.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
-import 'package:kiwi/kiwi.dart' as wiki;
+import 'package:kiwi/kiwi.dart' as kiwi;
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/settings.action.dart';
@@ -37,9 +37,9 @@ void main() {
 }
 
 void _registerDependencies() {
-  var container = wiki.Container();
+  final container = kiwi.Container();
 
-  container.registerSingleton((c) => TranslatorRepository());
+  container.registerSingleton((c) => TranslatorRepository(),);
   container.registerSingleton((c) => ChapterRepository());
   container.registerSingleton((c) => ChapterTranslationRepository());
   container.registerSingleton((c) => VerseRepository());

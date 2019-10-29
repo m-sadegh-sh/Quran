@@ -58,6 +58,7 @@ Middleware<RootState> _createChapterDetailsLoad() {
         );
 
       store.dispatch(ChapterDetailsLoadSucceededAction(
+        context: castedAction.context,
         chapterDetailsVerseItems: verseListItems,
         chapterDetailsNavigateToContainer: castedAction.chapterDetailsNavigateToContainer
       ));

@@ -20,12 +20,14 @@ class ChapterDetailsReloadInitialStateSucceededAction {
 class ChapterDetailsReloadInitialStateFailedAction { }
 
 class ChapterDetailsLoadAction {
+  final BuildContext context;
   final ChapterItem chapterDetailsChapterItem;
   final int settingsTranslatorId;
   final String chapterDetailsSearchQuery;
   final bool chapterDetailsNavigateToContainer;
 
   ChapterDetailsLoadAction({
+    this.context,
     this.chapterDetailsChapterItem,
     this.settingsTranslatorId,
     this.chapterDetailsSearchQuery,

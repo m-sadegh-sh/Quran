@@ -53,6 +53,7 @@ Middleware<RootState> _createChapterListItemTapped() {
       final castedAction = action as ChapterListItemTappedAction;
 
       store.dispatch(ChapterDetailsLoadAction(
+        context: action.context,
         chapterDetailsChapterItem: castedAction.chapterListTappedItem,
         settingsTranslatorId: castedAction.settingsTranslatorId,
         chapterDetailsNavigateToContainer: true

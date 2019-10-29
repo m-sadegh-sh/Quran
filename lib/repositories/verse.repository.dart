@@ -27,6 +27,19 @@ class VerseRepository {
   Future<List<VerseItem>> findAllTranslated(int chapterId, int settingsTranslatorId) async {
     final verseTranslationRepository = Container().resolve<VerseTranslationRepository>();
 
+    // final verseItems = await findAllByChapterId(chapterId);
+    // final translatedVerseItems = new List<VerseItem>();
+
+    // for (var verseItem in verseItems) {
+    //   translatedVerseItems.add(
+    //     VerseItem.toTranslated(
+    //       verseItem,
+    //       await verseTranslationRepository.findTranslationText(verseItem.id, settingsTranslatorId)
+    //     )
+    //   );
+    // }
+
+    // return translatedVerseItems;
     return Future.wait((await findAllByChapterId(chapterId)).map((v) async =>
       VerseItem.toTranslated(v, await verseTranslationRepository.findTranslationText(v.id, settingsTranslatorId))
     ));

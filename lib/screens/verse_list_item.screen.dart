@@ -85,7 +85,7 @@ class VerseListItemScreen extends StatelessWidget {
     return Slidable(
       enabled: verseItem.showVerseId,
       controller: verseItemSlidableController,
-      delegate: SlidableDrawerDelegate(),
+      actionPane: SlidableDrawerActionPane(),
       actionExtentRatio: 0.25,
       actions: verseItemOnGenerateSlidableActions(context, chapterItem, verseItem),
       child: Material(
