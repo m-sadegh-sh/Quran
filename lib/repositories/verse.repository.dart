@@ -20,30 +20,22 @@ class VerseRepository {
     return _cachedEntities;
   }
   
-  Future<List<VerseItem>> findAllTranslated(int chapterId, int settingTranslatorId) async {
+  Future<List<VerseItem>> findAllTranslated(int chapterId, int settingsTranslatorId) async {
     final verseTranslationRepository = Container().resolve<VerseTranslationRepository>();
 
     return Future.wait((await findAll()).map((v) async =>
-      VerseItem.toTranslated(v, await verseTranslationRepository.findTranslationText(v.id, settingTranslatorId))
+      VerseItem.toTranslated(v, await verseTranslationRepository.findTranslationText(v.id, settingsTranslatorId))
     ));
   }
   
-  Future<List<VerseItem>> searchAll(int chapterId, int settingTranslatorId, String chapterDetailsSearchQuery) async {
-    return (await findAllTranslated(chapterId, settingTranslatorId)).where((ci) => 
+  Future<List<VerseItem>> searchAllTranslated(int chapterId, int settingsTranslatorId, String chapterDetailsSearchQuery) async {
+    return (await findAllTranslated(chapterId, settingsTranslatorId)).where((ci) => 
       ci.fullText.contains(chapterDetailsSearchQuery) ||
       ci.cleanText.contains(chapterDetailsSearchQuery) ||
       ci.translatedText.contains(chapterDetailsSearchQuery)
     ).toList();
   }
-  
-  Future<List<VerseItem>> findAllByChapterId(int chapterId) async {
-    return (await findAll()).where((vi) => vi.chapterId == chapterId).toList();
-  }
 
-  Future<VerseItem> findOneById(int id) async {
-    return (await findAll()).singleWhere((vi) => vi.id == id);
-  }
-  
   Future _init() async {
     final key = 'assets/data/verses.json';
 

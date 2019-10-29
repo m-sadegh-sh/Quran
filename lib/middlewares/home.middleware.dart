@@ -10,6 +10,8 @@ import 'package:quran/actions/home.action.dart';
 List<Middleware<RootState>> createHomeMiddleware() {
   return [
     TypedMiddleware<RootState, HomeReloadInitialStateAction>(_createHomeReloadInitialState()),
+    TypedMiddleware<RootState, HomeSearchOpenAction>(_createHomeSearchOpen()),
+    TypedMiddleware<RootState, HomeSearchCloseAction>(_createHomeSearchClose()),
     TypedMiddleware<RootState, HomeSearchQueryChangingAction>(_createHomeSearchQueryChanging()),
     TypedMiddleware<RootState, HomeActionChildItemPressedAction>(_createHomeActionChildItemPressed())
   ];
@@ -29,6 +31,33 @@ Middleware<RootState> _createHomeReloadInitialState() {
   };
 }
 
+Middleware<RootState> _createHomeSearchOpen() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      await Future.delayed(Duration(milliseconds: 50));
+
+      next(action);
+    } catch(exception) {}
+  };
+}
+
+Middleware<RootState> _createHomeSearchClose() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      await Future.delayed(Duration(milliseconds: 50));
+
+      next(action);
+
+      final castedAction = action as HomeSearchCloseAction;
+   
+      store.dispatch(ChapterListLoadAction(
+        settingsTranslatorId: castedAction.settingsTranslatorId,
+        homeSearchQuery: null
+      ));
+    } catch(exception) {}
+  };
+}
+
 Middleware<RootState> _createHomeSearchQueryChanging() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
@@ -37,16 +66,14 @@ Middleware<RootState> _createHomeSearchQueryChanging() {
       final castedAction = action as HomeSearchQueryChangingAction;
    
       store.dispatch(ChapterListLoadAction(
-        settingTranslatorId: castedAction.settingTranslatorId,
+        settingsTranslatorId: castedAction.settingsTranslatorId,
         homeSearchQuery: castedAction.homeSearchChangingQuery
       ));
 
       store.dispatch(HomeSearchQueryChangeSucceededAction(
         homeSearchChangedQuery: castedAction.homeSearchChangingQuery
       ));
-    } catch(exception) {
-      store.dispatch(HomeSearchQueryChangeFailedAction());
-    }
+    } catch(exception) {}
   };
 }
 

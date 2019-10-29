@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:quran/items/chapter.item.dart';
 
 class ChapterListLoadAction {
-  final int settingTranslatorId;
+  final int settingsTranslatorId;
   final String homeSearchQuery;
 
   ChapterListLoadAction({
-    this.settingTranslatorId,
+    this.settingsTranslatorId,
     this.homeSearchQuery
   });
 }
@@ -31,9 +31,11 @@ class ChapterListLoadFailedAction {
 class ChapterListItemTappedAction {
   final BuildContext context;
   final ChapterItem chapterListTappedItem;
+  final int settingsTranslatorId;
 
   ChapterListItemTappedAction({
     this.context,
-    this.chapterListTappedItem
+    this.chapterListTappedItem,
+    this.settingsTranslatorId
   });
 }

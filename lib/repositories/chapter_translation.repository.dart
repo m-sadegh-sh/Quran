@@ -18,9 +18,9 @@ class ChapterTranslationRepository {
     return _cachedEntities;
   }
   
-  Future<String> findTranslationTitle(int chapterId, int settingTranslatorId) async {    
+  Future<String> findTranslationTitle(int chapterId, int settingsTranslatorId) async {    
     return (await findAll()).singleWhere(
-      (cti) => cti.chapterId == chapterId && cti.translatorId == settingTranslatorId
+      (cti) => cti.chapterId == chapterId && cti.translatorId == settingsTranslatorId
     )?.title;
   }
 

@@ -2,5 +2,11 @@
     "files.autoSave": "afterDelay",
     "window.zoomLevel": 2,
     "dart.flutterCreateAndroidLanguage": "kotlin",
-    "dart.flutterCreateIOSLanguage": "swift"
+    "dart.flutterCreateIOSLanguage": "swift",
+    "files.exclude": {
+        "**/.classpath": true,
+        "**/.project": true,
+        "**/.settings": true,
+        "**/.factorypath": true
+    }
 }

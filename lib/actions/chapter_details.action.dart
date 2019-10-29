@@ -21,9 +21,13 @@ class ChapterDetailsReloadInitialStateFailedAction { }
 
 class ChapterDetailsLoadAction {
   final ChapterItem chapterDetailsChapterItem;
+  final int settingsTranslatorId;
+  final String chapterDetailsSearchQuery;
 
   ChapterDetailsLoadAction({
-    this.chapterDetailsChapterItem
+    this.chapterDetailsChapterItem,
+    this.settingsTranslatorId,
+    this.chapterDetailsSearchQuery
   });
 }
 

@@ -1,3 +1,4 @@
+import 'package:quran/items/verse.item.dart';
 import 'package:redux/redux.dart';
 import 'package:kiwi/kiwi.dart';
 
@@ -40,13 +41,24 @@ Middleware<RootState> _createChapterDetailsLoad() {
       next(action);
 
       final castedAction = action as ChapterDetailsLoadAction;
+      final verseRepository = Container().resolve<VerseRepository>();
 
-      final chapterDetailsVerseItems = await Container().resolve<VerseRepository>().findAllByChapterId(
-        castedAction.chapterDetailsChapterItem.id
-      );
-      
+      List<VerseItem> verseListItems;
+
+      if (castedAction.chapterDetailsSearchQuery?.isNotEmpty ?? false)
+        verseListItems = await verseRepository.searchAllTranslated(
+          castedAction.chapterDetailsChapterItem.id,
+          castedAction.settingsTranslatorId,
+          castedAction.chapterDetailsSearchQuery
+        );
+      else
+        verseListItems = await verseRepository.findAllTranslated(
+          castedAction.chapterDetailsChapterItem.id,
+          castedAction.settingsTranslatorId
+        );
+
       store.dispatch(ChapterDetailsLoadSucceededAction(
-        chapterDetailsVerseItems: chapterDetailsVerseItems
+        chapterDetailsVerseItems: verseListItems
       ));
     } catch(exception) {
       store.dispatch(ChapterDetailsLoadFailedAction(

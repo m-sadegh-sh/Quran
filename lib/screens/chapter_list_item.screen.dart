@@ -6,7 +6,7 @@ import 'package:quran/items/chapter.item.dart';
 class ChapterListItemScreen extends StatelessWidget {
   final int index;
   final ChapterItem chapterItem;
-  final Function(BuildContext, ChapterItem) onChapterItemTapped;
+  final Function(BuildContext, ChapterItem, int) onChapterItemTapped;
   final String homeSearchQuery;
   final int settingsTranslatorId;
 
@@ -111,7 +111,7 @@ class ChapterListItemScreen extends StatelessWidget {
     return Material(
       color: isIndicatable ? Theme.of(context).indicatorColor.withOpacity(0.2) : null,
       child: InkWell(
-        onTap: () => onChapterItemTapped(context, chapterItem),
+        onTap: () => onChapterItemTapped(context, chapterItem, settingsTranslatorId),
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Row(

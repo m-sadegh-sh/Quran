@@ -7,8 +7,9 @@ import 'package:quran/actions/home.action.dart';
 
 final Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, HomeReloadInitialStateSucceededAction>(_homeReloadInitialStateSucceeded),
-  TypedReducer<HomeState, HomeSearchQueryChangeSucceededAction>(_homeSearchQueryChangeSucceededAction),
-  TypedReducer<HomeState, HomeSearchQueryChangeFailedAction>(_homeSearchQueryChangeFailedAction),
+  TypedReducer<HomeState, HomeSearchOpenAction>(_homeSearchOpen),
+  TypedReducer<HomeState, HomeSearchCloseAction>(_homeSearchClose),
+  TypedReducer<HomeState, HomeSearchQueryChangeSucceededAction>(_homeSearchQueryChangeSucceeded),
   TypedReducer<HomeState, HomeDrawerItemTappedAction>(_homeDrawerItemTapped),
   TypedReducer<HomeState, HomeActionItemPressedAction>(_homeActionItemPressed),
   TypedReducer<HomeState, HomeActionChildItemPressedAction>(_homeActionChildItemPressed)
@@ -18,14 +19,23 @@ HomeState _homeReloadInitialStateSucceeded(HomeState state, HomeReloadInitialSta
   return action.homeState;
 }
 
-HomeState _homeSearchQueryChangeSucceededAction(HomeState state, HomeSearchQueryChangeSucceededAction action) {
+HomeState _homeSearchOpen(HomeState state, HomeSearchOpenAction action) {
   return state.copyWith(
-    homeSearchQuery: action.homeSearchChangedQuery
+    homeIsSearching: true
   );
 }
 
-HomeState _homeSearchQueryChangeFailedAction(HomeState state, HomeSearchQueryChangeFailedAction action) {
-  return state;
+HomeState _homeSearchClose(HomeState state, HomeSearchCloseAction action) {
+  return state.copyWith(
+    homeIsSearching: false,
+    homeSearchResetQuery: true
+  );
+}
+
+HomeState _homeSearchQueryChangeSucceeded(HomeState state, HomeSearchQueryChangeSucceededAction action) {
+  return state.copyWith(
+    homeSearchQuery: action.homeSearchChangedQuery
+  );
 }
 
 HomeState _homeDrawerItemTapped(HomeState state, HomeDrawerItemTappedAction action) {
@@ -47,8 +57,8 @@ HomeState _homeActionItemPressed(HomeState state, HomeActionItemPressedAction ac
         type: PageTransitionType.rightToLeft,
         child: action.homeActionItem.onGenerateChild(action.context)
       ));
-  } else if (action.homeActionItem.onUpdateState != null) {
-    return action.homeActionItem.onUpdateState(action.context, state);
+  } else if (action.homeActionItem.onDispatchAction != null) {
+    action.homeActionItem.onDispatchAction(action.context, action.store);
   }
 
   return state;

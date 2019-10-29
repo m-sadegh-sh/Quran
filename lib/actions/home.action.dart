@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:redux/redux.dart';
 
 import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/states/home.state.dart';
 import 'package:quran/items/drawer.item.dart';
 import 'package:quran/items/action.item.dart';
+import 'package:quran/states/root.state.dart';
 
 class HomeReloadInitialStateAction { }
 
@@ -18,14 +20,24 @@ class HomeReloadInitialStateSucceededAction {
 
 class HomeReloadInitialStateFailedAction { }
 
+class HomeSearchOpenAction { }
+
+class HomeSearchCloseAction {
+  final int settingsTranslatorId;
+
+  HomeSearchCloseAction({
+    this.settingsTranslatorId
+  });
+}
+
 class HomeSearchQueryChangingAction {
   final BuildContext context;
-  final int settingTranslatorId;
+  final int settingsTranslatorId;
   final String homeSearchChangingQuery;
 
   HomeSearchQueryChangingAction({
     this.context,
-    this.settingTranslatorId,
+    this.settingsTranslatorId,
     this.homeSearchChangingQuery
   });
 }
@@ -37,8 +49,6 @@ class HomeSearchQueryChangeSucceededAction {
     this.homeSearchChangedQuery
   });
 }
-
-class HomeSearchQueryChangeFailedAction { }
 
 class HomeDrawerItemTappedAction {
   final BuildContext context;
@@ -52,10 +62,12 @@ class HomeDrawerItemTappedAction {
 
 class HomeActionItemPressedAction {
   final BuildContext context;
-  final ActionItem<HomeState> homeActionItem;
+  final Store<RootState> store;
+  final ActionItem homeActionItem;
 
   HomeActionItemPressedAction({
     this.context,
+    this.store,
     this.homeActionItem
   });
 }

@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:quran/actions/home.action.dart';
+import 'package:quran/states/root.state.dart';
+import 'package:redux/redux.dart';
 
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/containers/about.container.dart';
@@ -22,7 +25,7 @@ class HomeState {
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
-  final GeneratorW2P<double, bool, List<ActionItem>> homeOnGenerateActionItems;
+  final GeneratorW3P<double, bool, int, List<ActionItem>> homeOnGenerateActionItems;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
 
@@ -65,12 +68,12 @@ class HomeState {
     homeIsSearching: false,
     homeOnGenerateSearchHintText: (BuildContext context) => AppLocalizations.of(context).translate('home-search-hint-text'),
     homeSearchQuery: null,
-    homeOnGenerateActionItems: (BuildContext context, double fontSize, bool homeIsSearching) => [
-      ActionItem<HomeState>(
-        onUpdateState: (BuildContext context, HomeState state) => state.copyWith(
-          homeIsSearching: !state.homeIsSearching,
-          homeSearchResetQuery: true
-        ),
+    homeOnGenerateActionItems: (BuildContext context, double settingsThemeFontSize, bool homeIsSearching, int settingsTranslatorId) => [
+      ActionItem(
+        onDispatchAction: (BuildContext context, Store<RootState> store) =>
+          store.dispatch(
+            homeIsSearching ? HomeSearchCloseAction(settingsTranslatorId: settingsTranslatorId) : HomeSearchOpenAction()
+          ),
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: homeIsSearching ? Icons.close : Icons.search
       ),
@@ -80,17 +83,17 @@ class HomeState {
         children: [
           ActionChildItem(
             actionChildItemType: ActionChildItemType.ChangeFontSize,
-            value: fontSize - 2.0,
+            value: settingsThemeFontSize - 2.0,
             text: AppLocalizations.of(context).translate('home-action-decrease-font-size'),
             icon: Icons.exposure_neg_1,
-            enabled: fontSize > 16.0
+            enabled: settingsThemeFontSize > 16.0
           ),
           ActionChildItem(
             actionChildItemType: ActionChildItemType.ChangeFontSize,
-            value: fontSize + 2.0,
+            value: settingsThemeFontSize + 2.0,
             text: AppLocalizations.of(context).translate('home-action-increase-font-size'),
             icon: Icons.exposure_plus_1,
-            enabled: fontSize < 24.0
+            enabled: settingsThemeFontSize < 24.0
           )
         ]
       )

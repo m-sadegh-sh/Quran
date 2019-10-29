@@ -20,16 +20,16 @@ class ChapterRepository {
     return _cachedEntities;
   }
   
-  Future<List<ChapterItem>> findAllTranslated(int settingTranslatorId) async {
+  Future<List<ChapterItem>> findAllTranslated(int settingsTranslatorId) async {
     final chapterTranslationRepository = Container().resolve<ChapterTranslationRepository>();
 
     return Future.wait((await findAll()).map((c) async =>
-      ChapterItem.toTranslated(c, await chapterTranslationRepository.findTranslationTitle(c.id, settingTranslatorId))
+      ChapterItem.toTranslated(c, await chapterTranslationRepository.findTranslationTitle(c.id, settingsTranslatorId))
     ));
   }
   
-  Future<List<ChapterItem>> searchAllTranslated(int settingTranslatorId, String homeSearchQuery) async {
-    return (await findAllTranslated(settingTranslatorId)).where((ci) => 
+  Future<List<ChapterItem>> searchAllTranslated(int settingsTranslatorId, String homeSearchQuery) async {
+    return (await findAllTranslated(settingsTranslatorId)).where((ci) => 
       ci.fullTitle.contains(homeSearchQuery) ||
       ci.cleanTitle.contains(homeSearchQuery) ||
       ci.translatedTitle.contains(homeSearchQuery)

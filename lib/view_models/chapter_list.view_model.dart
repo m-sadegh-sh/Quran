@@ -16,7 +16,7 @@ class ChapterListViewModel {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function(int, String) chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, ChapterItem, int) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;
@@ -47,16 +47,17 @@ class ChapterListViewModel {
       chapterListItems: chapterListItemsSelector(chapterListState),
       chapterListLoadFailed: chapterListLoadFailedSelector(chapterListState),
       chapterListLoadError: chapterListLoadErrorSelector(chapterListState),
-      chapterListLoad: (int settingTranslatorId, String homeSearchQuery) => 
+      chapterListLoad: (int settingsTranslatorId, String homeSearchQuery) => 
         store.dispatch(ChapterListLoadAction(
-          settingTranslatorId: settingTranslatorId,
+          settingsTranslatorId: settingsTranslatorId,
           homeSearchQuery: homeSearchQuery
         )
       ),
-      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem) =>
+      chapterListOnChapterItemTapped: (BuildContext context, ChapterItem chapterListTappedItem, int settingsTranslatorId) =>
         store.dispatch(ChapterListItemTappedAction(
           context: context,
-          chapterListTappedItem: chapterListTappedItem
+          chapterListTappedItem: chapterListTappedItem,
+          settingsTranslatorId: settingsTranslatorId
         )
       ),
       homeSearchQuery: homeSearchQuerySelector(homeState),

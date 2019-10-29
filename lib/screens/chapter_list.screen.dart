@@ -12,7 +12,7 @@ class ChapterListScreen extends StatelessWidget {
   final bool chapterListLoadFailed;
   final String chapterListLoadError;
   final Function(int, String) chapterListLoad;
-  final Function(BuildContext, ChapterItem) chapterListOnChapterItemTapped;
+  final Function(BuildContext, ChapterItem, int) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
   final Function(double) chapterListOnThemeFontSizeChanging;

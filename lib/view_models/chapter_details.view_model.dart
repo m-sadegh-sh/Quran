@@ -23,7 +23,7 @@ class ChapterDetailsViewModel {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final Function(ChapterItem) chapterDetailsLoad;
+  final Function(ChapterItem, int) chapterDetailsLoad;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final Function(BuildContext, Store<RootState>) chapterDetailsOnSlidableActionTapped;
@@ -76,9 +76,10 @@ class ChapterDetailsViewModel {
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
-      chapterDetailsLoad: (ChapterItem chapterDetailsChapterItem) { 
+      chapterDetailsLoad: (ChapterItem chapterDetailsChapterItem, int settingsTranslatorId) { 
         store.dispatch(ChapterDetailsLoadAction(
-          chapterDetailsChapterItem: chapterDetailsChapterItem
+          chapterDetailsChapterItem: chapterDetailsChapterItem,
+          settingsTranslatorId: settingsTranslatorId
         ));
       },
       chapterDetailsOnGenerateSlidableActions: (BuildContext context, ChapterItem chapterItem, VerseItem verseItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, chapterItem, verseItem),

@@ -19,7 +19,7 @@ class ChapterDetailsScreen extends StatelessWidget {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final Function(ChapterItem) chapterDetailsLoad;
+  final Function(ChapterItem, int) chapterDetailsLoad;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
@@ -132,7 +132,7 @@ class ChapterDetailsScreen extends StatelessWidget {
           verseListItems: chapterDetailsVerseItems,
           verseListLoadFailed: chapterDetailsLoadFailed,
           verseListLoadError: chapterDetailsLoadError,
-          verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem),
+          verseListLoad: () => chapterDetailsLoad(chapterDetailsChapterItem, settingsTranslatorId),
           verseListOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions,
           verseListSlidableController: chapterDetailsSlidableController,
           settingsTranslatorId: settingsTranslatorId

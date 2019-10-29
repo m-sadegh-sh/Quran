@@ -18,12 +18,12 @@ class VerseTranslationRepository {
     return _cachedEntities;
   }
 
-  Future<String> findTranslationText(int verseId, int settingTranslatorId) async {
+  Future<String> findTranslationText(int verseId, int settingsTranslatorId) async {
     if (verseId == null)
       return null;
 
     return (await findAll()).singleWhere(
-      (cti) => cti.verseId == (verseId > 10000 ? 1 : verseId) && cti.translatorId == settingTranslatorId
+      (cti) => cti.verseId == (verseId > 10000 ? 1 : verseId) && cti.translatorId == settingsTranslatorId
     )?.text;
   }
 
