@@ -72,7 +72,9 @@ class HomeState {
       ActionItem(
         onDispatchAction: (BuildContext context, Store<RootState> store) =>
           store.dispatch(
-            homeIsSearching ? HomeSearchCloseAction(settingsTranslatorId: settingsTranslatorId) : HomeSearchOpenAction()
+            homeIsSearching ? HomeSearchCloseAction(
+              settingsTranslatorId: settingsTranslatorId
+            ) : HomeSearchOpenAction()
           ),
         tooltip: AppLocalizations.of(context).translate('home-action-search'),
         icon: homeIsSearching ? Icons.close : Icons.search

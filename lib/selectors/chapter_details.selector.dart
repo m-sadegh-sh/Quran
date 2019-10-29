@@ -9,7 +9,7 @@ import 'package:quran/items/chapter.item.dart';
 import 'package:quran/items/verse.item.dart';
 
 ChapterDetailsState chapterDetailsStateSelector(RootState state) => state.chapterDetailsState;
-GeneratorW3P<bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItemsSelector(ChapterDetailsState state) => state.chapterDetailsOnGenerateActionItems;
+GeneratorW4P<ChapterItem, bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItemsSelector(ChapterDetailsState state) => state.chapterDetailsOnGenerateActionItems;
 ChapterItem chapterDetailsChapterItemSelector(ChapterDetailsState state) => state.chapterDetailsChapterItem;
 bool chapterDetailsLoadingSelector(ChapterDetailsState state) => state.chapterDetailsLoading;
 bool chapterDetailsLoadSucceededSelector(ChapterDetailsState state) => state.chapterDetailsLoadSucceeded;

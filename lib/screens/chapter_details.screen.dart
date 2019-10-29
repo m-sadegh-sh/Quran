@@ -23,7 +23,7 @@ class ChapterDetailsScreen extends StatelessWidget {
   final bool chapterDetailsIsSearching;
   final String chapterDetailsSearchHintText;
   final String chapterDetailsSearchQuery;
-  final Function(BuildContext, int, String) chapterDetailsOnSearchQueryChanging;
+  final Function(BuildContext, ChapterItem, String, int) chapterDetailsOnSearchQueryChanging;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final int settingsTranslatorId;
@@ -123,7 +123,7 @@ class ChapterDetailsScreen extends StatelessWidget {
             ),
             style: Theme.of(context).textTheme.headline,
             initialValue: chapterDetailsSearchQuery,
-            onFieldSubmitted: (String text) => chapterDetailsOnSearchQueryChanging(context, settingsTranslatorId, text),
+            onFieldSubmitted: (String text) => chapterDetailsOnSearchQueryChanging(context, chapterDetailsChapterItem, text, settingsTranslatorId),
             textInputAction: TextInputAction.search
           )
         )

@@ -13,7 +13,6 @@ class VerseListItemScreen extends StatelessWidget {
   final VerseTranslationItem verseTranslationItem;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> verseItemOnGenerateSlidableActions;
   final SlidableController verseItemSlidableController;
-
   final int settingsTranslatorId;
   
   VerseListItemScreen({

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:quran/items/chapter.item.dart';
 
 class ChapterListLoadAction {
-  final int settingsTranslatorId;
   final String homeSearchQuery;
+  final int settingsTranslatorId;
 
   ChapterListLoadAction({
-    this.settingsTranslatorId,
-    this.homeSearchQuery
+    this.homeSearchQuery,
+    this.settingsTranslatorId
   });
 }
 

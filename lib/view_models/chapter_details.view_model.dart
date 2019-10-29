@@ -14,7 +14,7 @@ import 'package:quran/items/action_child.item.dart';
 
 class ChapterDetailsViewModel {
   final ChapterItem chapterDetailsChapterItem;
-  final GeneratorW3P<bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorW4P<ChapterItem, bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) chapterDetailsOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) chapterDetailsOnActionChildItemPressed;
   final bool chapterDetailsLoading;
@@ -27,7 +27,7 @@ class ChapterDetailsViewModel {
   final bool chapterDetailsIsSearching;
   final GeneratorWNP<String> chapterDetailsOnGenerateSearchHintText;
   final String chapterDetailsSearchQuery;
-  final Function(BuildContext, int, String) chapterDetailsOnSearchQueryChanging;
+  final Function(BuildContext, ChapterItem, String, int) chapterDetailsOnSearchQueryChanging;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> chapterDetailsOnGenerateSlidableActions;
   final SlidableController chapterDetailsSlidableController;
   final Function(BuildContext, Store<RootState>) chapterDetailsOnSlidableActionTapped;
@@ -95,11 +95,12 @@ class ChapterDetailsViewModel {
       chapterDetailsIsSearching: chapterDetailsIsSearchingSelector(chapterDetailsState),
       chapterDetailsOnGenerateSearchHintText: chapterDetailsOnGenerateSearchHintTextSelector(chapterDetailsState),
       chapterDetailsSearchQuery: chapterDetailsSearchQuerySelector(chapterDetailsState),
-      chapterDetailsOnSearchQueryChanging: (BuildContext context, int settingsTranslatorId, String chapterDetailsSearchChangingQuery) =>
+      chapterDetailsOnSearchQueryChanging: (BuildContext context, ChapterItem chapterDetailsChapterItem, String chapterDetailsSearchChangingQuery, int settingsTranslatorId) =>
         store.dispatch(ChapterDetailsSearchQueryChangingAction(
           context: context,
-          settingsTranslatorId: settingsTranslatorId,
-          chapterDetailsSearchChangingQuery: chapterDetailsSearchChangingQuery
+          chapterDetailsChapterItem: chapterDetailsChapterItem,
+          chapterDetailsSearchChangingQuery: chapterDetailsSearchChangingQuery,
+          settingsTranslatorId: settingsTranslatorId
         )
       ),
       chapterDetailsOnGenerateSlidableActions: (BuildContext context, ChapterItem chapterItem, VerseItem verseItem) => chapterDetailsOnGenerateSlidableActionsSelector(chapterDetailsState)(context, store, chapterItem, verseItem),

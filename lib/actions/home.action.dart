@@ -32,13 +32,13 @@ class HomeSearchCloseAction {
 
 class HomeSearchQueryChangingAction {
   final BuildContext context;
-  final int settingsTranslatorId;
   final String homeSearchChangingQuery;
+  final int settingsTranslatorId;
 
   HomeSearchQueryChangingAction({
     this.context,
-    this.settingsTranslatorId,
-    this.homeSearchChangingQuery
+    this.homeSearchChangingQuery,
+    this.settingsTranslatorId
   });
 }
 

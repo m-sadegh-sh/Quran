@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   final bool homeIsSearching;
   final String homeSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, int, String) homeOnSearchQueryChanging;
+  final Function(BuildContext, String, int) homeOnSearchQueryChanging;
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -158,7 +158,7 @@ class HomeScreen extends StatelessWidget {
             ),
             style: Theme.of(context).textTheme.headline,
             initialValue: homeSearchQuery,
-            onFieldSubmitted: (String text) => homeOnSearchQueryChanging(context, settingsTranslatorId, text),
+            onFieldSubmitted: (String text) => homeOnSearchQueryChanging(context, text, settingsTranslatorId),
             textInputAction: TextInputAction.search
           )
         ),

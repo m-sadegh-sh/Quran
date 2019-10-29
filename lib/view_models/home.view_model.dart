@@ -24,7 +24,7 @@ class HomeViewModel {
   final bool homeIsSearching;
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
   final String homeSearchQuery;
-  final Function(BuildContext, int, String) homeOnSearchQueryChanging;
+  final Function(BuildContext, String, int) homeOnSearchQueryChanging;
   final GeneratorW3P<bool, double, int, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
@@ -74,11 +74,11 @@ class HomeViewModel {
       homeIsSearching: homeIsSearchingSelector(homeState),
       homeOnGenerateSearchHintText: homeOnGenerateSearchHintTextSelector(homeState),
       homeSearchQuery: homeSearchQuerySelector(homeState),
-      homeOnSearchQueryChanging: (BuildContext context, int settingsTranslatorId, String homeSearchChangingQuery) =>
+      homeOnSearchQueryChanging: (BuildContext context, String homeSearchChangingQuery, int settingsTranslatorId) =>
         store.dispatch(HomeSearchQueryChangingAction(
           context: context,
-          settingsTranslatorId: settingsTranslatorId,
-          homeSearchChangingQuery: homeSearchChangingQuery
+          homeSearchChangingQuery: homeSearchChangingQuery,
+          settingsTranslatorId: settingsTranslatorId
         )
       ),
       homeOnGenerateActionItems: homeOnGenerateActionItemsSelector(homeState),

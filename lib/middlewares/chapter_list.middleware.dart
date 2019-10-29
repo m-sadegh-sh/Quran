@@ -55,8 +55,8 @@ Middleware<RootState> _createChapterListItemTapped() {
       store.dispatch(ChapterDetailsLoadAction(
         context: action.context,
         chapterDetailsChapterItem: castedAction.chapterListTappedItem,
-        settingsTranslatorId: castedAction.settingsTranslatorId,
-        chapterDetailsNavigateToContainer: true
+        chapterDetailsNavigateToContainer: true,
+        settingsTranslatorId: castedAction.settingsTranslatorId
       ));
     } catch(exception) { }
   };

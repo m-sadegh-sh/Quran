@@ -25,16 +25,16 @@ class ChapterDetailsReloadInitialStateFailedAction { }
 class ChapterDetailsLoadAction {
   final BuildContext context;
   final ChapterItem chapterDetailsChapterItem;
-  final int settingsTranslatorId;
   final String chapterDetailsSearchQuery;
   final bool chapterDetailsNavigateToContainer;
+  final int settingsTranslatorId;
 
   ChapterDetailsLoadAction({
     this.context,
     this.chapterDetailsChapterItem,
-    this.settingsTranslatorId,
     this.chapterDetailsSearchQuery,
-    this.chapterDetailsNavigateToContainer
+    this.chapterDetailsNavigateToContainer,
+    this.settingsTranslatorId
   });
 }
 
@@ -61,22 +61,26 @@ class ChapterDetailsLoadFailedAction {
 class ChapterDetailsSearchOpenAction { }
 
 class ChapterDetailsSearchCloseAction {
+  final ChapterItem chapterDetailsChapterItem;
   final int settingsTranslatorId;
 
   ChapterDetailsSearchCloseAction({
+    this.chapterDetailsChapterItem,
     this.settingsTranslatorId
   });
 }
 
 class ChapterDetailsSearchQueryChangingAction {
   final BuildContext context;
-  final int settingsTranslatorId;
+  final ChapterItem chapterDetailsChapterItem;
   final String chapterDetailsSearchChangingQuery;
+  final int settingsTranslatorId;
 
   ChapterDetailsSearchQueryChangingAction({
     this.context,
-    this.settingsTranslatorId,
-    this.chapterDetailsSearchChangingQuery
+    this.chapterDetailsChapterItem,
+    this.chapterDetailsSearchChangingQuery,
+    this.settingsTranslatorId
   });
 }
 

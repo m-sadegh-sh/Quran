@@ -16,6 +16,9 @@ List<Middleware<RootState>> createChapterDetailsMiddleware() {
   return [
     TypedMiddleware<RootState, ChapterDetailsReloadInitialStateAction>(_createChapterDetailsReloadInitialState()),
     TypedMiddleware<RootState, ChapterDetailsLoadAction>(_createChapterDetailsLoad()),
+    TypedMiddleware<RootState, ChapterDetailsSearchOpenAction>(_createChapterDetailsSearchOpen()),
+    TypedMiddleware<RootState, ChapterDetailsSearchCloseAction>(_createChapterDetailsSearchClose()),
+    TypedMiddleware<RootState, ChapterDetailsSearchQueryChangingAction>(_createChapterDetailsSearchQueryChanging()),
     TypedMiddleware<RootState, ChapterDetailsActionChildItemPressedAction>(_createChapterDetailsActionChildItemPressed()),
     TypedMiddleware<RootState, ChapterDetailsSlidableActionTappedAction>(_createChapterDetailsSlidableActionTapped())
   ];
@@ -67,6 +70,54 @@ Middleware<RootState> _createChapterDetailsLoad() {
         chapterDetailsLoadError: exception?.toString()
       ));
     }
+  };
+}
+
+Middleware<RootState> _createChapterDetailsSearchOpen() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      await Future.delayed(Duration(milliseconds: 50));
+
+      next(action);
+    } catch(exception) { }
+  };
+}
+
+Middleware<RootState> _createChapterDetailsSearchClose() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      await Future.delayed(Duration(milliseconds: 50));
+
+      next(action);
+
+      final castedAction = action as ChapterDetailsSearchCloseAction;
+   
+      store.dispatch(ChapterDetailsLoadAction(
+        chapterDetailsChapterItem: castedAction.chapterDetailsChapterItem,
+        chapterDetailsSearchQuery: null,
+        settingsTranslatorId: castedAction.settingsTranslatorId
+      ));
+    } catch(exception) { }
+  };
+}
+
+Middleware<RootState> _createChapterDetailsSearchQueryChanging() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      next(action);
+
+      final castedAction = action as ChapterDetailsSearchQueryChangingAction;
+   
+      store.dispatch(ChapterDetailsLoadAction(
+        chapterDetailsChapterItem: castedAction.chapterDetailsChapterItem,
+        chapterDetailsSearchQuery: castedAction.chapterDetailsSearchChangingQuery,
+        settingsTranslatorId: castedAction.settingsTranslatorId
+      ));
+
+      store.dispatch(ChapterDetailsSearchQueryChangeSucceededAction(
+        chapterDetailsSearchChangedQuery: castedAction.chapterDetailsSearchChangingQuery
+      ));
+    } catch(exception) { }
   };
 }
 

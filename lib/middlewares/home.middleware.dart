@@ -51,8 +51,8 @@ Middleware<RootState> _createHomeSearchClose() {
       final castedAction = action as HomeSearchCloseAction;
    
       store.dispatch(ChapterListLoadAction(
-        settingsTranslatorId: castedAction.settingsTranslatorId,
-        homeSearchQuery: null
+        homeSearchQuery: null,
+        settingsTranslatorId: castedAction.settingsTranslatorId
       ));
     } catch(exception) { }
   };
@@ -66,8 +66,8 @@ Middleware<RootState> _createHomeSearchQueryChanging() {
       final castedAction = action as HomeSearchQueryChangingAction;
    
       store.dispatch(ChapterListLoadAction(
-        settingsTranslatorId: castedAction.settingsTranslatorId,
-        homeSearchQuery: castedAction.homeSearchChangingQuery
+        homeSearchQuery: castedAction.homeSearchChangingQuery,
+        settingsTranslatorId: castedAction.settingsTranslatorId
       ));
 
       store.dispatch(HomeSearchQueryChangeSucceededAction(

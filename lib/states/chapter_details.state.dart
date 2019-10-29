@@ -15,7 +15,7 @@ import 'package:quran/items/verse.item.dart';
 
 class ChapterDetailsState {
   final ChapterItem chapterDetailsChapterItem;
-  final GeneratorW3P<bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
+  final GeneratorW4P<ChapterItem, bool, double, int, List<ActionItem>> chapterDetailsOnGenerateActionItems;
   final bool chapterDetailsLoading;
   final bool chapterDetailsLoadSucceeded;
   final List<VerseItem> chapterDetailsVerseItems;
@@ -46,11 +46,14 @@ class ChapterDetailsState {
 
   factory ChapterDetailsState.initial() => ChapterDetailsState(
     chapterDetailsChapterItem: null,
-    chapterDetailsOnGenerateActionItems: (BuildContext context, bool chapterDetailsIsSearching, double settingsThemeFontSize, int settingsTranslatorId) => [
+    chapterDetailsOnGenerateActionItems: (BuildContext context, ChapterItem chapterDetailsChapterItem, bool chapterDetailsIsSearching, double settingsThemeFontSize, int settingsTranslatorId) => [
       ActionItem(
         onDispatchAction: (BuildContext context, Store<RootState> store) =>
           store.dispatch(
-            chapterDetailsIsSearching ? ChapterDetailsSearchCloseAction(settingsTranslatorId: settingsTranslatorId) : ChapterDetailsSearchOpenAction()
+            chapterDetailsIsSearching ? ChapterDetailsSearchCloseAction(
+              chapterDetailsChapterItem: chapterDetailsChapterItem,
+              settingsTranslatorId: settingsTranslatorId
+            ) : ChapterDetailsSearchOpenAction()
           ),
         tooltip: AppLocalizations.of(context).translate('chapter-details-action-search'),
         icon: chapterDetailsIsSearching ? Icons.close : Icons.search
