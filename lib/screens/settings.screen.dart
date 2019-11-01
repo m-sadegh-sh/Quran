@@ -3,7 +3,6 @@ import 'package:quran/app_localizations.dart';
 
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/list.item.dart';
-import 'package:quran/items/translator.item.dart';
 
 class SettingsScreen extends StatelessWidget {  
   final String settingsTitle;
@@ -13,8 +12,8 @@ class SettingsScreen extends StatelessWidget {
   final String settingsThemeQuraniFontFamily;
   final List<ListItem<double>> settingThemeFontSizeItems;
   final double settingsThemeFontSize;
-  final List<ListItem<String>> settingLocaleCodeItems;
-  final String settingsLocaleLocaleCode;
+  final List<ListItem<String>> settingLocaleItems;
+  final String settingsLocaleCode;
   final List<ListItem<int>> settingTranslatorItems;
   final int settingsTranslatorId;
   final Function(String, double, String, int) settingsOnPersist;
@@ -28,8 +27,8 @@ class SettingsScreen extends StatelessWidget {
     this.settingsThemeQuraniFontFamily,
     this.settingThemeFontSizeItems,
     this.settingsThemeFontSize,
-    this.settingLocaleCodeItems,
-    this.settingsLocaleLocaleCode,
+    this.settingLocaleItems,
+    this.settingsLocaleCode,
     this.settingTranslatorItems,
     this.settingsTranslatorId,
     this.settingsOnPersist
@@ -57,6 +56,66 @@ class SettingsScreen extends StatelessWidget {
     );
   }
 
+  List<Widget> _buildThemeQuraniFontFamilyItems(BuildContext context) {
+    return settingThemeQuraniFontFamilyItems
+      .map<Widget>((item) =>
+        ListTile(
+          title: Text(item.title),
+          onTap: () => settingsOnPersist(
+            item.value,
+            settingsThemeFontSize,
+            settingsLocaleCode,
+            settingsTranslatorId
+          )
+        )
+      ).toList();
+  }
+
+  List<Widget> _buildThemeFontSizeItems(BuildContext context) {
+    return settingThemeFontSizeItems
+      .map<Widget>((item) =>
+        ListTile(
+          title: Text(item.title),
+          onTap: () => settingsOnPersist(
+            settingsThemeQuraniFontFamily,
+            item.value,
+            settingsLocaleCode,
+            settingsTranslatorId
+          )
+        )
+      ).toList();
+  }
+
+  List<Widget> _buildLocaleCodeItems(BuildContext context) {
+    return settingThemeQuraniFontFamilyItems
+      .map<Widget>((item) =>
+        ListTile(
+          title: Text(item.title),
+          onTap: () => settingsOnPersist(
+            settingsThemeQuraniFontFamily,
+            settingsThemeFontSize,
+            item.value,
+            settingsTranslatorId
+          )
+        )
+      ).toList();
+  }
+
+  List<Widget> _buildTranslatorItems(BuildContext context) {
+    return settingTranslatorItems
+      .map<Widget>((item) =>
+        ListTile(
+          title: Text(item.title),
+          onTap: () => settingsOnPersist(
+            settingsThemeQuraniFontFamily,
+            settingsThemeFontSize,
+            settingsLocaleCode,
+            item.value
+          )
+        )
+      ).toList();
+  }
+
   ListView _buildListView(BuildContext context) {
     return ListView(
       children: <Widget>[
@@ -64,20 +123,29 @@ class SettingsScreen extends StatelessWidget {
           AppLocalizations.of(context).translate('settings-theme-qurani-font-family'),
           style: Theme.of(context).textTheme.title
         ),
-        CheckboxListTile(
-          value: true,
-          title: Text("This is a CheckBoxPreference"),
-          onChanged: (value) {},
+        Stack(
+          children: _buildThemeQuraniFontFamilyItems(context),
         ),
-        SwitchListTile(
-          value: false,
-          title: Text("This is a SwitchPreference"),
-          onChanged: (value) {},
+        Text(
+          AppLocalizations.of(context).translate('settings-theme-font-size'),
+          style: Theme.of(context).textTheme.title
         ),
-        ListTile(
-          title: Text("This is a ListPreference"),
-          subtitle: Text("Subtitle goes here"),
-          onTap: () {},
+        Stack(
+          children: _buildThemeFontSizeItems(context),
+        ),
+        Text(
+          AppLocalizations.of(context).translate('settings-locale-code'),
+          style: Theme.of(context).textTheme.title
+        ),
+        Stack(
+          children: _buildLocaleCodeItems(context),
+        ),
+        Text(
+          AppLocalizations.of(context).translate('settings-translator-id'),
+          style: Theme.of(context).textTheme.title
+        ),
+        Stack(
+          children: _buildTranslatorItems(context),
         )
       ]
     );

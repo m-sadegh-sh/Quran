@@ -13,7 +13,7 @@ class AppViewModel {
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLocaleCode;
+  final String settingsLocaleCode;
 
   AppViewModel({
     this.appOnGenerateTitle,
@@ -22,7 +22,7 @@ class AppViewModel {
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLocaleCode
+    this.settingsLocaleCode
   });
 
   static AppViewModel fromStore(Store<RootState> store) {
@@ -36,7 +36,7 @@ class AppViewModel {
       appSupportedLocales: appSupportedLocalesSelector(appState),
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
-      settingsLocaleLocaleCode: settingsLocaleLocaleCodeSelector(settingsState)
+      settingsLocaleCode: settingsLocaleCodeSelector(settingsState)
     );
   }
 }

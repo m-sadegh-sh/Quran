@@ -13,7 +13,7 @@ SettingsState _settingsLoadSucceeded(SettingsState state, SettingsLoadSucceededA
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
     settingsThemeFontSize: action.settingsThemeFontSize,
-    settingsLocaleLocaleCode: action.settingsLocaleLocaleCode,
+    settingsLocaleCode: action.settingsLocaleCode,
     settingsTranslatorId: action.settingsTranslatorId
   );
 }
@@ -22,7 +22,7 @@ SettingsState _settingsPersistSucceeded(SettingsState state, SettingsPersistSucc
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
     settingsThemeFontSize: action.settingsThemeFontSize,
-    settingsLocaleLocaleCode: action.settingsLocaleLocaleCode,
+    settingsLocaleCode: action.settingsLocaleCode,
     settingsTranslatorId: action.settingsTranslatorId
   );
 }

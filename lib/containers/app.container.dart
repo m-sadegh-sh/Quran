@@ -17,7 +17,7 @@ class AppContainer extends StatelessWidget {
         appSupportedLocales: appViewModel.appSupportedLocales,
         settingsThemeQuraniFontFamily: appViewModel.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: appViewModel.settingsThemeFontSize,
-        settingsLocaleLocaleCode: appViewModel.settingsLocaleLocaleCode
+        settingsLocaleCode: appViewModel.settingsLocaleCode
       )
     );
   }

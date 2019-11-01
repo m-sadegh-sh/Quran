@@ -27,13 +27,13 @@ Middleware<RootState> _createSettingsLoad() {
 
       final newSettingsThemeQuraniFontFamily = sharedPreferences.getString(SETTINGS_THEME_QURANI_FONT_FAMILY_KEY);
       final newSettingsThemeFontSize = sharedPreferences.getDouble(SETTINGS_THEME_FONT_SIZE_KEY);
-      final newsettingsLocaleLocaleCode = sharedPreferences.getString(SETTINGS_LOCALE_LOCALE_CODE_KEY);
+      final newsettingsLocaleCode = sharedPreferences.getString(SETTINGS_LOCALE_LOCALE_CODE_KEY);
       final newSettingsTranslatorId = sharedPreferences.getInt(SETTINGS_TRANSLATOR_ID_KEY);
 
       store.dispatch(SettingsLoadSucceededAction(
         settingsThemeQuraniFontFamily: newSettingsThemeQuraniFontFamily,
         settingsThemeFontSize: newSettingsThemeFontSize,
-        settingsLocaleLocaleCode: newsettingsLocaleLocaleCode,
+        settingsLocaleCode: newsettingsLocaleCode,
         settingsTranslatorId: newSettingsTranslatorId
       ));
     } catch(exception) {
@@ -53,13 +53,13 @@ Middleware<RootState> _createSettingsPersist() {
 
       sharedPreferences.setString(SETTINGS_THEME_QURANI_FONT_FAMILY_KEY, castedAction.settingsThemeQuraniFontFamily);
       sharedPreferences.setDouble(SETTINGS_THEME_FONT_SIZE_KEY, castedAction.settingsThemeFontSize);
-      sharedPreferences.setString(SETTINGS_LOCALE_LOCALE_CODE_KEY, castedAction.settingsLocaleLocaleCode);
+      sharedPreferences.setString(SETTINGS_LOCALE_LOCALE_CODE_KEY, castedAction.settingsLocaleCode);
       sharedPreferences.setInt(SETTINGS_TRANSLATOR_ID_KEY, castedAction.settingsTranslatorId);
 
       store.dispatch(SettingsPersistSucceededAction(
         settingsThemeQuraniFontFamily: castedAction.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: castedAction.settingsThemeFontSize,
-        settingsLocaleLocaleCode: castedAction.settingsLocaleLocaleCode,
+        settingsLocaleCode: castedAction.settingsLocaleCode,
         settingsTranslatorId: castedAction.settingsTranslatorId
       ));
     } catch(exception) {
@@ -78,7 +78,7 @@ Middleware<RootState> _createSettingsRestoreDefaults() {
       store.dispatch(SettingsPersistAction(
         settingsThemeQuraniFontFamily: initialSettingsState.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: initialSettingsState.settingsThemeFontSize,
-        settingsLocaleLocaleCode: initialSettingsState.settingsLocaleLocaleCode,
+        settingsLocaleCode: initialSettingsState.settingsLocaleCode,
         settingsTranslatorId: initialSettingsState.settingsTranslatorId
       ));
     } catch(exception) { }

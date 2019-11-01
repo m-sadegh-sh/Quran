@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:quran/items/list.item.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root.state.dart';
@@ -11,9 +12,13 @@ class SettingsViewModel {
   final GeneratorWNP<String> settingsOnGenerateTitle;
   final GeneratorWNP<List<ActionItem>> settingsOnGenerateActionItems;
   final Function(BuildContext, ActionItem) settingsOnActionItemPressed;
+  final GeneratorWNP<List<ListItem<String>>> settingsOnGenerateThemeQuraniFontFamilyItems;
   final String settingsThemeQuraniFontFamily;
+  final GeneratorWNP<List<ListItem<double>>> settingsOnGenerateThemeFontSizeItems;
   final double settingsThemeFontSize;
-  final String settingsLocaleLocaleCode;
+  final GeneratorWNP<List<ListItem<String>>> settingsOnGenerateLocaleItems;
+  final String settingsLocaleCode;
+  final GeneratorWNP<List<ListItem<int>>> settingsOnGenerateTranslatorItems;
   final int settingsTranslatorId;
   final Function(String, double, String, int) settingsOnPersist;
   
@@ -21,9 +26,13 @@ class SettingsViewModel {
     this.settingsOnGenerateTitle,
     this.settingsOnGenerateActionItems,
     this.settingsOnActionItemPressed,
+    this.settingsOnGenerateThemeQuraniFontFamilyItems,
     this.settingsThemeQuraniFontFamily,
+    this.settingsOnGenerateThemeFontSizeItems,
     this.settingsThemeFontSize,
-    this.settingsLocaleLocaleCode,
+    this.settingsOnGenerateLocaleItems,
+    this.settingsLocaleCode,
+    this.settingsOnGenerateTranslatorItems,
     this.settingsTranslatorId,
     this.settingsOnPersist
   });
@@ -41,15 +50,19 @@ class SettingsViewModel {
           settingsActionItem: settingsActionItem,
         ));
       },
+      settingsOnGenerateThemeQuraniFontFamilyItems: settingsOnGenerateThemeQuraniFontFamilyItemsSelector(settingsState),
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),
+      settingsOnGenerateThemeFontSizeItems: settingsOnGenerateThemeFontSizeItemsSelector(settingsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
-      settingsLocaleLocaleCode: settingsLocaleLocaleCodeSelector(settingsState),
+      settingsOnGenerateLocaleItems: settingsOnGenerateLocaleItemsSelector(settingsState),
+      settingsLocaleCode: settingsLocaleCodeSelector(settingsState),
+      settingsOnGenerateTranslatorItems: settingsOnGenerateTranslatorItemsSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState),
-      settingsOnPersist: (String settingsThemeQuraniFontFamily, double settingsThemeFontSize, String settingsLocaleLocaleCode, int settingsTranslatorId) {
+      settingsOnPersist: (String settingsThemeQuraniFontFamily, double settingsThemeFontSize, String settingsLocaleCode, int settingsTranslatorId) {
         store.dispatch(SettingsPersistAction(
           settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamily,
           settingsThemeFontSize: settingsThemeFontSize,
-          settingsLocaleLocaleCode: settingsLocaleLocaleCode,
+          settingsLocaleCode: settingsLocaleCode,
           settingsTranslatorId: settingsTranslatorId
         ));
       }

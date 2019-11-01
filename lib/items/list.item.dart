@@ -1,9 +1,9 @@
 class ListItem<TValue> {
-  final String text;
+  final String title;
   final TValue value;
 
   ListItem({
-    this.text,
+    this.title,
     this.value
   });
 }
