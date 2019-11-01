@@ -20,6 +20,8 @@ import 'package:quran/repositories/chapter.repository.dart';
 import 'package:quran/repositories/chapter_translation.repository.dart';
 import 'package:quran/repositories/verse.repository.dart';
 import 'package:quran/repositories/verse_translation.repository.dart';
+import 'package:quran/middlewares/about.middleware.dart';
+import 'package:quran/middlewares/help_and_support.middleware.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -68,5 +70,7 @@ Store<RootState> _createStore() {
     ..addAll(createHomeMiddleware())
     ..addAll(createChapterListMiddleware())
     ..addAll(createChapterDetailsMiddleware())
+    ..addAll(createHelpAndSupportMiddleware())
+    ..addAll(createAboutMiddleware())
   );
 }
