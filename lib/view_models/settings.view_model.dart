@@ -13,10 +13,9 @@ class SettingsViewModel {
   final Function(BuildContext, ActionItem) settingsOnActionItemPressed;
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
   final int settingsTranslatorId;
-  final Function(String, double, String, String, int) settingsOnPersist;
+  final Function(String, double, String, int) settingsOnPersist;
   
   SettingsViewModel({
     this.settingsOnGenerateTitle,
@@ -24,8 +23,7 @@ class SettingsViewModel {
     this.settingsOnActionItemPressed,
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingsLocaleLocaleCode,
     this.settingsTranslatorId,
     this.settingsOnPersist
   });
@@ -45,15 +43,13 @@ class SettingsViewModel {
       },
       settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamilySelector(settingsState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
-      settingsLocaleLanguageCode: settingsLocaleLanguageCodeSelector(settingsState),
-      settingsLocaleCountryCode: settingsLocaleCountryCodeSelector(settingsState),
+      settingsLocaleLocaleCode: settingsLocaleLocaleCodeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState),
-      settingsOnPersist: (String settingsThemeQuraniFontFamily, double settingsThemeFontSize, String settingsLocaleLanguageCode, String settingsLocaleCountryCode, int settingsTranslatorId) {
+      settingsOnPersist: (String settingsThemeQuraniFontFamily, double settingsThemeFontSize, String settingsLocaleLocaleCode, int settingsTranslatorId) {
         store.dispatch(SettingsPersistAction(
           settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamily,
           settingsThemeFontSize: settingsThemeFontSize,
-          settingsLocaleLanguageCode: settingsLocaleLanguageCode,
-          settingsLocaleCountryCode: settingsLocaleCountryCode,
+          settingsLocaleLocaleCode: settingsLocaleLocaleCode,
           settingsTranslatorId: settingsTranslatorId
         ));
       }

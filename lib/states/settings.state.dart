@@ -13,8 +13,7 @@ class SettingsState {
   final GeneratorWNP<List<ActionItem>> settingsOnGenerateActionItems;
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
   final int settingsTranslatorId;
   
   SettingsState({
@@ -22,8 +21,7 @@ class SettingsState {
     this.settingsOnGenerateActionItems,
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingsLocaleLocaleCode,
     this.settingsTranslatorId
   });
 
@@ -42,8 +40,7 @@ class SettingsState {
       ],
       settingsThemeQuraniFontFamily: 'Nabi',
       settingsThemeFontSize: 16.0,
-      settingsLocaleLanguageCode: 'fa',
-      settingsLocaleCountryCode: 'IR',
+      settingsLocaleLocaleCode: 'fa-IR',
       settingsTranslatorId: 1
     );
   }
@@ -53,16 +50,14 @@ class SettingsState {
     settingsOnGenerateActionItems,
     settingsThemeQuraniFontFamily,
     settingsThemeFontSize,
-    settingsLocaleLanguageCode,
-    settingsLocaleCountryCode,
+    settingsLocaleLocaleCode,
     settingsTranslatorId
   }) => SettingsState(
     settingsOnGenerateTitle: settingsOnGenerateTitle ?? this.settingsOnGenerateTitle,
     settingsOnGenerateActionItems: settingsOnGenerateActionItems ?? this.settingsOnGenerateActionItems,
     settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamily ?? this.settingsThemeQuraniFontFamily,
     settingsThemeFontSize: settingsThemeFontSize ?? this.settingsThemeFontSize,
-    settingsLocaleLanguageCode: settingsLocaleLanguageCode ?? this.settingsLocaleLanguageCode,
-    settingsLocaleCountryCode: settingsLocaleCountryCode ?? this.settingsLocaleCountryCode,
+    settingsLocaleLocaleCode: settingsLocaleLocaleCode ?? this.settingsLocaleLocaleCode,
     settingsTranslatorId: settingsTranslatorId ?? this.settingsTranslatorId
   );
 }

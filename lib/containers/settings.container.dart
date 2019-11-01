@@ -16,8 +16,7 @@ class SettingsContainer extends StatelessWidget {
         settingsOnActionItemPressed: settingsViewModel.settingsOnActionItemPressed,
         settingsThemeQuraniFontFamily: settingsViewModel.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: settingsViewModel.settingsThemeFontSize,
-        settingsLocaleLanguageCode: settingsViewModel.settingsLocaleLanguageCode,
-        settingsLocaleCountryCode: settingsViewModel.settingsLocaleCountryCode,
+        settingsLocaleLocaleCode: settingsViewModel.settingsLocaleLocaleCode,
         settingsTranslatorId: settingsViewModel.settingsTranslatorId,
         settingsOnPersist: settingsViewModel.settingsOnPersist
       )

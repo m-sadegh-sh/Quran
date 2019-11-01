@@ -10,15 +10,13 @@ class SettingsLoadAction { }
 class SettingsLoadSucceededAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
   final int settingsTranslatorId;
 
   SettingsLoadSucceededAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingsLocaleLocaleCode,
     this.settingsTranslatorId
   });
 }
@@ -28,15 +26,13 @@ class SettingsLoadFailedAction {}
 class SettingsPersistAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
   final int settingsTranslatorId;
 
   SettingsPersistAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingsLocaleLocaleCode,
     this.settingsTranslatorId
   });
 }
@@ -44,15 +40,13 @@ class SettingsPersistAction {
 class SettingsPersistSucceededAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
   final int settingsTranslatorId;
 
   SettingsPersistSucceededAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingsLocaleLocaleCode,
     this.settingsTranslatorId
   });
 }

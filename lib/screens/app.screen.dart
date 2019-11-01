@@ -11,8 +11,7 @@ class AppScreen extends StatelessWidget {
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final String settingsLocaleLocaleCode;
 
   AppScreen({
     Key key,
@@ -22,8 +21,7 @@ class AppScreen extends StatelessWidget {
     this.appSupportedLocales,
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode
+    this.settingsLocaleLocaleCode
   }) : super(key: key);
 
   @override
@@ -40,8 +38,8 @@ class AppScreen extends StatelessWidget {
       localizationsDelegates: appLocalizationsDelegates,
       supportedLocales: appSupportedLocales,
       locale: Locale(
-        this.settingsLocaleLanguageCode,
-        this.settingsLocaleCountryCode
+        this.settingsLocaleLocaleCode.split('-')[0],
+        this.settingsLocaleLocaleCode.split('-')[1]
       ),
       builder: (BuildContext context, Widget navigator) {
         return Theme(

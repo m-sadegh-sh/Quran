@@ -1,27 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:quran/app_localizations.dart';
 
 import 'package:quran/items/action.item.dart';
+import 'package:quran/items/list.item.dart';
+import 'package:quran/items/translator.item.dart';
 
 class SettingsScreen extends StatelessWidget {  
   final String settingsTitle;
   final List<ActionItem> settingsActionItems;
   final Function(BuildContext, ActionItem) settingsOnActionItemPressed;
+  final List<ListItem<String>> settingThemeQuraniFontFamilyItems;
   final String settingsThemeQuraniFontFamily;
+  final List<ListItem<double>> settingThemeFontSizeItems;
   final double settingsThemeFontSize;
-  final String settingsLocaleLanguageCode;
-  final String settingsLocaleCountryCode;
+  final List<ListItem<String>> settingLocaleCodeItems;
+  final String settingsLocaleLocaleCode;
+  final List<ListItem<int>> settingTranslatorItems;
   final int settingsTranslatorId;
-  final Function(String, double, String, String, int) settingsOnPersist;
+  final Function(String, double, String, int) settingsOnPersist;
 
   SettingsScreen({
     Key key,
     this.settingsTitle,
     this.settingsActionItems,
     this.settingsOnActionItemPressed,
+    this.settingThemeQuraniFontFamilyItems,
     this.settingsThemeQuraniFontFamily,
+    this.settingThemeFontSizeItems,
     this.settingsThemeFontSize,
-    this.settingsLocaleLanguageCode,
-    this.settingsLocaleCountryCode,
+    this.settingLocaleCodeItems,
+    this.settingsLocaleLocaleCode,
+    this.settingTranslatorItems,
     this.settingsTranslatorId,
     this.settingsOnPersist
   }) : super(key: key);
@@ -51,6 +60,10 @@ class SettingsScreen extends StatelessWidget {
   ListView _buildListView(BuildContext context) {
     return ListView(
       children: <Widget>[
+        Text(
+          AppLocalizations.of(context).translate('settings-theme-qurani-font-family'),
+          style: Theme.of(context).textTheme.title
+        ),
         CheckboxListTile(
           value: true,
           title: Text("This is a CheckBoxPreference"),

@@ -8,6 +8,5 @@ GeneratorWNP<String> settingsOnGenerateTitleSelector(SettingsState state) => sta
 GeneratorWNP<List<ActionItem>> settingsOnGenerateActionItemsSelector(SettingsState state) => state.settingsOnGenerateActionItems;
 String settingsThemeQuraniFontFamilySelector(SettingsState state) => state.settingsThemeQuraniFontFamily;
 double settingsThemeFontSizeSelector(SettingsState state) => state.settingsThemeFontSize;
-String settingsLocaleCountryCodeSelector(SettingsState state) => state.settingsLocaleCountryCode;
-String settingsLocaleLanguageCodeSelector(SettingsState state) => state.settingsLocaleLanguageCode;
+String settingsLocaleLocaleCodeSelector(SettingsState state) => state.settingsLocaleLocaleCode;
 int settingsTranslatorIdSelector(SettingsState state) => state.settingsTranslatorId;
