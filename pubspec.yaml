@@ -27,7 +27,7 @@ flutter:
 
   assets:
    - assets/resources/fa_IR.json
-   - assets/resources/en-US.json
+   - assets/resources/en_US.json
    - assets/data/translators.json
    - assets/data/chapters.json
    - assets/data/chapter_translations.json
