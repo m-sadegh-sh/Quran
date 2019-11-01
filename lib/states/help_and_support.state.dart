@@ -13,7 +13,7 @@ class HelpAndSupportState {
 
   factory HelpAndSupportState.initial() {
     return HelpAndSupportState(
-      helpAndSupportOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('helpAndSupport-title')
+      helpAndSupportOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title')
     );
   }
 
