@@ -12,7 +12,7 @@
     "home-drawer-account-email": "نسخه 1.23",
     "home-drawer-help-and-support": "راهنما و پشتیبانی",
     "home-drawer-settings": "تنظیمات",
-    "home-drawer-about": "درباره برنامه",
+    "home-drawer-about": "درباره این برنامه",
 
     "home-tab-chapters": "سوره‌ها",
     "home-tab-bookmarks": "نشان‌شده‌ها",
@@ -30,7 +30,7 @@
     "help-and-support-title": "راهنما و پشتیبانی",
 
     "settings-title": "تنظیمات",
-    "settings-theme-qurani-font-family": "قلم",
+    "settings-theme-qurani-font-family": "نوع قلم",
     "settings-theme-qurani-font-family-nabi": "نبی",
     "settings-theme-qurani-font-family-neirizi": "نیریزی",
     "settings-theme-qurani-font-family-taha": "طاها",
@@ -41,12 +41,12 @@
     "settings-theme-font-size-22-0": "بزرگ",
     "settings-theme-font-size-24-0": "بزرگتر",
     "settings-locale-code": "زبان",
-    "settings-locale-code-fa-ir": "فارسی",
-    "settings-locale-code-en-us": "انگلیسی",
+    "settings-locale-code-fa-ir": "فارسی (ایران)",
+    "settings-locale-code-en-us": "انگلیسی (ایالات متحده آمریکا)",
     "settings-translator-id": "مترجم",
     "settings-action-restore-defaults": "بازگردانی تنظیمات پیشفرض",
     
-    "about-title": "درباره برنامه",
+    "about-title": "درباره این برنامه",
 
     "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
     "chapter-item-order": "ترتیب نزول ${order}",
@@ -55,7 +55,7 @@
     "chapter-revelation-place-meccan": "مکی",
     "chapter-revelation-place-medinan": "مدنی",
 
-    "action-failure-error-message": "یک خطای غیر منتظره رخ داده است...",
+    "action-failure-error-message": "یک خطای غیر منتظره رخ داده است.",
     "action-failure-retry-action": "تلاش مجدد",
 
     "empty-content-no-result-message": "محتوایی برای نمایش وجود ندارد.",

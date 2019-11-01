@@ -1,0 +1,63 @@
+{
+    "app-title": "The Holy Quran",
+    "app-share-footage": "The Holy Quran app",
+
+    "home-title": "The Holy Quran",
+    "home-search-hint-text": "Search...",
+    "home-action-search": "Search",
+    "home-action-more": "More",
+    "home-action-decrease-font-size": "Smaller Font",
+    "home-action-increase-font-size": "Larger Font",
+    "home-drawer-account-name": "Search",
+    "home-drawer-account-email": "Version 1.23",
+    "home-drawer-help-and-support": "Help and Support",
+    "home-drawer-settings": "Settings",
+    "home-drawer-about": "About this App",
+
+    "home-tab-chapters": "Chapters",
+    "home-tab-bookmarks": "Bookmarks",
+
+    "chapter-details-search-hint-text": "Search...",
+    "chapter-details-action-search": "Search",
+    "chapter-details-action-more": "More",
+    "chapter-details-action-decrease-font-size": "Smaller Font",
+    "chapter-details-action-increase-font-size": "Larger Font",
+    "chapter-details-slidable-action-share": "Share",
+    "chapter-details-slidable-action-bookmark": "Add to Bookmarks",
+    "chapter-details-share-verse-item": "Surah ${chapterFullTitle} (${chapterTranslatedTitle})\r\n\r\n(${chapterVerseId}) ${verseFullText}\r\n\r\n${verseTranslatedText}\r\n\r\n${appShareFootage}",
+
+    "help-and-support-title": "Help and Support",
+
+    "settings-title": "Settings",
+    "settings-theme-qurani-font-family": "Font Family",
+    "settings-theme-qurani-font-family-nabi": "Nabi",
+    "settings-theme-qurani-font-family-neirizi": "Neirizi",
+    "settings-theme-qurani-font-family-taha": "Taha",
+    "settings-theme-font-size": "Font Size",
+    "settings-theme-font-size-16-0": "Smaller",
+    "settings-theme-font-size-18-0": "Small",
+    "settings-theme-font-size-20-0": "Normal",
+    "settings-theme-font-size-22-0": "Large",
+    "settings-theme-font-size-24-0": "Larger",
+    "settings-locale-code": "Language",
+    "settings-locale-code-fa-ir": "Persian (Iran)",
+    "settings-locale-code-en-us": "English (United States)",
+    "settings-translator-id": "Translator",
+    "settings-action-restore-defaults": "Restore Default Settings",
+    
+    "about-title": "About this App",
+
+    "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
+    "chapter-item-order": "ترتیب نزول ${order}",
+    "chapter-item-part-number": "جزء ${partNumber}",
+
+    "chapter-revelation-place-meccan": "Meccan",
+    "chapter-revelation-place-medinan": "Medinan",
+
+    "action-failure-error-message": "An unexpected error has occurred.",
+    "action-failure-retry-action": "Try Again",
+
+    "empty-content-no-result-message": "No content to display.",
+
+    "circular-loading-spin-message": "Please wait..."
+}

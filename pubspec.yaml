@@ -1,5 +1,5 @@
 name: quran
-description: An app to discover holy Quran.
+description: An app to discover The Holy Quran.
 
 dependencies:
   flutter:
@@ -27,6 +27,7 @@ flutter:
 
   assets:
    - assets/resources/fa_ir.json
+   - assets/resources/en_us.json
    - assets/data/translators.json
    - assets/data/chapters.json
    - assets/data/chapter_translations.json
