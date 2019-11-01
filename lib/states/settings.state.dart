@@ -105,16 +105,24 @@ class SettingsState {
   SettingsState copyWith({
     settingsOnGenerateTitle,
     settingsOnGenerateActionItems,
+    settingsOnGenerateThemeQuraniFontFamilyItems,
     settingsThemeQuraniFontFamily,
+    settingsOnGenerateThemeFontSizeItems,
     settingsThemeFontSize,
+    settingsOnGenerateLocaleItems,
     settingsLocaleCode,
+    settingsOnGenerateTranslatorItems,
     settingsTranslatorId
   }) => SettingsState(
     settingsOnGenerateTitle: settingsOnGenerateTitle ?? this.settingsOnGenerateTitle,
     settingsOnGenerateActionItems: settingsOnGenerateActionItems ?? this.settingsOnGenerateActionItems,
+    settingsOnGenerateThemeQuraniFontFamilyItems: settingsOnGenerateThemeQuraniFontFamilyItems ?? this.settingsOnGenerateThemeQuraniFontFamilyItems,
     settingsThemeQuraniFontFamily: settingsThemeQuraniFontFamily ?? this.settingsThemeQuraniFontFamily,
+    settingsOnGenerateThemeFontSizeItems: settingsOnGenerateThemeFontSizeItems ?? this.settingsOnGenerateThemeFontSizeItems,
     settingsThemeFontSize: settingsThemeFontSize ?? this.settingsThemeFontSize,
+    settingsOnGenerateLocaleItems: settingsOnGenerateLocaleItems ?? this.settingsOnGenerateLocaleItems,
     settingsLocaleCode: settingsLocaleCode ?? this.settingsLocaleCode,
+    settingsOnGenerateTranslatorItems: settingsOnGenerateTranslatorItems ?? this.settingsOnGenerateTranslatorItems,
     settingsTranslatorId: settingsTranslatorId ?? this.settingsTranslatorId
   );
 }
