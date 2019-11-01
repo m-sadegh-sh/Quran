@@ -98,7 +98,9 @@ class HomeScreen extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      margin: const EdgeInsets.only(left: 15.0),
+                      margin: const EdgeInsets.symmetric(
+                        horizontal: 15.0
+                      ),
                       child: Icon(
                         child.icon,
                         color: Theme.of(context).textTheme.display3.color.withOpacity(0.45)

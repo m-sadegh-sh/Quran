@@ -29,7 +29,9 @@ class ActionFailureScreen extends StatelessWidget {
                   color: Theme.of(context).errorColor,
                 ),
                 Container(
-                  margin: const EdgeInsets.only(right: 5.0),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 5.0
+                  ),
                   child: Text(
                     errorMessage ?? AppLocalizations.of(context).translate('action-failure-error-message'),
                     style: Theme.of(context).textTheme.display3

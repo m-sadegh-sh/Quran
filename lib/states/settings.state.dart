@@ -89,6 +89,10 @@ class SettingsState {
         ListItem<String>(
           title: AppLocalizations.of(context).translate('settings-locale-code-fa-ir'),
           value: 'fa-IR'
+        ),
+        ListItem<String>(
+          title: AppLocalizations.of(context).translate('settings-locale-code-en-us'),
+          value: 'en-US'
         )
       ],
       settingsLocaleCode: 'fa-IR',

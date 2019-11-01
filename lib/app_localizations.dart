@@ -58,7 +58,7 @@ class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> 
   _AppLocalizationsDelegate();
 
   @override
-  bool isSupported(Locale locale) => ['fa-IR'].contains('${locale.languageCode}-${locale.countryCode}');
+  bool isSupported(Locale locale) => ['fa-IR', 'e-US'].contains('${locale.languageCode}-${locale.countryCode}');
 
   @override
   Future<AppLocalizations> load(Locale locale) async {

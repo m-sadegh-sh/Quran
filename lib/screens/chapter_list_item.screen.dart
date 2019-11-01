@@ -25,7 +25,9 @@ class ChapterListItemScreen extends StatelessWidget {
 
   Widget _buildChapterNumber(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(left: 10.0),
+      margin: const EdgeInsets.symmetric(
+        horizontal: 10.0
+      ),
       constraints: BoxConstraints(
         minWidth: 48.0,
         minHeight: 48.0
@@ -121,7 +123,9 @@ class ChapterListItemScreen extends StatelessWidget {
               Expanded(
                 flex: 3,
                 child: Container(
-                  margin: const EdgeInsets.only(left: 10.0),
+                  margin: const EdgeInsets.symmetric(
+                    horizontal: 10.0
+                  ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

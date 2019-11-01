@@ -23,7 +23,9 @@ class EmptyContentScreen extends StatelessWidget {
               color: Theme.of(context).primaryColor,
             ),
             Container(
-              margin: const EdgeInsets.only(right: 5.0),
+              margin: const EdgeInsets.symmetric(
+                horizontal: 5.0
+              ),
               child: Text(
                 noResultMessage ?? AppLocalizations.of(context).translate('empty-content-no-result-message'),
                 style: Theme.of(context).textTheme.display3

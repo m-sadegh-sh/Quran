@@ -89,6 +89,7 @@ class AppState {
       ],
       appSupportedLocales: [
         Locale('fa', 'IR'),
+        Locale('en', 'US')
       ]
     );
   }

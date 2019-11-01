@@ -40,7 +40,9 @@ class VerseListItemScreen extends StatelessWidget {
       maintainAnimation: true,
       maintainSize: true,
       child: Container(
-        margin: const EdgeInsets.only(left: 10.0),
+        margin: const EdgeInsets.symmetric(
+          horizontal: 10.0
+        ),
         constraints: BoxConstraints(
           minWidth: 48.0,
           minHeight: 48.0
