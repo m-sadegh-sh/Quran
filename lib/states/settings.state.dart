@@ -87,11 +87,11 @@ class SettingsState {
       settingsThemeFontSize: 16.0,
       settingsOnGenerateLocaleItems: (BuildContext context) => [
         ListItem<String>(
-          title: AppLocalizations.of(context).translate('settings-locale-code-fa-ir'),
+          title: AppLocalizations.of(context).translate('settings-locale-code-fa-IR'),
           value: 'fa-IR'
         ),
         ListItem<String>(
-          title: AppLocalizations.of(context).translate('settings-locale-code-en-us'),
+          title: AppLocalizations.of(context).translate('settings-locale-code-en-US'),
           value: 'en-US'
         )
       ],
