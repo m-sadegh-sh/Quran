@@ -7,7 +7,6 @@ import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/enumerations/slidable_action_type.dart';
 import 'package:quran/repositories/verse.repository.dart';
 import 'package:quran/states/root.state.dart';
-import 'package:quran/states/chapter_details.state.dart';
 import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/actions/settings.action.dart';
 import 'package:quran/actions/common.action.dart';

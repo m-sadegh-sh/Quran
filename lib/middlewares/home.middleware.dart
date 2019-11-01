@@ -3,7 +3,6 @@ import 'package:redux/redux.dart';
 import 'package:quran/actions/chapter_list.action.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/states/root.state.dart';
-import 'package:quran/states/home.state.dart';
 import 'package:quran/actions/settings.action.dart';
 import 'package:quran/actions/home.action.dart';
 

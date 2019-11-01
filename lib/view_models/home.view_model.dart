@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:redux/redux.dart';
 
 import 'package:quran/states/root.state.dart';
-import 'package:quran/actions/app.action.dart';
-import 'package:quran/actions/settings.action.dart';
 import 'package:quran/actions/home.action.dart';
-import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/home.selector.dart';
 import 'package:quran/delegates/generator.delegate.dart';
