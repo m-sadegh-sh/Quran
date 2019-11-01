@@ -34,7 +34,7 @@ Middleware<RootState> _createBookmarkListReloadInitialState() {
 
 //       final castedAction = action as BookmarkListAddVerseAction;
    
-//       final sharedPreferences = await SharedPreferences.getInstance();
+//       final sharedPreferences = await Shared0Preferences.getInstance();
 
 //       sharedPreferences.getStringList(key);
 //     } catch(exception) {

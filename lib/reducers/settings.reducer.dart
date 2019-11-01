@@ -5,15 +5,15 @@ import 'package:quran/actions/settings.action.dart';
 
 final Reducer<SettingsState> settingsReducer = combineReducers([
   TypedReducer<SettingsState, SettingsReloadInitialStateSucceededAction>(_settingsReloadInitialStateSucceeded),
-  TypedReducer<SettingsState, SettingsSharedPreferencesLoadSucceededAction>(_settingsSharedPreferencesLoadSucceeded),
-  TypedReducer<SettingsState, SettingsSharedPreferencesPersistSucceededAction>(_settingsSharedPreferencesPersistSucceeded)
+  TypedReducer<SettingsState, SettingsLoadSucceededAction>(_settingsLoadSucceeded),
+  TypedReducer<SettingsState, SettingsPersistSucceededAction>(_settingsPersistSucceeded)
 ]);
 
 SettingsState _settingsReloadInitialStateSucceeded(SettingsState state, SettingsReloadInitialStateSucceededAction action) {
   return action.settingsState;
 }
 
-SettingsState _settingsSharedPreferencesLoadSucceeded(SettingsState state, SettingsSharedPreferencesLoadSucceededAction action) {
+SettingsState _settingsLoadSucceeded(SettingsState state, SettingsLoadSucceededAction action) {
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
     settingsThemeFontSize: action.settingsThemeFontSize,
@@ -23,7 +23,7 @@ SettingsState _settingsSharedPreferencesLoadSucceeded(SettingsState state, Setti
   );
 }
 
-SettingsState _settingsSharedPreferencesPersistSucceeded(SettingsState state, SettingsSharedPreferencesPersistSucceededAction action) {
+SettingsState _settingsPersistSucceeded(SettingsState state, SettingsPersistSucceededAction action) {
   return state.copyWith(
     settingsThemeQuraniFontFamily: action.settingsThemeQuraniFontFamily,
     settingsThemeFontSize: action.settingsThemeFontSize,

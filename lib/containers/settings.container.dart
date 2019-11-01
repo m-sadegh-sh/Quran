@@ -1,33 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
-import 'package:quran/app_localizations.dart';
+import 'package:quran/screens/settings.screen.dart';
+import 'package:quran/states/root.state.dart';
+import 'package:quran/view_models/settings.view_model.dart';
 
-class SettingsContainer extends StatefulWidget {
-  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('settings-title');
-
-  @override
-  _SettingsContainerState createState() => _SettingsContainerState();
-}
-
-class _SettingsContainerState extends State<SettingsContainer> {
-  AppBar _getAppBarWidget() {
-    return AppBar(
-      title: Text(widget._getTitle(context)),      
-    );
-  }
-
+class SettingsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _getAppBarWidget(),
-      body: Center(
-        child: Text('Settings')
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+    return StoreConnector<RootState, SettingsViewModel>(
+      converter: SettingsViewModel.fromStore,
+      builder: (BuildContext context, SettingsViewModel settingsViewModel) => SettingsScreen(
+        settingsTitle: settingsViewModel.settingsOnGenerateTitle(context),
+        settingsActionItems: settingsViewModel.settingsOnGenerateActionItems(context),
+        settingsOnActionItemPressed: settingsViewModel.settingsOnActionItemPressed,
+        settingsThemeQuraniFontFamily: settingsViewModel.settingsThemeQuraniFontFamily,
+        settingsThemeFontSize: settingsViewModel.settingsThemeFontSize,
+        settingsLocaleLanguageCode: settingsViewModel.settingsLocaleLanguageCode,
+        settingsLocaleCountryCode: settingsViewModel.settingsLocaleCountryCode,
+        settingsTranslatorId: settingsViewModel.settingsTranslatorId,
+        settingsOnPersist: settingsViewModel.settingsOnPersist
+      )
     );
   }
 }

@@ -129,7 +129,7 @@ Middleware<RootState> _createChapterDetailsActionChildItemPressed() {
       final castedAction = action as ChapterDetailsActionChildItemPressedAction;
    
       if (castedAction.chapterDetailsActionChildItemType == ActionChildItemType.ChangeFontSize)
-        store.dispatch(SettingsSharedPreferencesPersistAction(
+        store.dispatch(SettingsPersistAction(
           settingsThemeFontSize: castedAction.chapterDetailsValue as double
         ));
     } catch(exception) { }

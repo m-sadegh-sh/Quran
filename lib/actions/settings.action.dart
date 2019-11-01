@@ -1,4 +1,9 @@
 
+import 'package:flutter/widgets.dart';
+import 'package:redux/redux.dart';
+
+import 'package:quran/items/action.item.dart';
+import 'package:quran/states/root.state.dart';
 import 'package:quran/states/settings.state.dart';
 
 class SettingsReloadInitialStateAction { }
@@ -13,16 +18,16 @@ class SettingsReloadInitialStateSucceededAction {
 
 class SettingsReloadInitialStateFailedAction { }
 
-class SettingsSharedPreferencesLoadAction { }
+class SettingsLoadAction { }
 
-class SettingsSharedPreferencesLoadSucceededAction {
+class SettingsLoadSucceededAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
-  SettingsSharedPreferencesLoadSucceededAction({
+  SettingsLoadSucceededAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
@@ -31,16 +36,16 @@ class SettingsSharedPreferencesLoadSucceededAction {
   });
 }
 
-class SettingsSharedPreferencesLoadFailedAction {}
+class SettingsLoadFailedAction {}
   
-class SettingsSharedPreferencesPersistAction {
+class SettingsPersistAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
-  SettingsSharedPreferencesPersistAction({
+  SettingsPersistAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
@@ -49,14 +54,14 @@ class SettingsSharedPreferencesPersistAction {
   });
 }
 
-class SettingsSharedPreferencesPersistSucceededAction {
+class SettingsPersistSucceededAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;
   final String settingsLocaleLanguageCode;
   final String settingsLocaleCountryCode;
   final int settingsTranslatorId;
 
-  SettingsSharedPreferencesPersistSucceededAction({
+  SettingsPersistSucceededAction({
     this.settingsThemeQuraniFontFamily,
     this.settingsThemeFontSize,
     this.settingsLocaleLanguageCode,
@@ -65,4 +70,18 @@ class SettingsSharedPreferencesPersistSucceededAction {
   });
 }
 
-class SettingsSharedPreferencesPersistFailedAction { }
+class SettingsPersistFailedAction { }
+
+class SettingsActionItemPressedAction {
+  final BuildContext context;
+  final Store<RootState> store;
+  final ActionItem settingsActionItem;
+
+  SettingsActionItemPressedAction({
+    this.context,
+    this.store,
+    this.settingsActionItem
+  });
+}
+
+class SettingsRestoreDefaultsAction { }

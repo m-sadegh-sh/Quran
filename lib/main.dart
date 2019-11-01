@@ -28,7 +28,7 @@ void main() async {
   
   final store = _createStore();
 
-  store.dispatch(SettingsSharedPreferencesLoadAction());
+  store.dispatch(SettingsLoadAction());
 
   runApp(
     StoreProvider(

@@ -85,7 +85,7 @@ Middleware<RootState> _createHomeActionChildItemPressed() {
       final castedAction = action as HomeActionChildItemPressedAction;
    
       if (castedAction.homeActionChildItemType == ActionChildItemType.ChangeFontSize)
-        store.dispatch(SettingsSharedPreferencesPersistAction(
+        store.dispatch(SettingsPersistAction(
           settingsThemeFontSize: castedAction.homeValue as double
         ));
     } catch(exception) { }

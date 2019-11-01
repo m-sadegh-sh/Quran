@@ -14,8 +14,8 @@ const SETTINGS_TRANSLATOR_ID_KEY = "rootState.settingsState.settingsTranslatorId
 List<Middleware<RootState>> createSettingsMiddleware() {
   return [
     TypedMiddleware<RootState, SettingsReloadInitialStateAction>(_createSettingsReloadInitialState()),
-    TypedMiddleware<RootState, SettingsSharedPreferencesLoadAction>(_createSettingsSharedPreferencesLoad()),
-    TypedMiddleware<RootState, SettingsSharedPreferencesPersistAction>(_createSettingsSharedPreferencesPersist())
+    TypedMiddleware<RootState, SettingsLoadAction>(_createSettingsLoad()),
+    TypedMiddleware<RootState, SettingsPersistAction>(_createSettingsPersist())
   ];
 }
 
@@ -30,7 +30,7 @@ Middleware<RootState> _createSettingsReloadInitialState() {
         settingsState: settingsState
       ));
 
-      store.dispatch(SettingsSharedPreferencesPersistAction(
+      store.dispatch(SettingsPersistAction(
         settingsThemeQuraniFontFamily: settingsState.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: settingsState.settingsThemeFontSize,
         settingsLocaleLanguageCode: settingsState.settingsLocaleLanguageCode,
@@ -43,7 +43,7 @@ Middleware<RootState> _createSettingsReloadInitialState() {
   };
 }
 
-Middleware<RootState> _createSettingsSharedPreferencesLoad() {
+Middleware<RootState> _createSettingsLoad() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
       next(action);
@@ -56,7 +56,7 @@ Middleware<RootState> _createSettingsSharedPreferencesLoad() {
       final newSettingsLocaleCountryCode = sharedPreferences.getString(SETTINGS_LOCALE_COUNTRY_CODE_KEY);
       final newSettingsTranslatorId = sharedPreferences.getInt(SETTINGS_TRANSLATOR_ID_KEY);
 
-      store.dispatch(SettingsSharedPreferencesLoadSucceededAction(
+      store.dispatch(SettingsLoadSucceededAction(
         settingsThemeQuraniFontFamily: newSettingsThemeQuraniFontFamily,
         settingsThemeFontSize: newSettingsThemeFontSize,
         settingsLocaleLanguageCode: newSettingsLocaleLanguageCode,
@@ -64,17 +64,17 @@ Middleware<RootState> _createSettingsSharedPreferencesLoad() {
         settingsTranslatorId: newSettingsTranslatorId
       ));
     } catch(exception) {
-      store.dispatch(SettingsSharedPreferencesLoadFailedAction());
+      store.dispatch(SettingsLoadFailedAction());
     }
   };
 }
 
-Middleware<RootState> _createSettingsSharedPreferencesPersist() {
+Middleware<RootState> _createSettingsPersist() {
   return (Store<RootState> store, action, NextDispatcher next) async {
     try {
       next(action);
 
-      final castedAction = action as SettingsSharedPreferencesPersistAction;
+      final castedAction = action as SettingsPersistAction;
 
       final sharedPreferences = await SharedPreferences.getInstance();
 
@@ -84,7 +84,7 @@ Middleware<RootState> _createSettingsSharedPreferencesPersist() {
       sharedPreferences.setString(SETTINGS_LOCALE_COUNTRY_CODE_KEY, castedAction.settingsLocaleCountryCode);
       sharedPreferences.setInt(SETTINGS_TRANSLATOR_ID_KEY, castedAction.settingsTranslatorId);
 
-      store.dispatch(SettingsSharedPreferencesPersistSucceededAction(
+      store.dispatch(SettingsPersistSucceededAction(
         settingsThemeQuraniFontFamily: castedAction.settingsThemeQuraniFontFamily,
         settingsThemeFontSize: castedAction.settingsThemeFontSize,
         settingsLocaleLanguageCode: castedAction.settingsLocaleLanguageCode,
@@ -92,7 +92,7 @@ Middleware<RootState> _createSettingsSharedPreferencesPersist() {
         settingsTranslatorId: castedAction.settingsTranslatorId
       ));
     } catch(exception) {
-      store.dispatch(SettingsSharedPreferencesPersistFailedAction());
+      store.dispatch(SettingsPersistFailedAction());
     }
   };
 }

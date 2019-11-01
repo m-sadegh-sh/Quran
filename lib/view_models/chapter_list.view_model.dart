@@ -62,8 +62,8 @@ class ChapterListViewModel {
       ),
       homeSearchQuery: homeSearchQuerySelector(homeState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
-      chapterListOnThemeFontSizeChanging: (newSettingsThemeFontSize) =>
-        store.dispatch(SettingsSharedPreferencesPersistAction(
+      chapterListOnThemeFontSizeChanging: (double newSettingsThemeFontSize) =>
+        store.dispatch(SettingsPersistAction(
           settingsThemeFontSize: newSettingsThemeFontSize
         )),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
