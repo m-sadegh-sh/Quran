@@ -58,7 +58,7 @@ Future _registerDependencies() {
   ]);
 }
 
-Store<RootState> _createStore() {  
+Store<RootState> _createStore() {
   return new Store<RootState>(
     rootReducer,
     initialState: RootState.initial(),
