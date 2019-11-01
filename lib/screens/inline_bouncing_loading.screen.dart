@@ -10,7 +10,7 @@ class InlineBouncingLoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
-      children: <Widget>[
+      children: [
         SpinKitThreeBounce(
           color: Theme.of(context).primaryColorLight,          
           size: 12.0

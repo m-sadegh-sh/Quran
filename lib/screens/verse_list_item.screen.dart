@@ -52,7 +52,7 @@ class VerseListItemScreen extends StatelessWidget {
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
+            children: [
               Text(
                 verseItem.chapterVerseId.toString(),
                 textAlign: TextAlign.center,
@@ -93,13 +93,13 @@ class VerseListItemScreen extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               _buildVerseNumber(context),
               Expanded(
                 child: Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                    children: [
                       _buildVerseFullText(context),
                       Container(
                         margin: const EdgeInsets.only(top: 5.0),

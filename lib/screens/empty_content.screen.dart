@@ -16,7 +16,7 @@ class EmptyContentScreen extends StatelessWidget {
       child: Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Icon(
               Icons.info_outline,
               size: 40.0,

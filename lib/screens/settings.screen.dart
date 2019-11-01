@@ -87,7 +87,7 @@ class SettingsScreen extends StatelessWidget {
   }
 
   List<Widget> _buildLocaleCodeItems(BuildContext context) {
-    return settingThemeQuraniFontFamilyItems
+    return settingLocaleItems
       .map<Widget>((item) =>
         ListTile(
           title: Text(item.title),
@@ -118,35 +118,27 @@ class SettingsScreen extends StatelessWidget {
 
   ListView _buildListView(BuildContext context) {
     return ListView(
-      children: <Widget>[
+      children: [
         Text(
           AppLocalizations.of(context).translate('settings-theme-qurani-font-family'),
           style: Theme.of(context).textTheme.title
         ),
-        Stack(
-          children: _buildThemeQuraniFontFamilyItems(context),
-        ),
+        ..._buildThemeQuraniFontFamilyItems(context),
         Text(
           AppLocalizations.of(context).translate('settings-theme-font-size'),
           style: Theme.of(context).textTheme.title
         ),
-        Stack(
-          children: _buildThemeFontSizeItems(context),
-        ),
+        ..._buildThemeFontSizeItems(context),
         Text(
           AppLocalizations.of(context).translate('settings-locale-code'),
           style: Theme.of(context).textTheme.title
         ),
-        Stack(
-          children: _buildLocaleCodeItems(context),
-        ),
+        ..._buildLocaleCodeItems(context),
         Text(
           AppLocalizations.of(context).translate('settings-translator-id'),
           style: Theme.of(context).textTheme.title
         ),
-        Stack(
-          children: _buildTranslatorItems(context),
-        )
+        ..._buildTranslatorItems(context)
       ]
     );
   }

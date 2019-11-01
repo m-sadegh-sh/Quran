@@ -71,7 +71,7 @@ class ChapterDetailsScreen extends StatelessWidget {
                 enabled: child.enabled,
                 value: child,
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Container(
                       margin: const EdgeInsets.only(left: 15.0),
                       child: Icon(

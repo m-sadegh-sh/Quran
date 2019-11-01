@@ -96,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                 enabled: child.enabled,
                 value: child,
                 child: Row(
-                  children: <Widget>[
+                  children: [
                     Container(
                       margin: const EdgeInsets.only(left: 15.0),
                       child: Icon(
@@ -181,7 +181,7 @@ class HomeScreen extends StatelessWidget {
   Drawer _buildDrawer(BuildContext context) {
     return Drawer(
       child: Column(
-        children: <Widget>[
+        children: [
           _buildAccountHeader(context),
           Column(
             children: _buildDrawerItems(context)

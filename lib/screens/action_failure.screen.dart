@@ -19,10 +19,10 @@ class ActionFailureScreen extends StatelessWidget {
       child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
+              children: [
                 Icon(
                   Icons.error_outline,
                   size: 40.0,

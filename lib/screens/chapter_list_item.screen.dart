@@ -37,7 +37,7 @@ class ChapterListItemScreen extends StatelessWidget {
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
+          children: [
             Text(
               chapterItem.id.toString(),
               textAlign: TextAlign.center,
@@ -116,7 +116,7 @@ class ChapterListItemScreen extends StatelessWidget {
           padding: const EdgeInsets.all(10.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               _buildChapterNumber(context),
               Expanded(
                 flex: 3,
@@ -124,7 +124,7 @@ class ChapterListItemScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 10.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
+                    children: [
                       _buildChapterFullTitle(context),
                       Container(
                         margin: const EdgeInsets.only(top: 5.0),
@@ -138,7 +138,7 @@ class ChapterListItemScreen extends StatelessWidget {
                 flex: 2,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
+                  children: [
                     _buildChapterPartNumber(context),
                     Container(
                       margin: const EdgeInsets.symmetric(

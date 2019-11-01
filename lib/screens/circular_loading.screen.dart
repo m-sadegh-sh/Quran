@@ -15,7 +15,7 @@ class CircularLoadingScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
+      children: [
         SpinKitPulse(
           color: Theme.of(context).primaryColor,
           size: 64.0,
