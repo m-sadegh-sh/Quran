@@ -22,12 +22,7 @@ class _HelpAndSupportContainerState extends State<HelpAndSupportContainer> {
       appBar: _getAppBarWidget(),
       body: Center(
         child: Text('Help & Support')
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      )
     );
   }
 }

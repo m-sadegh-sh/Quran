@@ -13,34 +13,10 @@ const SETTINGS_TRANSLATOR_ID_KEY = "rootState.settingsState.settingsTranslatorId
 
 List<Middleware<RootState>> createSettingsMiddleware() {
   return [
-    TypedMiddleware<RootState, SettingsReloadInitialStateAction>(_createSettingsReloadInitialState()),
     TypedMiddleware<RootState, SettingsLoadAction>(_createSettingsLoad()),
-    TypedMiddleware<RootState, SettingsPersistAction>(_createSettingsPersist())
+    TypedMiddleware<RootState, SettingsPersistAction>(_createSettingsPersist()),
+    TypedMiddleware<RootState, SettingsRestoreDefaultsAction>(_createSettingsRestoreDefaults())
   ];
-}
-
-Middleware<RootState> _createSettingsReloadInitialState() {
-  return (Store<RootState> store, action, NextDispatcher next) async {
-    try {
-      next(action);
-
-      final settingsState = SettingsState.initial();
-
-      store.dispatch(SettingsReloadInitialStateSucceededAction(
-        settingsState: settingsState
-      ));
-
-      store.dispatch(SettingsPersistAction(
-        settingsThemeQuraniFontFamily: settingsState.settingsThemeQuraniFontFamily,
-        settingsThemeFontSize: settingsState.settingsThemeFontSize,
-        settingsLocaleLanguageCode: settingsState.settingsLocaleLanguageCode,
-        settingsLocaleCountryCode: settingsState.settingsLocaleCountryCode,
-        settingsTranslatorId: settingsState.settingsTranslatorId
-      ));
-    } catch(exception) {
-      store.dispatch(SettingsReloadInitialStateFailedAction());
-    }
-  };
 }
 
 Middleware<RootState> _createSettingsLoad() {
@@ -94,5 +70,23 @@ Middleware<RootState> _createSettingsPersist() {
     } catch(exception) {
       store.dispatch(SettingsPersistFailedAction());
     }
+  };
+}
+
+Middleware<RootState> _createSettingsRestoreDefaults() {
+  return (Store<RootState> store, action, NextDispatcher next) async {
+    try {
+      next(action);
+
+      final initialSettingsState = SettingsState.initial();
+
+      store.dispatch(SettingsPersistAction(
+        settingsThemeQuraniFontFamily: initialSettingsState.settingsThemeQuraniFontFamily,
+        settingsThemeFontSize: initialSettingsState.settingsThemeFontSize,
+        settingsLocaleLanguageCode: initialSettingsState.settingsLocaleLanguageCode,
+        settingsLocaleCountryCode: initialSettingsState.settingsLocaleCountryCode,
+        settingsTranslatorId: initialSettingsState.settingsTranslatorId
+      ));
+    } catch(exception) { }
   };
 }

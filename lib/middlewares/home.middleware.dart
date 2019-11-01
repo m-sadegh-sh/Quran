@@ -9,26 +9,11 @@ import 'package:quran/actions/home.action.dart';
 
 List<Middleware<RootState>> createHomeMiddleware() {
   return [
-    TypedMiddleware<RootState, HomeReloadInitialStateAction>(_createHomeReloadInitialState()),
     TypedMiddleware<RootState, HomeSearchOpenAction>(_createHomeSearchOpen()),
     TypedMiddleware<RootState, HomeSearchCloseAction>(_createHomeSearchClose()),
     TypedMiddleware<RootState, HomeSearchQueryChangingAction>(_createHomeSearchQueryChanging()),
     TypedMiddleware<RootState, HomeActionChildItemPressedAction>(_createHomeActionChildItemPressed())
   ];
-}
-
-Middleware<RootState> _createHomeReloadInitialState() {
-  return (Store<RootState> store, action, NextDispatcher next) async {
-    try {
-      next(action);
-
-      store.dispatch(HomeReloadInitialStateSucceededAction(
-        homeState: HomeState.initial()
-      ));
-    } catch(exception) {
-      store.dispatch(HomeReloadInitialStateFailedAction());
-    }
-  };
 }
 
 Middleware<RootState> _createHomeSearchOpen() {

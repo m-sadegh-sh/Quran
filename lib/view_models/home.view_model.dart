@@ -30,7 +30,6 @@ class HomeViewModel {
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
   final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
-  final Function(BuildContext) homeOnFloatingActionButtonPressed;
   final double settingsThemeFontSize;
   final int settingsTranslatorId;
   
@@ -50,7 +49,6 @@ class HomeViewModel {
     this.homeOnActionChildItemPressed,
     this.homeOnGenerateTabItems,
     this.homeOnGenerateTabContents,
-    this.homeOnFloatingActionButtonPressed,
     this.settingsThemeFontSize,
     this.settingsTranslatorId
   });
@@ -99,12 +97,6 @@ class HomeViewModel {
       },
       homeOnGenerateTabItems: homeOnGenerateTabItemsSelector(homeState),
       homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState),
-      homeOnFloatingActionButtonPressed: (BuildContext context) {
-        store.dispatch(AppReloadInitialStateAction());
-        store.dispatch(SettingsReloadInitialStateAction());
-        store.dispatch(HomeReloadInitialStateAction());
-        store.dispatch(ChapterDetailsReloadInitialStateAction());
-      },
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );

@@ -4,14 +4,10 @@ import 'package:quran/states/settings.state.dart';
 import 'package:quran/actions/settings.action.dart';
 
 final Reducer<SettingsState> settingsReducer = combineReducers([
-  TypedReducer<SettingsState, SettingsReloadInitialStateSucceededAction>(_settingsReloadInitialStateSucceeded),
   TypedReducer<SettingsState, SettingsLoadSucceededAction>(_settingsLoadSucceeded),
-  TypedReducer<SettingsState, SettingsPersistSucceededAction>(_settingsPersistSucceeded)
+  TypedReducer<SettingsState, SettingsPersistSucceededAction>(_settingsPersistSucceeded),
+  TypedReducer<SettingsState, SettingsActionItemPressedAction>(_settingsActionItemPressed)
 ]);
-
-SettingsState _settingsReloadInitialStateSucceeded(SettingsState state, SettingsReloadInitialStateSucceededAction action) {
-  return action.settingsState;
-}
 
 SettingsState _settingsLoadSucceeded(SettingsState state, SettingsLoadSucceededAction action) {
   return state.copyWith(
@@ -31,4 +27,10 @@ SettingsState _settingsPersistSucceeded(SettingsState state, SettingsPersistSucc
     settingsLocaleCountryCode: action.settingsLocaleCountryCode,
     settingsTranslatorId: action.settingsTranslatorId
   );
+}
+
+SettingsState _settingsActionItemPressed(SettingsState state, SettingsActionItemPressedAction action) {
+  action.settingsActionItem.onDispatchAction(action.context, action.store);
+
+  return state;
 }

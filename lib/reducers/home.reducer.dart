@@ -6,7 +6,6 @@ import 'package:quran/states/home.state.dart';
 import 'package:quran/actions/home.action.dart';
 
 final Reducer<HomeState> homeReducer = combineReducers([
-  TypedReducer<HomeState, HomeReloadInitialStateSucceededAction>(_homeReloadInitialStateSucceeded),
   TypedReducer<HomeState, HomeSearchOpenAction>(_homeSearchOpen),
   TypedReducer<HomeState, HomeSearchCloseAction>(_homeSearchClose),
   TypedReducer<HomeState, HomeSearchQueryChangeSucceededAction>(_homeSearchQueryChangeSucceeded),
@@ -14,10 +13,6 @@ final Reducer<HomeState> homeReducer = combineReducers([
   TypedReducer<HomeState, HomeActionItemPressedAction>(_homeActionItemPressed),
   TypedReducer<HomeState, HomeActionChildItemPressedAction>(_homeActionChildItemPressed)
 ]);
-
-HomeState _homeReloadInitialStateSucceeded(HomeState state, HomeReloadInitialStateSucceededAction action) {
-  return action.homeState;
-}
 
 HomeState _homeSearchOpen(HomeState state, HomeSearchOpenAction action) {
   return state.copyWith(

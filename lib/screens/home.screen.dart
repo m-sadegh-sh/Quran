@@ -21,7 +21,6 @@ class HomeScreen extends StatelessWidget {
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
   final List<TabItem> homeTabItems;
   final List<Widget> homeTabContents;
-  final Function(BuildContext) homeOnFloatingActionButtonPressed;
   final int settingsTranslatorId;
 
   HomeScreen({
@@ -41,7 +40,6 @@ class HomeScreen extends StatelessWidget {
     this.homeOnActionChildItemPressed,
     this.homeTabItems,
     this.homeTabContents,
-    this.homeOnFloatingActionButtonPressed,
     this.settingsTranslatorId
   }) : super(key: key);
 
@@ -199,13 +197,6 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  FloatingActionButton _buildFloatingActionButton(BuildContext context) {
-    return FloatingActionButton(
-      child: Icon(Icons.refresh),
-      onPressed: () => homeOnFloatingActionButtonPressed(context)
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -213,8 +204,7 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: _buildDrawer(context),
-        body: _buildTabBarView(context),
-        floatingActionButton: _buildFloatingActionButton(context)
+        body: _buildTabBarView(context)
       )
     );
   }

@@ -22,12 +22,7 @@ class _AboutContainerState extends State<AboutContainer> {
       appBar: _getAppBarWidget(),
       body: Center(
         child: Text('About')
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      )
     );
   }
 }

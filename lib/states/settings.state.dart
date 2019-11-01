@@ -37,7 +37,7 @@ class SettingsState {
               SettingsRestoreDefaultsAction()
             ),
           tooltip: AppLocalizations.of(context).translate('settings-action-restore-defaults'),
-          icon: Icons.restore
+          icon: Icons.settings_backup_restore
         )
       ],
       settingsThemeQuraniFontFamily: 'Nabi',

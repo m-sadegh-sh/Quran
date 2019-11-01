@@ -14,7 +14,6 @@ import 'package:quran/actions/common.action.dart';
 
 List<Middleware<RootState>> createChapterDetailsMiddleware() {
   return [
-    TypedMiddleware<RootState, ChapterDetailsReloadInitialStateAction>(_createChapterDetailsReloadInitialState()),
     TypedMiddleware<RootState, ChapterDetailsLoadAction>(_createChapterDetailsLoad()),
     TypedMiddleware<RootState, ChapterDetailsSearchOpenAction>(_createChapterDetailsSearchOpen()),
     TypedMiddleware<RootState, ChapterDetailsSearchCloseAction>(_createChapterDetailsSearchClose()),
@@ -22,20 +21,6 @@ List<Middleware<RootState>> createChapterDetailsMiddleware() {
     TypedMiddleware<RootState, ChapterDetailsActionChildItemPressedAction>(_createChapterDetailsActionChildItemPressed()),
     TypedMiddleware<RootState, ChapterDetailsSlidableActionTappedAction>(_createChapterDetailsSlidableActionTapped())
   ];
-}
-
-Middleware<RootState> _createChapterDetailsReloadInitialState() {
-  return (Store<RootState> store, action, NextDispatcher next) async {
-    try {
-      next(action);
-
-      store.dispatch(ChapterDetailsReloadInitialStateSucceededAction(
-        chapterDetailsState: ChapterDetailsState.initial()
-      ));
-    } catch(exception) {
-      store.dispatch(ChapterDetailsReloadInitialStateFailedAction());
-    }
-  };
 }
 
 Middleware<RootState> _createChapterDetailsLoad() {

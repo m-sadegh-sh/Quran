@@ -4,19 +4,6 @@ import 'package:redux/redux.dart';
 
 import 'package:quran/items/action.item.dart';
 import 'package:quran/states/root.state.dart';
-import 'package:quran/states/settings.state.dart';
-
-class SettingsReloadInitialStateAction { }
-
-class SettingsReloadInitialStateSucceededAction {
-  final SettingsState settingsState;
-
-  SettingsReloadInitialStateSucceededAction({
-    this.settingsState
-  });
-}
-
-class SettingsReloadInitialStateFailedAction { }
 
 class SettingsLoadAction { }
 

@@ -8,7 +8,6 @@ import 'package:quran/actions/chapter_details.action.dart';
 import 'package:quran/items/verse.item.dart';
 
 final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
-  TypedReducer<ChapterDetailsState, ChapterDetailsReloadInitialStateSucceededAction>(_chapterDetailsReloadInitialStateSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadAction>(_chapterDetailsLoad),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadSucceededAction>(_chapterDetailsLoadSucceeded),
   TypedReducer<ChapterDetailsState, ChapterDetailsLoadFailedAction>(_chapterDetailsLoadFailed),
@@ -18,10 +17,6 @@ final Reducer<ChapterDetailsState> chapterDetailsReducer = combineReducers([
   TypedReducer<ChapterDetailsState, ChapterDetailsActionItemPressedAction>(_chapterDetailsActionItemPressed),
   TypedReducer<ChapterDetailsState, ChapterDetailsActionChildItemPressedAction>(_chapterDetailsActionChildItemPressed)
 ]);
-
-ChapterDetailsState _chapterDetailsReloadInitialStateSucceeded(ChapterDetailsState state, ChapterDetailsReloadInitialStateSucceededAction action) {
-  return action.chapterDetailsState;
-}
 
 ChapterDetailsState _chapterDetailsLoad(ChapterDetailsState state, ChapterDetailsLoadAction action) {
   return state.copyWith(

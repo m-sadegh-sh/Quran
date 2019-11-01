@@ -7,20 +7,7 @@ import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/chapter.item.dart';
 import 'package:quran/items/verse.item.dart';
-import 'package:quran/states/chapter_details.state.dart';
 import 'package:quran/states/root.state.dart';
-
-class ChapterDetailsReloadInitialStateAction { }
-
-class ChapterDetailsReloadInitialStateSucceededAction {
-  final ChapterDetailsState chapterDetailsState;
-
-  ChapterDetailsReloadInitialStateSucceededAction({
-    this.chapterDetailsState
-  });
-}
-
-class ChapterDetailsReloadInitialStateFailedAction { }
 
 class ChapterDetailsLoadAction {
   final BuildContext context;
