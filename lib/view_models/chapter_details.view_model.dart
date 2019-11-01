@@ -23,7 +23,7 @@ class ChapterDetailsViewModel {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final Function(BuildContext, ChapterItem, int) chapterDetailsLoad;
+  final Function(BuildContext, ChapterItem, String, int) chapterDetailsLoad;
   final bool chapterDetailsIsSearching;
   final GeneratorWNP<String> chapterDetailsOnGenerateSearchHintText;
   final String chapterDetailsSearchQuery;
@@ -85,10 +85,11 @@ class ChapterDetailsViewModel {
       chapterDetailsBackgroundImage: chapterDetailsBackgroundImageSelector(chapterDetailsState),
       chapterDetailsLoadFailed: chapterDetailsLoadFailedSelector(chapterDetailsState),
       chapterDetailsLoadError: chapterDetailsLoadErrorSelector(chapterDetailsState),
-      chapterDetailsLoad: (BuildContext context, ChapterItem chapterDetailsChapterItem, int settingsTranslatorId) { 
+      chapterDetailsLoad: (BuildContext context, ChapterItem chapterDetailsChapterItem, String chapterDetailsSearchQuery, int settingsTranslatorId) { 
         store.dispatch(ChapterDetailsLoadAction(
           context: context,
           chapterDetailsChapterItem: chapterDetailsChapterItem,
+          chapterDetailsSearchQuery: chapterDetailsSearchQuery,
           settingsTranslatorId: settingsTranslatorId
         ));
       },

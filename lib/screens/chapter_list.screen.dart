@@ -32,7 +32,7 @@ class ChapterListScreen extends StatelessWidget {
     this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   }) : super(key: key) {
-    if (!chapterListLoading && chapterListItems.length == 0 && !chapterListLoadFailed)
+    if (!chapterListLoadSucceeded && !chapterListLoadFailed)
       chapterListLoad(homeSearchQuery, settingsTranslatorId);
   }
 

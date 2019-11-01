@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 
@@ -19,7 +20,7 @@ class ChapterDetailsScreen extends StatelessWidget {
   final String chapterDetailsBackgroundImage;
   final bool chapterDetailsLoadFailed;
   final String chapterDetailsLoadError;
-  final Function(BuildContext, ChapterItem, int) chapterDetailsLoad;
+  final Function(BuildContext, ChapterItem, String, int) chapterDetailsLoad;
   final bool chapterDetailsIsSearching;
   final String chapterDetailsSearchHintText;
   final String chapterDetailsSearchQuery;
@@ -95,39 +96,6 @@ class ChapterDetailsScreen extends StatelessWidget {
   }
   
   Widget _buildFlexibleSpaceTitle(BuildContext context) {
-    if (chapterDetailsIsSearching)
-      return SizedBox(
-        height: kTextTabBarHeight,
-        width: 200.0,
-        child: Container(
-          decoration: BoxDecoration(
-            color: Theme.of(context).primaryColorDark,
-            borderRadius: BorderRadius.circular(10.0)
-          ),
-          margin: const EdgeInsets.symmetric(
-            vertical: 60.0
-          ),
-          padding: const EdgeInsets.symmetric(
-            horizontal: 5.0
-          ),
-          child: TextFormField(
-            keyboardType: TextInputType.text,
-            autofocus: true,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              hintText: chapterDetailsSearchHintText,
-              hintStyle: Theme.of(context).textTheme.headline.apply(
-                color: Theme.of(context).textSelectionColor
-              ),
-            ),
-            style: Theme.of(context).textTheme.headline,
-            initialValue: chapterDetailsSearchQuery,
-            onFieldSubmitted: (String text) => chapterDetailsOnSearchQueryChanging(context, chapterDetailsChapterItem, text, settingsTranslatorId),
-            textInputAction: TextInputAction.search
-          )
-        )
-      );
-
     return SizedBox(
       height: kTextTabBarHeight,
       child: Text(
@@ -151,31 +119,76 @@ class ChapterDetailsScreen extends StatelessWidget {
   }
 
   List<Widget> _buildHeaderSliver(BuildContext context, bool innerBoxIsScrolled) {
+    if (chapterDetailsIsSearching)
+      return [];
+
     return <Widget>[
       SliverAppBar(
         actions: _buildActions(context),
         expandedHeight: 200.0,
         pinned: true,
+        floating: true,
+        snap: true,
+        titleSpacing: 0,
         flexibleSpace: _buildFlexibleSpace(context)
       ),
     ];
   }
 
+  AppBar _buildAppBar(BuildContext context) {
+    if (!chapterDetailsIsSearching)
+      return null;
+
+    return AppBar(
+      title: Container(
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColorDark,
+          borderRadius: BorderRadius.circular(10.0)
+        ),
+        margin: const EdgeInsets.symmetric(
+          vertical: 60.0
+        ),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 5.0
+        ),
+        child: TextFormField(
+          keyboardType: TextInputType.text,
+          autofocus: true,
+          decoration: InputDecoration(
+            border: InputBorder.none,
+            hintText: chapterDetailsSearchHintText,
+            hintStyle: Theme.of(context).textTheme.headline.apply(
+              color: Theme.of(context).textSelectionColor
+            ),
+          ),
+          style: Theme.of(context).textTheme.headline,
+          initialValue: chapterDetailsSearchQuery,
+          onFieldSubmitted: (String text) => chapterDetailsOnSearchQueryChanging(context, chapterDetailsChapterItem, text, settingsTranslatorId),
+          textInputAction: TextInputAction.search
+        )
+      ),
+      actions: _buildActions(context)
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: _buildAppBar(context),
       body: NestedScrollView(
+        controller: new ScrollController(),
         headerSliverBuilder: _buildHeaderSliver,
         body: VerseListScreen(
-          chapterItem: chapterDetailsChapterItem,
           verseListLoading: chapterDetailsLoading,
           verseListLoadSucceeded: chapterDetailsLoadSucceeded,
           verseListItems: chapterDetailsVerseItems,
           verseListLoadFailed: chapterDetailsLoadFailed,
           verseListLoadError: chapterDetailsLoadError,
-          verseListLoad: () => chapterDetailsLoad(context, chapterDetailsChapterItem, settingsTranslatorId),
+          verseListLoad: (chapterDetailsChapterItem, chapterDetailsSearchQuery, settingsTranslatorId) => chapterDetailsLoad(context, chapterDetailsChapterItem, chapterDetailsSearchQuery, settingsTranslatorId),
           verseListOnGenerateSlidableActions: chapterDetailsOnGenerateSlidableActions,
           verseListSlidableController: chapterDetailsSlidableController,
+          chapterDetailsChapterItem: chapterDetailsChapterItem,
+          chapterDetailsSearchQuery: chapterDetailsSearchQuery,
           settingsTranslatorId: settingsTranslatorId
         )
       )

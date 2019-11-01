@@ -9,20 +9,20 @@ import 'package:quran/screens/empty_content.screen.dart';
 import 'package:quran/screens/verse_list_item.screen.dart';
 
 class VerseListScreen extends StatelessWidget {
-  final ChapterItem chapterItem;
   final bool verseListLoading;
   final bool verseListLoadSucceeded;
   final List<VerseItem> verseListItems;
   final bool verseListLoadFailed;
   final String verseListLoadError;
-  final Function verseListLoad;
+  final Function(ChapterItem, String, int) verseListLoad;
   final GeneratorW2P<ChapterItem, VerseItem, List<IconSlideAction>> verseListOnGenerateSlidableActions;
   final SlidableController verseListSlidableController;
+  final ChapterItem chapterDetailsChapterItem;
+  final String chapterDetailsSearchQuery;
   final int settingsTranslatorId;
 
   VerseListScreen({
     Key key,
-    this.chapterItem,
     this.verseListLoading,
     this.verseListLoadSucceeded,
     this.verseListItems,
@@ -31,10 +31,12 @@ class VerseListScreen extends StatelessWidget {
     this.verseListLoad,
     this.verseListOnGenerateSlidableActions,
     this.verseListSlidableController,
+    this.chapterDetailsChapterItem,
+    this.chapterDetailsSearchQuery,
     this.settingsTranslatorId
   }) : super(key: key) {
-    if (!verseListLoading && verseListItems.length == 0 && !verseListLoadFailed)
-      verseListLoad();
+    if (!verseListLoadSucceeded && !verseListLoadFailed)
+      verseListLoad(chapterDetailsChapterItem, chapterDetailsSearchQuery, settingsTranslatorId);
   }
 
   @override
@@ -47,7 +49,7 @@ class VerseListScreen extends StatelessWidget {
           index: index,
           verseItem: VerseItem(
             showVerseId: true,
-            chapterId: chapterItem.id,
+            chapterId: chapterDetailsChapterItem.id,
             chapterVerseId: index,
             fullText: '',
             cleanText: ''
@@ -72,7 +74,7 @@ class VerseListScreen extends StatelessWidget {
       itemCount: verseListItems.length,
       itemBuilder: (BuildContext context, int index) => VerseListItemScreen(
         index: index,
-        chapterItem: chapterItem,
+        chapterItem: chapterDetailsChapterItem,
         verseItem: verseListItems[index],
         verseItemOnGenerateSlidableActions: verseListOnGenerateSlidableActions,
         verseItemSlidableController: verseListSlidableController,
