@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
-import 'package:quran/app_localizations.dart';
+import 'package:quran/screens/help_and_support.screen.dart';
+import 'package:quran/states/root.state.dart';
+import 'package:quran/view_models/help_and_support.view_model.dart';
 
-class HelpAndSupportContainer extends StatefulWidget {
-  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title');
-
-  @override
-  _HelpAndSupportContainerState createState() => _HelpAndSupportContainerState();
-}
-
-class _HelpAndSupportContainerState extends State<HelpAndSupportContainer> {
-  AppBar _getAppBarWidget() {
-    return AppBar(
-      title: Text(widget._getTitle(context)),      
-    );
-  }
-
+class HelpAndSupportContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _getAppBarWidget(),
-      body: Center(
-        child: Text('Help & Support')
+    return StoreConnector<RootState, HelpAndSupportViewModel>(
+      converter: HelpAndSupportViewModel.fromStore,
+      builder: (BuildContext context, HelpAndSupportViewModel helpAndSupportViewModel) => HelpAndSupportScreen(
+        helpAndSupportTitle: helpAndSupportViewModel.helpAndSupportOnGenerateTitle(context)
       )
     );
   }

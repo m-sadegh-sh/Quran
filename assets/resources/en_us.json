@@ -6,9 +6,9 @@
     "home-search-hint-text": "Search...",
     "home-action-search": "Search",
     "home-action-more": "More",
-    "home-action-decrease-font-size": "Smaller Font",
-    "home-action-increase-font-size": "Larger Font",
-    "home-drawer-account-name": "Search",
+    "home-action-decrease-font-size": "Decrease Font Size",
+    "home-action-increase-font-size": "Increase Font Size",
+    "home-drawer-account-name": "The Holy Quran",
     "home-drawer-account-email": "Version 1.23",
     "home-drawer-help-and-support": "Help and Support",
     "home-drawer-settings": "Settings",
@@ -47,9 +47,9 @@
     
     "about-title": "About this App",
 
-    "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
-    "chapter-item-order": "ترتیب نزول ${order}",
-    "chapter-item-part-number": "جزء ${partNumber}",
+    "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} Verse",
+    "chapter-item-order": "Descent Order ${order}",
+    "chapter-item-part-number": "Part ${partNumber}",
 
     "chapter-revelation-place-meccan": "Meccan",
     "chapter-revelation-place-medinan": "Medinan",

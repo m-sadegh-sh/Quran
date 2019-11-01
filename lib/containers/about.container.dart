@@ -1,27 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_redux/flutter_redux.dart';
 
-import 'package:quran/app_localizations.dart';
+import 'package:quran/screens/about.screen.dart';
+import 'package:quran/states/root.state.dart';
+import 'package:quran/view_models/about.view_model.dart';
 
-class AboutContainer extends StatefulWidget {
-  String _getTitle(BuildContext context) => AppLocalizations.of(context).translate('about-title');
-
-  @override
-  _AboutContainerState createState() => _AboutContainerState();
-}
-
-class _AboutContainerState extends State<AboutContainer> {
-  AppBar _getAppBarWidget() {
-    return AppBar(
-      title: Text(widget._getTitle(context)),      
-    );
-  }
-
+class AboutContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _getAppBarWidget(),
-      body: Center(
-        child: Text('About')
+    return StoreConnector<RootState, AboutViewModel>(
+      converter: AboutViewModel.fromStore,
+      builder: (BuildContext context, AboutViewModel aboutViewModel) => AboutScreen(
+        aboutTitle: aboutViewModel.aboutOnGenerateTitle(context)
       )
     );
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quran/app_localizations.dart';
 
+import 'package:quran/app_localizations.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/list.item.dart';
 
