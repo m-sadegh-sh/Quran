@@ -178,7 +178,6 @@ class ChapterDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: _buildAppBar(context),
       body: NestedScrollView(
-        controller: new ScrollController(),
         headerSliverBuilder: _buildHeaderSliver,
         body: VerseListScreen(
           verseListLoading: chapterDetailsLoading,

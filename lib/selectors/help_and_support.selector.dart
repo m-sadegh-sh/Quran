@@ -4,3 +4,4 @@ import 'package:quran/states/help_and_support.state.dart';
 
 HelpAndSupportState helpAndSupportStateSelector(RootState state) => state.helpAndSupportState;
 GeneratorWNP<String> helpAndSupportOnGenerateTitleSelector(HelpAndSupportState state) => state.helpAndSupportOnGenerateTitle;
+String helpAndSupportBackgroundImageSelector(HelpAndSupportState state) => state.helpAndSupportBackgroundImage;

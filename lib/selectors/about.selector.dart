@@ -4,3 +4,4 @@ import 'package:quran/states/about.state.dart';
 
 AboutState aboutStateSelector(RootState state) => state.aboutState;
 GeneratorWNP<String> aboutOnGenerateTitleSelector(AboutState state) => state.aboutOnGenerateTitle;
+String aboutBackgroundImageSelector(AboutState state) => state.aboutBackgroundImage;

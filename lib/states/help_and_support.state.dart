@@ -6,20 +6,25 @@ import 'package:quran/delegates/generator.delegate.dart';
 
 class HelpAndSupportState {
   final GeneratorWNP<String> helpAndSupportOnGenerateTitle;
+  final String helpAndSupportBackgroundImage;
   
   HelpAndSupportState({
-    this.helpAndSupportOnGenerateTitle
+    this.helpAndSupportOnGenerateTitle,
+    this.helpAndSupportBackgroundImage
   });
 
   factory HelpAndSupportState.initial() {
     return HelpAndSupportState(
-      helpAndSupportOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title')
+      helpAndSupportOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('help-and-support-title'),
+      helpAndSupportBackgroundImage: 'assets/images/quran_background.png'
     );
   }
 
   HelpAndSupportState copyWith({
-    helpAndSupportOnGenerateTitle
+    helpAndSupportOnGenerateTitle,
+    helpAndSupportBackgroundImage
   }) => HelpAndSupportState(
-    helpAndSupportOnGenerateTitle: helpAndSupportOnGenerateTitle ?? this.helpAndSupportOnGenerateTitle
+    helpAndSupportOnGenerateTitle: helpAndSupportOnGenerateTitle ?? this.helpAndSupportOnGenerateTitle,
+    helpAndSupportBackgroundImage: helpAndSupportBackgroundImage ?? this.helpAndSupportBackgroundImage
   );
 }

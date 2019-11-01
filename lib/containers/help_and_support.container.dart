@@ -11,7 +11,8 @@ class HelpAndSupportContainer extends StatelessWidget {
     return StoreConnector<RootState, HelpAndSupportViewModel>(
       converter: HelpAndSupportViewModel.fromStore,
       builder: (BuildContext context, HelpAndSupportViewModel helpAndSupportViewModel) => HelpAndSupportScreen(
-        helpAndSupportTitle: helpAndSupportViewModel.helpAndSupportOnGenerateTitle(context)
+        helpAndSupportTitle: helpAndSupportViewModel.helpAndSupportOnGenerateTitle(context),
+        helpAndSupportBackgroundImage: helpAndSupportViewModel.helpAndSupportBackgroundImage
       )
     );
   }

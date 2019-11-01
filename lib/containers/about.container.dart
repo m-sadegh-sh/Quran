@@ -11,7 +11,8 @@ class AboutContainer extends StatelessWidget {
     return StoreConnector<RootState, AboutViewModel>(
       converter: AboutViewModel.fromStore,
       builder: (BuildContext context, AboutViewModel aboutViewModel) => AboutScreen(
-        aboutTitle: aboutViewModel.aboutOnGenerateTitle(context)
+        aboutTitle: aboutViewModel.aboutOnGenerateTitle(context),
+        aboutBackgroundImage: aboutViewModel.aboutBackgroundImage
       )
     );
   }

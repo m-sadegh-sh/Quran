@@ -6,20 +6,25 @@ import 'package:quran/delegates/generator.delegate.dart';
 
 class AboutState {
   final GeneratorWNP<String> aboutOnGenerateTitle;
+  final String aboutBackgroundImage;
   
   AboutState({
-    this.aboutOnGenerateTitle
+    this.aboutOnGenerateTitle,
+    this.aboutBackgroundImage
   });
 
   factory AboutState.initial() {
     return AboutState(
-      aboutOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('about-title')
+      aboutOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('about-title'),
+      aboutBackgroundImage: 'assets/images/quran_background.png'
     );
   }
 
   AboutState copyWith({
-    aboutOnGenerateTitle
+    aboutOnGenerateTitle,
+    aboutBackgroundImage
   }) => AboutState(
-    aboutOnGenerateTitle: aboutOnGenerateTitle ?? this.aboutOnGenerateTitle
+    aboutOnGenerateTitle: aboutOnGenerateTitle ?? this.aboutOnGenerateTitle,
+    aboutBackgroundImage: aboutBackgroundImage ?? this.aboutBackgroundImage
   );
 }

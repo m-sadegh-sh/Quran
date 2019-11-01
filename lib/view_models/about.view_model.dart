@@ -6,16 +6,19 @@ import 'package:quran/delegates/generator.delegate.dart';
 
 class AboutViewModel {
   final GeneratorWNP<String> aboutOnGenerateTitle;
+  final String aboutBackgroundImage;
   
   AboutViewModel({
-    this.aboutOnGenerateTitle
+    this.aboutOnGenerateTitle,
+    this.aboutBackgroundImage
   });
 
   static AboutViewModel fromStore(Store<RootState> store) {
     final aboutState = aboutStateSelector(store.state);
 
     return AboutViewModel(
-      aboutOnGenerateTitle: aboutOnGenerateTitleSelector(aboutState)
+      aboutOnGenerateTitle: aboutOnGenerateTitleSelector(aboutState),
+      aboutBackgroundImage: aboutBackgroundImageSelector(aboutState)
     );
   }
 }

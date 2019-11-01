@@ -28,6 +28,8 @@
     "chapter-details-share-verse-item": "سروه ${chapterFullTitle} (${chapterTranslatedTitle})\r\n\r\n(${chapterVerseId}) ${verseFullText}\r\n\r\n${verseTranslatedText}\r\n\r\n${appShareFootage}",
 
     "help-and-support-title": "راهنما و پشتیبانی",
+    "help-and-support-faq-leading": "کاربر گرامی، در صورت مشاهده هرگونه اشکال در محتوای برنامه، داشتن درخواست افزودن امکانات جدید، و یا هر گونه سوال، انتقاد و پیشنهادی می توانید از طریق ایمیل ذیل با ما در ارتباط باشید",
+    "help-and-support-faq-trailing": "m.sadegh.sh@gmail.com",
 
     "settings-title": "تنظیمات",
     "settings-theme-qurani-font-family": "نوع قلم",
@@ -46,7 +48,7 @@
     "settings-translator-id": "مترجم",
     "settings-action-restore-defaults": "بازگردانی تنظیمات پیشفرض",
     
-    "about-title": "درباره این برنامه",
+    "about-title": "قرآن مجید",
     "about-investment-leading": "صاحب امتیاز",
     "about-investment-trailing": "امین رمضانی مقدم",
     "about-development-leading": "توسعه دهنده",

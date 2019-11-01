@@ -6,16 +6,19 @@ import 'package:quran/delegates/generator.delegate.dart';
 
 class HelpAndSupportViewModel {
   final GeneratorWNP<String> helpAndSupportOnGenerateTitle;
+  final String helpAndSupportBackgroundImage;
   
   HelpAndSupportViewModel({
-    this.helpAndSupportOnGenerateTitle
+    this.helpAndSupportOnGenerateTitle,
+    this.helpAndSupportBackgroundImage
   });
 
   static HelpAndSupportViewModel fromStore(Store<RootState> store) {
     final helpAndSupportState = helpAndSupportStateSelector(store.state);
 
     return HelpAndSupportViewModel(
-      helpAndSupportOnGenerateTitle: helpAndSupportOnGenerateTitleSelector(helpAndSupportState)
+      helpAndSupportOnGenerateTitle: helpAndSupportOnGenerateTitleSelector(helpAndSupportState),
+      helpAndSupportBackgroundImage: helpAndSupportBackgroundImageSelector(helpAndSupportState)
     );
   }
 }
