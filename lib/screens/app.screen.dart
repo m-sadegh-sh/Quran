@@ -6,7 +6,7 @@ import 'package:quran/containers/home.container.dart';
 
 class AppScreen extends StatelessWidget {
   final GenerateAppTitle appOnGenerateTitle;
-  final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
+  final GeneratorW3P<String, double, String, ThemeData> appOnGenerateThemeData;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;
@@ -47,7 +47,8 @@ class AppScreen extends StatelessWidget {
           data: appOnGenerateThemeData(
             context,
             this.settingsThemeQuraniFontFamily,
-            this.settingsThemeFontSize
+            this.settingsThemeFontSize,
+            this.settingsLocaleCode
           )
         );
       }

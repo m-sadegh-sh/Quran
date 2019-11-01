@@ -6,7 +6,7 @@ import 'package:quran/app_localizations.dart';
 
 class AppState {
   final GenerateAppTitle appOnGenerateTitle;
-  final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
+  final GeneratorW3P<String, double, String, ThemeData> appOnGenerateThemeData;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   
@@ -22,25 +22,28 @@ class AppState {
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
       appOnGenerateThemeData: (
         BuildContext context,
-        String quraniFontFamily,
-        double fontSize
+        String settingsThemeQuraniFontFamily,
+        double settingsThemeFontSize,
+        String settingsLocaleCode
       ) {
+        final nonQuraniFontFamily = settingsLocaleCode == 'fa-IR' ? 'IranSans' : 'Roboto';
+
         final theme = ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.teal,
           accentColor: Colors.tealAccent,
-          fontFamily: 'IranSans'
+          fontFamily: nonQuraniFontFamily
         );
 
         final defaultFont = TextStyle(
-          fontFamily: 'IranSans',
-          fontSize: fontSize,
+          fontFamily: nonQuraniFontFamily,
+          fontSize: settingsThemeFontSize,
           fontWeight: FontWeight.w400
         );
 
         final quraniFont = TextStyle(
-          fontFamily: quraniFontFamily,
-          fontSize: fontSize,
+          fontFamily: settingsThemeQuraniFontFamily,
+          fontSize: settingsThemeFontSize,
           fontWeight: FontWeight.w400
         );
 

@@ -121,7 +121,7 @@ class ChapterListItemScreen extends StatelessWidget {
             children: [
               _buildChapterNumber(context),
               Expanded(
-                flex: 3,
+                flex: 1,
                 child: Container(
                   margin: const EdgeInsets.symmetric(
                     horizontal: 10.0
@@ -139,7 +139,7 @@ class ChapterListItemScreen extends StatelessWidget {
                 )
               ),
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [

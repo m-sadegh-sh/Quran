@@ -47,6 +47,12 @@
     "settings-action-restore-defaults": "بازگردانی تنظیمات پیشفرض",
     
     "about-title": "درباره این برنامه",
+    "about-investment-leading": "صاحب امتیاز",
+    "about-investment-trailing": "امین رمضانی مقدم",
+    "about-development-leading": "توسعه دهنده",
+    "about-development-trailing": "محمد صادق شاد",
+    "about-version": "نسخه 1.23",
+    "about-release-date": "منتشر شده در 10 آبان 1398",
 
     "chapter-item-revelation-place-and-verses-count": "${revelationPlace}، ${versesCount} آیه",
     "chapter-item-order": "ترتیب نزول ${order}",

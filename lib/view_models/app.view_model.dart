@@ -8,7 +8,7 @@ import 'package:quran/delegates/generator.delegate.dart';
 
 class AppViewModel {
   final GenerateAppTitle appOnGenerateTitle;
-  final GeneratorW2P<String, double, ThemeData> appOnGenerateThemeData;
+  final GeneratorW3P<String, double, String, ThemeData> appOnGenerateThemeData;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   final String settingsThemeQuraniFontFamily;

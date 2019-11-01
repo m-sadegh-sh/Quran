@@ -20,11 +20,53 @@ class AboutScreen extends StatelessWidget {
     );
   }
 
-  ListView _buildListView(BuildContext context) {
-    return ListView(
+  Widget _createLeadingText(BuildContext context, String text) {
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.display2.apply(
+        color: Theme.of(context).primaryColor
+      )
+    );
+  }
+
+  Widget _createTrailingText(BuildContext context, String text) {
+    return Text(
+      text,
+      style: Theme.of(context).textTheme.display2.apply(
+        fontWeightDelta: 2,
+        color: Theme.of(context).primaryColor
+      )
+    );
+  }
+
+  Widget _buildBody(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
+        _createLeadingText(
+          context,
+          AppLocalizations.of(context).translate('about-investment-leading'),
+        ),
+        _createTrailingText(
+          context,
+          AppLocalizations.of(context).translate('about-investment-trailing')
+        ),
+        _createLeadingText(
+          context,
+          AppLocalizations.of(context).translate('about-development-leading'),
+        ),
+        _createTrailingText(
+          context,
+          AppLocalizations.of(context).translate('about-development-trailing')
+        ),
         Text(
-          AppLocalizations.of(context).translate('about-'),
+          AppLocalizations.of(context).translate('about-version'),
+          style: Theme.of(context).textTheme.title,
+        ),
+        Text(
+          AppLocalizations.of(context).translate('about-release-date'),
+          style: Theme.of(context).textTheme.title,
         )
       ]
     );
@@ -34,7 +76,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      body: _buildListView(context)
+      body: _buildBody(context)
     );
   }
 }
