@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:quran/items/drawer.item.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
-import 'package:quran/items/tab.item.dart';
 
 class HomeScreen extends StatelessWidget {  
   final String homeTitle;
@@ -19,8 +18,7 @@ class HomeScreen extends StatelessWidget {
   final List<ActionItem> homeActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
-  final List<TabItem> homeTabItems;
-  final List<Widget> homeTabContents;
+  final Widget homeBody;
   final int settingsTranslatorId;
 
   HomeScreen({
@@ -38,8 +36,7 @@ class HomeScreen extends StatelessWidget {
     this.homeActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
-    this.homeTabItems,
-    this.homeTabContents,
+    this.homeBody,
     this.settingsTranslatorId
   }) : super(key: key);
 
@@ -122,14 +119,6 @@ class HomeScreen extends StatelessWidget {
       }).toList();
   }
 
-  List<Tab> _buildTabItems(BuildContext context) {
-    return homeTabItems
-      .map<Tab>((item) => Tab(
-        icon: item.icon != null ? Icon(item.icon) : null,
-        text: item.text,
-      )).toList();
-  }
-
   AppBar _buildAppBar(BuildContext context) {
     if (homeIsSearching) {
       return AppBar(
@@ -160,10 +149,7 @@ class HomeScreen extends StatelessWidget {
             textInputAction: TextInputAction.search
           )
         ),
-        actions: _buildActions(context),
-        bottom: TabBar(
-          tabs: _buildTabItems(context),
-        ),
+        actions: _buildActions(context)
       );
     }
 
@@ -173,10 +159,7 @@ class HomeScreen extends StatelessWidget {
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.headline
       ),
-      actions: _buildActions(context),
-      bottom: TabBar(
-        tabs: _buildTabItems(context),
-      ),
+      actions: _buildActions(context)
     );
   }
 
@@ -193,20 +176,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  TabBarView _buildTabBarView(BuildContext context) {
-    return TabBarView(
-      children: homeTabContents
-    );
+  Widget _buildBody(BuildContext context) {
+    return homeBody;
   }
 
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(
-      length: homeTabItems.length,
+    return Material(
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: _buildDrawer(context),
-        body: _buildTabBarView(context)
+        body: _buildBody(context)
       )
     );
   }

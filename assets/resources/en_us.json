@@ -14,16 +14,14 @@
     "home-drawer-settings": "Settings",
     "home-drawer-about": "About this App",
 
-    "home-tab-chapters": "Chapters",
-    "home-tab-bookmarks": "Bookmarks",
-
     "chapter-details-search-hint-text": "Search...",
     "chapter-details-action-search": "Search",
     "chapter-details-action-more": "More",
     "chapter-details-action-decrease-font-size": "Smaller Font",
     "chapter-details-action-increase-font-size": "Larger Font",
-    "chapter-details-slidable-action-share": "Share",
-    "chapter-details-slidable-action-bookmark": "Add to Bookmarks",
+    "chapter-details-slidable-action-share-it": "Share It",
+    "chapter-details-slidable-action-add-to-bookmark": "Bookmark It",
+    "chapter-details-slidable-action-remove-from-bookmark": "Undo Bookmark",
     "chapter-details-share-verse-item": "Surah ${chapterFullTitle} (${chapterTranslatedTitle})\r\n\r\n(${chapterVerseId}) ${verseFullText}\r\n\r\n${verseTranslatedText}\r\n\r\n${appShareFootage}",
 
     "help-and-support-title": "Help and Support",

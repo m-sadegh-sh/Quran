@@ -89,11 +89,11 @@ class SettingsState {
         ListItem<String>(
           title: AppLocalizations.of(context).translate('settings-locale-code-fa-IR'),
           value: 'fa-IR'
-        ),
+        )/*,
         ListItem<String>(
           title: AppLocalizations.of(context).translate('settings-locale-code-en-US'),
           value: 'en-US'
-        )
+        )*/
       ],
       settingsLocaleCode: 'fa-IR',
       settingsOnGenerateTranslatorItems: (BuildContext context) => [

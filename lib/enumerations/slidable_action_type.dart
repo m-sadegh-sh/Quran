@@ -1,5 +1,5 @@
 enum SlidableActionType {
-  ShareVerse,
-  AddVerseToBookmarks,
-  RemoveVerseFromBookmarks
+  ShareIt,
+  BookmarkIt,
+  UndoBookmark
 }

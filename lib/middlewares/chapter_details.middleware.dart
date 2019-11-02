@@ -127,7 +127,7 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
 
       final castedAction = action as ChapterDetailsSlidableActionTappedAction;
    
-      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.ShareVerse) {
+      if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.ShareIt) {
         final content = AppLocalizations.of(castedAction.context).translateFormatted(
           'chapter-details-share-verse-item',
           {
@@ -143,10 +143,14 @@ Middleware<RootState> _createChapterDetailsSlidableActionTapped() {
         store.dispatch(CommonShareAction(
           commonContent: content
         ));
-      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.AddVerseToBookmarks) {
-        store.dispatch(CommonShareAction(
-          // commonContent: content
-        ));
+      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.BookmarkIt) {
+        // store.dispatch(CommonShareAction(
+        //   commonContent: content
+        // ));
+      } else if (castedAction.chapterDetailsSlidableActionType == SlidableActionType.UndoBookmark) {
+        // store.dispatch(CommonShareAction(
+        //   commonContent: content
+        // ));
       }
     } catch(exception) { }
   };

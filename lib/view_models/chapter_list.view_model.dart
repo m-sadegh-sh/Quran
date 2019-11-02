@@ -4,7 +4,6 @@ import 'package:redux/redux.dart';
 import 'package:quran/states/root.state.dart';
 import 'package:quran/selectors/home.selector.dart';
 import 'package:quran/actions/chapter_list.action.dart';
-import 'package:quran/actions/settings.action.dart';
 import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/chapter_list.selector.dart';
 import 'package:quran/items/chapter.item.dart';
@@ -19,7 +18,6 @@ class ChapterListViewModel {
   final Function(BuildContext, ChapterItem, int) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
-  final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
 
   ChapterListViewModel({
@@ -32,7 +30,6 @@ class ChapterListViewModel {
     this.chapterListOnChapterItemTapped,
     this.homeSearchQuery,
     this.settingsThemeFontSize,
-    this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   });
 
@@ -62,10 +59,6 @@ class ChapterListViewModel {
       ),
       homeSearchQuery: homeSearchQuerySelector(homeState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
-      chapterListOnThemeFontSizeChanging: (double newSettingsThemeFontSize) =>
-        store.dispatch(SettingsPersistAction(
-          settingsThemeFontSize: newSettingsThemeFontSize
-        )),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );
   }

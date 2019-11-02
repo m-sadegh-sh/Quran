@@ -6,9 +6,7 @@ import 'package:redux/redux.dart';
 import 'package:quran/enumerations/action_child_item_type.dart';
 import 'package:quran/containers/about.container.dart';
 import 'package:quran/containers/chapter_list.container.dart';
-import 'package:quran/containers/bookmark_list.container.dart';
 import 'package:quran/containers/settings.container.dart';
-import 'package:quran/items/tab.item.dart';
 import 'package:quran/containers/help_and_support.container.dart';
 import 'package:quran/app_localizations.dart';
 import 'package:quran/delegates/generator.delegate.dart';
@@ -26,8 +24,7 @@ class HomeState {
   final String homeSearchQuery;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final GeneratorW3P<bool, double, int, List<ActionItem>> homeOnGenerateActionItems;
-  final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
-  final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
+  final GeneratorWNP<Widget> homeOnGenerateBody;
 
   HomeState({
     this.homeOnGenerateTitle,
@@ -39,8 +36,7 @@ class HomeState {
     this.homeOnGenerateSearchHintText,
     this.homeSearchQuery,
     this.homeOnGenerateActionItems,
-    this.homeOnGenerateTabItems,
-    this.homeOnGenerateTabContents
+    this.homeOnGenerateBody
   });
 
   factory HomeState.initial() => HomeState(
@@ -100,20 +96,7 @@ class HomeState {
         ]
       )
     ],
-    homeOnGenerateTabItems: (BuildContext context) => [
-      TabItem(
-        text: AppLocalizations.of(context).translate('home-tab-chapters'),
-        icon: Icons.list
-      ),
-      TabItem(
-        text: AppLocalizations.of(context).translate('home-tab-bookmarks'),
-        icon: Icons.bookmark
-      )
-    ],
-    homeOnGenerateTabContents: (BuildContext context) => [
-      ChapterListContainer(),
-      BookmarkListContainer()
-    ]
+    homeOnGenerateBody: (BuildContext context) => ChapterListContainer()
   );
 
   HomeState copyWith({
@@ -127,8 +110,7 @@ class HomeState {
     homeSearchResetQuery,
     homeOnGenerateDrawerItems,
     homeOnGenerateActionItems,
-    homeOnGenerateTabItems,
-    homeOnGenerateTabContents
+    homeOnGenerateBody
   }) => HomeState(
     homeOnGenerateTitle : homeOnGenerateTitle ?? this.homeOnGenerateTitle,
     homeOnGenerateAccountName : homeOnGenerateAccountName ?? this.homeOnGenerateAccountName,
@@ -139,7 +121,6 @@ class HomeState {
     homeSearchQuery : homeSearchResetQuery ?? false ? null : homeSearchQuery ?? this.homeSearchQuery,
     homeOnGenerateDrawerItems : homeOnGenerateDrawerItems ?? this.homeOnGenerateDrawerItems,
     homeOnGenerateActionItems : homeOnGenerateActionItems ?? this.homeOnGenerateActionItems,
-    homeOnGenerateTabItems : homeOnGenerateTabItems ?? this.homeOnGenerateTabItems,
-    homeOnGenerateTabContents : homeOnGenerateTabContents ?? this.homeOnGenerateTabContents
+    homeOnGenerateBody : homeOnGenerateBody ?? this.homeOnGenerateBody
   );
 }

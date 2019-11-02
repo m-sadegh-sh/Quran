@@ -14,17 +14,15 @@
     "home-drawer-settings": "تنظیمات",
     "home-drawer-about": "درباره این برنامه",
 
-    "home-tab-chapters": "سوره‌ها",
-    "home-tab-bookmarks": "نشان‌شده‌ها",
-
     "chapter-details-search-hint-text": "جستجو...",
 
     "chapter-details-action-search": "جستجو",
     "chapter-details-action-more": "بیشتر",
     "chapter-details-action-decrease-font-size": "قلم کوچکتر",
     "chapter-details-action-increase-font-size": "قلم بزرگتر",
-    "chapter-details-slidable-action-share": "اشتراک",
-    "chapter-details-slidable-action-bookmark": "نشان کن",
+    "chapter-details-slidable-action-share-it": "اشتراک",
+    "chapter-details-slidable-action-bookmark-it": "نشان کن",
+    "chapter-details-slidable-action-undo-bookmark": "حذف نشان",
     "chapter-details-share-verse-item": "سروه ${chapterFullTitle} (${chapterTranslatedTitle})\r\n\r\n(${chapterVerseId}) ${verseFullText}\r\n\r\n${verseTranslatedText}\r\n\r\n${appShareFootage}",
 
     "help-and-support-title": "راهنما و پشتیبانی",

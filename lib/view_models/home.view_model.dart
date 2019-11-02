@@ -9,7 +9,6 @@ import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/items/drawer.item.dart';
 import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
-import 'package:quran/items/tab.item.dart';
 
 class HomeViewModel {
   final GeneratorWNP<String> homeOnGenerateTitle;
@@ -25,8 +24,7 @@ class HomeViewModel {
   final GeneratorW3P<bool, double, int, List<ActionItem>> homeOnGenerateActionItems;
   final Function(BuildContext, ActionItem) homeOnActionItemPressed;
   final Function(BuildContext, ActionChildItem) homeOnActionChildItemPressed;
-  final GeneratorWNP<List<TabItem>> homeOnGenerateTabItems;
-  final GeneratorWNP<List<Widget>> homeOnGenerateTabContents;
+  final GeneratorWNP<Widget> homeOnGenerateBody;
   final double settingsThemeFontSize;
   final int settingsTranslatorId;
   
@@ -44,8 +42,7 @@ class HomeViewModel {
     this.homeOnGenerateActionItems,
     this.homeOnActionItemPressed,
     this.homeOnActionChildItemPressed,
-    this.homeOnGenerateTabItems,
-    this.homeOnGenerateTabContents,
+    this.homeOnGenerateBody,
     this.settingsThemeFontSize,
     this.settingsTranslatorId
   });
@@ -92,8 +89,7 @@ class HomeViewModel {
           homeValue: actionChildItem.value
         ));
       },
-      homeOnGenerateTabItems: homeOnGenerateTabItemsSelector(homeState),
-      homeOnGenerateTabContents: homeOnGenerateTabContentsSelector(homeState),
+      homeOnGenerateBody: homeOnGenerateBodySelector(homeState),
       settingsThemeFontSize: settingsThemeFontSizeSelector(settingsState),
       settingsTranslatorId: settingsTranslatorIdSelector(settingsState)
     );

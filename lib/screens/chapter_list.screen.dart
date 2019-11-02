@@ -15,7 +15,6 @@ class ChapterListScreen extends StatelessWidget {
   final Function(BuildContext, ChapterItem, int) chapterListOnChapterItemTapped;
   final String homeSearchQuery;
   final double settingsThemeFontSize;
-  final Function(double) chapterListOnThemeFontSizeChanging;
   final int settingsTranslatorId;
 
   ChapterListScreen({
@@ -29,7 +28,6 @@ class ChapterListScreen extends StatelessWidget {
     this.chapterListOnChapterItemTapped,
     this.homeSearchQuery,
     this.settingsThemeFontSize,
-    this.chapterListOnThemeFontSizeChanging,
     this.settingsTranslatorId
   }) : super(key: key) {
     if (!chapterListLoadSucceeded && !chapterListLoadFailed)
@@ -62,29 +60,15 @@ class ChapterListScreen extends StatelessWidget {
     if (chapterListItems.length == 0)
       return EmptyContentScreen();
 
-    return GestureDetector(
-      onScaleUpdate: (ScaleUpdateDetails scaleDetails) {
-        double newSettingsThemeFontSize = settingsThemeFontSize * scaleDetails.scale * 0.8;
-
-        if (newSettingsThemeFontSize > 24.0)
-          newSettingsThemeFontSize = 24.0;
-        else if (newSettingsThemeFontSize < 16.0)
-          newSettingsThemeFontSize = 16.0;
-
-        chapterListOnThemeFontSizeChanging(
-          newSettingsThemeFontSize
-        );
-      },
-      child: ListView.builder(
-        padding: const EdgeInsets.all(0.0),
-        itemCount: chapterListItems.length,
-        itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
-          index: index,
-          chapterItem: chapterListItems[index],
-          onChapterItemTapped: chapterListOnChapterItemTapped,
-          homeSearchQuery: homeSearchQuery,
-          settingsTranslatorId: settingsTranslatorId
-        )
+    return ListView.builder(
+      padding: const EdgeInsets.all(0.0),
+      itemCount: chapterListItems.length,
+      itemBuilder: (BuildContext context, int index) => ChapterListItemScreen(
+        index: index,
+        chapterItem: chapterListItems[index],
+        onChapterItemTapped: chapterListOnChapterItemTapped,
+        homeSearchQuery: homeSearchQuery,
+        settingsTranslatorId: settingsTranslatorId
       )
     );
   }

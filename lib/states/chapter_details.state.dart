@@ -90,26 +90,36 @@ class ChapterDetailsState {
     chapterDetailsSearchQuery: null,
     chapterDetailsOnGenerateSlidableActions: (BuildContext context, Store<RootState> store, ChapterItem chapterItem, VerseItem verseItem) => [
       new IconSlideAction(
-        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share'),
+        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-share-it'),
         color: Theme.of(context).primaryColorDark,
         icon: Icons.share,
         onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
           context: context,
           chapterDetailsChapterItem: chapterItem,
           chapterDetailsVerseItem: verseItem,
-          chapterDetailsSlidableActionType: SlidableActionType.ShareVerse
+          chapterDetailsSlidableActionType: SlidableActionType.ShareIt
         ))
       ),
-      new IconSlideAction(
-        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-bookmark'),
+      /*new IconSlideAction(
+        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-bookmark-it'),
         color: Theme.of(context).primaryColor,
         icon: Icons.bookmark,
         onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
           context: context,
           chapterDetailsVerseItem: verseItem,
-          chapterDetailsSlidableActionType: SlidableActionType.AddVerseToBookmarks
+          chapterDetailsSlidableActionType: SlidableActionType.BookmarkIt
         ))
-      )
+      ),
+      new IconSlideAction(
+        caption: AppLocalizations.of(context).translate('chapter-details-slidable-action-undo-bookmark'),
+        color: Theme.of(context).primaryColor,
+        icon: Icons.bookmark,
+        onTap: () => store.dispatch(ChapterDetailsSlidableActionTappedAction(
+          context: context,
+          chapterDetailsVerseItem: verseItem,
+          chapterDetailsSlidableActionType: SlidableActionType.UndoBookmark
+        ))
+      )*/
     ],
     chapterDetailsSlidableController: new SlidableController()
   );
