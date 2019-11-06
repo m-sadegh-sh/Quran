@@ -59,18 +59,21 @@ Future _registerDependencies() {
 }
 
 Store<RootState> _createStore() {
+  final middlerwares = [
+    new LoggingMiddleware.printer(level: Level.SHOUT),
+    ...createCommonMiddleware(),
+    ...createAppMiddleware(),
+    ...createSettingsMiddleware(),
+    ...createHomeMiddleware(),
+    ...createChapterListMiddleware(),
+    ...createChapterDetailsMiddleware(),
+    ...createHelpAndSupportMiddleware(),
+    ...createAboutMiddleware()
+  ];
+
   return new Store<RootState>(
     rootReducer,
     initialState: RootState.initial(),
-    middleware: [
-      new LoggingMiddleware.printer(level: Level.SHOUT)
-    ]..addAll(createCommonMiddleware())
-    ..addAll(createAppMiddleware())
-    ..addAll(createSettingsMiddleware())
-    ..addAll(createHomeMiddleware())
-    ..addAll(createChapterListMiddleware())
-    ..addAll(createChapterDetailsMiddleware())
-    ..addAll(createHelpAndSupportMiddleware())
-    ..addAll(createAboutMiddleware())
+    middleware: middlerwares
   );
 }
