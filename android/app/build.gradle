@@ -32,7 +32,7 @@ if (keystorePropertiesFile.exists()) {
 
 android {
     compileSdkVersion 'android-Q'
-    buildToolsVersion '29.0.0 rc2'
+    buildToolsVersion '29.0.2'
 
     lintOptions {
         disable 'InvalidPackage'
@@ -40,8 +40,8 @@ android {
 
     defaultConfig {
         applicationId "ir.webplex.quran"
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion 19
+        targetSdkVersion 27
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -78,6 +78,10 @@ flutter {
 
 dependencies {
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    androidTestImplementation 'androidx.test:runner:1.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.firebase:firebase-analytics:17.2.1'
 }
+
+apply plugin: 'io.fabric'
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,40 @@
+{
+    "project_info": {
+        "project_number": "778903470196",
+        "firebase_url": "https://ir-webplex-quran.firebaseio.com",
+        "project_id": "ir-webplex-quran",
+        "storage_bucket": "ir-webplex-quran.appspot.com"
+    },
+    "client": [
+        {
+            "client_info": {
+                "mobilesdk_app_id": "1:778903470196:android:c06a076ebf30c284045121",
+                "android_client_info": {
+                    "package_name": "ir.webplex.quran"
+                }
+            },
+            "oauth_client": [
+                {
+                    "client_id": "778903470196-gv9fa6sh5h79m1jtl1bvu5eagaokk324.apps.googleusercontent.com",
+                    "client_type": 3
+                }
+            ],
+            "api_key": [
+                {
+                    "current_key": "AIzaSyAP8VmlRSPHjXgdk7e24-XLTodYmpvFykE"
+                }
+            ],
+            "services": {
+                "appinvite_service": {
+                    "other_platform_oauth_client": [
+                        {
+                            "client_id": "778903470196-gv9fa6sh5h79m1jtl1bvu5eagaokk324.apps.googleusercontent.com",
+                            "client_type": 3
+                        }
+                    ]
+                }
+            }
+        }
+    ],
+    "configuration_version": "1"
+}

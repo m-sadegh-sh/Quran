@@ -1,9 +1,12 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
 import 'package:logging/logging.dart';
 import 'package:redux/redux.dart';
 import 'package:redux_logging/redux_logging.dart';
 import 'package:kiwi/kiwi.dart' as kiwi;
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/settings.action.dart';
@@ -24,26 +27,27 @@ import 'package:quran/middlewares/about.middleware.dart';
 import 'package:quran/middlewares/help_and_support.middleware.dart';
 
 void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  Crashlytics.instance.enableInDevMode = true;
 
-  await _registerDependencies();
-  
-  final store = _createStore();
+  FlutterError.onError = Crashlytics.instance.recordFlutterError;
 
-  store.dispatch(SettingsLoadAction());
+  runZoned(() async {
+    WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(
-    StoreProvider(
-      store: store,
-      child: AppContainer()
-    )
-  );
+    await _registerDependencies();
+
+    final store = _createStore();
+
+    store.dispatch(SettingsLoadAction());
+
+    runApp(StoreProvider(store: store, child: AppContainer()));
+  }, onError: Crashlytics.instance.recordError);
 }
 
 Future _registerDependencies() {
   final container = kiwi.Container();
 
-  container.registerSingleton((c) => TranslatorRepository(),);
+  container.registerSingleton((c) => TranslatorRepository());
   container.registerSingleton((c) => ChapterRepository());
   container.registerSingleton((c) => ChapterTranslationRepository());
   container.registerSingleton((c) => VerseRepository());
@@ -60,7 +64,6 @@ Future _registerDependencies() {
 
 Store<RootState> _createStore() {
   final middlerwares = [
-    new LoggingMiddleware.printer(level: Level.SHOUT),
     ...createCommonMiddleware(),
     ...createAppMiddleware(),
     ...createSettingsMiddleware(),
@@ -71,9 +74,9 @@ Store<RootState> _createStore() {
     ...createAboutMiddleware()
   ];
 
-  return new Store<RootState>(
-    rootReducer,
-    initialState: RootState.initial(),
-    middleware: middlerwares
+  return new Store<RootState>(rootReducer,
+      initialState: RootState.initial(),
+      middleware: middlerwares
+        ..add(new LoggingMiddleware.printer(level: Level.SHOUT))
   );
 }

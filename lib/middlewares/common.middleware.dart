@@ -1,5 +1,5 @@
 import 'package:redux/redux.dart';
-import 'package:share/share.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/common.action.dart';
@@ -17,7 +17,7 @@ Middleware<RootState> _createCommonShare() {
 
       final castedAction = action as CommonShareAction;
    
-      Share.share(castedAction.commonContent);
+      Share.text('', castedAction.commonContent, 'text/plain');
     } catch(exception) { }
   };
 }
