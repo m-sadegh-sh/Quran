@@ -13,7 +13,7 @@ class HomeContainer extends StatelessWidget {
       builder: (BuildContext context, HomeViewModel homeViewModel) => HomeScreen(
         homeTitle: homeViewModel.homeOnGenerateTitle(context),
         homeAccountName: homeViewModel.homeOnGenerateAccountName(context),
-        homeAccountEmail: homeViewModel.homeOnGenerateAccountEmail(context),
+        homeAccountEmail: homeViewModel.homeOnGenerateAccountEmail(context, homeViewModel.appVersionName),
         homeAccountBackgroundImage: homeViewModel.homeAccountBackgroundImage,
         homeDrawerItems: homeViewModel.homeOnGenerateDrawerItems(context),
         homeOnDrawerItemTapped: homeViewModel.homeOnDrawerItemTapped,

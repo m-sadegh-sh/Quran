@@ -3,6 +3,7 @@ import 'package:redux/redux.dart';
 
 import 'package:quran/states/root.state.dart';
 import 'package:quran/actions/home.action.dart';
+import 'package:quran/selectors/app.selector.dart';
 import 'package:quran/selectors/settings.selector.dart';
 import 'package:quran/selectors/home.selector.dart';
 import 'package:quran/delegates/generator.delegate.dart';
@@ -11,9 +12,10 @@ import 'package:quran/items/action.item.dart';
 import 'package:quran/items/action_child.item.dart';
 
 class HomeViewModel {
+  final String appVersionName;
   final GeneratorWNP<String> homeOnGenerateTitle;
   final GeneratorWNP<String> homeOnGenerateAccountName;
-  final GeneratorWNP<String> homeOnGenerateAccountEmail;
+  final GeneratorW1P<String, String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
   final GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItems;
   final Function(BuildContext, DrawerItem) homeOnDrawerItemTapped;
@@ -29,6 +31,7 @@ class HomeViewModel {
   final int settingsTranslatorId;
   
   HomeViewModel({
+    this.appVersionName,
     this.homeOnGenerateTitle,
     this.homeOnGenerateAccountName,
     this.homeOnGenerateAccountEmail,
@@ -48,10 +51,12 @@ class HomeViewModel {
   });
 
   static HomeViewModel fromStore(Store<RootState> store) {
+    final appState = appStateSelector(store.state);
     final homeState = homeStateSelector(store.state);
     final settingsState = settingsStateSelector(store.state);
 
     return HomeViewModel(
+      appVersionName: appVersionNameSelector(appState),
       homeOnGenerateTitle: homeOnGenerateTitleSelector(homeState),
       homeOnGenerateAccountName: homeOnGenerateAccountNameSelector(homeState),
       homeOnGenerateAccountEmail: homeOnGenerateAccountEmailSelector(homeState),

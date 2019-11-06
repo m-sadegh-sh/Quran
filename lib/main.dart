@@ -25,6 +25,7 @@ import 'package:quran/repositories/verse.repository.dart';
 import 'package:quran/repositories/verse_translation.repository.dart';
 import 'package:quran/middlewares/about.middleware.dart';
 import 'package:quran/middlewares/help_and_support.middleware.dart';
+import 'actions/app.action.dart';
 
 void main() async {
   Crashlytics.instance.enableInDevMode = true;
@@ -40,18 +41,15 @@ void main() async {
 
     final store = _createStore();
 
+    store.dispatch(AppDiscoverPackageInfoAction());
     store.dispatch(SettingsLoadAction());
 
     runApp(StoreProvider(
       store: store,
       child: AppContainer()
     ));
-  }, onError: (exception, stacktrace, context) => {
-    Crashlytics.instance.recordError(
-      exception,
-      stacktrace,
-      context: context
-    )
+  }, onError: (exception, stacktrace) => {
+    Crashlytics.instance.recordError(exception, stacktrace)
   });
 }
 

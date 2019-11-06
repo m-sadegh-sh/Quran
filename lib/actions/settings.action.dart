@@ -22,7 +22,7 @@ class SettingsLoadSucceededAction {
 }
 
 class SettingsLoadFailedAction {}
-  
+
 class SettingsPersistAction {
   final String settingsThemeQuraniFontFamily;
   final double settingsThemeFontSize;

@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'package:quran/app_localizations.dart';
 
 class AboutScreen extends StatelessWidget {  
+  final String appVersionName;
   final String aboutTitle;
   final String aboutBackgroundImage;
   
   AboutScreen({
     Key key,
+    this.appVersionName,
     this.aboutTitle,
     this.aboutBackgroundImage
   }) : super(key: key);
@@ -122,7 +124,7 @@ class AboutScreen extends StatelessWidget {
             child:Column(
               children: [
                 Text(
-                  AppLocalizations.of(context).translate('about-version'),
+                  AppLocalizations.of(context).translateFormatted('about-version', { 'versionName': appVersionName }),
                   style: Theme.of(context).textTheme.display3,
                 ),
                 Text(

@@ -5,12 +5,20 @@ import 'package:quran/delegates/generator.delegate.dart';
 import 'package:quran/app_localizations.dart';
 
 class AppState {
+  final String appId;
+  final String appName;
+  final String appVersionCode;
+  final String appVersionName;
   final GenerateAppTitle appOnGenerateTitle;
   final GeneratorW3P<String, double, String, ThemeData> appOnGenerateThemeData;
   final List<LocalizationsDelegate> appLocalizationsDelegates;
   final List<Locale> appSupportedLocales;
   
   AppState({
+    this.appId,
+    this.appName,
+    this.appVersionCode,
+    this.appVersionName,
     this.appOnGenerateTitle,
     this.appOnGenerateThemeData,
     this.appLocalizationsDelegates,
@@ -19,6 +27,10 @@ class AppState {
 
   factory AppState.initial() {
     return AppState(
+      appId: null,
+      appName: null,
+      appVersionCode: null,
+      appVersionName: null,
       appOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('app-title'),
       appOnGenerateThemeData: (
         BuildContext context,
@@ -96,4 +108,24 @@ class AppState {
       ]
     );
   }
+
+  AppState copyWith({
+    appId,
+    appName,
+    appVersionCode,
+    appVersionName,
+    appOnGenerateTitle,
+    appOnGenerateThemeData,
+    appLocalizationsDelegates,
+    appSupportedLocales
+  }) => AppState(
+    appId: appId ?? this.appId,
+    appName: appName ?? this.appName,
+    appVersionCode: appVersionCode ?? this.appVersionCode,
+    appVersionName: appVersionName ?? this.appVersionName,
+    appOnGenerateTitle: appOnGenerateTitle ?? this.appOnGenerateTitle,
+    appOnGenerateThemeData: appOnGenerateThemeData ?? this.appOnGenerateThemeData,
+    appLocalizationsDelegates: appLocalizationsDelegates ?? this.appLocalizationsDelegates,
+    appSupportedLocales: appSupportedLocales ?? this.appSupportedLocales
+  );
 }

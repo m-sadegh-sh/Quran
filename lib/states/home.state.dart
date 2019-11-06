@@ -17,7 +17,7 @@ import 'package:quran/items/action_child.item.dart';
 class HomeState {
   final GeneratorWNP<String> homeOnGenerateTitle;
   final GeneratorWNP<String> homeOnGenerateAccountName;
-  final GeneratorWNP<String> homeOnGenerateAccountEmail;
+  final GeneratorW1P<String, String> homeOnGenerateAccountEmail;
   final String homeAccountBackgroundImage;
   final bool homeIsSearching;
   final GeneratorWNP<String> homeOnGenerateSearchHintText;
@@ -42,7 +42,7 @@ class HomeState {
   factory HomeState.initial() => HomeState(
     homeOnGenerateTitle: (BuildContext context) => AppLocalizations.of(context).translate('home-title'),
     homeOnGenerateAccountName: (BuildContext context) => AppLocalizations.of(context).translate('home-drawer-account-name'),
-    homeOnGenerateAccountEmail: (BuildContext context) => AppLocalizations.of(context).translate('home-drawer-account-email'),
+    homeOnGenerateAccountEmail: (BuildContext context, String versionName) => AppLocalizations.of(context).translateFormatted('home-drawer-account-email', { 'versionName': versionName }),
     homeAccountBackgroundImage: 'assets/images/quran_background.png',
     homeOnGenerateDrawerItems: (BuildContext context) => [
       DrawerItem(

@@ -9,7 +9,7 @@ import 'package:quran/delegates/generator.delegate.dart';
 HomeState homeStateSelector(RootState state) => state.homeState;
 GeneratorWNP<String> homeOnGenerateTitleSelector(HomeState state) => state.homeOnGenerateTitle;
 GeneratorWNP<String> homeOnGenerateAccountNameSelector(HomeState state) => state.homeOnGenerateAccountName;
-GeneratorWNP<String> homeOnGenerateAccountEmailSelector(HomeState state) => state.homeOnGenerateAccountEmail;
+GeneratorW1P<String, String> homeOnGenerateAccountEmailSelector(HomeState state) => state.homeOnGenerateAccountEmail;
 String homeAccountBackgroundImageSelector(HomeState state) => state.homeAccountBackgroundImage;
 GeneratorWNP<List<DrawerItem>> homeOnGenerateDrawerItemsSelector(HomeState state) => state.homeOnGenerateDrawerItems;
 bool homeIsSearchingSelector(HomeState state) => state.homeIsSearching;
