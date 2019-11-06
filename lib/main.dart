@@ -29,7 +29,9 @@ import 'package:quran/middlewares/help_and_support.middleware.dart';
 void main() async {
   Crashlytics.instance.enableInDevMode = true;
 
-  FlutterError.onError = Crashlytics.instance.recordFlutterError;
+  FlutterError.onError = (details) => {
+    Crashlytics.instance.recordFlutterError(details)
+  };
 
   runZoned(() async {
     WidgetsFlutterBinding.ensureInitialized();
@@ -40,8 +42,17 @@ void main() async {
 
     store.dispatch(SettingsLoadAction());
 
-    runApp(StoreProvider(store: store, child: AppContainer()));
-  }, onError: Crashlytics.instance.recordError);
+    runApp(StoreProvider(
+      store: store,
+      child: AppContainer()
+    ));
+  }, onError: (exception, stacktrace, context) => {
+    Crashlytics.instance.recordError(
+      exception,
+      stacktrace,
+      context: context
+    )
+  });
 }
 
 Future _registerDependencies() {
