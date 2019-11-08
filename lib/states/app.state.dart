@@ -7,7 +7,7 @@ import 'package:quran/app_localizations.dart';
 class AppState {
   final String appId;
   final String appName;
-  final String appVersionCode;
+  final int appVersionCode;
   final String appVersionName;
   final GenerateAppTitle appOnGenerateTitle;
   final GeneratorW3P<String, double, String, ThemeData> appOnGenerateThemeData;

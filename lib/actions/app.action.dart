@@ -3,7 +3,7 @@ class AppDiscoverPackageInfoAction { }
 class AppDiscoverPackageInfoSucceededAction {
   final String appId;
   final String appName;
-  final String appVersionCode;
+  final int appVersionCode;
   final String appVersionName;
 
   AppDiscoverPackageInfoSucceededAction({
