@@ -120,6 +120,26 @@ class AboutScreen extends StatelessWidget {
               )
             )
           ),
+          Card(
+            margin: const EdgeInsets.only(
+              bottom: 10.0
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                children: [
+                  _createLeadingText(
+                    context,
+                    AppLocalizations.of(context).translate('about-source-leading'),
+                  ),
+                  _createTrailingText(
+                    context,
+                    AppLocalizations.of(context).translate('about-source-trailing')
+                  )
+                ]
+              )
+            )
+          ),
           Center(
             child:Column(
               children: [

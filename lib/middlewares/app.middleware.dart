@@ -17,8 +17,8 @@ Middleware<RootState> _createAppDiscoverPackageInfo() {
       store.dispatch(AppDiscoverPackageInfoSucceededAction(
         appId: 'ir.webplex.quran',
         appName: 'Quran',
-        appVersionCode: 3,
-        appVersionName: '1.0.2'
+        appVersionCode: 5,
+        appVersionName: '1.0.4'
       ));
     } catch(exception) {
       store.dispatch(AppDiscoverPackageInfoFailedAction());

@@ -50,6 +50,8 @@
     "about-investment-trailing": "Amin Ramezani Moghaddam",
     "about-development-leading": "Developed by",
     "about-development-trailing": "Mohammad Sadegh Shad",
+    "about-source-leading": "Data source",
+    "about-source-trailing": "Tanzil website (tanzil.net)",
     "about-version": "Version ${versionName}",
     "about-release-date": "Released on November 6, 2019",
 
