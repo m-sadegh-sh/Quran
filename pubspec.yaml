@@ -1,6 +1,7 @@
 name: quran
 description: An app to discover The Holy Quran.
-version: 1.0.4+5
+
+version: 1.0.5+6
 
 dependencies:
   flutter:
@@ -69,4 +70,4 @@ flutter:
 flutter_icons:
   android: true 
   ios: true
-  image_path: assets/images/icons/launcher.png
+  image_path: assets/images/icons/launcher.p
