@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'package:quran/app_localizations.dart';
 
@@ -132,9 +134,21 @@ class AboutScreen extends StatelessWidget {
                     context,
                     AppLocalizations.of(context).translate('about-source-leading'),
                   ),
-                  _createTrailingText(
-                    context,
-                    AppLocalizations.of(context).translate('about-source-trailing')
+                  Linkify(
+                    onOpen: (link) async {
+                      await launch('http://tanzil.net');
+                    },
+                    humanize: true,
+                    text: AppLocalizations.of(context).translate('about-source-trailing'),
+                    style: Theme.of(context).textTheme.display2.apply(
+                      fontWeightDelta: 2,
+                      color: Theme.of(context).primaryColor
+                    ),
+                    linkStyle: Theme.of(context).textTheme.display2.apply(
+                      fontWeightDelta: 2,
+                      color: Theme.of(context).primaryColor,
+                      decoration: TextDecoration.underline
+                    )
                   )
                 ]
               )
