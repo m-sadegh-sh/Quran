@@ -33,8 +33,8 @@ class AboutScreen extends StatelessWidget {
       centerTitle: true,
       title: _buildFlexibleSpaceTitle(context),
       background: Image.asset(
-        aboutBackgroundImage,
-        fit: BoxFit.cover,
+          aboutBackgroundImage,
+          fit: BoxFit.cover,
       )
     );
   }
